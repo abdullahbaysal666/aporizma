@@ -14,6 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 CELLS = ROOT / "cells"
 ORGANS = ROOT / "organs"
+BASE = "https://aporizma.com/"
 
 LANGS = {
     "en": {"other": "tr", "switch_label": "Türkçe", "home": "",
@@ -44,6 +45,16 @@ def stamp_strings(text: str, strings: dict) -> str:
 def rel_root(slug: str) -> str:
     depth = slug.count("/") + 1
     return "../" * depth
+
+
+def seo_head(en_url: str, tr_url: str, own_url: str) -> str:
+    """Canonical + bilingual hreflang cluster (absolute URLs, EN is x-default)."""
+    return "\n".join([
+        f'<link rel="canonical" href="{own_url}">',
+        f'<link rel="alternate" hreflang="en" href="{en_url}">',
+        f'<link rel="alternate" hreflang="tr" href="{tr_url}">',
+        f'<link rel="alternate" hreflang="x-default" href="{en_url}">',
+    ])
 
 
 def main() -> None:
@@ -78,6 +89,8 @@ def main() -> None:
                                 + json.dumps(ui_strings, ensure_ascii=False)
                                 + ";</script>\n<script src=\"tool.js\"></script>")
 
+            en_url = BASE + cell["en"]["slug"] + "/"
+            tr_url = BASE + cell["tr"]["slug"] + "/"
             page = render(layout, {
                 "lang": lang,
                 "title": s["title"],
@@ -87,7 +100,7 @@ def main() -> None:
                 "alt_url": root + other["slug"] + "/",
                 "alt_lang": LANGS[lang]["other"],
                 "alt_label": LANGS[lang]["switch_label"],
-                "head_extra": "",
+                "head_extra": seo_head(en_url, tr_url, BASE + s["slug"] + "/"),
                 "body": stamp_strings(body, s),
                 "foot_line": LANGS[lang]["foot"],
                 "script_extra": script_extra,
@@ -117,14 +130,27 @@ def main() -> None:
             "alt_url": ("tr/" if lang == "en" else "../"),
             "alt_lang": cfg["other"],
             "alt_label": cfg["switch_label"],
-            "head_extra": "",
+            "head_extra": seo_head(BASE, BASE + "tr/",
+                                   BASE if lang == "en" else BASE + "tr/"),
             "body": body,
             "foot_line": cfg["foot"],
             "script_extra": "",
         })
         (out_dir / "index.html").write_text(page, encoding="utf-8")
 
-    print(f"montaj tamam: {len(cells)} hücre x 2 dil + 2 ana sayfa")
+    # Sitemap + robots (queen-caste plumbing: every page, both languages).
+    urls = [BASE, BASE + "tr/"]
+    for c in cells:
+        urls += [BASE + c["en"]["slug"] + "/", BASE + c["tr"]["slug"] + "/"]
+    sitemap = ('<?xml version="1.0" encoding="UTF-8"?>\n'
+               '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+               + "\n".join(f"  <url><loc>{u}</loc></url>" for u in urls)
+               + "\n</urlset>\n")
+    (ROOT / "sitemap.xml").write_text(sitemap, encoding="utf-8")
+    (ROOT / "robots.txt").write_text(
+        f"User-agent: *\nAllow: /\n\nSitemap: {BASE}sitemap.xml\n", encoding="utf-8")
+
+    print(f"montaj tamam: {len(cells)} hücre x 2 dil + 2 ana sayfa + sitemap")
 
 
 if __name__ == "__main__":
