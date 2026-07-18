@@ -2,6 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://aporizma.com/</loc></url>
   <url><loc>https://aporizma.com/tr/</loc></url>
+  <url><loc>https://aporizma.com/tools/cron-expression-builder/</loc></url>
+  <url><loc>https://aporizma.com/tr/araclar/cron-ifade-kurucu/</loc></url>
   <url><loc>https://aporizma.com/tools/subtitle-sync-shifter/</loc></url>
   <url><loc>https://aporizma.com/tr/araclar/altyazi-senkron-kaydirici/</loc></url>
   <url><loc>https://aporizma.com/tools/srt-to-vtt-converter/</loc></url>

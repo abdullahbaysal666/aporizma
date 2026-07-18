@@ -1,0 +1,52 @@
+{
+  "id": "cron-builder",
+  "category": "developer",
+  "en": {
+    "slug": "tools/cron-expression-builder",
+    "title": "Cron Expression Builder & Explainer — Free, Instant",
+    "desc": "Build cron expressions from presets or explain any cron schedule in plain English. Free, instant, runs in your browser — no sign-up.",
+    "h1": "Cron Expression Builder",
+    "lede": "Pick a preset or type any cron expression — see what it means in plain language, instantly.",
+    "card_title": "Cron Expression Builder",
+    "card_desc": "Build or decode cron schedules in plain language.",
+    "expr_label": "Cron expression (minute hour day-of-month month day-of-week)",
+    "presets_label": "Common presets",
+    "meaning_label": "Meaning",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "invalid": "Not a valid 5-field cron expression.",
+    "presets": [
+      ["*/5 * * * *", "Every 5 minutes"],
+      ["0 * * * *", "Every hour"],
+      ["0 0 * * *", "Every day at midnight"],
+      ["0 9 * * 1-5", "Weekdays at 09:00"],
+      ["0 0 * * 0", "Every Sunday at midnight"],
+      ["0 3 1 * *", "1st of every month at 03:00"]
+    ],
+    "faq_html": "<h2>Cron field order</h2><p>A cron expression has 5 fields: <code>minute hour day-of-month month day-of-week</code>. <code>*</code> means \"every\", <code>*/N</code> means \"every N\", <code>1-5</code> is a range, <code>1,3,5</code> is a list. Days of week: 0 or 7 = Sunday.</p><h2>Does this run anywhere?</h2><p>No — it only builds and explains the expression. Paste it into crontab, GitHub Actions, Cloud Scheduler or any scheduler that accepts standard 5-field cron.</p>"
+  },
+  "tr": {
+    "slug": "tr/araclar/cron-ifade-kurucu",
+    "title": "Cron İfade Kurucu ve Çözücü — Ücretsiz, Anında",
+    "desc": "Hazır kalıplardan cron ifadesi kurun ya da herhangi bir cron zamanlamasını Türkçe açıklamasıyla çözün. Ücretsiz, tarayıcıda, üyeliksiz.",
+    "h1": "Cron İfade Kurucu",
+    "lede": "Bir kalıp seçin ya da herhangi bir cron ifadesi yazın — ne anlama geldiğini anında Türkçe görün.",
+    "card_title": "Cron İfade Kurucu",
+    "card_desc": "Cron zamanlamalarını kurun ya da Türkçe çözün.",
+    "expr_label": "Cron ifadesi (dakika saat ayın-günü ay haftanın-günü)",
+    "presets_label": "Sık kullanılan kalıplar",
+    "meaning_label": "Anlamı",
+    "copy": "Kopyala",
+    "copied": "Kopyalandı!",
+    "invalid": "Geçerli bir 5 alanlı cron ifadesi değil.",
+    "presets": [
+      ["*/5 * * * *", "5 dakikada bir"],
+      ["0 * * * *", "Saat başı"],
+      ["0 0 * * *", "Her gün gece yarısı"],
+      ["0 9 * * 1-5", "Hafta içi 09:00"],
+      ["0 0 * * 0", "Her Pazar gece yarısı"],
+      ["0 3 1 * *", "Her ayın 1'i saat 03:00"]
+    ],
+    "faq_html": "<h2>Cron alan sırası</h2><p>Bir cron ifadesi 5 alandan oluşur: <code>dakika saat ayın-günü ay haftanın-günü</code>. <code>*</code> \"her\", <code>*/N</code> \"her N'de bir\", <code>1-5</code> aralık, <code>1,3,5</code> liste demektir. Haftanın günleri: 0 veya 7 = Pazar.</p><h2>Bu araç bir şey çalıştırıyor mu?</h2><p>Hayır — yalnız ifadeyi kurar ve açıklar. Çıktıyı crontab'a, GitHub Actions'a, Cloud Scheduler'a ya da standart 5 alanlı cron kabul eden herhangi bir zamanlayıcıya yapıştırın.</p>"
+  }
+}

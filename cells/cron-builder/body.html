@@ -1,0 +1,15 @@
+<h1>{{s.h1}}</h1>
+<p class="lede">{{s.lede}}</p>
+<div class="card stack">
+  <label class="note">{{s.presets_label}}</label>
+  <div id="presets" style="display:flex;flex-wrap:wrap;gap:8px"></div>
+  <label class="note" for="expr">{{s.expr_label}}</label>
+  <div style="display:flex;gap:8px">
+    <input type="text" id="expr" value="*/5 * * * *" spellcheck="false"
+           style="font-family:var(--mono);max-width:280px">
+    <button class="btn ghost" id="copy">{{s.copy}}</button>
+  </div>
+  <label class="note">{{s.meaning_label}}</label>
+  <p id="meaning" style="font-size:1.15rem;margin:0"></p>
+</div>
+<section>{{s.faq_html}}</section>

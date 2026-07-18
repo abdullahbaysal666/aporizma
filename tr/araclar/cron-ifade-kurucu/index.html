@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cron İfade Kurucu ve Çözücü — Ücretsiz, Anında</title>
+<meta name="description" content="Hazır kalıplardan cron ifadesi kurun ya da herhangi bir cron zamanlamasını Türkçe açıklamasıyla çözün. Ücretsiz, tarayıcıda, üyeliksiz.">
+<link rel="stylesheet" href="../../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="canonical" href="https://aporizma.com/tr/araclar/cron-ifade-kurucu/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/cron-expression-builder/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/cron-ifade-kurucu/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/cron-expression-builder/">
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../../tr/"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../../tools/cron-expression-builder/" class="lang-switch" rel="alternate" hreflang="en">English</a>
+  </nav>
+</header>
+<main>
+<h1>Cron İfade Kurucu</h1>
+<p class="lede">Bir kalıp seçin ya da herhangi bir cron ifadesi yazın — ne anlama geldiğini anında Türkçe görün.</p>
+<div class="card stack">
+  <label class="note">Sık kullanılan kalıplar</label>
+  <div id="presets" style="display:flex;flex-wrap:wrap;gap:8px"></div>
+  <label class="note" for="expr">Cron ifadesi (dakika saat ayın-günü ay haftanın-günü)</label>
+  <div style="display:flex;gap:8px">
+    <input type="text" id="expr" value="*/5 * * * *" spellcheck="false"
+           style="font-family:var(--mono);max-width:280px">
+    <button class="btn ghost" id="copy">Kopyala</button>
+  </div>
+  <label class="note">Anlamı</label>
+  <p id="meaning" style="font-size:1.15rem;margin:0"></p>
+</div>
+<section><h2>Cron alan sırası</h2><p>Bir cron ifadesi 5 alandan oluşur: <code>dakika saat ayın-günü ay haftanın-günü</code>. <code>*</code> "her", <code>*/N</code> "her N'de bir", <code>1-5</code> aralık, <code>1,3,5</code> liste demektir. Haftanın günleri: 0 veya 7 = Pazar.</p><h2>Bu araç bir şey çalıştırıyor mu?</h2><p>Hayır — yalnız ifadeyi kurar ve açıklar. Çıktıyı crontab'a, GitHub Actions'a, Cloud Scheduler'a ya da standart 5 alanlı cron kabul eden herhangi bir zamanlayıcıya yapıştırın.</p></section>
+
+</main>
+<footer class="site-foot">
+  <p>Aporizma — tamamen tarayıcınızda çalışan küçük araçlar. Yükleme yok, izleme yok.</p>
+</footer>
+<script src="../../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Cron İfade Kurucu", "lede": "Bir kalıp seçin ya da herhangi bir cron ifadesi yazın — ne anlama geldiğini anında Türkçe görün.", "card_title": "Cron İfade Kurucu", "card_desc": "Cron zamanlamalarını kurun ya da Türkçe çözün.", "expr_label": "Cron ifadesi (dakika saat ayın-günü ay haftanın-günü)", "presets_label": "Sık kullanılan kalıplar", "meaning_label": "Anlamı", "copy": "Kopyala", "copied": "Kopyalandı!", "invalid": "Geçerli bir 5 alanlı cron ifadesi değil.", "presets": [["*/5 * * * *", "5 dakikada bir"], ["0 * * * *", "Saat başı"], ["0 0 * * *", "Her gün gece yarısı"], ["0 9 * * 1-5", "Hafta içi 09:00"], ["0 0 * * 0", "Her Pazar gece yarısı"], ["0 3 1 * *", "Her ayın 1'i saat 03:00"]]};</script>
+<script src="tool.js"></script>
+</body>
+</html>
