@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SRT'den VTT'ye Dönüştürücü (ve VTT'den SRT'ye) — Ücretsiz, Yüklemesiz</title>
+<meta name="description" content="SRT altyazıyı WebVTT'ye, VTT'yi SRT'ye anında dönüştürün. %100 tarayıcınızda çalışır — dosyanız cihazınızdan çıkmaz. Ücretsiz, üyeliksiz, filigransız.">
+<link rel="stylesheet" href="../../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../../tr/"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../../tools/srt-to-vtt-converter/" class="lang-switch" rel="alternate" hreflang="en">English</a>
+  </nav>
+</header>
+<main>
+<h1>SRT ↔ VTT Altyazı Dönüştürücü</h1>
+<p class="lede">Altyazı dosyanızı bırakın ya da içeriğini yapıştırın. Biçim otomatik algılanır ve anında dönüştürülür — hiçbir şey hiçbir yere yüklenmez.</p>
+<div class="card stack">
+  <div class="dropzone" id="drop">.srt veya .vtt dosyanızı buraya bırakın ya da tıklayıp seçin</div>
+  <input type="file" id="file" accept=".srt,.vtt,.txt" hidden>
+  <label class="note" for="input">Girdi (otomatik algılanır)</label>
+  <textarea id="input" rows="8" spellcheck="false"></textarea>
+  <p class="note" id="status">Başlamak için altyazı içeriği yapıştırın ya da dosya bırakın.</p>
+  <label class="note" for="output">Çıktı</label>
+  <textarea id="output" rows="8" spellcheck="false" readonly></textarea>
+  <div>
+    <button class="btn" id="download" disabled>İndir</button>
+    <button class="btn ghost" id="copy" disabled>Kopyala</button>
+  </div>
+</div>
+<section><h2>Nasıl çalışır</h2><p><strong>SRT → VTT:</strong> WEBVTT başlığını ekler ve zaman damgalarındaki virgülü noktaya çevirir (00:00:01,000 → 00:00:01.000).</p><p><strong>VTT → SRT:</strong> başlığı, NOTE ve STYLE bloklarını kaldırır, replikleri yeniden numaralar ve noktaları virgüle çevirir. Stil ayarları atılır, metin olduğu gibi korunur.</p><h2>Dosyam yükleniyor mu?</h2><p>Hayır. Dönüştürme tamamen tarayıcınızda JavaScript ile yapılır. Altyazınız hiçbir sunucuya gitmez.</p></section>
+
+</main>
+<footer class="site-foot">
+  <p>Aporizma — tamamen tarayıcınızda çalışan küçük araçlar. Yükleme yok, izleme yok.</p>
+</footer>
+<script src="../../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "SRT ↔ VTT Altyazı Dönüştürücü", "lede": "Altyazı dosyanızı bırakın ya da içeriğini yapıştırın. Biçim otomatik algılanır ve anında dönüştürülür — hiçbir şey hiçbir yere yüklenmez.", "card_title": "SRT ↔ VTT Dönüştürücü", "card_desc": "Altyazı dosyalarını iki yönde, tarayıcınızda gizlice dönüştürün.", "drop": ".srt veya .vtt dosyanızı buraya bırakın ya da tıklayıp seçin", "in_label": "Girdi (otomatik algılanır)", "out_label": "Çıktı", "convert": "Dönüştür", "download": "İndir", "copy": "Kopyala", "copied": "Kopyalandı!", "detected_srt": "Algılandı: SRT → VTT'ye dönüştürülüyor", "detected_vtt": "Algılandı: VTT → SRT'ye dönüştürülüyor", "empty": "Başlamak için altyazı içeriği yapıştırın ya da dosya bırakın.", "invalid": "Bu bir altyazı dosyasına benzemiyor — SRT veya VTT bekleniyor."};</script>
+<script src="tool.js"></script>
+</body>
+</html>
