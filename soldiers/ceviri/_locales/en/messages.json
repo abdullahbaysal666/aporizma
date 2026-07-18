@@ -1,5 +1,5 @@
 {
   "name": { "message": "Aporizma Translate: Text & Subtitle (your own key)" },
-  "desc": { "message": "Translate selected text or whole SRT/VTT subtitle files with your own free Gemini API key. Private: your key and text go directly from your browser to Google, never through our servers." },
+  "desc": { "message": "Translate selected text or SRT/VTT subtitles with your own free Gemini API key. Private: no servers, nothing leaves your browser." },
   "ctx_translate": { "message": "Translate selection with Aporizma" }
 }
