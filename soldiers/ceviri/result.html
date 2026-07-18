@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><link rel="stylesheet" href="ui.css"></head>
+<body>
+<h1><span class="mark">⬡</span> Aporizma Translate</h1>
+<label>Original</label>
+<textarea id="input" readonly></textarea>
+<div class="row">
+  <select id="lang"></select>
+  <button id="go">Translate</button>
+  <button id="copy" class="ghost" hidden>Copy</button>
+</div>
+<p class="note" id="status"></p>
+<textarea id="output" readonly hidden></textarea>
+<p class="note"><a href="#" id="opts">API key & settings</a></p>
+<script src="lib.js"></script>
+<script src="result.js"></script>
+</body>
+</html>

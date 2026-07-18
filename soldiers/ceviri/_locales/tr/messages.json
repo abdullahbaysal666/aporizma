@@ -1,0 +1,5 @@
+{
+  "name": { "message": "Aporizma Çeviri: Metin ve Altyazı (kendi anahtarınla)" },
+  "desc": { "message": "Seçili metni veya SRT/VTT altyazı dosyalarını kendi ücretsiz Gemini API anahtarınla çevir. Gizli: anahtarın ve metnin tarayıcından doğrudan Google'a gider, bizim sunucumuza asla uğramaz." },
+  "ctx_translate": { "message": "Seçimi Aporizma ile çevir" }
+}
