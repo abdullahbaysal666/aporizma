@@ -1,0 +1,43 @@
+# Bakıcı v1: nightly colony health check + CI gate on every push.
+# Fails loudly (GitHub emails the owner) when a cell breaks or a page dies.
+name: bakici
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 6 * * *" # nightly, 06:00 UTC
+  workflow_dispatch:
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Montaj (site assembles from cells)
+        run: |
+          python montaj.py
+          git diff --stat
+
+      - name: Cell unit tests
+        run: |
+          for t in cells/*/test.js; do node "$t"; done
+
+      - name: Live pages respond
+        if: github.event_name != 'push'
+        run: |
+          set -e
+          for url in \
+            "https://aporizma.com/" \
+            "https://aporizma.com/tr/" \
+            "https://aporizma.com/sitemap.xml"; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" -L --max-time 30 "$url")
+            echo "$url -> $code"
+            [ "$code" = "200" ]
+          done
+          # Every tool page listed in the sitemap must respond.
+          curl -s https://aporizma.com/sitemap.xml | grep -o "<loc>[^<]*</loc>" | sed "s/<[^>]*>//g" | while read -r url; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" -L --max-time 30 "$url")
+            echo "$url -> $code"
+            [ "$code" = "200" ] || exit 1
+          done

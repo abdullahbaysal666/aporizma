@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Altyazı Senkron Kaydırıcı — SRT/VTT Zamanlama Düzeltme, Yüklemesiz</title>
+<meta name="description" content="Altyazı sesle uyumsuz mu? SRT veya VTT zamanlamasını istediğiniz kadar saniye ileri/geri kaydırın. %100 tarayıcıda çalışır — ücretsiz, üyeliksiz.">
+<link rel="stylesheet" href="../../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="canonical" href="https://aporizma.com/tr/araclar/altyazi-senkron-kaydirici/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/subtitle-sync-shifter/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/altyazi-senkron-kaydirici/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/subtitle-sync-shifter/">
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../../tr/"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../../tools/subtitle-sync-shifter/" class="lang-switch" rel="alternate" hreflang="en">English</a>
+  </nav>
+</header>
+<main>
+<h1>Altyazı Senkron Kaydırıcı</h1>
+<p class="lede">Altyazı dosyanızı bırakın, kaç saniye kaydığını yazın, düzeltilmiş dosyayı indirin. SRT ve VTT ile çalışır — hiçbir şey yüklenmez.</p>
+<div class="card stack">
+  <div class="dropzone" id="drop">.srt veya .vtt dosyanızı buraya bırakın ya da tıklayıp seçin</div>
+  <input type="file" id="file" accept=".srt,.vtt,.txt" hidden>
+  <label class="note" for="offset">Kaydırma saniyesi (eksi = erkene al, örn. -2.5)</label>
+  <input type="text" id="offset" inputmode="decimal" value="0" style="max-width:160px">
+  <label class="note" for="input">Girdi (otomatik algılanır)</label>
+  <textarea id="input" rows="7" spellcheck="false"></textarea>
+  <p class="note" id="status">Başlamak için altyazı içeriği yapıştırın ya da dosya bırakın.</p>
+  <label class="note" for="output">Çıktı (kaydırılmış)</label>
+  <textarea id="output" rows="7" spellcheck="false" readonly></textarea>
+  <div>
+    <button class="btn" id="download" disabled>İndir</button>
+    <button class="btn ghost" id="copy" disabled>Kopyala</button>
+  </div>
+</div>
+<section><h2>Ne zaman gerekir?</h2><p>Altyazı erken ya da geç göründüğünde. Yazılar konuşmadan 2 saniye önce çıkıyorsa <strong>+2</strong>, 1,5 saniye geriden geliyorsa <strong>-1.5</strong> yazın.</p><h2>Dosyam yükleniyor mu?</h2><p>Hayır. Her şey tarayıcınızda JavaScript ile çalışır. Sıfırın altına düşecek zamanlar 00:00:00'a sabitlenir.</p></section>
+
+</main>
+<footer class="site-foot">
+  <p>Aporizma — tamamen tarayıcınızda çalışan küçük araçlar. Yükleme yok, izleme yok.</p>
+</footer>
+<script src="../../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Altyazı Senkron Kaydırıcı", "lede": "Altyazı dosyanızı bırakın, kaç saniye kaydığını yazın, düzeltilmiş dosyayı indirin. SRT ve VTT ile çalışır — hiçbir şey yüklenmez.", "card_title": "Altyazı Senkron Kaydırıcı", "card_desc": "Kaymış SRT/VTT zamanlamasını tüm replikleri kaydırarak düzeltin.", "drop": ".srt veya .vtt dosyanızı buraya bırakın ya da tıklayıp seçin", "in_label": "Girdi (otomatik algılanır)", "out_label": "Çıktı (kaydırılmış)", "offset_label": "Kaydırma saniyesi (eksi = erkene al, örn. -2.5)", "download": "İndir", "copy": "Kopyala", "copied": "Kopyalandı!", "status_fmt": "Algılandı: {fmt} — {n} replik {s}sn kaydırıldı", "empty": "Başlamak için altyazı içeriği yapıştırın ya da dosya bırakın.", "invalid": "Bu bir altyazı dosyasına benzemiyor — SRT veya VTT bekleniyor."};</script>
+<script src="tool.js"></script>
+</body>
+</html>

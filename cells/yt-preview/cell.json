@@ -1,0 +1,42 @@
+{
+  "id": "yt-preview",
+  "category": "creator",
+  "en": {
+    "slug": "tools/youtube-title-thumbnail-preview",
+    "title": "YouTube Title & Thumbnail Preview — See It Before You Publish",
+    "desc": "Preview how your YouTube title and thumbnail will look on desktop and mobile before publishing. Check title truncation and thumbnail legibility. Free, in-browser.",
+    "h1": "YouTube Title & Thumbnail Preview",
+    "lede": "Type your title, drop your thumbnail, and see exactly how the card renders on the desktop home feed and on a phone — including where the title gets cut off.",
+    "card_title": "YouTube Title & Thumbnail Preview",
+    "card_desc": "Preview truncation and legibility before you publish.",
+    "title_label": "Video title",
+    "title_ph": "Why This 150-Year-Old Book Predicts Your Future: The Idea Nobody Noticed",
+    "channel_label": "Channel name",
+    "channel_ph": "Refused to Die",
+    "thumb_label": "Thumbnail (16:9 image) — click or drop",
+    "counter_fmt": "{n}/100 characters — ~{m} visible on mobile search",
+    "desktop_h": "Desktop home feed",
+    "mobile_h": "Phone (search result)",
+    "meta_line": "12K views · 3 days ago",
+    "faq_html": "<h2>Why preview?</h2><p>YouTube truncates titles at roughly 2 lines on desktop cards and ~60-70 characters in mobile search. If your payoff is at the end of the title, viewers may never see it. Thumbnails also lose detail at feed size — what looks sharp in your editor can be unreadable at 210 pixels wide.</p><h2>Is my thumbnail uploaded?</h2><p>No. The image stays in your browser; nothing is sent anywhere.</p>"
+  },
+  "tr": {
+    "slug": "tr/araclar/youtube-baslik-kapak-onizleme",
+    "title": "YouTube Başlık ve Kapak Önizleme — Yayınlamadan Önce Gör",
+    "desc": "YouTube başlığınızın ve kapak görselinizin masaüstü ve telefonda nasıl görüneceğini yayınlamadan önce test edin. Başlık kesilmesini kontrol edin. Ücretsiz, tarayıcıda.",
+    "h1": "YouTube Başlık ve Kapak Önizleme",
+    "lede": "Başlığınızı yazın, kapağınızı bırakın; kartın masaüstü ana sayfada ve telefonda tam olarak nasıl görüneceğini — başlığın nerede kesileceği dahil — görün.",
+    "card_title": "YouTube Başlık ve Kapak Önizleme",
+    "card_desc": "Yayınlamadan önce kesilme ve okunabilirliği test edin.",
+    "title_label": "Video başlığı",
+    "title_ph": "150 Yıllık Bu Kitap Geleceğinizi Neden Biliyor: Kimsenin Fark Etmediği Fikir",
+    "channel_label": "Kanal adı",
+    "channel_ph": "Ölmeyi Reddedenler",
+    "thumb_label": "Kapak görseli (16:9) — tıkla ya da bırak",
+    "counter_fmt": "{n}/100 karakter — mobil aramada ~{m} görünür",
+    "desktop_h": "Masaüstü ana sayfa",
+    "mobile_h": "Telefon (arama sonucu)",
+    "meta_line": "12 B görüntüleme · 3 gün önce",
+    "faq_html": "<h2>Neden önizleme?</h2><p>YouTube başlıkları masaüstü kartlarında yaklaşık 2 satırda, mobil aramada ~60-70 karakterde keser. Vaadiniz başlığın sonundaysa izleyici onu hiç görmeyebilir. Kapaklar da akış boyutunda detay kaybeder — editörde keskin görünen yazı 210 piksel genişlikte okunmaz olabilir.</p><h2>Kapağım yükleniyor mu?</h2><p>Hayır. Görsel tarayıcınızda kalır; hiçbir yere gönderilmez.</p>"
+  }
+}

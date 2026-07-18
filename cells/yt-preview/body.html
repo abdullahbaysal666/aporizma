@@ -1,0 +1,56 @@
+<h1>{{s.h1}}</h1>
+<p class="lede">{{s.lede}}</p>
+<div class="card stack">
+  <label class="note" for="vtitle">{{s.title_label}}</label>
+  <input type="text" id="vtitle" maxlength="100" placeholder="{{s.title_ph}}">
+  <p class="note" id="counter"></p>
+  <label class="note" for="vchannel">{{s.channel_label}}</label>
+  <input type="text" id="vchannel" maxlength="50" placeholder="{{s.channel_ph}}" style="max-width:320px">
+  <div class="dropzone" id="drop">{{s.thumb_label}}</div>
+  <input type="file" id="file" accept="image/*" hidden>
+</div>
+
+<div class="yt-previews">
+  <section>
+    <h2 class="note">{{s.desktop_h}}</h2>
+    <div class="yt-card yt-desktop">
+      <div class="yt-thumb" id="thumbD"></div>
+      <div class="yt-meta">
+        <p class="yt-title" id="titleD"></p>
+        <p class="yt-sub"><span id="chanD"></span><br>{{s.meta_line}}</p>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="note">{{s.mobile_h}}</h2>
+    <div class="yt-phone">
+      <div class="yt-card yt-mobile">
+        <div class="yt-thumb yt-thumb-s" id="thumbM"></div>
+        <div class="yt-meta">
+          <p class="yt-title yt-title-s" id="titleM"></p>
+          <p class="yt-sub yt-sub-s"><span id="chanM"></span> · {{s.meta_line}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<section>{{s.faq_html}}</section>
+
+<style>
+.yt-previews { display: grid; gap: 22px; margin-top: 22px; grid-template-columns: 1fr; }
+@media (min-width: 720px) { .yt-previews { grid-template-columns: 1fr 1fr; } }
+.yt-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.yt-desktop { max-width: 360px; }
+.yt-thumb { aspect-ratio: 16/9; background: #222 center/cover no-repeat; }
+.yt-meta { padding: 10px 12px 14px; }
+.yt-title {
+  margin: 0 0 6px; font-weight: 600; font-size: .95rem; line-height: 1.35;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.yt-sub { margin: 0; font-size: .8rem; color: var(--ink-soft); }
+.yt-phone { max-width: 400px; border: 1px solid var(--line); border-radius: 18px; padding: 10px; }
+.yt-mobile { display: flex; gap: 10px; border: 0; }
+.yt-thumb-s { width: 150px; min-width: 150px; border-radius: 8px; }
+.yt-title-s { font-size: .85rem; }
+.yt-sub-s { font-size: .74rem; }
+</style>

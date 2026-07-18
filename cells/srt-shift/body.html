@@ -1,0 +1,18 @@
+<h1>{{s.h1}}</h1>
+<p class="lede">{{s.lede}}</p>
+<div class="card stack">
+  <div class="dropzone" id="drop">{{s.drop}}</div>
+  <input type="file" id="file" accept=".srt,.vtt,.txt" hidden>
+  <label class="note" for="offset">{{s.offset_label}}</label>
+  <input type="text" id="offset" inputmode="decimal" value="0" style="max-width:160px">
+  <label class="note" for="input">{{s.in_label}}</label>
+  <textarea id="input" rows="7" spellcheck="false"></textarea>
+  <p class="note" id="status">{{s.empty}}</p>
+  <label class="note" for="output">{{s.out_label}}</label>
+  <textarea id="output" rows="7" spellcheck="false" readonly></textarea>
+  <div>
+    <button class="btn" id="download" disabled>{{s.download}}</button>
+    <button class="btn ghost" id="copy" disabled>{{s.copy}}</button>
+  </div>
+</div>
+<section>{{s.faq_html}}</section>

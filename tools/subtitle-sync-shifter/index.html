@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Subtitle Sync Shifter — Fix SRT/VTT Timing Online, No Upload</title>
+<meta name="description" content="Subtitles out of sync? Shift SRT or VTT timing forward or backward by any amount of seconds. Runs 100% in your browser — free, private, no sign-up.">
+<link rel="stylesheet" href="../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="canonical" href="https://aporizma.com/tools/subtitle-sync-shifter/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/subtitle-sync-shifter/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/altyazi-senkron-kaydirici/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/subtitle-sync-shifter/">
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../tr/araclar/altyazi-senkron-kaydirici/" class="lang-switch" rel="alternate" hreflang="tr">Türkçe</a>
+  </nav>
+</header>
+<main>
+<h1>Subtitle Sync Shifter</h1>
+<p class="lede">Drop your subtitle file, enter how many seconds it's off, and download the fixed file. Works with SRT and VTT — nothing is uploaded anywhere.</p>
+<div class="card stack">
+  <div class="dropzone" id="drop">Drop your .srt or .vtt file here, or click to choose</div>
+  <input type="file" id="file" accept=".srt,.vtt,.txt" hidden>
+  <label class="note" for="offset">Shift by seconds (negative = earlier, e.g. -2.5)</label>
+  <input type="text" id="offset" inputmode="decimal" value="0" style="max-width:160px">
+  <label class="note" for="input">Input (auto-detected)</label>
+  <textarea id="input" rows="7" spellcheck="false"></textarea>
+  <p class="note" id="status">Paste subtitle content or drop a file to begin.</p>
+  <label class="note" for="output">Output (shifted)</label>
+  <textarea id="output" rows="7" spellcheck="false" readonly></textarea>
+  <div>
+    <button class="btn" id="download" disabled>Download</button>
+    <button class="btn ghost" id="copy" disabled>Copy</button>
+  </div>
+</div>
+<section><h2>When do you need this?</h2><p>When subtitles appear too early or too late. If the words show up 2 seconds before they're spoken, shift by <strong>+2</strong>; if they lag 1.5 seconds behind, shift by <strong>-1.5</strong>.</p><h2>Is my file uploaded?</h2><p>No. Everything runs in your browser with JavaScript. Timestamps that would go below zero are clamped to 00:00:00.</p></section>
+
+</main>
+<footer class="site-foot">
+  <p>Aporizma — handcrafted small tools that run entirely in your browser. No uploads, no tracking.</p>
+</footer>
+<script src="../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Subtitle Sync Shifter", "lede": "Drop your subtitle file, enter how many seconds it's off, and download the fixed file. Works with SRT and VTT — nothing is uploaded anywhere.", "card_title": "Subtitle Sync Shifter", "card_desc": "Fix out-of-sync SRT/VTT timing by shifting all cues.", "drop": "Drop your .srt or .vtt file here, or click to choose", "in_label": "Input (auto-detected)", "out_label": "Output (shifted)", "offset_label": "Shift by seconds (negative = earlier, e.g. -2.5)", "download": "Download", "copy": "Copy", "copied": "Copied!", "status_fmt": "Detected: {fmt} — shifted {n} cues by {s}s", "empty": "Paste subtitle content or drop a file to begin.", "invalid": "This doesn't look like a subtitle file — expected SRT or VTT cues."};</script>
+<script src="tool.js"></script>
+</body>
+</html>

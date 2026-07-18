@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YouTube Başlık ve Kapak Önizleme — Yayınlamadan Önce Gör</title>
+<meta name="description" content="YouTube başlığınızın ve kapak görselinizin masaüstü ve telefonda nasıl görüneceğini yayınlamadan önce test edin. Başlık kesilmesini kontrol edin. Ücretsiz, tarayıcıda.">
+<link rel="stylesheet" href="../../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="canonical" href="https://aporizma.com/tr/araclar/youtube-baslik-kapak-onizleme/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/youtube-title-thumbnail-preview/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/youtube-baslik-kapak-onizleme/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/youtube-title-thumbnail-preview/">
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../../tr/"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../../tools/youtube-title-thumbnail-preview/" class="lang-switch" rel="alternate" hreflang="en">English</a>
+  </nav>
+</header>
+<main>
+<h1>YouTube Başlık ve Kapak Önizleme</h1>
+<p class="lede">Başlığınızı yazın, kapağınızı bırakın; kartın masaüstü ana sayfada ve telefonda tam olarak nasıl görüneceğini — başlığın nerede kesileceği dahil — görün.</p>
+<div class="card stack">
+  <label class="note" for="vtitle">Video başlığı</label>
+  <input type="text" id="vtitle" maxlength="100" placeholder="150 Yıllık Bu Kitap Geleceğinizi Neden Biliyor: Kimsenin Fark Etmediği Fikir">
+  <p class="note" id="counter"></p>
+  <label class="note" for="vchannel">Kanal adı</label>
+  <input type="text" id="vchannel" maxlength="50" placeholder="Ölmeyi Reddedenler" style="max-width:320px">
+  <div class="dropzone" id="drop">Kapak görseli (16:9) — tıkla ya da bırak</div>
+  <input type="file" id="file" accept="image/*" hidden>
+</div>
+
+<div class="yt-previews">
+  <section>
+    <h2 class="note">Masaüstü ana sayfa</h2>
+    <div class="yt-card yt-desktop">
+      <div class="yt-thumb" id="thumbD"></div>
+      <div class="yt-meta">
+        <p class="yt-title" id="titleD"></p>
+        <p class="yt-sub"><span id="chanD"></span><br>12 B görüntüleme · 3 gün önce</p>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="note">Telefon (arama sonucu)</h2>
+    <div class="yt-phone">
+      <div class="yt-card yt-mobile">
+        <div class="yt-thumb yt-thumb-s" id="thumbM"></div>
+        <div class="yt-meta">
+          <p class="yt-title yt-title-s" id="titleM"></p>
+          <p class="yt-sub yt-sub-s"><span id="chanM"></span> · 12 B görüntüleme · 3 gün önce</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<section><h2>Neden önizleme?</h2><p>YouTube başlıkları masaüstü kartlarında yaklaşık 2 satırda, mobil aramada ~60-70 karakterde keser. Vaadiniz başlığın sonundaysa izleyici onu hiç görmeyebilir. Kapaklar da akış boyutunda detay kaybeder — editörde keskin görünen yazı 210 piksel genişlikte okunmaz olabilir.</p><h2>Kapağım yükleniyor mu?</h2><p>Hayır. Görsel tarayıcınızda kalır; hiçbir yere gönderilmez.</p></section>
+
+<style>
+.yt-previews { display: grid; gap: 22px; margin-top: 22px; grid-template-columns: 1fr; }
+@media (min-width: 720px) { .yt-previews { grid-template-columns: 1fr 1fr; } }
+.yt-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.yt-desktop { max-width: 360px; }
+.yt-thumb { aspect-ratio: 16/9; background: #222 center/cover no-repeat; }
+.yt-meta { padding: 10px 12px 14px; }
+.yt-title {
+  margin: 0 0 6px; font-weight: 600; font-size: .95rem; line-height: 1.35;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.yt-sub { margin: 0; font-size: .8rem; color: var(--ink-soft); }
+.yt-phone { max-width: 400px; border: 1px solid var(--line); border-radius: 18px; padding: 10px; }
+.yt-mobile { display: flex; gap: 10px; border: 0; }
+.yt-thumb-s { width: 150px; min-width: 150px; border-radius: 8px; }
+.yt-title-s { font-size: .85rem; }
+.yt-sub-s { font-size: .74rem; }
+</style>
+
+</main>
+<footer class="site-foot">
+  <p>Aporizma — tamamen tarayıcınızda çalışan küçük araçlar. Yükleme yok, izleme yok.</p>
+</footer>
+<script src="../../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "YouTube Başlık ve Kapak Önizleme", "lede": "Başlığınızı yazın, kapağınızı bırakın; kartın masaüstü ana sayfada ve telefonda tam olarak nasıl görüneceğini — başlığın nerede kesileceği dahil — görün.", "card_title": "YouTube Başlık ve Kapak Önizleme", "card_desc": "Yayınlamadan önce kesilme ve okunabilirliği test edin.", "title_label": "Video başlığı", "title_ph": "150 Yıllık Bu Kitap Geleceğinizi Neden Biliyor: Kimsenin Fark Etmediği Fikir", "channel_label": "Kanal adı", "channel_ph": "Ölmeyi Reddedenler", "thumb_label": "Kapak görseli (16:9) — tıkla ya da bırak", "counter_fmt": "{n}/100 karakter — mobil aramada ~{m} görünür", "desktop_h": "Masaüstü ana sayfa", "mobile_h": "Telefon (arama sonucu)", "meta_line": "12 B görüntüleme · 3 gün önce"};</script>
+<script src="tool.js"></script>
+</body>
+</html>

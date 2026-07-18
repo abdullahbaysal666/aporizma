@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YouTube Title & Thumbnail Preview — See It Before You Publish</title>
+<meta name="description" content="Preview how your YouTube title and thumbnail will look on desktop and mobile before publishing. Check title truncation and thumbnail legibility. Free, in-browser.">
+<link rel="stylesheet" href="../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="canonical" href="https://aporizma.com/tools/youtube-title-thumbnail-preview/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/youtube-title-thumbnail-preview/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/youtube-baslik-kapak-onizleme/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/youtube-title-thumbnail-preview/">
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../tr/araclar/youtube-baslik-kapak-onizleme/" class="lang-switch" rel="alternate" hreflang="tr">Türkçe</a>
+  </nav>
+</header>
+<main>
+<h1>YouTube Title & Thumbnail Preview</h1>
+<p class="lede">Type your title, drop your thumbnail, and see exactly how the card renders on the desktop home feed and on a phone — including where the title gets cut off.</p>
+<div class="card stack">
+  <label class="note" for="vtitle">Video title</label>
+  <input type="text" id="vtitle" maxlength="100" placeholder="Why This 150-Year-Old Book Predicts Your Future: The Idea Nobody Noticed">
+  <p class="note" id="counter"></p>
+  <label class="note" for="vchannel">Channel name</label>
+  <input type="text" id="vchannel" maxlength="50" placeholder="Refused to Die" style="max-width:320px">
+  <div class="dropzone" id="drop">Thumbnail (16:9 image) — click or drop</div>
+  <input type="file" id="file" accept="image/*" hidden>
+</div>
+
+<div class="yt-previews">
+  <section>
+    <h2 class="note">Desktop home feed</h2>
+    <div class="yt-card yt-desktop">
+      <div class="yt-thumb" id="thumbD"></div>
+      <div class="yt-meta">
+        <p class="yt-title" id="titleD"></p>
+        <p class="yt-sub"><span id="chanD"></span><br>12K views · 3 days ago</p>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="note">Phone (search result)</h2>
+    <div class="yt-phone">
+      <div class="yt-card yt-mobile">
+        <div class="yt-thumb yt-thumb-s" id="thumbM"></div>
+        <div class="yt-meta">
+          <p class="yt-title yt-title-s" id="titleM"></p>
+          <p class="yt-sub yt-sub-s"><span id="chanM"></span> · 12K views · 3 days ago</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<section><h2>Why preview?</h2><p>YouTube truncates titles at roughly 2 lines on desktop cards and ~60-70 characters in mobile search. If your payoff is at the end of the title, viewers may never see it. Thumbnails also lose detail at feed size — what looks sharp in your editor can be unreadable at 210 pixels wide.</p><h2>Is my thumbnail uploaded?</h2><p>No. The image stays in your browser; nothing is sent anywhere.</p></section>
+
+<style>
+.yt-previews { display: grid; gap: 22px; margin-top: 22px; grid-template-columns: 1fr; }
+@media (min-width: 720px) { .yt-previews { grid-template-columns: 1fr 1fr; } }
+.yt-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.yt-desktop { max-width: 360px; }
+.yt-thumb { aspect-ratio: 16/9; background: #222 center/cover no-repeat; }
+.yt-meta { padding: 10px 12px 14px; }
+.yt-title {
+  margin: 0 0 6px; font-weight: 600; font-size: .95rem; line-height: 1.35;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.yt-sub { margin: 0; font-size: .8rem; color: var(--ink-soft); }
+.yt-phone { max-width: 400px; border: 1px solid var(--line); border-radius: 18px; padding: 10px; }
+.yt-mobile { display: flex; gap: 10px; border: 0; }
+.yt-thumb-s { width: 150px; min-width: 150px; border-radius: 8px; }
+.yt-title-s { font-size: .85rem; }
+.yt-sub-s { font-size: .74rem; }
+</style>
+
+</main>
+<footer class="site-foot">
+  <p>Aporizma — handcrafted small tools that run entirely in your browser. No uploads, no tracking.</p>
+</footer>
+<script src="../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "YouTube Title & Thumbnail Preview", "lede": "Type your title, drop your thumbnail, and see exactly how the card renders on the desktop home feed and on a phone — including where the title gets cut off.", "card_title": "YouTube Title & Thumbnail Preview", "card_desc": "Preview truncation and legibility before you publish.", "title_label": "Video title", "title_ph": "Why This 150-Year-Old Book Predicts Your Future: The Idea Nobody Noticed", "channel_label": "Channel name", "channel_ph": "Refused to Die", "thumb_label": "Thumbnail (16:9 image) — click or drop", "counter_fmt": "{n}/100 characters — ~{m} visible on mobile search", "desktop_h": "Desktop home feed", "mobile_h": "Phone (search result)", "meta_line": "12K views · 3 days ago"};</script>
+<script src="tool.js"></script>
+</body>
+</html>
