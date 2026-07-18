@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LLM API Maliyet Hesaplayıcı — Claude, GPT, Gemini Fiyat Karşılaştırma</title>
+<meta name="description" content="Aylık LLM API faturanızı tahmin edin; Claude, OpenAI GPT ve Google Gemini fiyatlarını yan yana karşılaştırın. Ücretsiz, anında, tarayıcıda.">
+<link rel="stylesheet" href="../../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="canonical" href="https://aporizma.com/tr/araclar/llm-api-maliyet-hesaplayici/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/llm-api-cost-calculator/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/llm-api-maliyet-hesaplayici/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/llm-api-cost-calculator/">
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../../tr/"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../../tools/llm-api-cost-calculator/" class="lang-switch" rel="alternate" hreflang="en">English</a>
+  </nav>
+</header>
+<main>
+<h1>LLM API Maliyet Hesaplayıcı</h1>
+<p class="lede">Tipik istek boyutunuzu ve günlük hacminizi girin — her büyük modelin istek başına ve aylık maliyetini yan yana görün.</p>
+<div class="card stack">
+  <div style="display:flex;gap:14px;flex-wrap:wrap">
+    <div><label class="note" for="tin">İstek başına girdi token'ı</label>
+      <input type="number" id="tin" value="2000" min="0" style="max-width:140px"></div>
+    <div><label class="note" for="tout">İstek başına çıktı token'ı</label>
+      <input type="number" id="tout" value="500" min="0" style="max-width:140px"></div>
+    <div><label class="note" for="rpd">Günlük istek sayısı</label>
+      <input type="number" id="rpd" value="1000" min="0" style="max-width:140px"></div>
+  </div>
+  <div style="overflow-x:auto">
+    <table id="costs" style="width:100%;border-collapse:collapse;font-size:.92rem">
+      <thead><tr>
+        <th style="text-align:left;padding:8px 10px">Model</th>
+        <th style="text-align:right;padding:8px 10px">Girdi $/M</th>
+        <th style="text-align:right;padding:8px 10px">Çıktı $/M</th>
+        <th style="text-align:right;padding:8px 10px">İstek başına</th>
+        <th style="text-align:right;padding:8px 10px">Aylık</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <p class="note">Fiyatlar 2026-07-19'da resmi sağlayıcı fiyat sayfalarından doğrulandı. Standart katman; önbellek/batch indirimleri hariç.</p>
+</div>
+<section><h2>Nasıl hesaplanıyor?</h2><p>İstek maliyeti = (girdi token × girdi fiyatı + çıktı token × çıktı fiyatı) ÷ 1.000.000. Aylık maliyet, günlük istek hacminizle 30 gün varsayar.</p><h2>Neler dahil değil?</h2><p>Prompt önbellek indirimleri (tekrarlanan bağlamda %90'a varan), batch API indirimleri (genelde %50), uzun-bağlam ek ücretleri ve ücretsiz katmanlar. Önbellekle gerçek faturalar çoğu zaman daha düşüktür — bu rakamları en-kötü-durum tabanı olarak okuyun.</p></section>
+<style>
+#costs tbody tr { border-top: 1px solid var(--line); }
+#costs tbody td { padding: 7px 10px; }
+#costs .num { text-align: right; font-family: var(--mono); font-size: .86rem; }
+#costs .prov { color: var(--ink-soft); font-size: .8rem; }
+</style>
+
+</main>
+<footer class="site-foot">
+  <p>Aporizma — tamamen tarayıcınızda çalışan küçük araçlar. Yükleme yok, izleme yok. · <a href="../../../privacy/">Gizlilik</a></p>
+</footer>
+<script src="../../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "LLM API Maliyet Hesaplayıcı", "lede": "Tipik istek boyutunuzu ve günlük hacminizi girin — her büyük modelin istek başına ve aylık maliyetini yan yana görün.", "card_title": "LLM API Maliyet Hesaplayıcı", "card_desc": "İş yükünüz için Claude, GPT ve Gemini maliyetlerini karşılaştırın.", "in_label": "İstek başına girdi token'ı", "out_label": "İstek başına çıktı token'ı", "req_label": "Günlük istek sayısı", "th_model": "Model", "th_in": "Girdi $/M", "th_out": "Çıktı $/M", "th_req": "İstek başına", "th_month": "Aylık", "verified": "Fiyatlar 2026-07-19'da resmi sağlayıcı fiyat sayfalarından doğrulandı. Standart katman; önbellek/batch indirimleri hariç."};</script>
+<script src="tool.js"></script>
+</body>
+</html>

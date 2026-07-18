@@ -1,0 +1,42 @@
+{
+  "id": "llm-cost",
+  "category": "developer",
+  "en": {
+    "slug": "tools/llm-api-cost-calculator",
+    "title": "LLM API Cost Calculator — Compare Claude, GPT, Gemini Prices",
+    "desc": "Estimate your monthly LLM API bill and compare Claude, OpenAI GPT and Google Gemini prices side by side. Free, instant, runs in your browser.",
+    "h1": "LLM API Cost Calculator",
+    "lede": "Enter your typical request size and daily volume — see what each major model would cost per request and per month, side by side.",
+    "card_title": "LLM API Cost Calculator",
+    "card_desc": "Compare Claude, GPT and Gemini API costs for your workload.",
+    "in_label": "Input tokens per request",
+    "out_label": "Output tokens per request",
+    "req_label": "Requests per day",
+    "th_model": "Model",
+    "th_in": "Input $/M",
+    "th_out": "Output $/M",
+    "th_req": "Per request",
+    "th_month": "Per month",
+    "verified": "Prices verified 2026-07-19 from official provider pricing pages. Standard tier, no caching/batch discounts.",
+    "faq_html": "<h2>How is this calculated?</h2><p>Cost per request = (input tokens × input price + output tokens × output price) ÷ 1,000,000. Monthly cost assumes 30 days at your daily request volume.</p><h2>What's not included?</h2><p>Prompt-caching discounts (up to 90% on repeated context), batch API discounts (typically 50%), long-context surcharges, and free tiers. Real bills are often lower with caching — treat these numbers as a worst-case baseline.</p>"
+  },
+  "tr": {
+    "slug": "tr/araclar/llm-api-maliyet-hesaplayici",
+    "title": "LLM API Maliyet Hesaplayıcı — Claude, GPT, Gemini Fiyat Karşılaştırma",
+    "desc": "Aylık LLM API faturanızı tahmin edin; Claude, OpenAI GPT ve Google Gemini fiyatlarını yan yana karşılaştırın. Ücretsiz, anında, tarayıcıda.",
+    "h1": "LLM API Maliyet Hesaplayıcı",
+    "lede": "Tipik istek boyutunuzu ve günlük hacminizi girin — her büyük modelin istek başına ve aylık maliyetini yan yana görün.",
+    "card_title": "LLM API Maliyet Hesaplayıcı",
+    "card_desc": "İş yükünüz için Claude, GPT ve Gemini maliyetlerini karşılaştırın.",
+    "in_label": "İstek başına girdi token'ı",
+    "out_label": "İstek başına çıktı token'ı",
+    "req_label": "Günlük istek sayısı",
+    "th_model": "Model",
+    "th_in": "Girdi $/M",
+    "th_out": "Çıktı $/M",
+    "th_req": "İstek başına",
+    "th_month": "Aylık",
+    "verified": "Fiyatlar 2026-07-19'da resmi sağlayıcı fiyat sayfalarından doğrulandı. Standart katman; önbellek/batch indirimleri hariç.",
+    "faq_html": "<h2>Nasıl hesaplanıyor?</h2><p>İstek maliyeti = (girdi token × girdi fiyatı + çıktı token × çıktı fiyatı) ÷ 1.000.000. Aylık maliyet, günlük istek hacminizle 30 gün varsayar.</p><h2>Neler dahil değil?</h2><p>Prompt önbellek indirimleri (tekrarlanan bağlamda %90'a varan), batch API indirimleri (genelde %50), uzun-bağlam ek ücretleri ve ücretsiz katmanlar. Önbellekle gerçek faturalar çoğu zaman daha düşüktür — bu rakamları en-kötü-durum tabanı olarak okuyun.</p>"
+  }
+}

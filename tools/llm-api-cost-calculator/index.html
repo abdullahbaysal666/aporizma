@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LLM API Cost Calculator — Compare Claude, GPT, Gemini Prices</title>
+<meta name="description" content="Estimate your monthly LLM API bill and compare Claude, OpenAI GPT and Google Gemini prices side by side. Free, instant, runs in your browser.">
+<link rel="stylesheet" href="../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="canonical" href="https://aporizma.com/tools/llm-api-cost-calculator/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/llm-api-cost-calculator/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/llm-api-maliyet-hesaplayici/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/llm-api-cost-calculator/">
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../tr/araclar/llm-api-maliyet-hesaplayici/" class="lang-switch" rel="alternate" hreflang="tr">Türkçe</a>
+  </nav>
+</header>
+<main>
+<h1>LLM API Cost Calculator</h1>
+<p class="lede">Enter your typical request size and daily volume — see what each major model would cost per request and per month, side by side.</p>
+<div class="card stack">
+  <div style="display:flex;gap:14px;flex-wrap:wrap">
+    <div><label class="note" for="tin">Input tokens per request</label>
+      <input type="number" id="tin" value="2000" min="0" style="max-width:140px"></div>
+    <div><label class="note" for="tout">Output tokens per request</label>
+      <input type="number" id="tout" value="500" min="0" style="max-width:140px"></div>
+    <div><label class="note" for="rpd">Requests per day</label>
+      <input type="number" id="rpd" value="1000" min="0" style="max-width:140px"></div>
+  </div>
+  <div style="overflow-x:auto">
+    <table id="costs" style="width:100%;border-collapse:collapse;font-size:.92rem">
+      <thead><tr>
+        <th style="text-align:left;padding:8px 10px">Model</th>
+        <th style="text-align:right;padding:8px 10px">Input $/M</th>
+        <th style="text-align:right;padding:8px 10px">Output $/M</th>
+        <th style="text-align:right;padding:8px 10px">Per request</th>
+        <th style="text-align:right;padding:8px 10px">Per month</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <p class="note">Prices verified 2026-07-19 from official provider pricing pages. Standard tier, no caching/batch discounts.</p>
+</div>
+<section><h2>How is this calculated?</h2><p>Cost per request = (input tokens × input price + output tokens × output price) ÷ 1,000,000. Monthly cost assumes 30 days at your daily request volume.</p><h2>What's not included?</h2><p>Prompt-caching discounts (up to 90% on repeated context), batch API discounts (typically 50%), long-context surcharges, and free tiers. Real bills are often lower with caching — treat these numbers as a worst-case baseline.</p></section>
+<style>
+#costs tbody tr { border-top: 1px solid var(--line); }
+#costs tbody td { padding: 7px 10px; }
+#costs .num { text-align: right; font-family: var(--mono); font-size: .86rem; }
+#costs .prov { color: var(--ink-soft); font-size: .8rem; }
+</style>
+
+</main>
+<footer class="site-foot">
+  <p>Aporizma — handcrafted small tools that run entirely in your browser. No uploads, no tracking. · <a href="../../privacy/">Privacy</a></p>
+</footer>
+<script src="../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "LLM API Cost Calculator", "lede": "Enter your typical request size and daily volume — see what each major model would cost per request and per month, side by side.", "card_title": "LLM API Cost Calculator", "card_desc": "Compare Claude, GPT and Gemini API costs for your workload.", "in_label": "Input tokens per request", "out_label": "Output tokens per request", "req_label": "Requests per day", "th_model": "Model", "th_in": "Input $/M", "th_out": "Output $/M", "th_req": "Per request", "th_month": "Per month", "verified": "Prices verified 2026-07-19 from official provider pricing pages. Standard tier, no caching/batch discounts."};</script>
+<script src="tool.js"></script>
+</body>
+</html>

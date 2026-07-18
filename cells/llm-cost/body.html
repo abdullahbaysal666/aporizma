@@ -1,0 +1,32 @@
+<h1>{{s.h1}}</h1>
+<p class="lede">{{s.lede}}</p>
+<div class="card stack">
+  <div style="display:flex;gap:14px;flex-wrap:wrap">
+    <div><label class="note" for="tin">{{s.in_label}}</label>
+      <input type="number" id="tin" value="2000" min="0" style="max-width:140px"></div>
+    <div><label class="note" for="tout">{{s.out_label}}</label>
+      <input type="number" id="tout" value="500" min="0" style="max-width:140px"></div>
+    <div><label class="note" for="rpd">{{s.req_label}}</label>
+      <input type="number" id="rpd" value="1000" min="0" style="max-width:140px"></div>
+  </div>
+  <div style="overflow-x:auto">
+    <table id="costs" style="width:100%;border-collapse:collapse;font-size:.92rem">
+      <thead><tr>
+        <th style="text-align:left;padding:8px 10px">{{s.th_model}}</th>
+        <th style="text-align:right;padding:8px 10px">{{s.th_in}}</th>
+        <th style="text-align:right;padding:8px 10px">{{s.th_out}}</th>
+        <th style="text-align:right;padding:8px 10px">{{s.th_req}}</th>
+        <th style="text-align:right;padding:8px 10px">{{s.th_month}}</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <p class="note">{{s.verified}}</p>
+</div>
+<section>{{s.faq_html}}</section>
+<style>
+#costs tbody tr { border-top: 1px solid var(--line); }
+#costs tbody td { padding: 7px 10px; }
+#costs .num { text-align: right; font-family: var(--mono); font-size: .86rem; }
+#costs .prov { color: var(--ink-soft); font-size: .8rem; }
+</style>
