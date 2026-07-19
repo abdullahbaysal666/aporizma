@@ -14,14 +14,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Montaj (site assembles from cells)
-        run: |
-          python montaj.py
-          git diff --stat
-
-      - name: Cell unit tests
-        run: |
-          for t in cells/*/test.js; do node "$t"; done
+      - name: Kalite kapısı (montaj + tests + template/SEO/sitemap checks)
+        run: python bakici/kapi.py
 
       - name: Live pages respond
         if: github.event_name != 'push'

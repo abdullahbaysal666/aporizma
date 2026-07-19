@@ -1,0 +1,17 @@
+<h1>{{s.h1}}</h1>
+<p class="lede">{{s.lede}}</p>
+<div class="card stack">
+  <div id="years" style="display:flex;flex-wrap:wrap;gap:6px"></div>
+  <h2 id="heading" style="margin:6px 0 0;font-size:1.15rem"></h2>
+  <p class="note">{{s.note_country}}</p>
+  <ul id="list" style="list-style:none;padding:0;margin:0"></ul>
+</div>
+<section>{{s.faq_html}}</section>
+<style>
+#years button.active { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+#years button { padding: 5px 12px; }
+#list li { border-top: 1px solid var(--line); padding: 9px 4px; display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+#list .who { font-weight: 600; }
+#list .what { color: var(--ink-soft); }
+#list .meta { color: var(--ink-soft); font-size: .84rem; white-space: nowrap; }
+</style>

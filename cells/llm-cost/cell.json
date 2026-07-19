@@ -22,7 +22,7 @@
   },
   "tr": {
     "slug": "tr/araclar/llm-api-maliyet-hesaplayici",
-    "title": "LLM API Maliyet Hesaplayıcı — Claude, GPT, Gemini Fiyat Karşılaştırma",
+    "title": "LLM API Maliyet Hesaplayıcı — Claude, GPT, Gemini Fiyatları",
     "desc": "Aylık LLM API faturanızı tahmin edin; Claude, OpenAI GPT ve Google Gemini fiyatlarını yan yana karşılaştırın. Ücretsiz, anında, tarayıcıda.",
     "h1": "LLM API Maliyet Hesaplayıcı",
     "lede": "Tipik istek boyutunuzu ve günlük hacminizi girin — her büyük modelin istek başına ve aylık maliyetini yan yana görün.",

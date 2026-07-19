@@ -1,0 +1,32 @@
+{
+  "id": "pd-calendar",
+  "category": "knowledge",
+  "en": {
+    "slug": "tools/public-domain-day-calendar",
+    "title": "Public Domain Day Calendar — Who Enters Each Year",
+    "desc": "Which famous authors' works enter the public domain each year? Browse Public Domain Day year by year under the life+70 rule (EU, Türkiye and most countries).",
+    "h1": "Public Domain Day Calendar",
+    "lede": "In most of the world, an author's works enter the public domain 70 years after their death — on January 1. Pick a year to see whose works became free for everyone.",
+    "card_title": "Public Domain Day Calendar",
+    "card_desc": "Which authors enter the public domain, year by year.",
+    "entered": "Entered the public domain on January 1,",
+    "enters": "Enter the public domain on January 1,",
+    "died": "died",
+    "note_country": "Under the life+70 rule (European Union, Türkiye, UK and most countries).",
+    "faq_html": "<h2>How does this work?</h2><p>In life+70 countries, copyright lasts until 70 full calendar years after the author's death. An author who died in 1955 was protected through the end of 2025; their works entered the public domain on January 1, 2026.</p><h2>What about the United States?</h2><p>The US uses a different rule for older works: publication + 95 years. In 2026, works <em>published</em> in 1930 enter the US public domain — regardless of when the author died. The same book can be public domain in one country and protected in another.</p><h2>Caveats</h2><p>This page is educational, not legal advice. Some countries add wartime extensions (France), some works have separate rights (translations, editions, music recordings), and unpublished works may follow different terms. Always verify for commercial use.</p>"
+  },
+  "tr": {
+    "slug": "tr/araclar/kamu-mali-takvimi",
+    "title": "Kamu Malı Takvimi — Hangi Yazarlar Hangi Yıl Özgürleşiyor",
+    "desc": "Hangi ünlü yazarların eserleri hangi yıl kamu malına giriyor? Yaşam+70 kuralına göre (Türkiye, AB ve çoğu ülke) Kamu Malı Günü'nü yıl yıl inceleyin.",
+    "h1": "Kamu Malı Takvimi",
+    "lede": "Dünyanın çoğunda bir yazarın eserleri, ölümünden 70 yıl sonra — 1 Ocak'ta — kamu malına girer. Bir yıl seçin; kimin eserlerinin herkese ait olduğunu görün.",
+    "card_title": "Kamu Malı Takvimi",
+    "card_desc": "Hangi yazarlar hangi yıl kamu malına giriyor.",
+    "entered": "1 Ocak itibarıyla kamu malında:",
+    "enters": "1 Ocak'ta kamu malına girecek:",
+    "died": "ölüm",
+    "note_country": "Yaşam+70 kuralına göre (Türkiye, Avrupa Birliği, Birleşik Krallık ve çoğu ülke).",
+    "faq_html": "<h2>Bu nasıl işliyor?</h2><p>Yaşam+70 ülkelerinde telif, yazarın ölümünden sonraki 70 tam takvim yılı sürer. 1955'te ölen bir yazar 2025 sonuna dek korunur; eserleri 1 Ocak 2026'da kamu malına girer. Türkiye'de bu süre 5846 sayılı FSEK ile 70 yıldır.</p><h2>Peki ABD?</h2><p>ABD eski eserler için farklı bir kural kullanır: yayın + 95 yıl. 2026'da, yazarı ne zaman ölmüş olursa olsun, 1930'da <em>yayımlanan</em> eserler ABD'de kamu malına girer. Aynı kitap bir ülkede özgür, diğerinde korumalı olabilir.</p><h2>Uyarılar</h2><p>Bu sayfa eğitim amaçlıdır, hukuki tavsiye değildir. Bazı ülkelerde savaş uzatmaları vardır (Fransa), bazı eserlerin ayrı hakları olabilir (çeviriler, baskılar, müzik kayıtları). Ticari kullanım öncesi mutlaka doğrulayın.</p>"
+  }
+}
