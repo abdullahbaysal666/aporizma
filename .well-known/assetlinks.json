@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.aporizma.app",
+      "sha256_cert_fingerprints": [
+        "86:5D:41:89:A1:54:C8:96:2E:D6:8D:54:D8:F8:DE:E7:DA:3A:E3:C3:29:50:27:51:D5:ED:1F:07:79:56:29:64"
+      ]
+    }
+  }
+]
