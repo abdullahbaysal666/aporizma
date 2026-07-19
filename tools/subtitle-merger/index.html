@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Subtitle Merger — Combine Two SRT/VTT Files, No Upload</title>
+<meta name="description" content="Merge two subtitle files into one, sorted by time. Combine SRT and VTT, renumbered automatically. Runs 100% in your browser — free, no sign-up.">
+<link rel="stylesheet" href="../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="canonical" href="https://aporizma.com/tools/subtitle-merger/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/subtitle-merger/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/altyazi-birlestirici/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/subtitle-merger/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Subtitle Merger — Combine Two SRT/VTT Files, No Upload">
+<meta property="og:description" content="Merge two subtitle files into one, sorted by time. Combine SRT and VTT, renumbered automatically. Runs 100% in your browser — free, no sign-up.">
+<meta property="og:url" content="https://aporizma.com/tools/subtitle-merger/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Subtitle Merger", "url": "https://aporizma.com/tools/subtitle-merger/", "description": "Merge two subtitle files into one, sorted by time. Combine SRT and VTT, renumbered automatically. Runs 100% in your browser — free, no sign-up.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../tr/araclar/altyazi-birlestirici/" class="lang-switch" rel="alternate" hreflang="tr">Türkçe</a>
+  </nav>
+</header>
+<main>
+<h1>Subtitle Merger</h1>
+<p class="lede">Drop two subtitle files — they're combined into one timeline, sorted by start time and renumbered. Output uses the first file's format.</p>
+<div class="card stack">
+  <div style="display:grid;gap:12px;grid-template-columns:1fr 1fr">
+    <div class="stack">
+      <div class="dropzone" id="dropA">File A: drop .srt/.vtt here, or click</div>
+      <input type="file" id="fileA" accept=".srt,.vtt,.txt" hidden>
+      <label class="note" for="inA">Subtitle A (sets the output format)</label>
+      <textarea id="inA" rows="7" spellcheck="false"></textarea>
+    </div>
+    <div class="stack">
+      <div class="dropzone" id="dropB">File B: drop .srt/.vtt here, or click</div>
+      <input type="file" id="fileB" accept=".srt,.vtt,.txt" hidden>
+      <label class="note" for="inB">Subtitle B</label>
+      <textarea id="inB" rows="7" spellcheck="false"></textarea>
+    </div>
+  </div>
+  <p class="note" id="status">Paste or drop both subtitle files to merge.</p>
+  <label class="note" for="output">Merged output</label>
+  <textarea id="output" rows="8" spellcheck="false" readonly></textarea>
+  <div>
+    <button class="btn" id="download" disabled>Download</button>
+    <button class="btn ghost" id="copy" disabled>Copy</button>
+  </div>
+</div>
+<section><h2>When is this useful?</h2><p>Combining dialogue with a separate signs/lyrics track, joining two halves of a film, or building a bilingual subtitle by merging two languages into one timeline.</p><h2>How are conflicts handled?</h2><p>Cues are sorted by start time and renumbered. Overlapping cues are kept as-is — most players display simultaneous cues stacked.</p><h2>Is anything uploaded?</h2><p>No. Everything runs in your browser; your files never leave your device.</p></section>
+<style>
+@media (max-width: 640px) {
+  .card > div[style*="grid"] { grid-template-columns: 1fr !important; }
+}
+</style>
+
+</main>
+<footer class="site-foot">
+  <p>Aporizma — handcrafted small tools that run entirely in your browser. No uploads, no tracking. · <a href="../../privacy/">Privacy</a></p>
+</footer>
+<script src="../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Subtitle Merger", "lede": "Drop two subtitle files — they're combined into one timeline, sorted by start time and renumbered. Output uses the first file's format.", "card_title": "Subtitle Merger", "card_desc": "Combine two SRT/VTT files into one timeline.", "drop_a": "File A: drop .srt/.vtt here, or click", "drop_b": "File B: drop .srt/.vtt here, or click", "in_a": "Subtitle A (sets the output format)", "in_b": "Subtitle B", "out_label": "Merged output", "download": "Download", "copy": "Copy", "copied": "Copied!", "status_fmt": "{n} cues merged — output format: {fmt}", "empty": "Paste or drop both subtitle files to merge.", "invalid": "One of the inputs doesn't look like a valid SRT/VTT subtitle."};</script>
+<script src="tool.js"></script>
+</body>
+</html>

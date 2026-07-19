@@ -1,0 +1,31 @@
+<h1>{{s.h1}}</h1>
+<p class="lede">{{s.lede}}</p>
+<div class="card stack">
+  <div style="display:grid;gap:12px;grid-template-columns:1fr 1fr">
+    <div class="stack">
+      <div class="dropzone" id="dropA">{{s.drop_a}}</div>
+      <input type="file" id="fileA" accept=".srt,.vtt,.txt" hidden>
+      <label class="note" for="inA">{{s.in_a}}</label>
+      <textarea id="inA" rows="7" spellcheck="false"></textarea>
+    </div>
+    <div class="stack">
+      <div class="dropzone" id="dropB">{{s.drop_b}}</div>
+      <input type="file" id="fileB" accept=".srt,.vtt,.txt" hidden>
+      <label class="note" for="inB">{{s.in_b}}</label>
+      <textarea id="inB" rows="7" spellcheck="false"></textarea>
+    </div>
+  </div>
+  <p class="note" id="status">{{s.empty}}</p>
+  <label class="note" for="output">{{s.out_label}}</label>
+  <textarea id="output" rows="8" spellcheck="false" readonly></textarea>
+  <div>
+    <button class="btn" id="download" disabled>{{s.download}}</button>
+    <button class="btn ghost" id="copy" disabled>{{s.copy}}</button>
+  </div>
+</div>
+<section>{{s.faq_html}}</section>
+<style>
+@media (max-width: 640px) {
+  .card > div[style*="grid"] { grid-template-columns: 1fr !important; }
+}
+</style>

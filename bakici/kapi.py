@@ -22,7 +22,40 @@ def fail(msg: str) -> None:
     print(f"  KAPI RED: {msg}")
 
 
+def check_cells() -> None:
+    """Hucre butunlugu: 4 dosya tam mi, en/tr anahtarlari esit mi, body
+    kaliplari karsiliksiz mi? (Gece ajaninin olasi hatalarini montaj'dan
+    ONCE, anlasilir mesajla yakalar.)"""
+    for cell_dir in sorted((ROOT / "cells").iterdir()):
+        if not cell_dir.is_dir():
+            continue
+        cid = cell_dir.name
+        for f in ("cell.json", "body.html", "cell.js", "test.js"):
+            if not (cell_dir / f).exists():
+                fail(f"eksik dosya: cells/{cid}/{f}")
+        if not (cell_dir / "cell.json").exists():
+            continue
+        try:
+            cell = json.loads((cell_dir / "cell.json").read_text(encoding="utf-8"))
+        except json.JSONDecodeError as e:
+            fail(f"bozuk cell.json: cells/{cid} — {e}")
+            continue
+        en, tr = set(cell.get("en", {})), set(cell.get("tr", {}))
+        for missing in sorted(en ^ tr):
+            side = "tr" if missing in en else "en"
+            fail(f"anahtar esitsizligi: cells/{cid} — '{missing}' {side} blokta yok")
+        if (cell_dir / "body.html").exists():
+            body = (cell_dir / "body.html").read_text(encoding="utf-8")
+            used = set(re.findall(r"\{\{s\.([a-z0-9_]+)\}\}", body))
+            for key in sorted(used - en):
+                fail(f"body'de var, cell.json'da yok: cells/{cid} — {{{{s.{key}}}}}")
+
+
 def main() -> int:
+    check_cells()
+    if FAILS:  # hucre butunlugu bozuksa montaj zaten coker; erken cik
+        return finish()
+
     # 0. Montaj temiz kosmali.
     r = subprocess.run([sys.executable, "montaj.py"], cwd=ROOT, capture_output=True, text=True)
     if r.returncode != 0:

@@ -1,11 +1,21 @@
-/* YouTube title/thumbnail preview: pure UI, image never leaves the browser. */
+/* YouTube title/thumbnail preview: image never leaves the browser. */
 "use strict";
+
+const MOBILE_VISIBLE = 65;
+
+function truncateTitle(t, limit = MOBILE_VISIBLE) {
+  return t.length > limit ? t.slice(0, limit).trimEnd() + "..." : t;
+}
+
+if (typeof module !== "undefined") {
+  module.exports = { truncateTitle, MOBILE_VISIBLE };
+}
+
 if (typeof document !== "undefined") {
   const S = window.CELL_STRINGS;
   const title = document.getElementById("vtitle");
   const chan = document.getElementById("vchannel");
   const counter = document.getElementById("counter");
-  const MOBILE_VISIBLE = 65;
 
   const sync = () => {
     const t = title.value || title.placeholder;
@@ -13,9 +23,7 @@ if (typeof document !== "undefined") {
     document.getElementById("titleD").textContent = t;
     document.getElementById("chanD").textContent = c;
     document.getElementById("chanM").textContent = c;
-    const cut = t.length > MOBILE_VISIBLE;
-    document.getElementById("titleM").textContent =
-      cut ? t.slice(0, MOBILE_VISIBLE).trimEnd() + "..." : t;
+    document.getElementById("titleM").textContent = truncateTitle(t);
     counter.textContent = S.counter_fmt
       .replace("{n}", title.value.length)
       .replace("{m}", MOBILE_VISIBLE);

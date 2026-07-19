@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Altyazı Birleştirici — İki SRT/VTT Dosyasını Tek Dosyada Topla</title>
+<meta name="description" content="İki altyazı dosyasını zaman sırasına göre tek dosyada birleştirin. SRT ve VTT karışık olabilir; numaralar otomatik. %100 tarayıcıda, ücretsiz.">
+<link rel="stylesheet" href="../../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="canonical" href="https://aporizma.com/tr/araclar/altyazi-birlestirici/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/subtitle-merger/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/altyazi-birlestirici/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/subtitle-merger/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Altyazı Birleştirici — İki SRT/VTT Dosyasını Tek Dosyada Topla">
+<meta property="og:description" content="İki altyazı dosyasını zaman sırasına göre tek dosyada birleştirin. SRT ve VTT karışık olabilir; numaralar otomatik. %100 tarayıcıda, ücretsiz.">
+<meta property="og:url" content="https://aporizma.com/tr/araclar/altyazi-birlestirici/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Altyazı Birleştirici", "url": "https://aporizma.com/tr/araclar/altyazi-birlestirici/", "description": "İki altyazı dosyasını zaman sırasına göre tek dosyada birleştirin. SRT ve VTT karışık olabilir; numaralar otomatik. %100 tarayıcıda, ücretsiz.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "tr", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../../tr/"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../../tools/subtitle-merger/" class="lang-switch" rel="alternate" hreflang="en">English</a>
+  </nav>
+</header>
+<main>
+<h1>Altyazı Birleştirici</h1>
+<p class="lede">İki altyazı dosyası bırakın — tek zaman çizgisinde birleştirilir, başlangıç zamanına göre sıralanır ve yeniden numaralanır. Çıktı, ilk dosyanın biçimini kullanır.</p>
+<div class="card stack">
+  <div style="display:grid;gap:12px;grid-template-columns:1fr 1fr">
+    <div class="stack">
+      <div class="dropzone" id="dropA">Dosya A: .srt/.vtt buraya bırak ya da tıkla</div>
+      <input type="file" id="fileA" accept=".srt,.vtt,.txt" hidden>
+      <label class="note" for="inA">Altyazı A (çıktı biçimini belirler)</label>
+      <textarea id="inA" rows="7" spellcheck="false"></textarea>
+    </div>
+    <div class="stack">
+      <div class="dropzone" id="dropB">Dosya B: .srt/.vtt buraya bırak ya da tıkla</div>
+      <input type="file" id="fileB" accept=".srt,.vtt,.txt" hidden>
+      <label class="note" for="inB">Altyazı B</label>
+      <textarea id="inB" rows="7" spellcheck="false"></textarea>
+    </div>
+  </div>
+  <p class="note" id="status">Birleştirmek için iki altyazıyı da yapıştırın ya da bırakın.</p>
+  <label class="note" for="output">Birleşik çıktı</label>
+  <textarea id="output" rows="8" spellcheck="false" readonly></textarea>
+  <div>
+    <button class="btn" id="download" disabled>İndir</button>
+    <button class="btn ghost" id="copy" disabled>Kopyala</button>
+  </div>
+</div>
+<section><h2>Ne işe yarar?</h2><p>Diyalog + ayrı tabela/şarkı sözü kanalını birleştirmek, bir filmin iki yarısını uç uca eklemek ya da iki dili tek zaman çizgisinde toplayıp çift dilli altyazı yapmak için.</p><h2>Çakışmalar nasıl ele alınır?</h2><p>Replikler başlangıç zamanına göre sıralanır ve yeniden numaralanır. Üst üste binen replikler olduğu gibi korunur — çoğu oynatıcı eşzamanlı replikleri alt alta gösterir.</p><h2>Bir şey yükleniyor mu?</h2><p>Hayır. Her şey tarayıcınızda çalışır; dosyalarınız cihazınızdan çıkmaz.</p></section>
+<style>
+@media (max-width: 640px) {
+  .card > div[style*="grid"] { grid-template-columns: 1fr !important; }
+}
+</style>
+
+</main>
+<footer class="site-foot">
+  <p>Aporizma — tamamen tarayıcınızda çalışan küçük araçlar. Yükleme yok, izleme yok. · <a href="../../../privacy/">Gizlilik</a></p>
+</footer>
+<script src="../../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Altyazı Birleştirici", "lede": "İki altyazı dosyası bırakın — tek zaman çizgisinde birleştirilir, başlangıç zamanına göre sıralanır ve yeniden numaralanır. Çıktı, ilk dosyanın biçimini kullanır.", "card_title": "Altyazı Birleştirici", "card_desc": "İki SRT/VTT dosyasını tek zaman çizgisinde birleştirin.", "drop_a": "Dosya A: .srt/.vtt buraya bırak ya da tıkla", "drop_b": "Dosya B: .srt/.vtt buraya bırak ya da tıkla", "in_a": "Altyazı A (çıktı biçimini belirler)", "in_b": "Altyazı B", "out_label": "Birleşik çıktı", "download": "İndir", "copy": "Kopyala", "copied": "Kopyalandı!", "status_fmt": "{n} replik birleştirildi — çıktı biçimi: {fmt}", "empty": "Birleştirmek için iki altyazıyı da yapıştırın ya da bırakın.", "invalid": "Girdilerden biri geçerli bir SRT/VTT altyazısına benzemiyor."};</script>
+<script src="tool.js"></script>
+</body>
+</html>
