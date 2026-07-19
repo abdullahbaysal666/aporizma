@@ -1,0 +1,28 @@
+<h1>{{s.h1}}</h1>
+<p class="lede">{{s.lede}}</p>
+<div class="card stack">
+  <label class="note" for="qtext">{{s.text_label}}</label>
+  <input type="text" id="qtext" placeholder="{{s.text_ph}}">
+  <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:end">
+    <div><label class="note" for="qsize">{{s.size_label}}</label>
+      <select id="qsize" style="width:auto">
+        <option value="256">256 px</option>
+        <option value="512" selected>512 px</option>
+        <option value="1024">1024 px</option>
+      </select></div>
+    <div><label class="note" for="qecc">{{s.ecc_label}}</label>
+      <select id="qecc" style="width:auto">
+        <option value="L">L (7%)</option>
+        <option value="M" selected>M (15%)</option>
+        <option value="Q">Q (25%)</option>
+        <option value="H">H (30%)</option>
+      </select></div>
+    <button class="btn" id="download" disabled>{{s.download}}</button>
+  </div>
+  <p class="note">{{s.ecc_hint}}</p>
+  <p class="note" id="status">{{s.empty}}</p>
+  <div style="display:flex;justify-content:center;padding:8px">
+    <canvas id="qcanvas" style="max-width:min(320px,100%);height:auto;background:#fff;border-radius:8px"></canvas>
+  </div>
+</div>
+<section>{{s.faq_html}}</section>

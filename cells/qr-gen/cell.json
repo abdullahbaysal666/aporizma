@@ -1,0 +1,41 @@
+{
+  "id": "qr-gen",
+  "category": "generator",
+  "vendor": ["vendor/qrcode.js"],
+  "en": {
+    "slug": "tools/qr-code-generator",
+    "title": "QR Code Generator — Free, No Sign-Up, PNG Download",
+    "desc": "Generate a QR code from any text or link and download it as a sharp PNG. Size and error-correction options. Runs in your browser — nothing is uploaded.",
+    "h1": "QR Code Generator",
+    "lede": "Type a link or any text — the QR code appears instantly. Pick a size, download the PNG. Nothing leaves your browser.",
+    "card_title": "QR Code Generator",
+    "card_desc": "Text or link to QR code, PNG download, in your browser.",
+    "text_label": "Text or URL",
+    "text_ph": "https://example.com",
+    "size_label": "Size",
+    "ecc_label": "Error correction",
+    "ecc_hint": "Higher = more damage-resistant, denser code",
+    "download": "Download PNG",
+    "empty": "Type something to generate a QR code.",
+    "too_long": "Text is too long for a QR code at this correction level.",
+    "faq_html": "<h2>Is my link uploaded anywhere?</h2><p>No. The QR code is computed entirely in your browser (open-source MIT library, bundled — no CDN, no tracking). Your text never leaves your device.</p><h2>What does error correction do?</h2><p>QR codes carry redundancy so they scan even when partially covered or damaged. L tolerates ~7% damage, M ~15%, Q ~25%, H ~30%. Higher levels make the code denser — M is the everyday default.</p><h2>Print quality?</h2><p>The PNG is rendered pixel-perfect at your chosen size with a proper quiet zone. For print, pick 1024px.</p>"
+  },
+  "tr": {
+    "slug": "tr/araclar/qr-kod-olusturucu",
+    "title": "QR Kod Oluşturucu — Ücretsiz, Üyeliksiz, PNG İndir",
+    "desc": "Herhangi bir metin veya bağlantıdan QR kod üretin, keskin PNG olarak indirin. Boyut ve hata düzeltme seçenekleri. Tarayıcıda çalışır — hiçbir şey yüklenmez.",
+    "h1": "QR Kod Oluşturucu",
+    "lede": "Bir bağlantı ya da metin yazın — QR kod anında belirir. Boyutu seçin, PNG'yi indirin. Hiçbir şey tarayıcınızdan çıkmaz.",
+    "card_title": "QR Kod Oluşturucu",
+    "card_desc": "Metin veya bağlantıdan QR kod, PNG indirme, tarayıcıda.",
+    "text_label": "Metin veya URL",
+    "text_ph": "https://ornek.com",
+    "size_label": "Boyut",
+    "ecc_label": "Hata düzeltme",
+    "ecc_hint": "Yüksek = hasara dayanıklı, daha yoğun kod",
+    "download": "PNG İndir",
+    "empty": "QR kod üretmek için bir şey yazın.",
+    "too_long": "Metin bu düzeltme seviyesi için fazla uzun.",
+    "faq_html": "<h2>Bağlantım bir yere yükleniyor mu?</h2><p>Hayır. QR kod tamamen tarayıcınızda hesaplanır (açık kaynak MIT kütüphanesi, siteye gömülü — CDN yok, izleme yok). Metniniz cihazınızdan çıkmaz.</p><h2>Hata düzeltme ne işe yarar?</h2><p>QR kodlar kısmen kapansa/hasar görse bile okunabilsin diye yedeklilik taşır. L ~%7, M ~%15, Q ~%25, H ~%30 hasara dayanır. Yüksek seviye kodu yoğunlaştırır — günlük kullanım için M idealdir.</p><h2>Baskı kalitesi?</h2><p>PNG, seçtiğiniz boyutta piksel-kusursuz ve doğru sessiz bölgeyle üretilir. Baskı için 1024px seçin.</p>"
+  }
+}

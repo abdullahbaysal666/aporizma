@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QR Code Generator — Free, No Sign-Up, PNG Download</title>
+<meta name="description" content="Generate a QR code from any text or link and download it as a sharp PNG. Size and error-correction options. Runs in your browser — nothing is uploaded.">
+<link rel="stylesheet" href="../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="canonical" href="https://aporizma.com/tools/qr-code-generator/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/qr-code-generator/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/qr-kod-olusturucu/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/qr-code-generator/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="QR Code Generator — Free, No Sign-Up, PNG Download">
+<meta property="og:description" content="Generate a QR code from any text or link and download it as a sharp PNG. Size and error-correction options. Runs in your browser — nothing is uploaded.">
+<meta property="og:url" content="https://aporizma.com/tools/qr-code-generator/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "QR Code Generator", "url": "https://aporizma.com/tools/qr-code-generator/", "description": "Generate a QR code from any text or link and download it as a sharp PNG. Size and error-correction options. Runs in your browser — nothing is uploaded.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../tr/araclar/qr-kod-olusturucu/" class="lang-switch" rel="alternate" hreflang="tr">Türkçe</a>
+  </nav>
+</header>
+<main>
+<h1>QR Code Generator</h1>
+<p class="lede">Type a link or any text — the QR code appears instantly. Pick a size, download the PNG. Nothing leaves your browser.</p>
+<div class="card stack">
+  <label class="note" for="qtext">Text or URL</label>
+  <input type="text" id="qtext" placeholder="https://example.com">
+  <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:end">
+    <div><label class="note" for="qsize">Size</label>
+      <select id="qsize" style="width:auto">
+        <option value="256">256 px</option>
+        <option value="512" selected>512 px</option>
+        <option value="1024">1024 px</option>
+      </select></div>
+    <div><label class="note" for="qecc">Error correction</label>
+      <select id="qecc" style="width:auto">
+        <option value="L">L (7%)</option>
+        <option value="M" selected>M (15%)</option>
+        <option value="Q">Q (25%)</option>
+        <option value="H">H (30%)</option>
+      </select></div>
+    <button class="btn" id="download" disabled>Download PNG</button>
+  </div>
+  <p class="note">Higher = more damage-resistant, denser code</p>
+  <p class="note" id="status">Type something to generate a QR code.</p>
+  <div style="display:flex;justify-content:center;padding:8px">
+    <canvas id="qcanvas" style="max-width:min(320px,100%);height:auto;background:#fff;border-radius:8px"></canvas>
+  </div>
+</div>
+<section><h2>Is my link uploaded anywhere?</h2><p>No. The QR code is computed entirely in your browser (open-source MIT library, bundled — no CDN, no tracking). Your text never leaves your device.</p><h2>What does error correction do?</h2><p>QR codes carry redundancy so they scan even when partially covered or damaged. L tolerates ~7% damage, M ~15%, Q ~25%, H ~30%. Higher levels make the code denser — M is the everyday default.</p><h2>Print quality?</h2><p>The PNG is rendered pixel-perfect at your chosen size with a proper quiet zone. For print, pick 1024px.</p></section>
+
+</main>
+<footer class="site-foot">
+  <p>Aporizma — handcrafted small tools that run entirely in your browser. No uploads, no tracking. · <a href="../../privacy/">Privacy</a></p>
+</footer>
+<script src="../../assets/organ.js"></script>
+<script src="../../assets/vendor/qrcode.js"></script>
+<script>window.CELL_STRINGS = {"h1": "QR Code Generator", "lede": "Type a link or any text — the QR code appears instantly. Pick a size, download the PNG. Nothing leaves your browser.", "card_title": "QR Code Generator", "card_desc": "Text or link to QR code, PNG download, in your browser.", "text_label": "Text or URL", "text_ph": "https://example.com", "size_label": "Size", "ecc_label": "Error correction", "ecc_hint": "Higher = more damage-resistant, denser code", "download": "Download PNG", "empty": "Type something to generate a QR code.", "too_long": "Text is too long for a QR code at this correction level."};</script>
+<script src="tool.js"></script>
+</body>
+</html>

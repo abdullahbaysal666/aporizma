@@ -106,7 +106,11 @@ def main() -> None:
                 shutil.copy2(cell_dir / "cell.js", out_dir / "tool.js")
                 ui_strings = {k: v for k, v in s.items()
                               if k not in ("slug", "title", "desc", "faq_html")}
-                script_extra = ("<script>window.CELL_STRINGS = "
+                vendor_tags = "".join(
+                    f'<script src="{root}assets/{v}"></script>\n'
+                    for v in cell.get("vendor", []))
+                script_extra = (vendor_tags
+                                + "<script>window.CELL_STRINGS = "
                                 + json.dumps(ui_strings, ensure_ascii=False)
                                 + ";</script>\n<script src=\"tool.js\"></script>")
 
