@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Merge PDF Files — Free, No Upload, In Your Browser</title>
+<meta name="description" content="Combine multiple PDF files into one, in the order you choose. Runs 100% in your browser — your documents never leave your device. Free, no sign-up.">
+<link rel="stylesheet" href="../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tools/merge-pdf/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/merge-pdf/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/pdf-birlestir/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/merge-pdf/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Merge PDF Files — Free, No Upload, In Your Browser">
+<meta property="og:description" content="Combine multiple PDF files into one, in the order you choose. Runs 100% in your browser — your documents never leave your device. Free, no sign-up.">
+<meta property="og:url" content="https://aporizma.com/tools/merge-pdf/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "PDF Merger", "url": "https://aporizma.com/tools/merge-pdf/", "description": "Combine multiple PDF files into one, in the order you choose. Runs 100% in your browser — your documents never leave your device. Free, no sign-up.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../tr/araclar/pdf-birlestir/" class="lang-switch" rel="alternate" hreflang="tr">Türkçe</a>
+  </nav>
+</header>
+<main>
+<h1>Merge PDF Files</h1>
+<p class="lede">Pick your PDFs, arrange the order, download one combined file. Your documents are processed on your device — nothing is ever uploaded.</p>
+<div class="card stack">
+  <div class="dropzone" id="drop">Drop PDF files here, or click to choose (multiple allowed)</div>
+  <input type="file" id="file" accept="application/pdf,.pdf" multiple hidden>
+  <label class="note" id="listLabel" hidden>Files to merge (drag rows or use arrows to reorder)</label>
+  <ul id="list" style="list-style:none;padding:0;margin:0"></ul>
+  <p class="note" id="status">Add at least two PDF files.</p>
+  <div>
+    <button class="btn" id="merge" disabled>Merge PDFs</button>
+    <button class="btn" id="download" hidden>Download merged PDF</button>
+  </div>
+</div>
+<section><h2>Are my PDFs uploaded?</h2><p>No. Merging happens entirely in your browser using the open-source pdf-lib library (bundled — no CDN). Your documents never touch a server, which makes this safe even for contracts and private files.</p><h2>Any limits?</h2><p>Practical limit is your device's memory — hundreds of pages are fine. Password-protected PDFs can't be read; remove the password first.</p><h2>Does it keep quality?</h2><p>Yes — pages are copied as-is, with no re-compression.</p></section>
+<style>
+#list li { border-top: 1px solid var(--line); padding: 8px 4px; display: flex; align-items: center; gap: 8px; }
+#list .name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#list .meta { color: var(--ink-soft); font-size: .82rem; white-space: nowrap; }
+#list button { padding: 4px 10px; }
+</style>
+
+</main>
+<footer class="site-foot">
+  <p>Aporizma — handcrafted small tools that run entirely in your browser. No uploads, no tracking. · <a href="../../privacy/">Privacy</a></p>
+</footer>
+<script src="../../assets/organ.js"></script>
+<script src="../../assets/vendor/pdf-lib.min.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Merge PDF Files", "lede": "Pick your PDFs, arrange the order, download one combined file. Your documents are processed on your device — nothing is ever uploaded.", "card_title": "PDF Merger", "card_desc": "Combine PDFs into one file, privately on your device.", "drop": "Drop PDF files here, or click to choose (multiple allowed)", "files_label": "Files to merge (drag rows or use arrows to reorder)", "up": "↑", "down": "↓", "remove": "✕", "merge": "Merge PDFs", "working": "Merging…", "done_fmt": "Done: {p} pages from {f} files.", "download": "Download merged PDF", "empty": "Add at least two PDF files.", "invalid_fmt": "Couldn't read {name} — is it a valid (non-encrypted) PDF?"};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

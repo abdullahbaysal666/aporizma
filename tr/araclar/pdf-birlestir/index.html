@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PDF Birleştir — Ücretsiz, Yüklemesiz, Tarayıcıda</title>
+<meta name="description" content="Birden çok PDF dosyasını istediğiniz sırayla tek dosyada birleştirin. %100 tarayıcınızda çalışır — belgeleriniz cihazınızdan çıkmaz. Ücretsiz, üyeliksiz.">
+<link rel="stylesheet" href="../../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tr/araclar/pdf-birlestir/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/merge-pdf/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/pdf-birlestir/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/merge-pdf/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="PDF Birleştir — Ücretsiz, Yüklemesiz, Tarayıcıda">
+<meta property="og:description" content="Birden çok PDF dosyasını istediğiniz sırayla tek dosyada birleştirin. %100 tarayıcınızda çalışır — belgeleriniz cihazınızdan çıkmaz. Ücretsiz, üyeliksiz.">
+<meta property="og:url" content="https://aporizma.com/tr/araclar/pdf-birlestir/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "PDF Birleştirici", "url": "https://aporizma.com/tr/araclar/pdf-birlestir/", "description": "Birden çok PDF dosyasını istediğiniz sırayla tek dosyada birleştirin. %100 tarayıcınızda çalışır — belgeleriniz cihazınızdan çıkmaz. Ücretsiz, üyeliksiz.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "tr", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../../tr/"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../../tools/merge-pdf/" class="lang-switch" rel="alternate" hreflang="en">English</a>
+  </nav>
+</header>
+<main>
+<h1>PDF Birleştir</h1>
+<p class="lede">PDF'lerinizi seçin, sırasını ayarlayın, tek birleşik dosyayı indirin. Belgeleriniz cihazınızda işlenir — hiçbir şey yüklenmez.</p>
+<div class="card stack">
+  <div class="dropzone" id="drop">PDF dosyalarını buraya bırakın ya da tıklayıp seçin (çoklu seçim serbest)</div>
+  <input type="file" id="file" accept="application/pdf,.pdf" multiple hidden>
+  <label class="note" id="listLabel" hidden>Birleştirilecek dosyalar (sıralamak için okları kullanın)</label>
+  <ul id="list" style="list-style:none;padding:0;margin:0"></ul>
+  <p class="note" id="status">En az iki PDF dosyası ekleyin.</p>
+  <div>
+    <button class="btn" id="merge" disabled>PDF'leri Birleştir</button>
+    <button class="btn" id="download" hidden>Birleşik PDF'yi indir</button>
+  </div>
+</div>
+<section><h2>PDF'lerim yükleniyor mu?</h2><p>Hayır. Birleştirme, açık kaynak pdf-lib kütüphanesiyle (siteye gömülü — CDN yok) tamamen tarayıcınızda yapılır. Belgeleriniz hiçbir sunucuya uğramaz — sözleşme gibi özel dosyalar için bile güvenlidir.</p><h2>Sınır var mı?</h2><p>Pratik sınır cihazınızın belleğidir — yüzlerce sayfa sorunsuz. Parola korumalı PDF'ler okunamaz; önce parolayı kaldırın.</p><h2>Kalite korunuyor mu?</h2><p>Evet — sayfalar olduğu gibi kopyalanır, yeniden sıkıştırma yapılmaz.</p></section>
+<style>
+#list li { border-top: 1px solid var(--line); padding: 8px 4px; display: flex; align-items: center; gap: 8px; }
+#list .name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#list .meta { color: var(--ink-soft); font-size: .82rem; white-space: nowrap; }
+#list button { padding: 4px 10px; }
+</style>
+
+</main>
+<footer class="site-foot">
+  <p>Aporizma — tamamen tarayıcınızda çalışan küçük araçlar. Yükleme yok, izleme yok. · <a href="../../../privacy/">Gizlilik</a></p>
+</footer>
+<script src="../../../assets/organ.js"></script>
+<script src="../../../assets/vendor/pdf-lib.min.js"></script>
+<script>window.CELL_STRINGS = {"h1": "PDF Birleştir", "lede": "PDF'lerinizi seçin, sırasını ayarlayın, tek birleşik dosyayı indirin. Belgeleriniz cihazınızda işlenir — hiçbir şey yüklenmez.", "card_title": "PDF Birleştirici", "card_desc": "PDF'leri cihazınızda, gizlice tek dosyada birleştirin.", "drop": "PDF dosyalarını buraya bırakın ya da tıklayıp seçin (çoklu seçim serbest)", "files_label": "Birleştirilecek dosyalar (sıralamak için okları kullanın)", "up": "↑", "down": "↓", "remove": "✕", "merge": "PDF'leri Birleştir", "working": "Birleştiriliyor…", "done_fmt": "Bitti: {f} dosyadan {p} sayfa.", "download": "Birleşik PDF'yi indir", "empty": "En az iki PDF dosyası ekleyin.", "invalid_fmt": "{name} okunamadı — geçerli (şifresiz) bir PDF mi?"};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>
