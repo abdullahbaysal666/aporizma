@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PDF Böl — Sayfa Ayıkla, Ücretsiz ve Yüklemesiz</title>
+<meta name="description" content="PDF'den seçtiğiniz sayfaları veya aralıkları yeni bir dosyaya ayıklayın. %100 tarayıcınızda çalışır — belgeniz cihazınızdan çıkmaz. Ücretsiz, üyeliksiz.">
+<link rel="stylesheet" href="../../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tr/araclar/pdf-bol/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/split-pdf/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/pdf-bol/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/split-pdf/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="PDF Böl — Sayfa Ayıkla, Ücretsiz ve Yüklemesiz">
+<meta property="og:description" content="PDF'den seçtiğiniz sayfaları veya aralıkları yeni bir dosyaya ayıklayın. %100 tarayıcınızda çalışır — belgeniz cihazınızdan çıkmaz. Ücretsiz, üyeliksiz.">
+<meta property="og:url" content="https://aporizma.com/tr/araclar/pdf-bol/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "PDF Bölücü", "url": "https://aporizma.com/tr/araclar/pdf-bol/", "description": "PDF'den seçtiğiniz sayfaları veya aralıkları yeni bir dosyaya ayıklayın. %100 tarayıcınızda çalışır — belgeniz cihazınızdan çıkmaz. Ücretsiz, üyeliksiz.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "tr", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../../tr/"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../../tools/split-pdf/" class="lang-switch" rel="alternate" hreflang="en">English</a>
+  </nav>
+</header>
+<main>
+<h1>PDF Böl — Sayfa Ayıkla</h1>
+<p class="lede">Bir PDF bırakın, istediğiniz sayfaları yazın (örn. 1-3,7), yalnız o sayfalardan oluşan yeni PDF'yi indirin. Hiçbir şey yüklenmez.</p>
+<div class="card stack">
+  <div class="dropzone" id="drop">PDF'yi buraya bırakın ya da tıklayıp seçin</div>
+  <input type="file" id="file" accept="application/pdf,.pdf" hidden>
+  <p class="note" id="status">Başlamak için bir PDF bırakın.</p>
+  <label class="note" for="range">Ayıklanacak sayfalar (örn. 1-3,7 ya da "2'den sona" için 2-)</label>
+  <div style="display:flex;gap:8px;flex-wrap:wrap">
+    <input type="text" id="range" placeholder="1-3,7" style="max-width:220px" disabled>
+    <button class="btn" id="extract" disabled>Sayfaları ayıkla</button>
+    <button class="btn" id="download" hidden>Yeni PDF'yi indir</button>
+  </div>
+</div>
+<section><h2>PDF'im yükleniyor mu?</h2><p>Hayır. Bölme, açık kaynak pdf-lib kütüphanesiyle (siteye gömülü — CDN yok) tamamen tarayıcınızda yapılır. Sözleşme gibi özel belgeler için bile güvenlidir.</p><h2>Aralık yazımı?</h2><p>Virgülle ayrılmış sayfa ve aralıklar: <code>1-3,7,10-12</code>. Açık uçlar da çalışır: <code>5-</code> "5'ten sona", <code>-4</code> "baştan 4'e" demektir. Yazdığınız sıra korunur; <code>7,1</code> yazarsanız 7. sayfa başa gelir.</p><h2>Kalite?</h2><p>Sayfalar olduğu gibi kopyalanır — yeniden sıkıştırma yok, kalite kaybı yok.</p></section>
+
+</main>
+<footer class="site-foot">
+  <p>Aporizma — tamamen tarayıcınızda çalışan küçük araçlar. Yükleme yok, izleme yok. · <a href="../../../privacy/">Gizlilik</a></p>
+</footer>
+<script src="../../../assets/organ.js"></script>
+<script src="../../../assets/vendor/pdf-lib.min.js"></script>
+<script>window.CELL_STRINGS = {"h1": "PDF Böl — Sayfa Ayıkla", "lede": "Bir PDF bırakın, istediğiniz sayfaları yazın (örn. 1-3,7), yalnız o sayfalardan oluşan yeni PDF'yi indirin. Hiçbir şey yüklenmez.", "card_title": "PDF Bölücü", "card_desc": "PDF'den sayfa/aralık ayıklayın, cihazınızda.", "drop": "PDF'yi buraya bırakın ya da tıklayıp seçin", "loaded_fmt": "{name} — {p} sayfa", "range_label": "Ayıklanacak sayfalar (örn. 1-3,7 ya da \"2'den sona\" için 2-)", "range_ph": "1-3,7", "extract": "Sayfaları ayıkla", "working": "Ayıklanıyor…", "done_fmt": "Bitti: {p} sayfa ayıklandı.", "download": "Yeni PDF'yi indir", "empty": "Başlamak için bir PDF bırakın.", "bad_range": "Bu belge için geçersiz sayfa seçimi.", "invalid": "Dosya okunamadı — geçerli (şifresiz) bir PDF mi?"};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

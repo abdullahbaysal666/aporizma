@@ -1,0 +1,14 @@
+<h1>{{s.h1}}</h1>
+<p class="lede">{{s.lede}}</p>
+<div class="card stack">
+  <div class="dropzone" id="drop">{{s.drop}}</div>
+  <input type="file" id="file" accept="application/pdf,.pdf" hidden>
+  <p class="note" id="status">{{s.empty}}</p>
+  <label class="note" for="range">{{s.range_label}}</label>
+  <div style="display:flex;gap:8px;flex-wrap:wrap">
+    <input type="text" id="range" placeholder="{{s.range_ph}}" style="max-width:220px" disabled>
+    <button class="btn" id="extract" disabled>{{s.extract}}</button>
+    <button class="btn" id="download" hidden>{{s.download}}</button>
+  </div>
+</div>
+<section>{{s.faq_html}}</section>
