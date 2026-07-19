@@ -17,6 +17,10 @@ jobs:
       - name: Kalite kapısı (montaj + tests + template/SEO/sitemap checks)
         run: python bakici/kapi.py
 
+      - name: IndexNow ping (Bing/Yandex instant indexing)
+        if: github.event_name == 'push'
+        run: python bakici/indexnow.py
+
       - name: Live pages respond
         if: github.event_name != 'push'
         run: |

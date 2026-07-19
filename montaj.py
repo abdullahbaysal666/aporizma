@@ -49,14 +49,33 @@ def rel_root(slug: str) -> str:
     return "../" * depth
 
 
-def seo_head(en_url: str, tr_url: str, own_url: str) -> str:
-    """Canonical + bilingual hreflang cluster (absolute URLs, EN is x-default)."""
-    return "\n".join([
+def seo_head(en_url: str, tr_url: str, own_url: str,
+             title: str = "", desc: str = "", lang: str = "en",
+             app_name: str = "") -> str:
+    """Canonical + hreflang + OpenGraph/Twitter cards + JSON-LD (distribution layer)."""
+    parts = [
         f'<link rel="canonical" href="{own_url}">',
         f'<link rel="alternate" hreflang="en" href="{en_url}">',
         f'<link rel="alternate" hreflang="tr" href="{tr_url}">',
         f'<link rel="alternate" hreflang="x-default" href="{en_url}">',
-    ])
+        '<meta property="og:site_name" content="Aporizma">',
+        f'<meta property="og:title" content="{title}">',
+        f'<meta property="og:description" content="{desc}">',
+        f'<meta property="og:url" content="{own_url}">',
+        '<meta property="og:type" content="website">',
+        f'<meta property="og:image" content="{BASE}assets/og.png">',
+        '<meta name="twitter:card" content="summary_large_image">',
+    ]
+    if app_name:  # tool pages: schema.org WebApplication for rich results
+        ld = json.dumps({
+            "@context": "https://schema.org", "@type": "WebApplication",
+            "name": app_name, "url": own_url, "description": desc,
+            "applicationCategory": "UtilityApplication", "operatingSystem": "Any",
+            "inLanguage": lang, "isAccessibleForFree": True,
+            "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        }, ensure_ascii=False)
+        parts.append(f'<script type="application/ld+json">{ld}</script>')
+    return "\n".join(parts)
 
 
 def main() -> None:
@@ -103,7 +122,9 @@ def main() -> None:
                 "alt_lang": LANGS[lang]["other"],
                 "alt_label": LANGS[lang]["switch_label"],
                 "privacy_label": LANGS[lang]["privacy_label"],
-                "head_extra": seo_head(en_url, tr_url, BASE + s["slug"] + "/"),
+                "head_extra": seo_head(en_url, tr_url, BASE + s["slug"] + "/",
+                                       title=s["title"], desc=s["desc"], lang=lang,
+                                       app_name=s["card_title"]),
                 "body": stamp_strings(body, s),
                 "foot_line": LANGS[lang]["foot"],
                 "script_extra": script_extra,
@@ -135,7 +156,9 @@ def main() -> None:
             "alt_label": cfg["switch_label"],
             "privacy_label": cfg["privacy_label"],
             "head_extra": seo_head(BASE, BASE + "tr/",
-                                   BASE if lang == "en" else BASE + "tr/"),
+                                   BASE if lang == "en" else BASE + "tr/",
+                                   title=cfg["home_title"], desc=cfg["home_desc"],
+                                   lang=lang),
             "body": body,
             "foot_line": cfg["foot"],
             "script_extra": "",
