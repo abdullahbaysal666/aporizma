@@ -7,6 +7,9 @@
 <meta name="description" content="Aylık LLM API faturanızı tahmin edin; Claude, OpenAI GPT ve Google Gemini fiyatlarını yan yana karşılaştırın. Ücretsiz, anında, tarayıcıda.">
 <link rel="stylesheet" href="../../../assets/organ.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
 <link rel="canonical" href="https://aporizma.com/tr/araclar/llm-api-maliyet-hesaplayici/">
 <link rel="alternate" hreflang="en" href="https://aporizma.com/tools/llm-api-cost-calculator/">
 <link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/llm-api-maliyet-hesaplayici/">
@@ -68,5 +71,10 @@
 <script src="../../../assets/organ.js"></script>
 <script>window.CELL_STRINGS = {"h1": "LLM API Maliyet Hesaplayıcı", "lede": "Tipik istek boyutunuzu ve günlük hacminizi girin — her büyük modelin istek başına ve aylık maliyetini yan yana görün.", "card_title": "LLM API Maliyet Hesaplayıcı", "card_desc": "İş yükünüz için Claude, GPT ve Gemini maliyetlerini karşılaştırın.", "in_label": "İstek başına girdi token'ı", "out_label": "İstek başına çıktı token'ı", "req_label": "Günlük istek sayısı", "th_model": "Model", "th_in": "Girdi $/M", "th_out": "Çıktı $/M", "th_req": "İstek başına", "th_month": "Aylık", "verified": "Fiyatlar 2026-07-19'da resmi sağlayıcı fiyat sayfalarından doğrulandı. Standart katman; önbellek/batch indirimleri hariç."};</script>
 <script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
 </body>
 </html>

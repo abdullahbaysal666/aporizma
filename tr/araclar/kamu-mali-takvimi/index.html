@@ -7,6 +7,9 @@
 <meta name="description" content="Hangi ünlü yazarların eserleri hangi yıl kamu malına giriyor? Yaşam+70 kuralına göre (Türkiye, AB ve çoğu ülke) Kamu Malı Günü'nü yıl yıl inceleyin.">
 <link rel="stylesheet" href="../../../assets/organ.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
 <link rel="canonical" href="https://aporizma.com/tr/araclar/kamu-mali-takvimi/">
 <link rel="alternate" hreflang="en" href="https://aporizma.com/tools/public-domain-day-calendar/">
 <link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/kamu-mali-takvimi/">
@@ -53,5 +56,10 @@
 <script src="../../../assets/organ.js"></script>
 <script>window.CELL_STRINGS = {"h1": "Kamu Malı Takvimi", "lede": "Dünyanın çoğunda bir yazarın eserleri, ölümünden 70 yıl sonra — 1 Ocak'ta — kamu malına girer. Bir yıl seçin; kimin eserlerinin herkese ait olduğunu görün.", "card_title": "Kamu Malı Takvimi", "card_desc": "Hangi yazarlar hangi yıl kamu malına giriyor.", "entered": "1 Ocak itibarıyla kamu malında:", "enters": "1 Ocak'ta kamu malına girecek:", "died": "ölüm", "note_country": "Yaşam+70 kuralına göre (Türkiye, Avrupa Birliği, Birleşik Krallık ve çoğu ülke)."};</script>
 <script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
 </body>
 </html>

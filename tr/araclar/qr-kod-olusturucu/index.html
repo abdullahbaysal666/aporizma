@@ -7,6 +7,9 @@
 <meta name="description" content="Herhangi bir metin veya bağlantıdan QR kod üretin, keskin PNG olarak indirin. Boyut ve hata düzeltme seçenekleri. Tarayıcıda çalışır — hiçbir şey yüklenmez.">
 <link rel="stylesheet" href="../../../assets/organ.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
 <link rel="canonical" href="https://aporizma.com/tr/araclar/qr-kod-olusturucu/">
 <link rel="alternate" hreflang="en" href="https://aporizma.com/tools/qr-code-generator/">
 <link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/qr-kod-olusturucu/">
@@ -65,5 +68,10 @@
 <script src="../../../assets/vendor/qrcode.js"></script>
 <script>window.CELL_STRINGS = {"h1": "QR Kod Oluşturucu", "lede": "Bir bağlantı ya da metin yazın — QR kod anında belirir. Boyutu seçin, PNG'yi indirin. Hiçbir şey tarayıcınızdan çıkmaz.", "card_title": "QR Kod Oluşturucu", "card_desc": "Metin veya bağlantıdan QR kod, PNG indirme, tarayıcıda.", "text_label": "Metin veya URL", "text_ph": "https://ornek.com", "size_label": "Boyut", "ecc_label": "Hata düzeltme", "ecc_hint": "Yüksek = hasara dayanıklı, daha yoğun kod", "download": "PNG İndir", "empty": "QR kod üretmek için bir şey yazın.", "too_long": "Metin bu düzeltme seviyesi için fazla uzun."};</script>
 <script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
 </body>
 </html>

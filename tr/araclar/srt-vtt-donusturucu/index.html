@@ -7,6 +7,9 @@
 <meta name="description" content="SRT altyazıyı WebVTT'ye, VTT'yi SRT'ye anında dönüştürün. %100 tarayıcınızda çalışır — dosyanız cihazınızdan çıkmaz. Ücretsiz, üyeliksiz, filigransız.">
 <link rel="stylesheet" href="../../../assets/organ.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
 <link rel="canonical" href="https://aporizma.com/tr/araclar/srt-vtt-donusturucu/">
 <link rel="alternate" hreflang="en" href="https://aporizma.com/tools/srt-to-vtt-converter/">
 <link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/srt-vtt-donusturucu/">
@@ -52,5 +55,10 @@
 <script src="../../../assets/organ.js"></script>
 <script>window.CELL_STRINGS = {"h1": "SRT ↔ VTT Altyazı Dönüştürücü", "lede": "Altyazı dosyanızı bırakın ya da içeriğini yapıştırın. Biçim otomatik algılanır ve anında dönüştürülür — hiçbir şey hiçbir yere yüklenmez.", "card_title": "SRT ↔ VTT Dönüştürücü", "card_desc": "Altyazı dosyalarını iki yönde, tarayıcınızda gizlice dönüştürün.", "drop": ".srt veya .vtt dosyanızı buraya bırakın ya da tıklayıp seçin", "in_label": "Girdi (otomatik algılanır)", "out_label": "Çıktı", "convert": "Dönüştür", "download": "İndir", "copy": "Kopyala", "copied": "Kopyalandı!", "detected_srt": "Algılandı: SRT → VTT'ye dönüştürülüyor", "detected_vtt": "Algılandı: VTT → SRT'ye dönüştürülüyor", "empty": "Başlamak için altyazı içeriği yapıştırın ya da dosya bırakın.", "invalid": "Bu bir altyazı dosyasına benzemiyor — SRT veya VTT bekleniyor."};</script>
 <script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
 </body>
 </html>

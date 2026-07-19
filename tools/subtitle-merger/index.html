@@ -7,6 +7,9 @@
 <meta name="description" content="Merge two subtitle files into one, sorted by time. Combine SRT and VTT, renumbered automatically. Runs 100% in your browser — free, no sign-up.">
 <link rel="stylesheet" href="../../assets/organ.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
 <link rel="canonical" href="https://aporizma.com/tools/subtitle-merger/">
 <link rel="alternate" hreflang="en" href="https://aporizma.com/tools/subtitle-merger/">
 <link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/altyazi-birlestirici/">
@@ -67,5 +70,10 @@
 <script src="../../assets/organ.js"></script>
 <script>window.CELL_STRINGS = {"h1": "Subtitle Merger", "lede": "Drop two subtitle files — they're combined into one timeline, sorted by start time and renumbered. Output uses the first file's format.", "card_title": "Subtitle Merger", "card_desc": "Combine two SRT/VTT files into one timeline.", "drop_a": "File A: drop .srt/.vtt here, or click", "drop_b": "File B: drop .srt/.vtt here, or click", "in_a": "Subtitle A (sets the output format)", "in_b": "Subtitle B", "out_label": "Merged output", "download": "Download", "copy": "Copy", "copied": "Copied!", "status_fmt": "{n} cues merged — output format: {fmt}", "empty": "Paste or drop both subtitle files to merge.", "invalid": "One of the inputs doesn't look like a valid SRT/VTT subtitle."};</script>
 <script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
 </body>
 </html>

@@ -7,6 +7,9 @@
 <meta name="description" content="Estimate your monthly LLM API bill and compare Claude, OpenAI GPT and Google Gemini prices side by side. Free, instant, runs in your browser.">
 <link rel="stylesheet" href="../../assets/organ.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
 <link rel="canonical" href="https://aporizma.com/tools/llm-api-cost-calculator/">
 <link rel="alternate" hreflang="en" href="https://aporizma.com/tools/llm-api-cost-calculator/">
 <link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/llm-api-maliyet-hesaplayici/">
@@ -68,5 +71,10 @@
 <script src="../../assets/organ.js"></script>
 <script>window.CELL_STRINGS = {"h1": "LLM API Cost Calculator", "lede": "Enter your typical request size and daily volume — see what each major model would cost per request and per month, side by side.", "card_title": "LLM API Cost Calculator", "card_desc": "Compare Claude, GPT and Gemini API costs for your workload.", "in_label": "Input tokens per request", "out_label": "Output tokens per request", "req_label": "Requests per day", "th_model": "Model", "th_in": "Input $/M", "th_out": "Output $/M", "th_req": "Per request", "th_month": "Per month", "verified": "Prices verified 2026-07-19 from official provider pricing pages. Standard tier, no caching/batch discounts."};</script>
 <script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
 </body>
 </html>

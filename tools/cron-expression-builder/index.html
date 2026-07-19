@@ -7,6 +7,9 @@
 <meta name="description" content="Build cron expressions from presets or explain any cron schedule in plain English. Free, instant, runs in your browser — no sign-up.">
 <link rel="stylesheet" href="../../assets/organ.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
 <link rel="canonical" href="https://aporizma.com/tools/cron-expression-builder/">
 <link rel="alternate" hreflang="en" href="https://aporizma.com/tools/cron-expression-builder/">
 <link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/cron-ifade-kurucu/">
@@ -51,5 +54,10 @@
 <script src="../../assets/organ.js"></script>
 <script>window.CELL_STRINGS = {"h1": "Cron Expression Builder", "lede": "Pick a preset or type any cron expression — see what it means in plain language, instantly.", "card_title": "Cron Expression Builder", "card_desc": "Build or decode cron schedules in plain language.", "expr_label": "Cron expression (minute hour day-of-month month day-of-week)", "presets_label": "Common presets", "meaning_label": "Meaning", "copy": "Copy", "copied": "Copied!", "invalid": "Not a valid 5-field cron expression.", "presets": [["*/5 * * * *", "Every 5 minutes"], ["0 * * * *", "Every hour"], ["0 0 * * *", "Every day at midnight"], ["0 9 * * 1-5", "Weekdays at 09:00"], ["0 0 * * 0", "Every Sunday at midnight"], ["0 3 1 * *", "1st of every month at 03:00"]]};</script>
 <script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
 </body>
 </html>

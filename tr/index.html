@@ -7,6 +7,9 @@
 <meta name="description" content="Tamamen tarayıcınızda çalışan ücretsiz araçlar: altyazı, hesaplayıcı, dönüştürücü ve dahası. Yükleme yok, üyelik yok.">
 <link rel="stylesheet" href="../assets/organ.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
 <link rel="canonical" href="https://aporizma.com/tr/">
 <link rel="alternate" hreflang="en" href="https://aporizma.com/">
 <link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/">
@@ -41,5 +44,10 @@
 </footer>
 <script src="../assets/organ.js"></script>
 
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
 </body>
 </html>

@@ -7,6 +7,9 @@
 <meta name="description" content="YouTube başlığınızın ve kapağınızın masaüstü ve telefonda nasıl görüneceğini yayınlamadan önce test edin. Başlık kesilmesini kontrol edin. Ücretsiz.">
 <link rel="stylesheet" href="../../../assets/organ.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
 <link rel="canonical" href="https://aporizma.com/tr/araclar/youtube-baslik-kapak-onizleme/">
 <link rel="alternate" hreflang="en" href="https://aporizma.com/tools/youtube-title-thumbnail-preview/">
 <link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/youtube-baslik-kapak-onizleme/">
@@ -92,5 +95,10 @@
 <script src="../../../assets/organ.js"></script>
 <script>window.CELL_STRINGS = {"h1": "YouTube Başlık ve Kapak Önizleme", "lede": "Başlığınızı yazın, kapağınızı bırakın; kartın masaüstü ana sayfada ve telefonda tam olarak nasıl görüneceğini — başlığın nerede kesileceği dahil — görün.", "card_title": "YouTube Başlık ve Kapak Önizleme", "card_desc": "Yayınlamadan önce kesilme ve okunabilirliği test edin.", "title_label": "Video başlığı", "title_ph": "150 Yıllık Bu Kitap Geleceğinizi Neden Biliyor: Kimsenin Fark Etmediği Fikir", "channel_label": "Kanal adı", "channel_ph": "Ölmeyi Reddedenler", "thumb_label": "Kapak görseli (16:9) — tıkla ya da bırak", "counter_fmt": "{n}/100 karakter — mobil aramada ~{m} görünür", "desktop_h": "Masaüstü ana sayfa", "mobile_h": "Telefon (arama sonucu)", "meta_line": "12 B görüntüleme · 3 gün önce"};</script>
 <script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
 </body>
 </html>

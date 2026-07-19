@@ -7,6 +7,9 @@
 <meta name="description" content="Which famous authors' works enter the public domain each year? Browse Public Domain Day year by year under the life+70 rule (EU, Türkiye and most countries).">
 <link rel="stylesheet" href="../../assets/organ.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
 <link rel="canonical" href="https://aporizma.com/tools/public-domain-day-calendar/">
 <link rel="alternate" hreflang="en" href="https://aporizma.com/tools/public-domain-day-calendar/">
 <link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/kamu-mali-takvimi/">
@@ -53,5 +56,10 @@
 <script src="../../assets/organ.js"></script>
 <script>window.CELL_STRINGS = {"h1": "Public Domain Day Calendar", "lede": "In most of the world, an author's works enter the public domain 70 years after their death — on January 1. Pick a year to see whose works became free for everyone.", "card_title": "Public Domain Day Calendar", "card_desc": "Which authors enter the public domain, year by year.", "entered": "Entered the public domain on January 1,", "enters": "Enter the public domain on January 1,", "died": "died", "note_country": "Under the life+70 rule (European Union, Türkiye, UK and most countries)."};</script>
 <script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
 </body>
 </html>

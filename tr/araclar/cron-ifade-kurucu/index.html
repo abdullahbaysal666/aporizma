@@ -7,6 +7,9 @@
 <meta name="description" content="Hazır kalıplardan cron ifadesi kurun ya da herhangi bir cron zamanlamasını Türkçe açıklamasıyla çözün. Ücretsiz, tarayıcıda, üyeliksiz.">
 <link rel="stylesheet" href="../../../assets/organ.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
 <link rel="canonical" href="https://aporizma.com/tr/araclar/cron-ifade-kurucu/">
 <link rel="alternate" hreflang="en" href="https://aporizma.com/tools/cron-expression-builder/">
 <link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/cron-ifade-kurucu/">
@@ -51,5 +54,10 @@
 <script src="../../../assets/organ.js"></script>
 <script>window.CELL_STRINGS = {"h1": "Cron İfade Kurucu", "lede": "Bir kalıp seçin ya da herhangi bir cron ifadesi yazın — ne anlama geldiğini anında Türkçe görün.", "card_title": "Cron İfade Kurucu", "card_desc": "Cron zamanlamalarını kurun ya da Türkçe çözün.", "expr_label": "Cron ifadesi (dakika saat ayın-günü ay haftanın-günü)", "presets_label": "Sık kullanılan kalıplar", "meaning_label": "Anlamı", "copy": "Kopyala", "copied": "Kopyalandı!", "invalid": "Geçerli bir 5 alanlı cron ifadesi değil.", "presets": [["*/5 * * * *", "5 dakikada bir"], ["0 * * * *", "Saat başı"], ["0 0 * * *", "Her gün gece yarısı"], ["0 9 * * 1-5", "Hafta içi 09:00"], ["0 0 * * 0", "Her Pazar gece yarısı"], ["0 3 1 * *", "Her ayın 1'i saat 03:00"]]};</script>
 <script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
 </body>
 </html>

@@ -7,6 +7,9 @@
 <meta name="description" content="Subtitles out of sync? Shift SRT or VTT timing forward or backward by any amount of seconds. Runs 100% in your browser — free, private, no sign-up.">
 <link rel="stylesheet" href="../../assets/organ.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
 <link rel="canonical" href="https://aporizma.com/tools/subtitle-sync-shifter/">
 <link rel="alternate" hreflang="en" href="https://aporizma.com/tools/subtitle-sync-shifter/">
 <link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/altyazi-senkron-kaydirici/">
@@ -54,5 +57,10 @@
 <script src="../../assets/organ.js"></script>
 <script>window.CELL_STRINGS = {"h1": "Subtitle Sync Shifter", "lede": "Drop your subtitle file, enter how many seconds it's off, and download the fixed file. Works with SRT and VTT — nothing is uploaded anywhere.", "card_title": "Subtitle Sync Shifter", "card_desc": "Fix out-of-sync SRT/VTT timing by shifting all cues.", "drop": "Drop your .srt or .vtt file here, or click to choose", "in_label": "Input (auto-detected)", "out_label": "Output (shifted)", "offset_label": "Shift by seconds (negative = earlier, e.g. -2.5)", "download": "Download", "copy": "Copy", "copied": "Copied!", "status_fmt": "Detected: {fmt} — shifted {n} cues by {s}s", "empty": "Paste subtitle content or drop a file to begin.", "invalid": "This doesn't look like a subtitle file — expected SRT or VTT cues."};</script>
 <script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
 </body>
 </html>

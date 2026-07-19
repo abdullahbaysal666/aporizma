@@ -7,6 +7,9 @@
 <meta name="description" content="Convert SRT subtitles to WebVTT or VTT back to SRT instantly. Runs 100% in your browser — files never leave your device. Free, no sign-up, no watermark.">
 <link rel="stylesheet" href="../../assets/organ.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
 <link rel="canonical" href="https://aporizma.com/tools/srt-to-vtt-converter/">
 <link rel="alternate" hreflang="en" href="https://aporizma.com/tools/srt-to-vtt-converter/">
 <link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/srt-vtt-donusturucu/">
@@ -52,5 +55,10 @@
 <script src="../../assets/organ.js"></script>
 <script>window.CELL_STRINGS = {"h1": "SRT ↔ VTT Subtitle Converter", "lede": "Drop a subtitle file or paste its contents. The format is detected automatically and converted instantly — nothing is uploaded anywhere.", "card_title": "SRT ↔ VTT Converter", "card_desc": "Convert subtitle files both ways, privately in your browser.", "drop": "Drop your .srt or .vtt file here, or click to choose", "in_label": "Input (auto-detected)", "out_label": "Output", "convert": "Convert", "download": "Download", "copy": "Copy", "copied": "Copied!", "detected_srt": "Detected: SRT → converting to VTT", "detected_vtt": "Detected: VTT → converting to SRT", "empty": "Paste subtitle content or drop a file to begin.", "invalid": "This doesn't look like a subtitle file — expected SRT or VTT cues."};</script>
 <script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
 </body>
 </html>

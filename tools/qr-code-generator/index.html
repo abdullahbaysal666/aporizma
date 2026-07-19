@@ -7,6 +7,9 @@
 <meta name="description" content="Generate a QR code from any text or link and download it as a sharp PNG. Size and error-correction options. Runs in your browser — nothing is uploaded.">
 <link rel="stylesheet" href="../../assets/organ.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
 <link rel="canonical" href="https://aporizma.com/tools/qr-code-generator/">
 <link rel="alternate" hreflang="en" href="https://aporizma.com/tools/qr-code-generator/">
 <link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/qr-kod-olusturucu/">
@@ -65,5 +68,10 @@
 <script src="../../assets/vendor/qrcode.js"></script>
 <script>window.CELL_STRINGS = {"h1": "QR Code Generator", "lede": "Type a link or any text — the QR code appears instantly. Pick a size, download the PNG. Nothing leaves your browser.", "card_title": "QR Code Generator", "card_desc": "Text or link to QR code, PNG download, in your browser.", "text_label": "Text or URL", "text_ph": "https://example.com", "size_label": "Size", "ecc_label": "Error correction", "ecc_hint": "Higher = more damage-resistant, denser code", "download": "Download PNG", "empty": "Type something to generate a QR code.", "too_long": "Text is too long for a QR code at this correction level."};</script>
 <script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
 </body>
 </html>
