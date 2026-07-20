@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resize & Compress Images — Free, No Upload</title>
+<meta name="description" content="Resize images and compress to JPEG or WebP with a quality slider — entirely in your browser. Your photos never leave your device. Free, no sign-up.">
+<link rel="stylesheet" href="../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tools/image-resize-compress/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/image-resize-compress/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/resim-kucult-sikistir/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/image-resize-compress/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Resize & Compress Images — Free, No Upload">
+<meta property="og:description" content="Resize images and compress to JPEG or WebP with a quality slider — entirely in your browser. Your photos never leave your device. Free, no sign-up.">
+<meta property="og:url" content="https://aporizma.com/tools/image-resize-compress/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Image Resizer & Compressor", "url": "https://aporizma.com/tools/image-resize-compress/", "description": "Resize images and compress to JPEG or WebP with a quality slider — entirely in your browser. Your photos never leave your device. Free, no sign-up.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../tr/araclar/resim-kucult-sikistir/" class="lang-switch" rel="alternate" hreflang="tr">Türkçe</a>
+  </nav>
+</header>
+<main>
+<h1>Resize & Compress Images</h1>
+<p class="lede">Drop an image, set a maximum size and quality, download the smaller file. Everything happens on your device — nothing is uploaded.</p>
+<div class="card stack">
+  <div class="dropzone" id="drop">Drop an image here, or click to choose (JPG, PNG, WebP)</div>
+  <input type="file" id="file" accept="image/*" hidden>
+  <p class="note" id="status">Drop an image to begin.</p>
+  <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:end">
+    <div><label class="note" for="maxw">Max width (px)</label>
+      <select id="maxw" style="width:auto">
+        <option value="640">640</option>
+        <option value="1080">1080</option>
+        <option value="1600" selected>1600</option>
+        <option value="1920">1920</option>
+        <option value="2560">2560</option>
+      </select></div>
+    <div><label class="note" for="quality">Quality: <span id="qval">80</span>%</label><br>
+      <input type="range" id="quality" min="30" max="95" value="80" style="width:160px"></div>
+    <div><label class="note" for="format">Output</label>
+      <select id="format" style="width:auto">
+        <option value="image/webp" selected>WebP</option>
+        <option value="image/jpeg">JPEG</option>
+      </select></div>
+    <button class="btn" id="go" disabled>Resize & compress</button>
+    <button class="btn" id="download" hidden>Download</button>
+  </div>
+  <div style="display:flex;justify-content:center;padding:8px">
+    <canvas id="preview" style="max-width:min(340px,100%);height:auto;border-radius:8px;display:none"></canvas>
+  </div>
+</div>
+<section><h2>Is my photo uploaded?</h2><p>No. Resizing uses your browser's canvas — the image never leaves your device. Safe for private photos and documents.</p><h2>JPEG or WebP?</h2><p>WebP is typically 25–35% smaller at the same visual quality and works everywhere modern. Choose JPEG only if the file must open in very old software.</p><h2>Does it keep proportions?</h2><p>Yes — the image is scaled to fit your maximum width, keeping the aspect ratio. Images already smaller than the limit are only re-compressed, never enlarged.</p></section>
+
+</main>
+<footer class="site-foot">
+  <p>Aporizma — handcrafted small tools that run entirely in your browser. No uploads, no tracking. · <a href="../../about/">About</a> · <a href="../../privacy/">Privacy</a></p>
+</footer>
+<script src="../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Resize & Compress Images", "lede": "Drop an image, set a maximum size and quality, download the smaller file. Everything happens on your device — nothing is uploaded.", "card_title": "Image Resizer & Compressor", "card_desc": "Shrink photos to JPEG/WebP, privately on your device.", "drop": "Drop an image here, or click to choose (JPG, PNG, WebP)", "maxw_label": "Max width (px)", "quality_label": "Quality", "format_label": "Output", "resize": "Resize & compress", "download": "Download", "loaded_fmt": "{name} — {w}×{h}, {size}", "done_fmt": "{w}×{h}, {size} ({pct}% of original)", "empty": "Drop an image to begin.", "invalid": "Couldn't read this file — is it a valid image?"};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>
