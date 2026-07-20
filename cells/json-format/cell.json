@@ -1,0 +1,42 @@
+{
+  "id": "json-format",
+  "category": "dev",
+  "en": {
+    "slug": "tools/json-formatter",
+    "title": "JSON Formatter & Validator — Free, Private",
+    "desc": "Format, validate and minify JSON with exact error line and column. Runs entirely in your browser — your data never leaves your device. Free, no limits.",
+    "h1": "JSON Formatter & Validator",
+    "lede": "Paste JSON, get it pretty-printed or minified — with the exact line and column when something's broken. Everything stays on your device.",
+    "card_title": "JSON Formatter",
+    "card_desc": "Format, validate & minify JSON with exact error location.",
+    "input_ph": "Paste JSON here…",
+    "format": "Format",
+    "minify": "Minify",
+    "indent_label": "Indent",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "ok_fmt": "Valid JSON — {chars} characters",
+    "err_fmt": "Line {line}, column {col}: {msg}",
+    "empty": "Paste JSON to begin.",
+    "faq_html": "<h2>Is my JSON uploaded anywhere?</h2><p>No. Parsing runs in your browser with the built-in JSON engine — nothing is sent, logged or stored. Safe for API keys, customer data and internal payloads.</p><h2>Why do I get an error at a specific line?</h2><p>The validator reports the exact line and column where parsing failed — usually a trailing comma, a missing quote, or single quotes instead of double quotes.</p><h2>What's the size limit?</h2><p>There is no hard limit; files of several megabytes format instantly since nothing travels over the network.</p>"
+  },
+  "tr": {
+    "slug": "tr/araclar/json-duzenle",
+    "title": "JSON Formatlayıcı ve Doğrulayıcı — Ücretsiz, Gizli",
+    "desc": "JSON'u tam hata satırı ve sütunuyla formatlayın, doğrulayın, sıkıştırın. Tamamen tarayıcınızda çalışır — veriniz cihazınızdan çıkmaz. Ücretsiz, sınırsız.",
+    "h1": "JSON Formatlayıcı ve Doğrulayıcı",
+    "lede": "JSON yapıştırın; güzelce girintilenmiş ya da sıkıştırılmış halini alın — bozuksa tam satır ve sütun bilgisiyle. Her şey cihazınızda kalır.",
+    "card_title": "JSON Formatlayıcı",
+    "card_desc": "JSON formatla, doğrula, sıkıştır — tam hata konumuyla.",
+    "input_ph": "JSON'u buraya yapıştırın…",
+    "format": "Formatla",
+    "minify": "Sıkıştır",
+    "indent_label": "Girinti",
+    "copy": "Kopyala",
+    "copied": "Kopyalandı!",
+    "ok_fmt": "Geçerli JSON — {chars} karakter",
+    "err_fmt": "Satır {line}, sütun {col}: {msg}",
+    "empty": "Başlamak için JSON yapıştırın.",
+    "faq_html": "<h2>JSON'um bir yere yükleniyor mu?</h2><p>Hayır. Ayrıştırma, tarayıcının yerleşik JSON motoruyla cihazınızda çalışır — hiçbir şey gönderilmez, kaydedilmez. API anahtarları ve müşteri verisi için güvenlidir.</p><h2>Hata neden belirli bir satırda gösteriliyor?</h2><p>Doğrulayıcı, ayrıştırmanın başarısız olduğu tam satır ve sütunu bildirir — genelde fazladan virgül, eksik tırnak ya da çift yerine tek tırnak.</p><h2>Boyut sınırı var mı?</h2><p>Sabit bir sınır yok; ağ üzerinden hiçbir şey gitmediği için birkaç megabaytlık dosyalar bile anında formatlanır.</p>"
+  }
+}

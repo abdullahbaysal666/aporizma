@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JSON Formatlayıcı ve Doğrulayıcı — Ücretsiz, Gizli</title>
+<meta name="description" content="JSON'u tam hata satırı ve sütunuyla formatlayın, doğrulayın, sıkıştırın. Tamamen tarayıcınızda çalışır — veriniz cihazınızdan çıkmaz. Ücretsiz, sınırsız.">
+<link rel="stylesheet" href="../../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tr/araclar/json-duzenle/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/json-formatter/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/json-duzenle/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/json-formatter/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="JSON Formatlayıcı ve Doğrulayıcı — Ücretsiz, Gizli">
+<meta property="og:description" content="JSON'u tam hata satırı ve sütunuyla formatlayın, doğrulayın, sıkıştırın. Tamamen tarayıcınızda çalışır — veriniz cihazınızdan çıkmaz. Ücretsiz, sınırsız.">
+<meta property="og:url" content="https://aporizma.com/tr/araclar/json-duzenle/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "JSON Formatlayıcı", "url": "https://aporizma.com/tr/araclar/json-duzenle/", "description": "JSON'u tam hata satırı ve sütunuyla formatlayın, doğrulayın, sıkıştırın. Tamamen tarayıcınızda çalışır — veriniz cihazınızdan çıkmaz. Ücretsiz, sınırsız.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "tr", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "tr", "mainEntity": [{"@type": "Question", "name": "JSON'um bir yere yükleniyor mu?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır. Ayrıştırma, tarayıcının yerleşik JSON motoruyla cihazınızda çalışır — hiçbir şey gönderilmez, kaydedilmez. API anahtarları ve müşteri verisi için güvenlidir."}}, {"@type": "Question", "name": "Hata neden belirli bir satırda gösteriliyor?", "acceptedAnswer": {"@type": "Answer", "text": "Doğrulayıcı, ayrıştırmanın başarısız olduğu tam satır ve sütunu bildirir — genelde fazladan virgül, eksik tırnak ya da çift yerine tek tırnak."}}, {"@type": "Question", "name": "Boyut sınırı var mı?", "acceptedAnswer": {"@type": "Answer", "text": "Sabit bir sınır yok; ağ üzerinden hiçbir şey gitmediği için birkaç megabaytlık dosyalar bile anında formatlanır."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../../tr/"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../../tools/json-formatter/" class="lang-switch" rel="alternate" hreflang="en">English</a>
+  </nav>
+</header>
+<main>
+<h1>JSON Formatlayıcı ve Doğrulayıcı</h1>
+<p class="lede">JSON yapıştırın; güzelce girintilenmiş ya da sıkıştırılmış halini alın — bozuksa tam satır ve sütun bilgisiyle. Her şey cihazınızda kalır.</p>
+<div class="card stack">
+  <textarea id="input" rows="10" placeholder="JSON'u buraya yapıştırın…" spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.95rem"></textarea>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+    <button class="btn" id="format">Formatla</button>
+    <button class="btn" id="minify">Sıkıştır</button>
+    <label class="note" for="indent">Girinti</label>
+    <select id="indent" style="width:auto">
+      <option value="2" selected>2</option>
+      <option value="4">4</option>
+      <option value="tab">Tab</option>
+    </select>
+    <button class="btn" id="copy" hidden>Kopyala</button>
+  </div>
+  <p class="note" id="status">Başlamak için JSON yapıştırın.</p>
+  <textarea id="output" rows="14" readonly spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.95rem"></textarea>
+</div>
+<section><h2>JSON'um bir yere yükleniyor mu?</h2><p>Hayır. Ayrıştırma, tarayıcının yerleşik JSON motoruyla cihazınızda çalışır — hiçbir şey gönderilmez, kaydedilmez. API anahtarları ve müşteri verisi için güvenlidir.</p><h2>Hata neden belirli bir satırda gösteriliyor?</h2><p>Doğrulayıcı, ayrıştırmanın başarısız olduğu tam satır ve sütunu bildirir — genelde fazladan virgül, eksik tırnak ya da çift yerine tek tırnak.</p><h2>Boyut sınırı var mı?</h2><p>Sabit bir sınır yok; ağ üzerinden hiçbir şey gitmediği için birkaç megabaytlık dosyalar bile anında formatlanır.</p></section>
+
+</main>
+<footer class="site-foot">
+  <p>Aporizma — tamamen tarayıcınızda çalışan küçük araçlar. Yükleme yok, izleme yok. · <a href="../../../about/">Hakkında</a> · <a href="../../../privacy/">Gizlilik</a></p>
+</footer>
+<script src="../../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "JSON Formatlayıcı ve Doğrulayıcı", "lede": "JSON yapıştırın; güzelce girintilenmiş ya da sıkıştırılmış halini alın — bozuksa tam satır ve sütun bilgisiyle. Her şey cihazınızda kalır.", "card_title": "JSON Formatlayıcı", "card_desc": "JSON formatla, doğrula, sıkıştır — tam hata konumuyla.", "input_ph": "JSON'u buraya yapıştırın…", "format": "Formatla", "minify": "Sıkıştır", "indent_label": "Girinti", "copy": "Kopyala", "copied": "Kopyalandı!", "ok_fmt": "Geçerli JSON — {chars} karakter", "err_fmt": "Satır {line}, sütun {col}: {msg}", "empty": "Başlamak için JSON yapıştırın."};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

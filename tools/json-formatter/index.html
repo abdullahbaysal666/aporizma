@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JSON Formatter & Validator — Free, Private</title>
+<meta name="description" content="Format, validate and minify JSON with exact error line and column. Runs entirely in your browser — your data never leaves your device. Free, no limits.">
+<link rel="stylesheet" href="../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tools/json-formatter/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/json-formatter/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/json-duzenle/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/json-formatter/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="JSON Formatter & Validator — Free, Private">
+<meta property="og:description" content="Format, validate and minify JSON with exact error line and column. Runs entirely in your browser — your data never leaves your device. Free, no limits.">
+<meta property="og:url" content="https://aporizma.com/tools/json-formatter/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "JSON Formatter", "url": "https://aporizma.com/tools/json-formatter/", "description": "Format, validate and minify JSON with exact error line and column. Runs entirely in your browser — your data never leaves your device. Free, no limits.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "Is my JSON uploaded anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. Parsing runs in your browser with the built-in JSON engine — nothing is sent, logged or stored. Safe for API keys, customer data and internal payloads."}}, {"@type": "Question", "name": "Why do I get an error at a specific line?", "acceptedAnswer": {"@type": "Answer", "text": "The validator reports the exact line and column where parsing failed — usually a trailing comma, a missing quote, or single quotes instead of double quotes."}}, {"@type": "Question", "name": "What's the size limit?", "acceptedAnswer": {"@type": "Answer", "text": "There is no hard limit; files of several megabytes format instantly since nothing travels over the network."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../tr/araclar/json-duzenle/" class="lang-switch" rel="alternate" hreflang="tr">Türkçe</a>
+  </nav>
+</header>
+<main>
+<h1>JSON Formatter & Validator</h1>
+<p class="lede">Paste JSON, get it pretty-printed or minified — with the exact line and column when something's broken. Everything stays on your device.</p>
+<div class="card stack">
+  <textarea id="input" rows="10" placeholder="Paste JSON here…" spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.95rem"></textarea>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+    <button class="btn" id="format">Format</button>
+    <button class="btn" id="minify">Minify</button>
+    <label class="note" for="indent">Indent</label>
+    <select id="indent" style="width:auto">
+      <option value="2" selected>2</option>
+      <option value="4">4</option>
+      <option value="tab">Tab</option>
+    </select>
+    <button class="btn" id="copy" hidden>Copy</button>
+  </div>
+  <p class="note" id="status">Paste JSON to begin.</p>
+  <textarea id="output" rows="14" readonly spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.95rem"></textarea>
+</div>
+<section><h2>Is my JSON uploaded anywhere?</h2><p>No. Parsing runs in your browser with the built-in JSON engine — nothing is sent, logged or stored. Safe for API keys, customer data and internal payloads.</p><h2>Why do I get an error at a specific line?</h2><p>The validator reports the exact line and column where parsing failed — usually a trailing comma, a missing quote, or single quotes instead of double quotes.</p><h2>What's the size limit?</h2><p>There is no hard limit; files of several megabytes format instantly since nothing travels over the network.</p></section>
+
+</main>
+<footer class="site-foot">
+  <p>Aporizma — handcrafted small tools that run entirely in your browser. No uploads, no tracking. · <a href="../../about/">About</a> · <a href="../../privacy/">Privacy</a></p>
+</footer>
+<script src="../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "JSON Formatter & Validator", "lede": "Paste JSON, get it pretty-printed or minified — with the exact line and column when something's broken. Everything stays on your device.", "card_title": "JSON Formatter", "card_desc": "Format, validate & minify JSON with exact error location.", "input_ph": "Paste JSON here…", "format": "Format", "minify": "Minify", "indent_label": "Indent", "copy": "Copy", "copied": "Copied!", "ok_fmt": "Valid JSON — {chars} characters", "err_fmt": "Line {line}, column {col}: {msg}", "empty": "Paste JSON to begin."};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<h1>{{s.h1}}</h1>
+<p class="lede">{{s.lede}}</p>
+<div class="card stack">
+  <textarea id="input" rows="10" placeholder="{{s.input_ph}}" spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.95rem"></textarea>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+    <button class="btn" id="format">{{s.format}}</button>
+    <button class="btn" id="minify">{{s.minify}}</button>
+    <label class="note" for="indent">{{s.indent_label}}</label>
+    <select id="indent" style="width:auto">
+      <option value="2" selected>2</option>
+      <option value="4">4</option>
+      <option value="tab">Tab</option>
+    </select>
+    <button class="btn" id="copy" hidden>{{s.copy}}</button>
+  </div>
+  <p class="note" id="status">{{s.empty}}</p>
+  <textarea id="output" rows="14" readonly spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.95rem"></textarea>
+</div>
+<section>{{s.faq_html}}</section>
