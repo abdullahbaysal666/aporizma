@@ -1,0 +1,20 @@
+<h1>{{s.h1}}</h1>
+<p class="lede">{{s.lede}}</p>
+<div class="card stack">
+  <div style="display:flex;gap:10px;align-items:center">
+    <output id="pw" style="flex:1;font-family:ui-monospace,Consolas,monospace;font-size:1.25rem;word-break:break-all;min-height:1.6em;padding:10px;border-radius:8px;background:var(--surface-2,rgba(127,127,127,.08))"></output>
+    <button class="btn" id="copy">{{s.copy}}</button>
+  </div>
+  <p class="note" id="strength"></p>
+  <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center">
+    <label class="note" for="len">{{s.length_label}}: <b id="lenval">20</b></label>
+    <input type="range" id="len" min="8" max="64" value="20" style="width:180px">
+    <label class="note"><input type="checkbox" id="lower" checked> {{s.lower_label}}</label>
+    <label class="note"><input type="checkbox" id="upper" checked> {{s.upper_label}}</label>
+    <label class="note"><input type="checkbox" id="digits" checked> {{s.digits_label}}</label>
+    <label class="note"><input type="checkbox" id="symbols" checked> {{s.symbols_label}}</label>
+    <label class="note"><input type="checkbox" id="ambiguous" checked> {{s.ambiguous_label}}</label>
+    <button class="btn" id="generate">{{s.generate}}</button>
+  </div>
+</div>
+<section>{{s.faq_html}}</section>

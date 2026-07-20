@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Strong Password Generator — Free & Offline</title>
+<meta name="description" content="Generate strong random passwords with real cryptographic randomness — length, symbols, no lookalikes. Runs offline in your browser; nothing is sent anywhere.">
+<link rel="stylesheet" href="../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tools/password-generator/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/password-generator/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/sifre-uretici/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/password-generator/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Strong Password Generator — Free & Offline">
+<meta property="og:description" content="Generate strong random passwords with real cryptographic randomness — length, symbols, no lookalikes. Runs offline in your browser; nothing is sent anywhere.">
+<meta property="og:url" content="https://aporizma.com/tools/password-generator/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Password Generator", "url": "https://aporizma.com/tools/password-generator/", "description": "Generate strong random passwords with real cryptographic randomness — length, symbols, no lookalikes. Runs offline in your browser; nothing is sent anywhere.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "Is it safe to generate passwords online?", "acceptedAnswer": {"@type": "Answer", "text": "Here, yes: this page uses your browser's crypto.getRandomValues — the same randomness source password managers use — and runs entirely on your device. No network request carries your password; you can even load the page, go offline, and then generate."}}, {"@type": "Question", "name": "How long should a password be?", "acceptedAnswer": {"@type": "Answer", "text": "16+ characters with mixed sets is strong for most accounts; 20+ for anything critical. Length beats complexity: each extra character multiplies the search space."}}, {"@type": "Question", "name": "What does the entropy number mean?", "acceptedAnswer": {"@type": "Answer", "text": "Bits of entropy measure how many guesses an attacker needs — each bit doubles it. 60+ bits is a practical minimum; 80+ is excellent."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../tr/araclar/sifre-uretici/" class="lang-switch" rel="alternate" hreflang="tr">Türkçe</a>
+  </nav>
+</header>
+<main>
+<h1>Password Generator</h1>
+<p class="lede">Cryptographically secure random passwords, generated on your device. Nothing is sent or stored — refresh and it's gone.</p>
+<div class="card stack">
+  <div style="display:flex;gap:10px;align-items:center">
+    <output id="pw" style="flex:1;font-family:ui-monospace,Consolas,monospace;font-size:1.25rem;word-break:break-all;min-height:1.6em;padding:10px;border-radius:8px;background:var(--surface-2,rgba(127,127,127,.08))"></output>
+    <button class="btn" id="copy">Copy</button>
+  </div>
+  <p class="note" id="strength"></p>
+  <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center">
+    <label class="note" for="len">Length: <b id="lenval">20</b></label>
+    <input type="range" id="len" min="8" max="64" value="20" style="width:180px">
+    <label class="note"><input type="checkbox" id="lower" checked> Lowercase (abc)</label>
+    <label class="note"><input type="checkbox" id="upper" checked> Uppercase (ABC)</label>
+    <label class="note"><input type="checkbox" id="digits" checked> Digits (123)</label>
+    <label class="note"><input type="checkbox" id="symbols" checked> Symbols (!#%)</label>
+    <label class="note"><input type="checkbox" id="ambiguous" checked> Avoid lookalikes (0O1lI)</label>
+    <button class="btn" id="generate">Generate</button>
+  </div>
+</div>
+<section><h2>Is it safe to generate passwords online?</h2><p>Here, yes: this page uses your browser's crypto.getRandomValues — the same randomness source password managers use — and runs entirely on your device. No network request carries your password; you can even load the page, go offline, and then generate.</p><h2>How long should a password be?</h2><p>16+ characters with mixed sets is strong for most accounts; 20+ for anything critical. Length beats complexity: each extra character multiplies the search space.</p><h2>What does the entropy number mean?</h2><p>Bits of entropy measure how many guesses an attacker needs — each bit doubles it. 60+ bits is a practical minimum; 80+ is excellent.</p></section>
+
+</main>
+<footer class="site-foot">
+  <p>Aporizma — handcrafted small tools that run entirely in your browser. No uploads, no tracking. · <a href="../../about/">About</a> · <a href="../../privacy/">Privacy</a></p>
+</footer>
+<script src="../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Password Generator", "lede": "Cryptographically secure random passwords, generated on your device. Nothing is sent or stored — refresh and it's gone.", "card_title": "Password Generator", "card_desc": "Strong random passwords, generated offline on your device.", "length_label": "Length", "lower_label": "Lowercase (abc)", "upper_label": "Uppercase (ABC)", "digits_label": "Digits (123)", "symbols_label": "Symbols (!#%)", "ambiguous_label": "Avoid lookalikes (0O1lI)", "generate": "Generate", "copy": "Copy", "copied": "Copied!", "strength_fmt": "{bits} bits of entropy — {verdict}", "v_weak": "weak", "v_fair": "fair", "v_strong": "strong", "v_excellent": "excellent", "no_sets": "Pick at least one character set."};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

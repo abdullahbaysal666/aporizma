@@ -49,9 +49,27 @@ def rel_root(slug: str) -> str:
     return "../" * depth
 
 
+def faq_ld(faq_html: str, lang: str) -> dict | None:
+    """Parse the cell's <h2>Q</h2><p>A</p> FAQ into schema.org FAQPage —
+    Google's FAQ rich results give tool pages extra SERP real estate."""
+    pairs = re.findall(r"<h2>(.*?)</h2>\s*<p>(.*?)</p>", faq_html, re.S)
+    strip = lambda h: re.sub(r"<[^>]+>", "", h).strip()
+    qa = [(strip(q), strip(a)) for q, a in pairs if strip(q) and strip(a)]
+    if not qa:
+        return None
+    return {
+        "@context": "https://schema.org", "@type": "FAQPage",
+        "inLanguage": lang,
+        "mainEntity": [{
+            "@type": "Question", "name": q,
+            "acceptedAnswer": {"@type": "Answer", "text": a},
+        } for q, a in qa],
+    }
+
+
 def seo_head(en_url: str, tr_url: str, own_url: str,
              title: str = "", desc: str = "", lang: str = "en",
-             app_name: str = "") -> str:
+             app_name: str = "", faq_html: str = "") -> str:
     """Canonical + hreflang + OpenGraph/Twitter cards + JSON-LD (distribution layer)."""
     parts = [
         f'<link rel="canonical" href="{own_url}">',
@@ -75,6 +93,11 @@ def seo_head(en_url: str, tr_url: str, own_url: str,
             "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
         }, ensure_ascii=False)
         parts.append(f'<script type="application/ld+json">{ld}</script>')
+    if faq_html:
+        faq = faq_ld(faq_html, lang)
+        if faq:
+            parts.append('<script type="application/ld+json">'
+                         + json.dumps(faq, ensure_ascii=False) + "</script>")
     return "\n".join(parts)
 
 
@@ -129,7 +152,8 @@ def main() -> None:
                 "about_label": LANGS[lang]["about_label"],
                 "head_extra": seo_head(en_url, tr_url, BASE + s["slug"] + "/",
                                        title=s["title"], desc=s["desc"], lang=lang,
-                                       app_name=s["card_title"]),
+                                       app_name=s["card_title"],
+                                       faq_html=s.get("faq_html", "")),
                 "body": stamp_strings(body, s),
                 "foot_line": LANGS[lang]["foot"],
                 "script_extra": script_extra,

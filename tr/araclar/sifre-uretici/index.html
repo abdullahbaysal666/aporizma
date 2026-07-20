@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Güçlü Şifre Üretici — Ücretsiz, Çevrimdışı</title>
+<meta name="description" content="Gerçek kriptografik rastgelelikle güçlü şifreler üretin — uzunluk, semboller, benzer karakter eleme. Tarayıcınızda çevrimdışı çalışır; hiçbir yere gönderilmez.">
+<link rel="stylesheet" href="../../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tr/araclar/sifre-uretici/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/password-generator/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/sifre-uretici/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/password-generator/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Güçlü Şifre Üretici — Ücretsiz, Çevrimdışı">
+<meta property="og:description" content="Gerçek kriptografik rastgelelikle güçlü şifreler üretin — uzunluk, semboller, benzer karakter eleme. Tarayıcınızda çevrimdışı çalışır; hiçbir yere gönderilmez.">
+<meta property="og:url" content="https://aporizma.com/tr/araclar/sifre-uretici/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Şifre Üretici", "url": "https://aporizma.com/tr/araclar/sifre-uretici/", "description": "Gerçek kriptografik rastgelelikle güçlü şifreler üretin — uzunluk, semboller, benzer karakter eleme. Tarayıcınızda çevrimdışı çalışır; hiçbir yere gönderilmez.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "tr", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "tr", "mainEntity": [{"@type": "Question", "name": "İnternette şifre üretmek güvenli mi?", "acceptedAnswer": {"@type": "Answer", "text": "Burada evet: bu sayfa, şifre yöneticilerinin de kullandığı rastgelelik kaynağı olan tarayıcının crypto.getRandomValues API'sini kullanır ve tamamen cihazınızda çalışır. Hiçbir ağ isteği şifrenizi taşımaz; sayfayı açıp internetinizi kapatarak bile üretebilirsiniz."}}, {"@type": "Question", "name": "Şifre ne kadar uzun olmalı?", "acceptedAnswer": {"@type": "Answer", "text": "Çoğu hesap için karışık kümelerle 16+ karakter güçlüdür; kritik hesaplarda 20+. Uzunluk karmaşıklıktan önemlidir: her ek karakter arama uzayını katlar."}}, {"@type": "Question", "name": "Entropi sayısı ne demek?", "acceptedAnswer": {"@type": "Answer", "text": "Bit cinsinden entropi, saldırganın kaç deneme yapması gerektiğini ölçer — her bit sayıyı ikiye katlar. 60+ bit pratik alt sınırdır; 80+ mükemmeldir."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../../tr/"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../../tools/password-generator/" class="lang-switch" rel="alternate" hreflang="en">English</a>
+  </nav>
+</header>
+<main>
+<h1>Şifre Üretici</h1>
+<p class="lede">Kriptografik olarak güvenli rastgele şifreler, cihazınızda üretilir. Hiçbir şey gönderilmez ya da saklanmaz — sayfayı yenileyin, yok olur.</p>
+<div class="card stack">
+  <div style="display:flex;gap:10px;align-items:center">
+    <output id="pw" style="flex:1;font-family:ui-monospace,Consolas,monospace;font-size:1.25rem;word-break:break-all;min-height:1.6em;padding:10px;border-radius:8px;background:var(--surface-2,rgba(127,127,127,.08))"></output>
+    <button class="btn" id="copy">Kopyala</button>
+  </div>
+  <p class="note" id="strength"></p>
+  <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center">
+    <label class="note" for="len">Uzunluk: <b id="lenval">20</b></label>
+    <input type="range" id="len" min="8" max="64" value="20" style="width:180px">
+    <label class="note"><input type="checkbox" id="lower" checked> Küçük harf (abc)</label>
+    <label class="note"><input type="checkbox" id="upper" checked> Büyük harf (ABC)</label>
+    <label class="note"><input type="checkbox" id="digits" checked> Rakam (123)</label>
+    <label class="note"><input type="checkbox" id="symbols" checked> Sembol (!#%)</label>
+    <label class="note"><input type="checkbox" id="ambiguous" checked> Benzerleri eleme (0O1lI)</label>
+    <button class="btn" id="generate">Üret</button>
+  </div>
+</div>
+<section><h2>İnternette şifre üretmek güvenli mi?</h2><p>Burada evet: bu sayfa, şifre yöneticilerinin de kullandığı rastgelelik kaynağı olan tarayıcının crypto.getRandomValues API'sini kullanır ve tamamen cihazınızda çalışır. Hiçbir ağ isteği şifrenizi taşımaz; sayfayı açıp internetinizi kapatarak bile üretebilirsiniz.</p><h2>Şifre ne kadar uzun olmalı?</h2><p>Çoğu hesap için karışık kümelerle 16+ karakter güçlüdür; kritik hesaplarda 20+. Uzunluk karmaşıklıktan önemlidir: her ek karakter arama uzayını katlar.</p><h2>Entropi sayısı ne demek?</h2><p>Bit cinsinden entropi, saldırganın kaç deneme yapması gerektiğini ölçer — her bit sayıyı ikiye katlar. 60+ bit pratik alt sınırdır; 80+ mükemmeldir.</p></section>
+
+</main>
+<footer class="site-foot">
+  <p>Aporizma — tamamen tarayıcınızda çalışan küçük araçlar. Yükleme yok, izleme yok. · <a href="../../../about/">Hakkında</a> · <a href="../../../privacy/">Gizlilik</a></p>
+</footer>
+<script src="../../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Şifre Üretici", "lede": "Kriptografik olarak güvenli rastgele şifreler, cihazınızda üretilir. Hiçbir şey gönderilmez ya da saklanmaz — sayfayı yenileyin, yok olur.", "card_title": "Şifre Üretici", "card_desc": "Güçlü rastgele şifreler, cihazınızda çevrimdışı üretilir.", "length_label": "Uzunluk", "lower_label": "Küçük harf (abc)", "upper_label": "Büyük harf (ABC)", "digits_label": "Rakam (123)", "symbols_label": "Sembol (!#%)", "ambiguous_label": "Benzerleri eleme (0O1lI)", "generate": "Üret", "copy": "Kopyala", "copied": "Kopyalandı!", "strength_fmt": "{bits} bit entropi — {verdict}", "v_weak": "zayıf", "v_fair": "orta", "v_strong": "güçlü", "v_excellent": "mükemmel", "no_sets": "En az bir karakter kümesi seçin."};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

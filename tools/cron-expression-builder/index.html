@@ -22,6 +22,7 @@
 <meta property="og:image" content="https://aporizma.com/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Cron Expression Builder", "url": "https://aporizma.com/tools/cron-expression-builder/", "description": "Build cron expressions from presets or explain any cron schedule in plain English. Free, instant, runs in your browser — no sign-up.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "Cron field order", "acceptedAnswer": {"@type": "Answer", "text": "A cron expression has 5 fields: minute hour day-of-month month day-of-week. * means \"every\", */N means \"every N\", 1-5 is a range, 1,3,5 is a list. Days of week: 0 or 7 = Sunday."}}, {"@type": "Question", "name": "Does this run anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No — it only builds and explains the expression. Paste it into crontab, GitHub Actions, Cloud Scheduler or any scheduler that accepts standard 5-field cron."}}]}</script>
 </head>
 <body>
 <header class="site-head">
