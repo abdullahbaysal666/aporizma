@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kelime ve Karakter Sayacı — Ücretsiz, Anında</title>
+<meta name="description" content="Yazarken kelime, karakter, cümle ve paragraf sayısını, ayrıca tahmini okuma süresini görün. %100 tarayıcıda çalışır — ücretsiz, üyeliksiz.">
+<link rel="stylesheet" href="../../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tr/araclar/kelime-karakter-sayaci/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/word-character-counter/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/kelime-karakter-sayaci/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/word-character-counter/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Kelime ve Karakter Sayacı — Ücretsiz, Anında">
+<meta property="og:description" content="Yazarken kelime, karakter, cümle ve paragraf sayısını, ayrıca tahmini okuma süresini görün. %100 tarayıcıda çalışır — ücretsiz, üyeliksiz.">
+<meta property="og:url" content="https://aporizma.com/tr/araclar/kelime-karakter-sayaci/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Kelime ve Karakter Sayacı", "url": "https://aporizma.com/tr/araclar/kelime-karakter-sayaci/", "description": "Yazarken kelime, karakter, cümle ve paragraf sayısını, ayrıca tahmini okuma süresini görün. %100 tarayıcıda çalışır — ücretsiz, üyeliksiz.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "tr", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../../tr/"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../../tools/word-character-counter/" class="lang-switch" rel="alternate" hreflang="en">English</a>
+  </nav>
+</header>
+<main>
+<h1>Kelime ve Karakter Sayacı</h1>
+<p class="lede">Metninizi aşağıya yazın ya da yapıştırın. Kelime, karakter, cümle, paragraf sayısı ve okuma süresi anında güncellenir — hiçbir şey tarayıcınızdan çıkmaz.</p>
+<div class="card stack">
+  <label class="note" for="input">Metninizi buraya yazın ya da yapıştırın</label>
+  <textarea id="input" rows="10" spellcheck="false"></textarea>
+  <div>
+    <button class="btn ghost" id="clear">Temizle</button>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px">
+    <div>
+      <div class="note">Kelime</div>
+      <div id="stat-words" style="font-size:1.5rem;font-weight:700">0</div>
+    </div>
+    <div>
+      <div class="note">Karakter (boşluklu)</div>
+      <div id="stat-chars" style="font-size:1.5rem;font-weight:700">0</div>
+    </div>
+    <div>
+      <div class="note">Karakter (boşluksuz)</div>
+      <div id="stat-chars-no-space" style="font-size:1.5rem;font-weight:700">0</div>
+    </div>
+    <div>
+      <div class="note">Cümle</div>
+      <div id="stat-sentences" style="font-size:1.5rem;font-weight:700">0</div>
+    </div>
+    <div>
+      <div class="note">Paragraf</div>
+      <div id="stat-paragraphs" style="font-size:1.5rem;font-weight:700">0</div>
+    </div>
+    <div>
+      <div class="note">Okuma süresi</div>
+      <div id="stat-reading" style="font-size:1.5rem;font-weight:700">0</div>
+    </div>
+  </div>
+</div>
+<section><h2>Okuma süresi nasıl hesaplanır?</h2><p>Ortalama sessiz okuma hızı dakikada 200 kelime kabul edilerek hesaplanır. Kişiye göre değişebilir.</p><h2>Cümleler nasıl sayılır?</h2><p>Cümle sonu noktalama işaretleri (<code>.</code>, <code>!</code>, <code>?</code>) grupları sayılarak bulunur. "Dr." gibi kısaltmalar ya da ondalık sayılar sayımı bazen şaşırtabilir — tahmini bir değer olarak kabul edin.</p><h2>Metnim bir yere yükleniyor mu?</h2><p>Hayır. Sayım tamamen tarayıcınızda JavaScript ile yapılır. Hiçbir şey sunucuya gönderilmez.</p></section>
+
+</main>
+<footer class="site-foot">
+  <p>Aporizma — tamamen tarayıcınızda çalışan küçük araçlar. Yükleme yok, izleme yok. · <a href="../../../privacy/">Gizlilik</a></p>
+</footer>
+<script src="../../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Kelime ve Karakter Sayacı", "lede": "Metninizi aşağıya yazın ya da yapıştırın. Kelime, karakter, cümle, paragraf sayısı ve okuma süresi anında güncellenir — hiçbir şey tarayıcınızdan çıkmaz.", "card_title": "Kelime ve Karakter Sayacı", "card_desc": "Kelime, karakter, cümle, paragraf sayısı ve okuma süresi.", "in_label": "Metninizi buraya yazın ya da yapıştırın", "label_words": "Kelime", "label_chars": "Karakter (boşluklu)", "label_chars_no_space": "Karakter (boşluksuz)", "label_sentences": "Cümle", "label_paragraphs": "Paragraf", "label_reading_time": "Okuma süresi", "clear": "Temizle", "reading_min_sec": "{m} dk {s} sn", "reading_sec": "{s} sn"};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Word & Character Counter — Free, Instant, No Upload</title>
+<meta name="description" content="Count words, characters, sentences and paragraphs as you type, plus an estimated reading time. Runs 100% in your browser — free, private, no sign-up.">
+<link rel="stylesheet" href="../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tools/word-character-counter/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/word-character-counter/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/kelime-karakter-sayaci/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/word-character-counter/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Word & Character Counter — Free, Instant, No Upload">
+<meta property="og:description" content="Count words, characters, sentences and paragraphs as you type, plus an estimated reading time. Runs 100% in your browser — free, private, no sign-up.">
+<meta property="og:url" content="https://aporizma.com/tools/word-character-counter/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Word & Character Counter", "url": "https://aporizma.com/tools/word-character-counter/", "description": "Count words, characters, sentences and paragraphs as you type, plus an estimated reading time. Runs 100% in your browser — free, private, no sign-up.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../tr/araclar/kelime-karakter-sayaci/" class="lang-switch" rel="alternate" hreflang="tr">Türkçe</a>
+  </nav>
+</header>
+<main>
+<h1>Word & Character Counter</h1>
+<p class="lede">Type or paste your text below. Word, character, sentence, paragraph counts and reading time update instantly — nothing leaves your browser.</p>
+<div class="card stack">
+  <label class="note" for="input">Type or paste your text here</label>
+  <textarea id="input" rows="10" spellcheck="false"></textarea>
+  <div>
+    <button class="btn ghost" id="clear">Clear</button>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px">
+    <div>
+      <div class="note">Words</div>
+      <div id="stat-words" style="font-size:1.5rem;font-weight:700">0</div>
+    </div>
+    <div>
+      <div class="note">Characters (with spaces)</div>
+      <div id="stat-chars" style="font-size:1.5rem;font-weight:700">0</div>
+    </div>
+    <div>
+      <div class="note">Characters (no spaces)</div>
+      <div id="stat-chars-no-space" style="font-size:1.5rem;font-weight:700">0</div>
+    </div>
+    <div>
+      <div class="note">Sentences</div>
+      <div id="stat-sentences" style="font-size:1.5rem;font-weight:700">0</div>
+    </div>
+    <div>
+      <div class="note">Paragraphs</div>
+      <div id="stat-paragraphs" style="font-size:1.5rem;font-weight:700">0</div>
+    </div>
+    <div>
+      <div class="note">Reading time</div>
+      <div id="stat-reading" style="font-size:1.5rem;font-weight:700">0</div>
+    </div>
+  </div>
+</div>
+<section><h2>How is reading time calculated?</h2><p>Based on an average silent reading speed of 200 words per minute. Faster or slower readers will vary.</p><h2>How are sentences counted?</h2><p>By counting groups of sentence-ending punctuation (<code>.</code>, <code>!</code>, <code>?</code>). Abbreviations like "Dr." or decimal numbers can occasionally throw off the count — treat it as an estimate.</p><h2>Is my text uploaded anywhere?</h2><p>No. Counting happens entirely in your browser with JavaScript. Nothing is sent to a server.</p></section>
+
+</main>
+<footer class="site-foot">
+  <p>Aporizma — handcrafted small tools that run entirely in your browser. No uploads, no tracking. · <a href="../../privacy/">Privacy</a></p>
+</footer>
+<script src="../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Word & Character Counter", "lede": "Type or paste your text below. Word, character, sentence, paragraph counts and reading time update instantly — nothing leaves your browser.", "card_title": "Word & Character Counter", "card_desc": "Count words, characters, sentences, paragraphs and reading time.", "in_label": "Type or paste your text here", "label_words": "Words", "label_chars": "Characters (with spaces)", "label_chars_no_space": "Characters (no spaces)", "label_sentences": "Sentences", "label_paragraphs": "Paragraphs", "label_reading_time": "Reading time", "clear": "Clear", "reading_min_sec": "{m} min {s} sec", "reading_sec": "{s} sec"};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

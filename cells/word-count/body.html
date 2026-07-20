@@ -1,0 +1,36 @@
+<h1>{{s.h1}}</h1>
+<p class="lede">{{s.lede}}</p>
+<div class="card stack">
+  <label class="note" for="input">{{s.in_label}}</label>
+  <textarea id="input" rows="10" spellcheck="false"></textarea>
+  <div>
+    <button class="btn ghost" id="clear">{{s.clear}}</button>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px">
+    <div>
+      <div class="note">{{s.label_words}}</div>
+      <div id="stat-words" style="font-size:1.5rem;font-weight:700">0</div>
+    </div>
+    <div>
+      <div class="note">{{s.label_chars}}</div>
+      <div id="stat-chars" style="font-size:1.5rem;font-weight:700">0</div>
+    </div>
+    <div>
+      <div class="note">{{s.label_chars_no_space}}</div>
+      <div id="stat-chars-no-space" style="font-size:1.5rem;font-weight:700">0</div>
+    </div>
+    <div>
+      <div class="note">{{s.label_sentences}}</div>
+      <div id="stat-sentences" style="font-size:1.5rem;font-weight:700">0</div>
+    </div>
+    <div>
+      <div class="note">{{s.label_paragraphs}}</div>
+      <div id="stat-paragraphs" style="font-size:1.5rem;font-weight:700">0</div>
+    </div>
+    <div>
+      <div class="note">{{s.label_reading_time}}</div>
+      <div id="stat-reading" style="font-size:1.5rem;font-weight:700">0</div>
+    </div>
+  </div>
+</div>
+<section>{{s.faq_html}}</section>
