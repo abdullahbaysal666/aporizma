@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Base64 Encode / Decode — UTF-8 Safe, Private</title>
+<meta name="description" content="Encode and decode Base64 with full UTF-8 support — emoji and accented text survive intact. Runs in your browser; nothing is sent anywhere. Free, no limits.">
+<link rel="stylesheet" href="../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tools/base64-encode-decode/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/base64-encode-decode/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/base64-kodla-coz/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/base64-encode-decode/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Base64 Encode / Decode — UTF-8 Safe, Private">
+<meta property="og:description" content="Encode and decode Base64 with full UTF-8 support — emoji and accented text survive intact. Runs in your browser; nothing is sent anywhere. Free, no limits.">
+<meta property="og:url" content="https://aporizma.com/tools/base64-encode-decode/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Base64 Encoder", "url": "https://aporizma.com/tools/base64-encode-decode/", "description": "Encode and decode Base64 with full UTF-8 support — emoji and accented text survive intact. Runs in your browser; nothing is sent anywhere. Free, no limits.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "Why do other Base64 tools break emoji and accents?", "acceptedAnswer": {"@type": "Answer", "text": "The browser's raw atob/btoa functions only handle Latin-1 bytes. This tool encodes text as UTF-8 first, so emoji, Turkish, Arabic and Chinese characters all survive the round trip."}}, {"@type": "Question", "name": "What is URL-safe Base64?", "acceptedAnswer": {"@type": "Answer", "text": "Standard Base64 uses + and /, which clash with URLs. The URL-safe variant swaps them for - and _ — used in JWTs and web tokens."}}, {"@type": "Question", "name": "Is my text uploaded?", "acceptedAnswer": {"@type": "Answer", "text": "No. Encoding happens entirely in your browser — safe for secrets and internal data."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../tr/araclar/base64-kodla-coz/" class="lang-switch" rel="alternate" hreflang="tr">Türkçe</a>
+  </nav>
+</header>
+<main>
+<h1>Base64 Encode / Decode</h1>
+<p class="lede">Text to Base64 and back, with real UTF-8 handling — emoji, Turkish, Chinese all round-trip correctly. Everything stays on your device.</p>
+<div class="card stack">
+  <textarea id="input" rows="7" placeholder="Type or paste text (or Base64) here…" spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.95rem"></textarea>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+    <button class="btn" id="encode">Encode →</button>
+    <button class="btn" id="decode">← Decode</button>
+    <label class="note"><input type="checkbox" id="urlsafe"> URL-safe (-_ instead of +/)</label>
+    <button class="btn" id="copy" hidden>Copy</button>
+  </div>
+  <p class="note" id="status">Type something to begin.</p>
+  <textarea id="output" rows="7" readonly spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.95rem"></textarea>
+</div>
+<section><h2>Why do other Base64 tools break emoji and accents?</h2><p>The browser's raw atob/btoa functions only handle Latin-1 bytes. This tool encodes text as UTF-8 first, so emoji, Turkish, Arabic and Chinese characters all survive the round trip.</p><h2>What is URL-safe Base64?</h2><p>Standard Base64 uses + and /, which clash with URLs. The URL-safe variant swaps them for - and _ — used in JWTs and web tokens.</p><h2>Is my text uploaded?</h2><p>No. Encoding happens entirely in your browser — safe for secrets and internal data.</p></section>
+
+</main>
+<footer class="site-foot">
+  <p>Aporizma — handcrafted small tools that run entirely in your browser. No uploads, no tracking. · <a href="../../about/">About</a> · <a href="../../privacy/">Privacy</a></p>
+</footer>
+<script src="../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Base64 Encode / Decode", "lede": "Text to Base64 and back, with real UTF-8 handling — emoji, Turkish, Chinese all round-trip correctly. Everything stays on your device.", "card_title": "Base64 Encoder", "card_desc": "Encode/decode Base64, UTF-8 safe — emoji & accents survive.", "input_ph": "Type or paste text (or Base64) here…", "encode": "Encode →", "decode": "← Decode", "url_label": "URL-safe (-_ instead of +/)", "copy": "Copy", "copied": "Copied!", "ok_encode_fmt": "Encoded — {chars} characters", "ok_decode_fmt": "Decoded — {chars} characters", "err_decode": "Not valid Base64 — check for missing characters or wrong alphabet.", "empty": "Type something to begin."};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

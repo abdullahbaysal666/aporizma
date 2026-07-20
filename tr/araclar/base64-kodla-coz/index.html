@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Base64 Kodla / Çöz — UTF-8 Güvenli, Gizli</title>
+<meta name="description" content="Base64'ü tam UTF-8 desteğiyle kodlayın ve çözün — emoji ve Türkçe karakterler bozulmaz. Tarayıcınızda çalışır; hiçbir şey gönderilmez. Ücretsiz, sınırsız.">
+<link rel="stylesheet" href="../../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tr/araclar/base64-kodla-coz/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/base64-encode-decode/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/base64-kodla-coz/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/base64-encode-decode/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Base64 Kodla / Çöz — UTF-8 Güvenli, Gizli">
+<meta property="og:description" content="Base64'ü tam UTF-8 desteğiyle kodlayın ve çözün — emoji ve Türkçe karakterler bozulmaz. Tarayıcınızda çalışır; hiçbir şey gönderilmez. Ücretsiz, sınırsız.">
+<meta property="og:url" content="https://aporizma.com/tr/araclar/base64-kodla-coz/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Base64 Kodlayıcı", "url": "https://aporizma.com/tr/araclar/base64-kodla-coz/", "description": "Base64'ü tam UTF-8 desteğiyle kodlayın ve çözün — emoji ve Türkçe karakterler bozulmaz. Tarayıcınızda çalışır; hiçbir şey gönderilmez. Ücretsiz, sınırsız.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "tr", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "tr", "mainEntity": [{"@type": "Question", "name": "Diğer Base64 araçları emoji ve Türkçeyi neden bozuyor?", "acceptedAnswer": {"@type": "Answer", "text": "Tarayıcının ham atob/btoa fonksiyonları yalnız Latin-1 baytlarını işler. Bu araç metni önce UTF-8'e kodlar; emoji, Türkçe, Arapça ve Çince karakterler gidiş-dönüşte bozulmaz."}}, {"@type": "Question", "name": "URL-güvenli Base64 nedir?", "acceptedAnswer": {"@type": "Answer", "text": "Standart Base64'teki + ve / karakterleri URL'lerle çakışır. URL-güvenli değişke bunları - ve _ ile değiştirir — JWT ve web token'larında kullanılır."}}, {"@type": "Question", "name": "Metnim yükleniyor mu?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır. Kodlama tamamen tarayıcınızda olur — gizli veriler için güvenlidir."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../../tr/"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../../tools/base64-encode-decode/" class="lang-switch" rel="alternate" hreflang="en">English</a>
+  </nav>
+</header>
+<main>
+<h1>Base64 Kodla / Çöz</h1>
+<p class="lede">Metinden Base64'e ve geriye, gerçek UTF-8 desteğiyle — emoji, Türkçe, Çince hepsi sağlam gidip döner. Her şey cihazınızda kalır.</p>
+<div class="card stack">
+  <textarea id="input" rows="7" placeholder="Metni (ya da Base64'ü) buraya yazın…" spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.95rem"></textarea>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+    <button class="btn" id="encode">Kodla →</button>
+    <button class="btn" id="decode">← Çöz</button>
+    <label class="note"><input type="checkbox" id="urlsafe"> URL-güvenli (+/ yerine -_)</label>
+    <button class="btn" id="copy" hidden>Kopyala</button>
+  </div>
+  <p class="note" id="status">Başlamak için bir şeyler yazın.</p>
+  <textarea id="output" rows="7" readonly spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.95rem"></textarea>
+</div>
+<section><h2>Diğer Base64 araçları emoji ve Türkçeyi neden bozuyor?</h2><p>Tarayıcının ham atob/btoa fonksiyonları yalnız Latin-1 baytlarını işler. Bu araç metni önce UTF-8'e kodlar; emoji, Türkçe, Arapça ve Çince karakterler gidiş-dönüşte bozulmaz.</p><h2>URL-güvenli Base64 nedir?</h2><p>Standart Base64'teki + ve / karakterleri URL'lerle çakışır. URL-güvenli değişke bunları - ve _ ile değiştirir — JWT ve web token'larında kullanılır.</p><h2>Metnim yükleniyor mu?</h2><p>Hayır. Kodlama tamamen tarayıcınızda olur — gizli veriler için güvenlidir.</p></section>
+
+</main>
+<footer class="site-foot">
+  <p>Aporizma — tamamen tarayıcınızda çalışan küçük araçlar. Yükleme yok, izleme yok. · <a href="../../../about/">Hakkında</a> · <a href="../../../privacy/">Gizlilik</a></p>
+</footer>
+<script src="../../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Base64 Kodla / Çöz", "lede": "Metinden Base64'e ve geriye, gerçek UTF-8 desteğiyle — emoji, Türkçe, Çince hepsi sağlam gidip döner. Her şey cihazınızda kalır.", "card_title": "Base64 Kodlayıcı", "card_desc": "Base64 kodla/çöz, UTF-8 güvenli — emoji ve Türkçe bozulmaz.", "input_ph": "Metni (ya da Base64'ü) buraya yazın…", "encode": "Kodla →", "decode": "← Çöz", "url_label": "URL-güvenli (+/ yerine -_)", "copy": "Kopyala", "copied": "Kopyalandı!", "ok_encode_fmt": "Kodlandı — {chars} karakter", "ok_decode_fmt": "Çözüldü — {chars} karakter", "err_decode": "Geçerli Base64 değil — eksik karakter ya da yanlış alfabe olabilir.", "empty": "Başlamak için bir şeyler yazın."};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>
