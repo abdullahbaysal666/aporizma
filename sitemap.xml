@@ -2,26 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://aporizma.com/</loc></url>
   <url><loc>https://aporizma.com/tr/</loc></url>
-  <url><loc>https://aporizma.com/tools/cron-expression-builder/</loc></url>
-  <url><loc>https://aporizma.com/tr/araclar/cron-ifade-kurucu/</loc></url>
-  <url><loc>https://aporizma.com/tools/llm-api-cost-calculator/</loc></url>
-  <url><loc>https://aporizma.com/tr/araclar/llm-api-maliyet-hesaplayici/</loc></url>
-  <url><loc>https://aporizma.com/tools/public-domain-day-calendar/</loc></url>
-  <url><loc>https://aporizma.com/tr/araclar/kamu-mali-takvimi/</loc></url>
   <url><loc>https://aporizma.com/tools/merge-pdf/</loc></url>
   <url><loc>https://aporizma.com/tr/araclar/pdf-birlestir/</loc></url>
   <url><loc>https://aporizma.com/tools/split-pdf/</loc></url>
   <url><loc>https://aporizma.com/tr/araclar/pdf-bol/</loc></url>
+  <url><loc>https://aporizma.com/tools/word-character-counter/</loc></url>
+  <url><loc>https://aporizma.com/tr/araclar/kelime-karakter-sayaci/</loc></url>
   <url><loc>https://aporizma.com/tools/qr-code-generator/</loc></url>
   <url><loc>https://aporizma.com/tr/araclar/qr-kod-olusturucu/</loc></url>
+  <url><loc>https://aporizma.com/tools/srt-to-vtt-converter/</loc></url>
+  <url><loc>https://aporizma.com/tr/araclar/srt-vtt-donusturucu/</loc></url>
   <url><loc>https://aporizma.com/tools/subtitle-merger/</loc></url>
   <url><loc>https://aporizma.com/tr/araclar/altyazi-birlestirici/</loc></url>
   <url><loc>https://aporizma.com/tools/subtitle-sync-shifter/</loc></url>
   <url><loc>https://aporizma.com/tr/araclar/altyazi-senkron-kaydirici/</loc></url>
-  <url><loc>https://aporizma.com/tools/srt-to-vtt-converter/</loc></url>
-  <url><loc>https://aporizma.com/tr/araclar/srt-vtt-donusturucu/</loc></url>
-  <url><loc>https://aporizma.com/tools/word-character-counter/</loc></url>
-  <url><loc>https://aporizma.com/tr/araclar/kelime-karakter-sayaci/</loc></url>
+  <url><loc>https://aporizma.com/tools/llm-api-cost-calculator/</loc></url>
+  <url><loc>https://aporizma.com/tr/araclar/llm-api-maliyet-hesaplayici/</loc></url>
+  <url><loc>https://aporizma.com/tools/cron-expression-builder/</loc></url>
+  <url><loc>https://aporizma.com/tr/araclar/cron-ifade-kurucu/</loc></url>
   <url><loc>https://aporizma.com/tools/youtube-title-thumbnail-preview/</loc></url>
   <url><loc>https://aporizma.com/tr/araclar/youtube-baslik-kapak-onizleme/</loc></url>
+  <url><loc>https://aporizma.com/tools/public-domain-day-calendar/</loc></url>
+  <url><loc>https://aporizma.com/tr/araclar/kamu-mali-takvimi/</loc></url>
 </urlset>

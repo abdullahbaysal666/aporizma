@@ -135,7 +135,13 @@ def main() -> None:
             })
             (out_dir / "index.html").write_text(page, encoding="utf-8")
 
-    # Home pages list every living cell.
+    # Home pages list every living cell — DEMAND ORDER (denetçi önerisi 2026-07-20):
+    # yüksek-rağbet araçlar üstte; listede olmayan yeni hücreler sona eklenir.
+    demand = ["pdf-merge", "pdf-split", "img-resize", "word-count", "qr-gen",
+              "password-gen", "srt-vtt", "srt-merge", "srt-shift", "llm-cost",
+              "json-format", "cron-builder", "yt-preview", "pd-calendar"]
+    cells.sort(key=lambda c: demand.index(c["id"]) if c["id"] in demand else 99)
+
     for lang in ("en", "tr"):
         cfg = LANGS[lang]
         root = "" if lang == "en" else "../"
