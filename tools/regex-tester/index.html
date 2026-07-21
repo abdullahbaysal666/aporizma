@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Regex Tester — Live Highlight, Free, Private</title>
+<meta name="description" content="Test regular expressions with live match highlighting and capture group values. JavaScript engine, runs in your browser — nothing is sent anywhere.">
+<link rel="stylesheet" href="../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tools/regex-tester/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/regex-tester/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/regex-test/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/regex-tester/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Regex Tester — Live Highlight, Free, Private">
+<meta property="og:description" content="Test regular expressions with live match highlighting and capture group values. JavaScript engine, runs in your browser — nothing is sent anywhere.">
+<meta property="og:url" content="https://aporizma.com/tools/regex-tester/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Regex Tester", "url": "https://aporizma.com/tools/regex-tester/", "description": "Test regular expressions with live match highlighting and capture group values. JavaScript engine, runs in your browser — nothing is sent anywhere.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "Which regex flavor is this?", "acceptedAnswer": {"@type": "Answer", "text": "JavaScript (ECMAScript) — the same engine your browser uses. Most patterns port directly from PCRE, but lookbehind and Unicode classes follow the JavaScript spec."}}, {"@type": "Question", "name": "Is my text uploaded?", "acceptedAnswer": {"@type": "Answer", "text": "No. Matching runs entirely in your browser — safe for logs, code and customer data."}}, {"@type": "Question", "name": "Why does my pattern hang on long text?", "acceptedAnswer": {"@type": "Answer", "text": "Nested quantifiers like (a+)+ can cause catastrophic backtracking. This tester caps evaluation to keep the page responsive, but simplifying the pattern is the real fix."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../tr/araclar/regex-test/" class="lang-switch" rel="alternate" hreflang="tr">Türkçe</a>
+  </nav>
+</header>
+<main>
+<h1>Regex Tester</h1>
+<p class="lede">Type a pattern, see matches highlighted instantly with capture groups listed. JavaScript regex engine — everything stays on your device.</p>
+<div class="card stack">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+    <span style="font-family:ui-monospace,Consolas,monospace;opacity:.6">/</span>
+    <input id="pattern" placeholder="pattern, e.g. (\w+)@(\w+\.\w+)" spellcheck="false" autocapitalize="off"
+      style="flex:1;min-width:220px;font-family:ui-monospace,Consolas,monospace">
+    <span style="font-family:ui-monospace,Consolas,monospace;opacity:.6">/</span>
+    <input id="flags" value="g" spellcheck="false" autocapitalize="off" aria-label="Flags"
+      style="width:70px;font-family:ui-monospace,Consolas,monospace">
+  </div>
+  <textarea id="text" rows="8" placeholder="Test text goes here…" spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.95rem"></textarea>
+  <p class="note" id="status">Type a pattern and some text.</p>
+  <div id="highlight" style="font-family:ui-monospace,Consolas,monospace;font-size:.95rem;white-space:pre-wrap;word-break:break-word;padding:10px;border-radius:8px;background:var(--surface-2,rgba(127,127,127,.08));display:none"></div>
+  <div id="details" style="display:none">
+    <h2 style="font-size:1.05rem">Match details</h2>
+    <div id="groups" style="font-family:ui-monospace,Consolas,monospace;font-size:.9rem;overflow-x:auto"></div>
+  </div>
+</div>
+<section><h2>Which regex flavor is this?</h2><p>JavaScript (ECMAScript) — the same engine your browser uses. Most patterns port directly from PCRE, but lookbehind and Unicode classes follow the JavaScript spec.</p><h2>Is my text uploaded?</h2><p>No. Matching runs entirely in your browser — safe for logs, code and customer data.</p><h2>Why does my pattern hang on long text?</h2><p>Nested quantifiers like (a+)+ can cause catastrophic backtracking. This tester caps evaluation to keep the page responsive, but simplifying the pattern is the real fix.</p></section>
+<section class="related"><h2>More tools</h2><ul class="tool-grid"><li><a href="../../tools/json-formatter/"><div class="card"><h2>JSON Formatter</h2><p>Format, validate & minify JSON with exact error location.</p></div></a></li>
+<li><a href="../../tools/base64-encode-decode/"><div class="card"><h2>Base64 Encoder</h2><p>Encode/decode Base64, UTF-8 safe — emoji & accents survive.</p></div></a></li>
+<li><a href="../../tools/merge-pdf/"><div class="card"><h2>PDF Merger</h2><p>Combine PDFs into one file, privately on your device.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — handcrafted small tools that run entirely in your browser. No uploads, no tracking. · <a href="../../about/">About</a> · <a href="../../privacy/">Privacy</a></p>
+</footer>
+<script src="../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Regex Tester", "lede": "Type a pattern, see matches highlighted instantly with capture groups listed. JavaScript regex engine — everything stays on your device.", "card_title": "Regex Tester", "card_desc": "Live regex matching with highlighted results & groups.", "pattern_ph": "pattern, e.g. (\\w+)@(\\w+\\.\\w+)", "flags_label": "Flags", "text_ph": "Test text goes here…", "matches_fmt": "{n} match(es)", "no_matches": "No matches.", "err_fmt": "Invalid pattern: {msg}", "empty": "Type a pattern and some text.", "groups_title": "Match details"};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

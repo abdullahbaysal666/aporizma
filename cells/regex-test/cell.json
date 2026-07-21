@@ -1,0 +1,40 @@
+{
+  "id": "regex-test",
+  "category": "dev",
+  "en": {
+    "slug": "tools/regex-tester",
+    "title": "Regex Tester — Live Highlight, Free, Private",
+    "desc": "Test regular expressions with live match highlighting and capture group values. JavaScript engine, runs in your browser — nothing is sent anywhere.",
+    "h1": "Regex Tester",
+    "lede": "Type a pattern, see matches highlighted instantly with capture groups listed. JavaScript regex engine — everything stays on your device.",
+    "card_title": "Regex Tester",
+    "card_desc": "Live regex matching with highlighted results & groups.",
+    "pattern_ph": "pattern, e.g. (\\w+)@(\\w+\\.\\w+)",
+    "flags_label": "Flags",
+    "text_ph": "Test text goes here…",
+    "matches_fmt": "{n} match(es)",
+    "no_matches": "No matches.",
+    "err_fmt": "Invalid pattern: {msg}",
+    "empty": "Type a pattern and some text.",
+    "groups_title": "Match details",
+    "faq_html": "<h2>Which regex flavor is this?</h2><p>JavaScript (ECMAScript) — the same engine your browser uses. Most patterns port directly from PCRE, but lookbehind and Unicode classes follow the JavaScript spec.</p><h2>Is my text uploaded?</h2><p>No. Matching runs entirely in your browser — safe for logs, code and customer data.</p><h2>Why does my pattern hang on long text?</h2><p>Nested quantifiers like (a+)+ can cause catastrophic backtracking. This tester caps evaluation to keep the page responsive, but simplifying the pattern is the real fix.</p>"
+  },
+  "tr": {
+    "slug": "tr/araclar/regex-test",
+    "title": "Regex Test Aracı — Canlı Vurgu, Ücretsiz, Gizli",
+    "desc": "Düzenli ifadeleri canlı eşleşme vurgusu ve yakalama gruplarıyla test edin. JavaScript motoru, tarayıcınızda çalışır — hiçbir şey gönderilmez.",
+    "h1": "Regex Test Aracı",
+    "lede": "Deseni yazın; eşleşmeler anında vurgulansın, yakalama grupları listelensin. JavaScript regex motoru — her şey cihazınızda kalır.",
+    "card_title": "Regex Test Aracı",
+    "card_desc": "Canlı regex eşleştirme: vurgulu sonuçlar ve gruplar.",
+    "pattern_ph": "desen, örn. (\\w+)@(\\w+\\.\\w+)",
+    "flags_label": "Bayraklar",
+    "text_ph": "Test metni buraya…",
+    "matches_fmt": "{n} eşleşme",
+    "no_matches": "Eşleşme yok.",
+    "err_fmt": "Geçersiz desen: {msg}",
+    "empty": "Bir desen ve metin yazın.",
+    "groups_title": "Eşleşme detayları",
+    "faq_html": "<h2>Bu hangi regex lehçesi?</h2><p>JavaScript (ECMAScript) — tarayıcınızın kullandığı motorun aynısı. Çoğu desen PCRE'den doğrudan taşınır; lookbehind ve Unicode sınıfları JavaScript sözleşmesine uyar.</p><h2>Metnim yükleniyor mu?</h2><p>Hayır. Eşleştirme tamamen tarayıcınızda çalışır — log, kod ve müşteri verisi için güvenlidir.</p><h2>Desenim uzun metinde neden takılıyor?</h2><p>(a+)+ gibi iç içe niceleyiciler felaket geri izlemeye yol açar. Bu araç sayfayı akıcı tutmak için değerlendirmeyi sınırlar; kalıcı çözüm deseni sadeleştirmektir.</p>"
+  }
+}

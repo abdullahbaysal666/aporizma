@@ -1,0 +1,21 @@
+<h1>{{s.h1}}</h1>
+<p class="lede">{{s.lede}}</p>
+<div class="card stack">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+    <span style="font-family:ui-monospace,Consolas,monospace;opacity:.6">/</span>
+    <input id="pattern" placeholder="{{s.pattern_ph}}" spellcheck="false" autocapitalize="off"
+      style="flex:1;min-width:220px;font-family:ui-monospace,Consolas,monospace">
+    <span style="font-family:ui-monospace,Consolas,monospace;opacity:.6">/</span>
+    <input id="flags" value="g" spellcheck="false" autocapitalize="off" aria-label="{{s.flags_label}}"
+      style="width:70px;font-family:ui-monospace,Consolas,monospace">
+  </div>
+  <textarea id="text" rows="8" placeholder="{{s.text_ph}}" spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.95rem"></textarea>
+  <p class="note" id="status">{{s.empty}}</p>
+  <div id="highlight" style="font-family:ui-monospace,Consolas,monospace;font-size:.95rem;white-space:pre-wrap;word-break:break-word;padding:10px;border-radius:8px;background:var(--surface-2,rgba(127,127,127,.08));display:none"></div>
+  <div id="details" style="display:none">
+    <h2 style="font-size:1.05rem">{{s.groups_title}}</h2>
+    <div id="groups" style="font-family:ui-monospace,Consolas,monospace;font-size:.9rem;overflow-x:auto"></div>
+  </div>
+</div>
+<section>{{s.faq_html}}</section>

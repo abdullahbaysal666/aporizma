@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Regex Test Aracı — Canlı Vurgu, Ücretsiz, Gizli</title>
+<meta name="description" content="Düzenli ifadeleri canlı eşleşme vurgusu ve yakalama gruplarıyla test edin. JavaScript motoru, tarayıcınızda çalışır — hiçbir şey gönderilmez.">
+<link rel="stylesheet" href="../../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tr/araclar/regex-test/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/regex-tester/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/regex-test/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/regex-tester/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Regex Test Aracı — Canlı Vurgu, Ücretsiz, Gizli">
+<meta property="og:description" content="Düzenli ifadeleri canlı eşleşme vurgusu ve yakalama gruplarıyla test edin. JavaScript motoru, tarayıcınızda çalışır — hiçbir şey gönderilmez.">
+<meta property="og:url" content="https://aporizma.com/tr/araclar/regex-test/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Regex Test Aracı", "url": "https://aporizma.com/tr/araclar/regex-test/", "description": "Düzenli ifadeleri canlı eşleşme vurgusu ve yakalama gruplarıyla test edin. JavaScript motoru, tarayıcınızda çalışır — hiçbir şey gönderilmez.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "tr", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "tr", "mainEntity": [{"@type": "Question", "name": "Bu hangi regex lehçesi?", "acceptedAnswer": {"@type": "Answer", "text": "JavaScript (ECMAScript) — tarayıcınızın kullandığı motorun aynısı. Çoğu desen PCRE'den doğrudan taşınır; lookbehind ve Unicode sınıfları JavaScript sözleşmesine uyar."}}, {"@type": "Question", "name": "Metnim yükleniyor mu?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır. Eşleştirme tamamen tarayıcınızda çalışır — log, kod ve müşteri verisi için güvenlidir."}}, {"@type": "Question", "name": "Desenim uzun metinde neden takılıyor?", "acceptedAnswer": {"@type": "Answer", "text": "(a+)+ gibi iç içe niceleyiciler felaket geri izlemeye yol açar. Bu araç sayfayı akıcı tutmak için değerlendirmeyi sınırlar; kalıcı çözüm deseni sadeleştirmektir."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../../tr/"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../../tools/regex-tester/" class="lang-switch" rel="alternate" hreflang="en">English</a>
+  </nav>
+</header>
+<main>
+<h1>Regex Test Aracı</h1>
+<p class="lede">Deseni yazın; eşleşmeler anında vurgulansın, yakalama grupları listelensin. JavaScript regex motoru — her şey cihazınızda kalır.</p>
+<div class="card stack">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+    <span style="font-family:ui-monospace,Consolas,monospace;opacity:.6">/</span>
+    <input id="pattern" placeholder="desen, örn. (\w+)@(\w+\.\w+)" spellcheck="false" autocapitalize="off"
+      style="flex:1;min-width:220px;font-family:ui-monospace,Consolas,monospace">
+    <span style="font-family:ui-monospace,Consolas,monospace;opacity:.6">/</span>
+    <input id="flags" value="g" spellcheck="false" autocapitalize="off" aria-label="Bayraklar"
+      style="width:70px;font-family:ui-monospace,Consolas,monospace">
+  </div>
+  <textarea id="text" rows="8" placeholder="Test metni buraya…" spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.95rem"></textarea>
+  <p class="note" id="status">Bir desen ve metin yazın.</p>
+  <div id="highlight" style="font-family:ui-monospace,Consolas,monospace;font-size:.95rem;white-space:pre-wrap;word-break:break-word;padding:10px;border-radius:8px;background:var(--surface-2,rgba(127,127,127,.08));display:none"></div>
+  <div id="details" style="display:none">
+    <h2 style="font-size:1.05rem">Eşleşme detayları</h2>
+    <div id="groups" style="font-family:ui-monospace,Consolas,monospace;font-size:.9rem;overflow-x:auto"></div>
+  </div>
+</div>
+<section><h2>Bu hangi regex lehçesi?</h2><p>JavaScript (ECMAScript) — tarayıcınızın kullandığı motorun aynısı. Çoğu desen PCRE'den doğrudan taşınır; lookbehind ve Unicode sınıfları JavaScript sözleşmesine uyar.</p><h2>Metnim yükleniyor mu?</h2><p>Hayır. Eşleştirme tamamen tarayıcınızda çalışır — log, kod ve müşteri verisi için güvenlidir.</p><h2>Desenim uzun metinde neden takılıyor?</h2><p>(a+)+ gibi iç içe niceleyiciler felaket geri izlemeye yol açar. Bu araç sayfayı akıcı tutmak için değerlendirmeyi sınırlar; kalıcı çözüm deseni sadeleştirmektir.</p></section>
+<section class="related"><h2>Diğer araçlar</h2><ul class="tool-grid"><li><a href="../../../tr/araclar/json-duzenle/"><div class="card"><h2>JSON Formatlayıcı</h2><p>JSON formatla, doğrula, sıkıştır — tam hata konumuyla.</p></div></a></li>
+<li><a href="../../../tr/araclar/base64-kodla-coz/"><div class="card"><h2>Base64 Kodlayıcı</h2><p>Base64 kodla/çöz, UTF-8 güvenli — emoji ve Türkçe bozulmaz.</p></div></a></li>
+<li><a href="../../../tr/araclar/pdf-birlestir/"><div class="card"><h2>PDF Birleştirici</h2><p>PDF'leri cihazınızda, gizlice tek dosyada birleştirin.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — tamamen tarayıcınızda çalışan küçük araçlar. Yükleme yok, izleme yok. · <a href="../../../about/">Hakkında</a> · <a href="../../../privacy/">Gizlilik</a></p>
+</footer>
+<script src="../../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Regex Test Aracı", "lede": "Deseni yazın; eşleşmeler anında vurgulansın, yakalama grupları listelensin. JavaScript regex motoru — her şey cihazınızda kalır.", "card_title": "Regex Test Aracı", "card_desc": "Canlı regex eşleştirme: vurgulu sonuçlar ve gruplar.", "pattern_ph": "desen, örn. (\\w+)@(\\w+\\.\\w+)", "flags_label": "Bayraklar", "text_ph": "Test metni buraya…", "matches_fmt": "{n} eşleşme", "no_matches": "Eşleşme yok.", "err_fmt": "Geçersiz desen: {msg}", "empty": "Bir desen ve metin yazın.", "groups_title": "Eşleşme detayları"};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>
