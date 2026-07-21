@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Color Converter — HEX ↔ RGB ↔ HSL, Live Preview</title>
+<meta name="description" content="Convert colors between HEX, RGB and HSL with a live preview swatch. Paste any format, get all three. Runs in your browser — free, no sign-up.">
+<link rel="stylesheet" href="../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tools/color-converter/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/color-converter/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/renk-donusturucu/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/color-converter/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Color Converter — HEX ↔ RGB ↔ HSL, Live Preview">
+<meta property="og:description" content="Convert colors between HEX, RGB and HSL with a live preview swatch. Paste any format, get all three. Runs in your browser — free, no sign-up.">
+<meta property="og:url" content="https://aporizma.com/tools/color-converter/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Color Converter", "url": "https://aporizma.com/tools/color-converter/", "description": "Convert colors between HEX, RGB and HSL with a live preview swatch. Paste any format, get all three. Runs in your browser — free, no sign-up.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "Which formats are accepted?", "acceptedAnswer": {"@type": "Answer", "text": "HEX (#1e90ff or short #fff), rgb(30,144,255), hsl(210,100%,56%), and bare 6-digit hex without the hash. Alpha channels are preserved when present (#rrggbbaa, rgba, hsla)."}}, {"@type": "Question", "name": "When should I use HSL?", "acceptedAnswer": {"@type": "Answer", "text": "HSL separates hue from lightness, which makes palette work intuitive: keep hue fixed and vary lightness for shades, or shift hue for complementary colors."}}, {"@type": "Question", "name": "Is anything uploaded?", "acceptedAnswer": {"@type": "Answer", "text": "No — conversion is pure math in your browser."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../tr/araclar/renk-donusturucu/" class="lang-switch" rel="alternate" hreflang="tr">Türkçe</a>
+  </nav>
+</header>
+<main>
+<h1>Color Converter</h1>
+<p class="lede">Paste a color in any format — HEX, RGB or HSL — and get all three, with a live swatch. Everything runs on your device.</p>
+<div class="card stack">
+  <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+    <input id="input" placeholder="#1e90ff, rgb(30,144,255) or hsl(210,100%,56%)" spellcheck="false" autocapitalize="off"
+      style="flex:1;min-width:240px;font-family:ui-monospace,Consolas,monospace">
+    <div id="swatch" style="width:56px;height:56px;border-radius:10px;border:1px solid rgba(127,127,127,.35);background:transparent"></div>
+  </div>
+  <p class="note" id="status">Paste a color to begin.</p>
+  <div id="results" style="display:none" class="stack">
+    <div style="display:flex;gap:10px;align-items:center">
+      <code id="hex" style="flex:1"></code><button class="btn copy-btn" data-for="hex">Copy</button>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center">
+      <code id="rgb" style="flex:1"></code><button class="btn copy-btn" data-for="rgb">Copy</button>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center">
+      <code id="hsl" style="flex:1"></code><button class="btn copy-btn" data-for="hsl">Copy</button>
+    </div>
+  </div>
+</div>
+<section><h2>Which formats are accepted?</h2><p>HEX (#1e90ff or short #fff), rgb(30,144,255), hsl(210,100%,56%), and bare 6-digit hex without the hash. Alpha channels are preserved when present (#rrggbbaa, rgba, hsla).</p><h2>When should I use HSL?</h2><p>HSL separates hue from lightness, which makes palette work intuitive: keep hue fixed and vary lightness for shades, or shift hue for complementary colors.</p><h2>Is anything uploaded?</h2><p>No — conversion is pure math in your browser.</p></section>
+<section class="related"><h2>More tools</h2><ul class="tool-grid"><li><a href="../../tools/merge-pdf/"><div class="card"><h2>PDF Merger</h2><p>Combine PDFs into one file, privately on your device.</p></div></a></li>
+<li><a href="../../tools/split-pdf/"><div class="card"><h2>PDF Splitter</h2><p>Extract pages or ranges from a PDF, on your device.</p></div></a></li>
+<li><a href="../../tools/image-resize-compress/"><div class="card"><h2>Image Resizer & Compressor</h2><p>Shrink photos to JPEG/WebP, privately on your device.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — handcrafted small tools that run entirely in your browser. No uploads, no tracking. · <a href="../../about/">About</a> · <a href="../../privacy/">Privacy</a></p>
+</footer>
+<script src="../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Color Converter", "lede": "Paste a color in any format — HEX, RGB or HSL — and get all three, with a live swatch. Everything runs on your device.", "card_title": "Color Converter", "card_desc": "HEX ↔ RGB ↔ HSL with live preview swatch.", "input_ph": "#1e90ff, rgb(30,144,255) or hsl(210,100%,56%)", "copy": "Copy", "copied": "Copied!", "err": "Couldn't parse that color — try #rrggbb, rgb(r,g,b) or hsl(h,s%,l%).", "empty": "Paste a color to begin."};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

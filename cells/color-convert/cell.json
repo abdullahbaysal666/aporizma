@@ -1,0 +1,34 @@
+{
+  "id": "color-convert",
+  "category": "design",
+  "en": {
+    "slug": "tools/color-converter",
+    "title": "Color Converter — HEX ↔ RGB ↔ HSL, Live Preview",
+    "desc": "Convert colors between HEX, RGB and HSL with a live preview swatch. Paste any format, get all three. Runs in your browser — free, no sign-up.",
+    "h1": "Color Converter",
+    "lede": "Paste a color in any format — HEX, RGB or HSL — and get all three, with a live swatch. Everything runs on your device.",
+    "card_title": "Color Converter",
+    "card_desc": "HEX ↔ RGB ↔ HSL with live preview swatch.",
+    "input_ph": "#1e90ff, rgb(30,144,255) or hsl(210,100%,56%)",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "err": "Couldn't parse that color — try #rrggbb, rgb(r,g,b) or hsl(h,s%,l%).",
+    "empty": "Paste a color to begin.",
+    "faq_html": "<h2>Which formats are accepted?</h2><p>HEX (#1e90ff or short #fff), rgb(30,144,255), hsl(210,100%,56%), and bare 6-digit hex without the hash. Alpha channels are preserved when present (#rrggbbaa, rgba, hsla).</p><h2>When should I use HSL?</h2><p>HSL separates hue from lightness, which makes palette work intuitive: keep hue fixed and vary lightness for shades, or shift hue for complementary colors.</p><h2>Is anything uploaded?</h2><p>No — conversion is pure math in your browser.</p>"
+  },
+  "tr": {
+    "slug": "tr/araclar/renk-donusturucu",
+    "title": "Renk Dönüştürücü — HEX ↔ RGB ↔ HSL, Canlı Önizleme",
+    "desc": "Renkleri HEX, RGB ve HSL arasında canlı önizlemeyle dönüştürün. Herhangi bir formatta yapıştırın, üçünü birden alın. Tarayıcınızda çalışır — ücretsiz.",
+    "h1": "Renk Dönüştürücü",
+    "lede": "Rengi herhangi bir formatta yapıştırın — HEX, RGB ya da HSL — üçünü birden ve canlı renk karesini alın. Her şey cihazınızda çalışır.",
+    "card_title": "Renk Dönüştürücü",
+    "card_desc": "HEX ↔ RGB ↔ HSL, canlı önizleme karesiyle.",
+    "input_ph": "#1e90ff, rgb(30,144,255) ya da hsl(210,100%,56%)",
+    "copy": "Kopyala",
+    "copied": "Kopyalandı!",
+    "err": "Renk çözümlenemedi — #rrggbb, rgb(r,g,b) ya da hsl(h,s%,l%) deneyin.",
+    "empty": "Başlamak için bir renk yapıştırın.",
+    "faq_html": "<h2>Hangi formatlar kabul ediliyor?</h2><p>HEX (#1e90ff ya da kısa #fff), rgb(30,144,255), hsl(210,100%,56%) ve # işaretsiz 6 haneli hex. Alfa kanalı varsa korunur (#rrggbbaa, rgba, hsla).</p><h2>HSL'yi ne zaman kullanmalıyım?</h2><p>HSL, tonu aydınlıktan ayırır; palet çalışmasını sezgisel yapar: tonu sabit tutup aydınlığı değiştirerek gölgeler, tonu kaydırarak tamamlayıcı renkler elde edilir.</p><h2>Bir şey yükleniyor mu?</h2><p>Hayır — dönüşüm tarayıcınızda saf matematiktir.</p>"
+  }
+}

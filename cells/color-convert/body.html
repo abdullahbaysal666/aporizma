@@ -1,0 +1,22 @@
+<h1>{{s.h1}}</h1>
+<p class="lede">{{s.lede}}</p>
+<div class="card stack">
+  <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+    <input id="input" placeholder="{{s.input_ph}}" spellcheck="false" autocapitalize="off"
+      style="flex:1;min-width:240px;font-family:ui-monospace,Consolas,monospace">
+    <div id="swatch" style="width:56px;height:56px;border-radius:10px;border:1px solid rgba(127,127,127,.35);background:transparent"></div>
+  </div>
+  <p class="note" id="status">{{s.empty}}</p>
+  <div id="results" style="display:none" class="stack">
+    <div style="display:flex;gap:10px;align-items:center">
+      <code id="hex" style="flex:1"></code><button class="btn copy-btn" data-for="hex">{{s.copy}}</button>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center">
+      <code id="rgb" style="flex:1"></code><button class="btn copy-btn" data-for="rgb">{{s.copy}}</button>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center">
+      <code id="hsl" style="flex:1"></code><button class="btn copy-btn" data-for="hsl">{{s.copy}}</button>
+    </div>
+  </div>
+</div>
+<section>{{s.faq_html}}</section>

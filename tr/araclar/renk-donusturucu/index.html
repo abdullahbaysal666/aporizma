@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Renk Dönüştürücü — HEX ↔ RGB ↔ HSL, Canlı Önizleme</title>
+<meta name="description" content="Renkleri HEX, RGB ve HSL arasında canlı önizlemeyle dönüştürün. Herhangi bir formatta yapıştırın, üçünü birden alın. Tarayıcınızda çalışır — ücretsiz.">
+<link rel="stylesheet" href="../../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tr/araclar/renk-donusturucu/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/color-converter/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/renk-donusturucu/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/color-converter/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Renk Dönüştürücü — HEX ↔ RGB ↔ HSL, Canlı Önizleme">
+<meta property="og:description" content="Renkleri HEX, RGB ve HSL arasında canlı önizlemeyle dönüştürün. Herhangi bir formatta yapıştırın, üçünü birden alın. Tarayıcınızda çalışır — ücretsiz.">
+<meta property="og:url" content="https://aporizma.com/tr/araclar/renk-donusturucu/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Renk Dönüştürücü", "url": "https://aporizma.com/tr/araclar/renk-donusturucu/", "description": "Renkleri HEX, RGB ve HSL arasında canlı önizlemeyle dönüştürün. Herhangi bir formatta yapıştırın, üçünü birden alın. Tarayıcınızda çalışır — ücretsiz.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "tr", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "tr", "mainEntity": [{"@type": "Question", "name": "Hangi formatlar kabul ediliyor?", "acceptedAnswer": {"@type": "Answer", "text": "HEX (#1e90ff ya da kısa #fff), rgb(30,144,255), hsl(210,100%,56%) ve # işaretsiz 6 haneli hex. Alfa kanalı varsa korunur (#rrggbbaa, rgba, hsla)."}}, {"@type": "Question", "name": "HSL'yi ne zaman kullanmalıyım?", "acceptedAnswer": {"@type": "Answer", "text": "HSL, tonu aydınlıktan ayırır; palet çalışmasını sezgisel yapar: tonu sabit tutup aydınlığı değiştirerek gölgeler, tonu kaydırarak tamamlayıcı renkler elde edilir."}}, {"@type": "Question", "name": "Bir şey yükleniyor mu?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır — dönüşüm tarayıcınızda saf matematiktir."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../../tr/"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../../tools/color-converter/" class="lang-switch" rel="alternate" hreflang="en">English</a>
+  </nav>
+</header>
+<main>
+<h1>Renk Dönüştürücü</h1>
+<p class="lede">Rengi herhangi bir formatta yapıştırın — HEX, RGB ya da HSL — üçünü birden ve canlı renk karesini alın. Her şey cihazınızda çalışır.</p>
+<div class="card stack">
+  <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+    <input id="input" placeholder="#1e90ff, rgb(30,144,255) ya da hsl(210,100%,56%)" spellcheck="false" autocapitalize="off"
+      style="flex:1;min-width:240px;font-family:ui-monospace,Consolas,monospace">
+    <div id="swatch" style="width:56px;height:56px;border-radius:10px;border:1px solid rgba(127,127,127,.35);background:transparent"></div>
+  </div>
+  <p class="note" id="status">Başlamak için bir renk yapıştırın.</p>
+  <div id="results" style="display:none" class="stack">
+    <div style="display:flex;gap:10px;align-items:center">
+      <code id="hex" style="flex:1"></code><button class="btn copy-btn" data-for="hex">Kopyala</button>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center">
+      <code id="rgb" style="flex:1"></code><button class="btn copy-btn" data-for="rgb">Kopyala</button>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center">
+      <code id="hsl" style="flex:1"></code><button class="btn copy-btn" data-for="hsl">Kopyala</button>
+    </div>
+  </div>
+</div>
+<section><h2>Hangi formatlar kabul ediliyor?</h2><p>HEX (#1e90ff ya da kısa #fff), rgb(30,144,255), hsl(210,100%,56%) ve # işaretsiz 6 haneli hex. Alfa kanalı varsa korunur (#rrggbbaa, rgba, hsla).</p><h2>HSL'yi ne zaman kullanmalıyım?</h2><p>HSL, tonu aydınlıktan ayırır; palet çalışmasını sezgisel yapar: tonu sabit tutup aydınlığı değiştirerek gölgeler, tonu kaydırarak tamamlayıcı renkler elde edilir.</p><h2>Bir şey yükleniyor mu?</h2><p>Hayır — dönüşüm tarayıcınızda saf matematiktir.</p></section>
+<section class="related"><h2>Diğer araçlar</h2><ul class="tool-grid"><li><a href="../../../tr/araclar/pdf-birlestir/"><div class="card"><h2>PDF Birleştirici</h2><p>PDF'leri cihazınızda, gizlice tek dosyada birleştirin.</p></div></a></li>
+<li><a href="../../../tr/araclar/pdf-bol/"><div class="card"><h2>PDF Bölücü</h2><p>PDF'den sayfa/aralık ayıklayın, cihazınızda.</p></div></a></li>
+<li><a href="../../../tr/araclar/resim-kucult-sikistir/"><div class="card"><h2>Resim Küçültücü</h2><p>Fotoğrafları JPEG/WebP'ye, cihazınızda gizlice küçültün.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — tamamen tarayıcınızda çalışan küçük araçlar. Yükleme yok, izleme yok. · <a href="../../../about/">Hakkında</a> · <a href="../../../privacy/">Gizlilik</a></p>
+</footer>
+<script src="../../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Renk Dönüştürücü", "lede": "Rengi herhangi bir formatta yapıştırın — HEX, RGB ya da HSL — üçünü birden ve canlı renk karesini alın. Her şey cihazınızda çalışır.", "card_title": "Renk Dönüştürücü", "card_desc": "HEX ↔ RGB ↔ HSL, canlı önizleme karesiyle.", "input_ph": "#1e90ff, rgb(30,144,255) ya da hsl(210,100%,56%)", "copy": "Kopyala", "copied": "Kopyalandı!", "err": "Renk çözümlenemedi — #rrggbb, rgb(r,g,b) ya da hsl(h,s%,l%) deneyin.", "empty": "Başlamak için bir renk yapıştırın."};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>
