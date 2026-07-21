@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Markdown Preview — Live, Free, No Upload</title>
+<meta name="description" content="Write Markdown and see the rendered result live: headers, bold, links, lists, code blocks. Runs in your browser — notes never leave your device.">
+<link rel="stylesheet" href="../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tools/markdown-preview/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/markdown-preview/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/markdown-onizleme/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/markdown-preview/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Markdown Preview — Live, Free, No Upload">
+<meta property="og:description" content="Write Markdown and see the rendered result live: headers, bold, links, lists, code blocks. Runs in your browser — notes never leave your device.">
+<meta property="og:url" content="https://aporizma.com/tools/markdown-preview/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Markdown Preview", "url": "https://aporizma.com/tools/markdown-preview/", "description": "Write Markdown and see the rendered result live: headers, bold, links, lists, code blocks. Runs in your browser — notes never leave your device.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "Which Markdown features are supported?", "acceptedAnswer": {"@type": "Answer", "text": "Headers (#–######), bold, italic, inline code, fenced code blocks, links, unordered and ordered lists, blockquotes and paragraphs — the everyday subset. Tables and footnotes are not rendered."}}, {"@type": "Question", "name": "Is my text uploaded?", "acceptedAnswer": {"@type": "Answer", "text": "No. Rendering is a small script in your browser — safe for private notes and drafts."}}, {"@type": "Question", "name": "Can I copy the HTML?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — the preview is standard HTML; select and copy it, or use your browser's inspector to grab the markup."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../tr/araclar/markdown-onizleme/" class="lang-switch" rel="alternate" hreflang="tr">Türkçe</a>
+  </nav>
+</header>
+<main>
+<h1>Markdown Preview</h1>
+<p class="lede">Type Markdown on the left, see clean HTML on the right — instantly. Everything stays on your device.</p>
+<div class="card stack">
+  <div style="display:flex;gap:12px;flex-wrap:wrap">
+    <textarea id="input" rows="14" placeholder="# Title
+
+Some **bold** text, a [link](https://example.com), and:
+
+- a list
+- `inline code`" spellcheck="false"
+      style="flex:1;min-width:280px;font-family:ui-monospace,Consolas,monospace;font-size:.92rem"></textarea>
+    <div id="preview" style="flex:1;min-width:280px;padding:12px;border-radius:8px;background:var(--surface-2,rgba(127,127,127,.08));overflow-wrap:break-word"></div>
+  </div>
+  <p class="note" id="status">Type some Markdown to see the preview.</p>
+</div>
+<section><h2>Which Markdown features are supported?</h2><p>Headers (#–######), bold, italic, inline code, fenced code blocks, links, unordered and ordered lists, blockquotes and paragraphs — the everyday subset. Tables and footnotes are not rendered.</p><h2>Is my text uploaded?</h2><p>No. Rendering is a small script in your browser — safe for private notes and drafts.</p><h2>Can I copy the HTML?</h2><p>Yes — the preview is standard HTML; select and copy it, or use your browser's inspector to grab the markup.</p></section>
+<section class="related"><h2>More tools</h2><ul class="tool-grid"><li><a href="../../tools/word-character-counter/"><div class="card"><h2>Word & Character Counter</h2><p>Count words, characters, sentences, paragraphs and reading time.</p></div></a></li>
+<li><a href="../../tools/text-diff/"><div class="card"><h2>Text Diff</h2><p>Line-by-line comparison with colored changes.</p></div></a></li>
+<li><a href="../../tools/merge-pdf/"><div class="card"><h2>PDF Merger</h2><p>Combine PDFs into one file, privately on your device.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — handcrafted small tools that run entirely in your browser. No uploads, no tracking. · <a href="../../about/">About</a> · <a href="../../privacy/">Privacy</a></p>
+</footer>
+<script src="../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Markdown Preview", "lede": "Type Markdown on the left, see clean HTML on the right — instantly. Everything stays on your device.", "card_title": "Markdown Preview", "card_desc": "Live Markdown rendering: headers, lists, code, links.", "input_ph": "# Title\n\nSome **bold** text, a [link](https://example.com), and:\n\n- a list\n- `inline code`", "empty": "Type some Markdown to see the preview.", "chars_fmt": "{n} characters"};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

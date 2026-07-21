@@ -1,0 +1,30 @@
+{
+  "id": "md-preview",
+  "category": "text",
+  "en": {
+    "slug": "tools/markdown-preview",
+    "title": "Markdown Preview — Live, Free, No Upload",
+    "desc": "Write Markdown and see the rendered result live: headers, bold, links, lists, code blocks. Runs in your browser — notes never leave your device.",
+    "h1": "Markdown Preview",
+    "lede": "Type Markdown on the left, see clean HTML on the right — instantly. Everything stays on your device.",
+    "card_title": "Markdown Preview",
+    "card_desc": "Live Markdown rendering: headers, lists, code, links.",
+    "input_ph": "# Title\n\nSome **bold** text, a [link](https://example.com), and:\n\n- a list\n- `inline code`",
+    "empty": "Type some Markdown to see the preview.",
+    "chars_fmt": "{n} characters",
+    "faq_html": "<h2>Which Markdown features are supported?</h2><p>Headers (#–######), bold, italic, inline code, fenced code blocks, links, unordered and ordered lists, blockquotes and paragraphs — the everyday subset. Tables and footnotes are not rendered.</p><h2>Is my text uploaded?</h2><p>No. Rendering is a small script in your browser — safe for private notes and drafts.</p><h2>Can I copy the HTML?</h2><p>Yes — the preview is standard HTML; select and copy it, or use your browser's inspector to grab the markup.</p>"
+  },
+  "tr": {
+    "slug": "tr/araclar/markdown-onizleme",
+    "title": "Markdown Önizleme — Canlı, Ücretsiz, Yüklemesiz",
+    "desc": "Markdown yazın, sonucu canlı görün: başlıklar, kalın, bağlantılar, listeler, kod blokları. Tarayıcınızda çalışır — notlarınız cihazınızdan çıkmaz.",
+    "h1": "Markdown Önizleme",
+    "lede": "Solda Markdown yazın, sağda temiz HTML'i anında görün. Her şey cihazınızda kalır.",
+    "card_title": "Markdown Önizleme",
+    "card_desc": "Canlı Markdown: başlık, liste, kod, bağlantı.",
+    "input_ph": "# Başlık\n\nBiraz **kalın** metin, bir [bağlantı](https://ornek.com) ve:\n\n- bir liste\n- `satır içi kod`",
+    "empty": "Önizleme için biraz Markdown yazın.",
+    "chars_fmt": "{n} karakter",
+    "faq_html": "<h2>Hangi Markdown özellikleri destekleniyor?</h2><p>Başlıklar (#–######), kalın, italik, satır içi kod, çitli kod blokları, bağlantılar, sırasız ve sıralı listeler, alıntılar ve paragraflar — günlük alt küme. Tablolar ve dipnotlar işlenmez.</p><h2>Metnim yükleniyor mu?</h2><p>Hayır. İşleme, tarayıcınızdaki küçük bir betiktir — özel notlar ve taslaklar için güvenlidir.</p><h2>HTML'i kopyalayabilir miyim?</h2><p>Evet — önizleme standart HTML'dir; seçip kopyalayabilirsiniz.</p>"
+  }
+}

@@ -1,0 +1,11 @@
+<h1>{{s.h1}}</h1>
+<p class="lede">{{s.lede}}</p>
+<div class="card stack">
+  <div style="display:flex;gap:12px;flex-wrap:wrap">
+    <textarea id="input" rows="14" placeholder="{{s.input_ph}}" spellcheck="false"
+      style="flex:1;min-width:280px;font-family:ui-monospace,Consolas,monospace;font-size:.92rem"></textarea>
+    <div id="preview" style="flex:1;min-width:280px;padding:12px;border-radius:8px;background:var(--surface-2,rgba(127,127,127,.08));overflow-wrap:break-word"></div>
+  </div>
+  <p class="note" id="status">{{s.empty}}</p>
+</div>
+<section>{{s.faq_html}}</section>
