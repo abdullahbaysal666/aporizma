@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Epoch Dönüştürücü — Unix Zaman Damgası ↔ Tarih</title>
+<meta name="description" content="Unix zaman damgasını (epoch) okunabilir tarihe çevirin (UTC + yerel) ya da tarihten epoch saniye/milisaniye üretin. Tamamen tarayıcınızda çalışır, ücretsiz.">
+<link rel="stylesheet" href="../../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tr/araclar/unix-zaman-damgasi-donusturucu/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/epoch-timestamp-converter/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/unix-zaman-damgasi-donusturucu/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/epoch-timestamp-converter/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Epoch Dönüştürücü — Unix Zaman Damgası ↔ Tarih">
+<meta property="og:description" content="Unix zaman damgasını (epoch) okunabilir tarihe çevirin (UTC + yerel) ya da tarihten epoch saniye/milisaniye üretin. Tamamen tarayıcınızda çalışır, ücretsiz.">
+<meta property="og:url" content="https://aporizma.com/tr/araclar/unix-zaman-damgasi-donusturucu/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Epoch Zaman Damgası Dönüştürücü", "url": "https://aporizma.com/tr/araclar/unix-zaman-damgasi-donusturucu/", "description": "Unix zaman damgasını (epoch) okunabilir tarihe çevirin (UTC + yerel) ya da tarihten epoch saniye/milisaniye üretin. Tamamen tarayıcınızda çalışır, ücretsiz.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "tr", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "tr", "mainEntity": [{"@type": "Question", "name": "Birim algılama nasıl çalışır?", "acceptedAnswer": {"@type": "Answer", "text": "10 basamak veya daha az olan zaman damgaları saniye kabul edilir (5138 yılına kadar geçerli); 11-13 basamaklılar milisaniye kabul edilir. Pratikte karşılaşacağınız tüm zaman damgaları bu aralığa girer."}}, {"@type": "Question", "name": "Bir şey sunucuya gönderiliyor mu?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır. Dönüştürme tamamen tarayıcınızda JavaScript ile yapılır — hiçbir şey yüklenmez."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../../tr/"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../../tools/epoch-timestamp-converter/" class="lang-switch" rel="alternate" hreflang="en">English</a>
+  </nav>
+</header>
+<main>
+<h1>Epoch Zaman Damgası Dönüştürücü</h1>
+<p class="lede">Bir Unix zaman damgası yapıştırın; UTC ve yerel saatinizdeki karşılığını görün — ya da bir tarih seçip epoch değerini alın. Saniye/milisaniye otomatik algılanır.</p>
+
+<div class="card stack">
+  <h2 class="sec-title">Epoch → Tarih</h2>
+  <label class="note" for="epoch">Unix zaman damgası (saniye veya milisaniye)</label>
+  <div class="row">
+    <input type="text" id="epoch" inputmode="numeric" placeholder="1700000000000">
+    <button class="btn ghost" id="now1" type="button">Şimdi</button>
+  </div>
+  <p class="note" id="status1">Başlamak için bir zaman damgası girin.</p>
+  <ul class="kv" id="result1" hidden>
+    <li><span>ISO 8601</span><code id="out_iso"></code><button class="btn ghost copy" data-target="out_iso" type="button">Kopyala</button></li>
+    <li><span>UTC</span><code id="out_utc"></code><button class="btn ghost copy" data-target="out_utc" type="button">Kopyala</button></li>
+    <li><span>Yerel saat</span><code id="out_local"></code><button class="btn ghost copy" data-target="out_local" type="button">Kopyala</button></li>
+  </ul>
+</div>
+
+<div class="card stack">
+  <h2 class="sec-title">Tarih → Epoch</h2>
+  <label class="note" for="datetime">Tarih ve saat (yerel)</label>
+  <div class="row">
+    <input type="datetime-local" id="datetime" step="1">
+    <button class="btn ghost" id="now2" type="button">Şimdi</button>
+  </div>
+  <ul class="kv">
+    <li><span>Epoch (saniye)</span><code id="out_s"></code><button class="btn ghost copy" data-target="out_s" type="button">Kopyala</button></li>
+    <li><span>Epoch (milisaniye)</span><code id="out_ms"></code><button class="btn ghost copy" data-target="out_ms" type="button">Kopyala</button></li>
+  </ul>
+</div>
+
+<section><h2>Birim algılama nasıl çalışır?</h2><p>10 basamak veya daha az olan zaman damgaları saniye kabul edilir (5138 yılına kadar geçerli); 11-13 basamaklılar milisaniye kabul edilir. Pratikte karşılaşacağınız tüm zaman damgaları bu aralığa girer.</p><h2>Bir şey sunucuya gönderiliyor mu?</h2><p>Hayır. Dönüştürme tamamen tarayıcınızda JavaScript ile yapılır — hiçbir şey yüklenmez.</p></section>
+
+<style>
+.sec-title { margin: 0; font-size: 1.05rem; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.row input { flex: 1; min-width: 160px; }
+.kv { list-style: none; margin: 0; padding: 0; }
+.kv li { display: flex; align-items: center; gap: 8px; padding: 7px 0; border-top: 1px solid var(--line); flex-wrap: wrap; }
+.kv li:first-child { border-top: none; }
+.kv span { color: var(--ink-soft); font-size: .85rem; min-width: 130px; }
+.kv code { font-family: var(--mono); font-size: .86rem; word-break: break-all; }
+.kv button { margin-left: auto; padding: 4px 10px; font-size: .8rem; }
+</style>
+<section class="related"><h2>Diğer araçlar</h2><ul class="tool-grid"><li><a href="../../../tr/araclar/pdf-birlestir/"><div class="card"><h2>PDF Birleştirici</h2><p>PDF'leri cihazınızda, gizlice tek dosyada birleştirin.</p></div></a></li>
+<li><a href="../../../tr/araclar/pdf-bol/"><div class="card"><h2>PDF Bölücü</h2><p>PDF'den sayfa/aralık ayıklayın, cihazınızda.</p></div></a></li>
+<li><a href="../../../tr/araclar/resim-kucult-sikistir/"><div class="card"><h2>Resim Küçültücü</h2><p>Fotoğrafları JPEG/WebP'ye, cihazınızda gizlice küçültün.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — tamamen tarayıcınızda çalışan küçük araçlar. Yükleme yok, izleme yok. · <a href="../../../about/">Hakkında</a> · <a href="../../../privacy/">Gizlilik</a></p>
+</footer>
+<script src="../../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Epoch Zaman Damgası Dönüştürücü", "lede": "Bir Unix zaman damgası yapıştırın; UTC ve yerel saatinizdeki karşılığını görün — ya da bir tarih seçip epoch değerini alın. Saniye/milisaniye otomatik algılanır.", "card_title": "Epoch Zaman Damgası Dönüştürücü", "card_desc": "Unix zaman damgasını tarihe, tarihi zaman damgasına çevirin.", "sec1_title": "Epoch → Tarih", "sec2_title": "Tarih → Epoch", "epoch_label": "Unix zaman damgası (saniye veya milisaniye)", "now_btn": "Şimdi", "empty": "Başlamak için bir zaman damgası girin.", "invalid": "Bu geçerli bir Unix zaman damgası gibi görünmüyor.", "unit_fmt": "Algılandı: {unit}", "unit_s": "saniye", "unit_ms": "milisaniye", "iso_label": "ISO 8601", "utc_label": "UTC", "local_label": "Yerel saat", "datetime_label": "Tarih ve saat (yerel)", "epoch_s_label": "Epoch (saniye)", "epoch_ms_label": "Epoch (milisaniye)", "copy": "Kopyala", "copied": "Kopyalandı!"};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

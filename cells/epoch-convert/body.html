@@ -1,0 +1,44 @@
+<h1>{{s.h1}}</h1>
+<p class="lede">{{s.lede}}</p>
+
+<div class="card stack">
+  <h2 class="sec-title">{{s.sec1_title}}</h2>
+  <label class="note" for="epoch">{{s.epoch_label}}</label>
+  <div class="row">
+    <input type="text" id="epoch" inputmode="numeric" placeholder="1700000000000">
+    <button class="btn ghost" id="now1" type="button">{{s.now_btn}}</button>
+  </div>
+  <p class="note" id="status1">{{s.empty}}</p>
+  <ul class="kv" id="result1" hidden>
+    <li><span>{{s.iso_label}}</span><code id="out_iso"></code><button class="btn ghost copy" data-target="out_iso" type="button">{{s.copy}}</button></li>
+    <li><span>{{s.utc_label}}</span><code id="out_utc"></code><button class="btn ghost copy" data-target="out_utc" type="button">{{s.copy}}</button></li>
+    <li><span>{{s.local_label}}</span><code id="out_local"></code><button class="btn ghost copy" data-target="out_local" type="button">{{s.copy}}</button></li>
+  </ul>
+</div>
+
+<div class="card stack">
+  <h2 class="sec-title">{{s.sec2_title}}</h2>
+  <label class="note" for="datetime">{{s.datetime_label}}</label>
+  <div class="row">
+    <input type="datetime-local" id="datetime" step="1">
+    <button class="btn ghost" id="now2" type="button">{{s.now_btn}}</button>
+  </div>
+  <ul class="kv">
+    <li><span>{{s.epoch_s_label}}</span><code id="out_s"></code><button class="btn ghost copy" data-target="out_s" type="button">{{s.copy}}</button></li>
+    <li><span>{{s.epoch_ms_label}}</span><code id="out_ms"></code><button class="btn ghost copy" data-target="out_ms" type="button">{{s.copy}}</button></li>
+  </ul>
+</div>
+
+<section>{{s.faq_html}}</section>
+
+<style>
+.sec-title { margin: 0; font-size: 1.05rem; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.row input { flex: 1; min-width: 160px; }
+.kv { list-style: none; margin: 0; padding: 0; }
+.kv li { display: flex; align-items: center; gap: 8px; padding: 7px 0; border-top: 1px solid var(--line); flex-wrap: wrap; }
+.kv li:first-child { border-top: none; }
+.kv span { color: var(--ink-soft); font-size: .85rem; min-width: 130px; }
+.kv code { font-family: var(--mono); font-size: .86rem; word-break: break-all; }
+.kv button { margin-left: auto; padding: 4px 10px; font-size: .8rem; }
+</style>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Epoch Converter — Unix Timestamp to Date, Online</title>
+<meta name="description" content="Convert Unix epoch timestamps to human-readable dates (UTC + local) or a date to epoch seconds/milliseconds. Runs entirely in your browser — free, no sign-up.">
+<link rel="stylesheet" href="../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tools/epoch-timestamp-converter/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/epoch-timestamp-converter/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/unix-zaman-damgasi-donusturucu/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/epoch-timestamp-converter/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Epoch Converter — Unix Timestamp to Date, Online">
+<meta property="og:description" content="Convert Unix epoch timestamps to human-readable dates (UTC + local) or a date to epoch seconds/milliseconds. Runs entirely in your browser — free, no sign-up.">
+<meta property="og:url" content="https://aporizma.com/tools/epoch-timestamp-converter/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Epoch Timestamp Converter", "url": "https://aporizma.com/tools/epoch-timestamp-converter/", "description": "Convert Unix epoch timestamps to human-readable dates (UTC + local) or a date to epoch seconds/milliseconds. Runs entirely in your browser — free, no sign-up.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "How does unit detection work?", "acceptedAnswer": {"@type": "Answer", "text": "Timestamps with 10 digits or fewer are treated as seconds (valid up to the year 5138); 11–13 digits are treated as milliseconds. This covers every timestamp you'll encounter in practice."}}, {"@type": "Question", "name": "Is anything sent to a server?", "acceptedAnswer": {"@type": "Answer", "text": "No. Conversion happens entirely in your browser with JavaScript — nothing is uploaded."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../tr/araclar/unix-zaman-damgasi-donusturucu/" class="lang-switch" rel="alternate" hreflang="tr">Türkçe</a>
+  </nav>
+</header>
+<main>
+<h1>Epoch Timestamp Converter</h1>
+<p class="lede">Paste a Unix timestamp to see the date in UTC and your local time — or pick a date to get its epoch value. Seconds and milliseconds are detected automatically.</p>
+
+<div class="card stack">
+  <h2 class="sec-title">Epoch → Date</h2>
+  <label class="note" for="epoch">Unix timestamp (seconds or milliseconds)</label>
+  <div class="row">
+    <input type="text" id="epoch" inputmode="numeric" placeholder="1700000000000">
+    <button class="btn ghost" id="now1" type="button">Now</button>
+  </div>
+  <p class="note" id="status1">Enter a timestamp to begin.</p>
+  <ul class="kv" id="result1" hidden>
+    <li><span>ISO 8601</span><code id="out_iso"></code><button class="btn ghost copy" data-target="out_iso" type="button">Copy</button></li>
+    <li><span>UTC</span><code id="out_utc"></code><button class="btn ghost copy" data-target="out_utc" type="button">Copy</button></li>
+    <li><span>Local time</span><code id="out_local"></code><button class="btn ghost copy" data-target="out_local" type="button">Copy</button></li>
+  </ul>
+</div>
+
+<div class="card stack">
+  <h2 class="sec-title">Date → Epoch</h2>
+  <label class="note" for="datetime">Date & time (local)</label>
+  <div class="row">
+    <input type="datetime-local" id="datetime" step="1">
+    <button class="btn ghost" id="now2" type="button">Now</button>
+  </div>
+  <ul class="kv">
+    <li><span>Epoch (seconds)</span><code id="out_s"></code><button class="btn ghost copy" data-target="out_s" type="button">Copy</button></li>
+    <li><span>Epoch (milliseconds)</span><code id="out_ms"></code><button class="btn ghost copy" data-target="out_ms" type="button">Copy</button></li>
+  </ul>
+</div>
+
+<section><h2>How does unit detection work?</h2><p>Timestamps with 10 digits or fewer are treated as seconds (valid up to the year 5138); 11–13 digits are treated as milliseconds. This covers every timestamp you'll encounter in practice.</p><h2>Is anything sent to a server?</h2><p>No. Conversion happens entirely in your browser with JavaScript — nothing is uploaded.</p></section>
+
+<style>
+.sec-title { margin: 0; font-size: 1.05rem; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.row input { flex: 1; min-width: 160px; }
+.kv { list-style: none; margin: 0; padding: 0; }
+.kv li { display: flex; align-items: center; gap: 8px; padding: 7px 0; border-top: 1px solid var(--line); flex-wrap: wrap; }
+.kv li:first-child { border-top: none; }
+.kv span { color: var(--ink-soft); font-size: .85rem; min-width: 130px; }
+.kv code { font-family: var(--mono); font-size: .86rem; word-break: break-all; }
+.kv button { margin-left: auto; padding: 4px 10px; font-size: .8rem; }
+</style>
+<section class="related"><h2>More tools</h2><ul class="tool-grid"><li><a href="../../tools/merge-pdf/"><div class="card"><h2>PDF Merger</h2><p>Combine PDFs into one file, privately on your device.</p></div></a></li>
+<li><a href="../../tools/split-pdf/"><div class="card"><h2>PDF Splitter</h2><p>Extract pages or ranges from a PDF, on your device.</p></div></a></li>
+<li><a href="../../tools/image-resize-compress/"><div class="card"><h2>Image Resizer & Compressor</h2><p>Shrink photos to JPEG/WebP, privately on your device.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — handcrafted small tools that run entirely in your browser. No uploads, no tracking. · <a href="../../about/">About</a> · <a href="../../privacy/">Privacy</a></p>
+</footer>
+<script src="../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Epoch Timestamp Converter", "lede": "Paste a Unix timestamp to see the date in UTC and your local time — or pick a date to get its epoch value. Seconds and milliseconds are detected automatically.", "card_title": "Epoch Timestamp Converter", "card_desc": "Convert Unix timestamps to dates and back, seconds or milliseconds.", "sec1_title": "Epoch → Date", "sec2_title": "Date → Epoch", "epoch_label": "Unix timestamp (seconds or milliseconds)", "now_btn": "Now", "empty": "Enter a timestamp to begin.", "invalid": "This doesn't look like a valid Unix timestamp.", "unit_fmt": "Detected: {unit}", "unit_s": "seconds", "unit_ms": "milliseconds", "iso_label": "ISO 8601", "utc_label": "UTC", "local_label": "Local time", "datetime_label": "Date & time (local)", "epoch_s_label": "Epoch (seconds)", "epoch_ms_label": "Epoch (milliseconds)", "copy": "Copy", "copied": "Copied!"};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>
