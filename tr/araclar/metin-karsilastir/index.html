@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Metin Karşılaştır — Satır Satır Fark, Ücretsiz</title>
+<meta name="description" content="İki metni karşılaştırın; eklenen ve silinen satırları renkli görün. Tamamen tarayıcınızda çalışır — sözleşmeler ve kod cihazınızdan çıkmaz.">
+<link rel="stylesheet" href="../../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tr/araclar/metin-karsilastir/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/text-diff/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/metin-karsilastir/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/text-diff/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Metin Karşılaştır — Satır Satır Fark, Ücretsiz">
+<meta property="og:description" content="İki metni karşılaştırın; eklenen ve silinen satırları renkli görün. Tamamen tarayıcınızda çalışır — sözleşmeler ve kod cihazınızdan çıkmaz.">
+<meta property="og:url" content="https://aporizma.com/tr/araclar/metin-karsilastir/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Metin Karşılaştır", "url": "https://aporizma.com/tr/araclar/metin-karsilastir/", "description": "İki metni karşılaştırın; eklenen ve silinen satırları renkli görün. Tamamen tarayıcınızda çalışır — sözleşmeler ve kod cihazınızdan çıkmaz.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "tr", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "tr", "mainEntity": [{"@type": "Question", "name": "Metnim yükleniyor mu?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır. Karşılaştırma tamamen tarayıcınızda çalışır — sözleşme, kod ve özel notlar için güvenlidir."}}, {"@type": "Question", "name": "Karşılaştırma nasıl çalışıyor?", "acceptedAnswer": {"@type": "Answer", "text": "En-uzun-ortak-altdizi (LCS) algoritması iki metni satır satır hizalar; araya eklenen tek paragraf, altındaki her şeyi \"değişmiş\" göstermez."}}, {"@type": "Question", "name": "Kod karşılaştırabilir miyim?", "acceptedAnswer": {"@type": "Answer", "text": "Evet — fark boşluk-hassas ve eş aralıklı yazıyla gösterilir; girinti değişiklikleri de görünür."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../../tr/"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../../tools/text-diff/" class="lang-switch" rel="alternate" hreflang="en">English</a>
+  </nav>
+</header>
+<main>
+<h1>Metin Karşılaştır</h1>
+<p class="lede">İki sürümü yapıştırın, ne değiştiğini görün — eklenen satırlar yeşil, silinenler kırmızı. Her şey cihazınızda kalır.</p>
+<div class="card stack">
+  <div style="display:flex;gap:12px;flex-wrap:wrap">
+    <textarea id="left" rows="10" placeholder="Orijinal metin…" spellcheck="false"
+      style="flex:1;min-width:260px;font-family:ui-monospace,Consolas,monospace;font-size:.9rem"></textarea>
+    <textarea id="right" rows="10" placeholder="Değişmiş metin…" spellcheck="false"
+      style="flex:1;min-width:260px;font-family:ui-monospace,Consolas,monospace;font-size:.9rem"></textarea>
+  </div>
+  <div><button class="btn" id="compare">Karşılaştır</button></div>
+  <p class="note" id="status">Karşılaştırmak için iki metni de yapıştırın.</p>
+  <div id="result" style="font-family:ui-monospace,Consolas,monospace;font-size:.9rem;white-space:pre-wrap;word-break:break-word;display:none;border-radius:8px;overflow:hidden"></div>
+</div>
+<section><h2>Metnim yükleniyor mu?</h2><p>Hayır. Karşılaştırma tamamen tarayıcınızda çalışır — sözleşme, kod ve özel notlar için güvenlidir.</p><h2>Karşılaştırma nasıl çalışıyor?</h2><p>En-uzun-ortak-altdizi (LCS) algoritması iki metni satır satır hizalar; araya eklenen tek paragraf, altındaki her şeyi "değişmiş" göstermez.</p><h2>Kod karşılaştırabilir miyim?</h2><p>Evet — fark boşluk-hassas ve eş aralıklı yazıyla gösterilir; girinti değişiklikleri de görünür.</p></section>
+<section class="related"><h2>Diğer araçlar</h2><ul class="tool-grid"><li><a href="../../../tr/araclar/kelime-karakter-sayaci/"><div class="card"><h2>Kelime ve Karakter Sayacı</h2><p>Kelime, karakter, cümle, paragraf sayısı ve okuma süresi.</p></div></a></li>
+<li><a href="../../../tr/araclar/pdf-birlestir/"><div class="card"><h2>PDF Birleştirici</h2><p>PDF'leri cihazınızda, gizlice tek dosyada birleştirin.</p></div></a></li>
+<li><a href="../../../tr/araclar/pdf-bol/"><div class="card"><h2>PDF Bölücü</h2><p>PDF'den sayfa/aralık ayıklayın, cihazınızda.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — tamamen tarayıcınızda çalışan küçük araçlar. Yükleme yok, izleme yok. · <a href="../../../about/">Hakkında</a> · <a href="../../../privacy/">Gizlilik</a></p>
+</footer>
+<script src="../../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Metin Karşılaştır", "lede": "İki sürümü yapıştırın, ne değiştiğini görün — eklenen satırlar yeşil, silinenler kırmızı. Her şey cihazınızda kalır.", "card_title": "Metin Karşılaştır", "card_desc": "Satır satır karşılaştırma, renkli farklar.", "left_ph": "Orijinal metin…", "right_ph": "Değişmiş metin…", "compare": "Karşılaştır", "same": "Metinler birebir aynı.", "diff_fmt": "{add} eklendi, {del} silindi (satır)", "empty": "Karşılaştırmak için iki metni de yapıştırın.", "too_big": "Metin çok büyük — ilk {max} satır karşılaştırıldı."};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

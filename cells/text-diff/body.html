@@ -1,0 +1,14 @@
+<h1>{{s.h1}}</h1>
+<p class="lede">{{s.lede}}</p>
+<div class="card stack">
+  <div style="display:flex;gap:12px;flex-wrap:wrap">
+    <textarea id="left" rows="10" placeholder="{{s.left_ph}}" spellcheck="false"
+      style="flex:1;min-width:260px;font-family:ui-monospace,Consolas,monospace;font-size:.9rem"></textarea>
+    <textarea id="right" rows="10" placeholder="{{s.right_ph}}" spellcheck="false"
+      style="flex:1;min-width:260px;font-family:ui-monospace,Consolas,monospace;font-size:.9rem"></textarea>
+  </div>
+  <div><button class="btn" id="compare">{{s.compare}}</button></div>
+  <p class="note" id="status">{{s.empty}}</p>
+  <div id="result" style="font-family:ui-monospace,Consolas,monospace;font-size:.9rem;white-space:pre-wrap;word-break:break-word;display:none;border-radius:8px;overflow:hidden"></div>
+</div>
+<section>{{s.faq_html}}</section>

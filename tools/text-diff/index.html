@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Text Diff — Compare Two Texts Line by Line, Free</title>
+<meta name="description" content="Compare two texts and see added and removed lines highlighted in color. Runs entirely in your browser — contracts and code never leave your device.">
+<link rel="stylesheet" href="../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tools/text-diff/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/text-diff/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/metin-karsilastir/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/text-diff/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Text Diff — Compare Two Texts Line by Line, Free">
+<meta property="og:description" content="Compare two texts and see added and removed lines highlighted in color. Runs entirely in your browser — contracts and code never leave your device.">
+<meta property="og:url" content="https://aporizma.com/tools/text-diff/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Text Diff", "url": "https://aporizma.com/tools/text-diff/", "description": "Compare two texts and see added and removed lines highlighted in color. Runs entirely in your browser — contracts and code never leave your device.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "Is my text uploaded?", "acceptedAnswer": {"@type": "Answer", "text": "No. The comparison runs entirely in your browser — safe for contracts, code and private notes."}}, {"@type": "Question", "name": "How does the comparison work?", "acceptedAnswer": {"@type": "Answer", "text": "A longest-common-subsequence algorithm aligns the two texts line by line, so a single inserted paragraph doesn't mark everything below it as changed."}}, {"@type": "Question", "name": "Can I compare code?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — the diff is whitespace-exact and monospaced, so indentation changes are visible too."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../tr/araclar/metin-karsilastir/" class="lang-switch" rel="alternate" hreflang="tr">Türkçe</a>
+  </nav>
+</header>
+<main>
+<h1>Text Diff</h1>
+<p class="lede">Paste two versions, see what changed — added lines green, removed lines red. Everything stays on your device.</p>
+<div class="card stack">
+  <div style="display:flex;gap:12px;flex-wrap:wrap">
+    <textarea id="left" rows="10" placeholder="Original text…" spellcheck="false"
+      style="flex:1;min-width:260px;font-family:ui-monospace,Consolas,monospace;font-size:.9rem"></textarea>
+    <textarea id="right" rows="10" placeholder="Changed text…" spellcheck="false"
+      style="flex:1;min-width:260px;font-family:ui-monospace,Consolas,monospace;font-size:.9rem"></textarea>
+  </div>
+  <div><button class="btn" id="compare">Compare</button></div>
+  <p class="note" id="status">Paste both texts to compare.</p>
+  <div id="result" style="font-family:ui-monospace,Consolas,monospace;font-size:.9rem;white-space:pre-wrap;word-break:break-word;display:none;border-radius:8px;overflow:hidden"></div>
+</div>
+<section><h2>Is my text uploaded?</h2><p>No. The comparison runs entirely in your browser — safe for contracts, code and private notes.</p><h2>How does the comparison work?</h2><p>A longest-common-subsequence algorithm aligns the two texts line by line, so a single inserted paragraph doesn't mark everything below it as changed.</p><h2>Can I compare code?</h2><p>Yes — the diff is whitespace-exact and monospaced, so indentation changes are visible too.</p></section>
+<section class="related"><h2>More tools</h2><ul class="tool-grid"><li><a href="../../tools/word-character-counter/"><div class="card"><h2>Word & Character Counter</h2><p>Count words, characters, sentences, paragraphs and reading time.</p></div></a></li>
+<li><a href="../../tools/merge-pdf/"><div class="card"><h2>PDF Merger</h2><p>Combine PDFs into one file, privately on your device.</p></div></a></li>
+<li><a href="../../tools/split-pdf/"><div class="card"><h2>PDF Splitter</h2><p>Extract pages or ranges from a PDF, on your device.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — handcrafted small tools that run entirely in your browser. No uploads, no tracking. · <a href="../../about/">About</a> · <a href="../../privacy/">Privacy</a></p>
+</footer>
+<script src="../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Text Diff", "lede": "Paste two versions, see what changed — added lines green, removed lines red. Everything stays on your device.", "card_title": "Text Diff", "card_desc": "Line-by-line comparison with colored changes.", "left_ph": "Original text…", "right_ph": "Changed text…", "compare": "Compare", "same": "The texts are identical.", "diff_fmt": "{add} added, {del} removed line(s)", "empty": "Paste both texts to compare.", "too_big": "Text too large — first {max} lines compared."};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

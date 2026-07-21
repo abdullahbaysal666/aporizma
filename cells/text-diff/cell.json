@@ -1,0 +1,38 @@
+{
+  "id": "text-diff",
+  "category": "text",
+  "en": {
+    "slug": "tools/text-diff",
+    "title": "Text Diff — Compare Two Texts Line by Line, Free",
+    "desc": "Compare two texts and see added and removed lines highlighted in color. Runs entirely in your browser — contracts and code never leave your device.",
+    "h1": "Text Diff",
+    "lede": "Paste two versions, see what changed — added lines green, removed lines red. Everything stays on your device.",
+    "card_title": "Text Diff",
+    "card_desc": "Line-by-line comparison with colored changes.",
+    "left_ph": "Original text…",
+    "right_ph": "Changed text…",
+    "compare": "Compare",
+    "same": "The texts are identical.",
+    "diff_fmt": "{add} added, {del} removed line(s)",
+    "empty": "Paste both texts to compare.",
+    "too_big": "Text too large — first {max} lines compared.",
+    "faq_html": "<h2>Is my text uploaded?</h2><p>No. The comparison runs entirely in your browser — safe for contracts, code and private notes.</p><h2>How does the comparison work?</h2><p>A longest-common-subsequence algorithm aligns the two texts line by line, so a single inserted paragraph doesn't mark everything below it as changed.</p><h2>Can I compare code?</h2><p>Yes — the diff is whitespace-exact and monospaced, so indentation changes are visible too.</p>"
+  },
+  "tr": {
+    "slug": "tr/araclar/metin-karsilastir",
+    "title": "Metin Karşılaştır — Satır Satır Fark, Ücretsiz",
+    "desc": "İki metni karşılaştırın; eklenen ve silinen satırları renkli görün. Tamamen tarayıcınızda çalışır — sözleşmeler ve kod cihazınızdan çıkmaz.",
+    "h1": "Metin Karşılaştır",
+    "lede": "İki sürümü yapıştırın, ne değiştiğini görün — eklenen satırlar yeşil, silinenler kırmızı. Her şey cihazınızda kalır.",
+    "card_title": "Metin Karşılaştır",
+    "card_desc": "Satır satır karşılaştırma, renkli farklar.",
+    "left_ph": "Orijinal metin…",
+    "right_ph": "Değişmiş metin…",
+    "compare": "Karşılaştır",
+    "same": "Metinler birebir aynı.",
+    "diff_fmt": "{add} eklendi, {del} silindi (satır)",
+    "empty": "Karşılaştırmak için iki metni de yapıştırın.",
+    "too_big": "Metin çok büyük — ilk {max} satır karşılaştırıldı.",
+    "faq_html": "<h2>Metnim yükleniyor mu?</h2><p>Hayır. Karşılaştırma tamamen tarayıcınızda çalışır — sözleşme, kod ve özel notlar için güvenlidir.</p><h2>Karşılaştırma nasıl çalışıyor?</h2><p>En-uzun-ortak-altdizi (LCS) algoritması iki metni satır satır hizalar; araya eklenen tek paragraf, altındaki her şeyi \"değişmiş\" göstermez.</p><h2>Kod karşılaştırabilir miyim?</h2><p>Evet — fark boşluk-hassas ve eş aralıklı yazıyla gösterilir; girinti değişiklikleri de görünür.</p>"
+  }
+}
