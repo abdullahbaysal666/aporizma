@@ -19,6 +19,7 @@ BASE = "https://aporizma.com/"
 LANGS = {
     "en": {"other": "tr", "switch_label": "Türkçe", "home": "",
            "privacy_label": "Privacy", "about_label": "About",
+           "related_label": "More tools",
            "foot": "handcrafted small tools that run entirely in your browser. No uploads, no tracking.",
            "home_title": "Aporizma — small, fast, private web tools",
            "home_desc": "A growing collection of free tools that run entirely in your browser: subtitles, calculators, converters and more. No uploads, no sign-ups.",
@@ -26,6 +27,7 @@ LANGS = {
            "home_lede": "Every Aporizma tool runs entirely in your browser — your files and data never leave your device."},
     "tr": {"other": "en", "switch_label": "English", "home": "tr/",
            "privacy_label": "Gizlilik", "about_label": "Hakkında",
+           "related_label": "Diğer araçlar",
            "foot": "tamamen tarayıcınızda çalışan küçük araçlar. Yükleme yok, izleme yok.",
            "home_title": "Aporizma — küçük, hızlı, gizliliğe saygılı web araçları",
            "home_desc": "Tamamen tarayıcınızda çalışan ücretsiz araçlar: altyazı, hesaplayıcı, dönüştürücü ve dahası. Yükleme yok, üyelik yok.",
@@ -47,6 +49,35 @@ def stamp_strings(text: str, strings: dict) -> str:
 def rel_root(slug: str) -> str:
     depth = slug.count("/") + 1
     return "../" * depth
+
+
+# Ana sayfa + ilgili-araçlar sıralaması (denetçi önerisi 2026-07-20):
+# yüksek-rağbet araçlar önce; listede olmayan yeni hücreler sona.
+DEMAND = ["pdf-merge", "pdf-split", "img-resize", "word-count", "qr-gen",
+          "password-gen", "srt-vtt", "srt-merge", "srt-shift", "llm-cost",
+          "json-format", "base64", "cron-builder", "yt-preview", "pd-calendar"]
+_rank = lambda c: DEMAND.index(c["id"]) if c["id"] in DEMAND else 99
+
+
+def related_cells(cell: dict, cells: list[dict], n: int = 3) -> list[dict]:
+    """Sibling tools for the 'More tools' block: same category first (the user
+    clearly needs this family), then overall demand order. Internal links keep
+    sessions alive and spread PageRank to new cells."""
+    others = [c for c in cells if c["id"] != cell["id"]]
+    same = sorted([c for c in others if c.get("category") == cell.get("category")], key=_rank)
+    rest = sorted([c for c in others if c.get("category") != cell.get("category")], key=_rank)
+    return (same + rest)[:n]
+
+
+def related_html(cell: dict, cells: list[dict], lang: str, root: str) -> str:
+    items = "\n".join(
+        f'<li><a href="{root}{c[lang]["slug"]}/"><div class="card">'
+        f'<h2>{c[lang]["card_title"]}</h2><p>{c[lang]["card_desc"]}</p></div></a></li>'
+        for c in related_cells(cell, cells))
+    if not items:
+        return ""
+    return (f'<section class="related"><h2>{LANGS[lang]["related_label"]}</h2>'
+            f'<ul class="tool-grid">{items}</ul></section>')
 
 
 def faq_ld(faq_html: str, lang: str) -> dict | None:
@@ -109,14 +140,20 @@ def main() -> None:
     shutil.copy2(ORGANS / "organ.css", assets / "organ.css")
     shutil.copy2(ORGANS / "organ.js", assets / "organ.js")
 
-    cells = []
+    # Once tum hucreleri oku (ilgili-araclar bloklari tam listeyi ister),
+    # sonra sayfalari bas.
+    cells, bodies = [], {}
     for cell_dir in sorted(CELLS.iterdir()):
         if not (cell_dir / "cell.json").exists():
             continue
         cell = json.loads((cell_dir / "cell.json").read_text(encoding="utf-8"))
-        body = (cell_dir / "body.html").read_text(encoding="utf-8")
+        cell["_dir"] = cell_dir
+        bodies[cell["id"]] = (cell_dir / "body.html").read_text(encoding="utf-8")
         cells.append(cell)
 
+    for cell in cells:
+        cell_dir = cell["_dir"]
+        body = bodies[cell["id"]]
         for lang in ("en", "tr"):
             s = cell[lang]
             other = cell[LANGS[lang]["other"]]
@@ -154,18 +191,15 @@ def main() -> None:
                                        title=s["title"], desc=s["desc"], lang=lang,
                                        app_name=s["card_title"],
                                        faq_html=s.get("faq_html", "")),
-                "body": stamp_strings(body, s),
+                "body": stamp_strings(body, s)
+                        + related_html(cell, cells, lang, root),
                 "foot_line": LANGS[lang]["foot"],
                 "script_extra": script_extra,
             })
             (out_dir / "index.html").write_text(page, encoding="utf-8")
 
-    # Home pages list every living cell — DEMAND ORDER (denetçi önerisi 2026-07-20):
-    # yüksek-rağbet araçlar üstte; listede olmayan yeni hücreler sona eklenir.
-    demand = ["pdf-merge", "pdf-split", "img-resize", "word-count", "qr-gen",
-              "password-gen", "srt-vtt", "srt-merge", "srt-shift", "llm-cost",
-              "json-format", "cron-builder", "yt-preview", "pd-calendar"]
-    cells.sort(key=lambda c: demand.index(c["id"]) if c["id"] in demand else 99)
+    # Home pages list every living cell in demand order.
+    cells.sort(key=_rank)
 
     for lang in ("en", "tr"):
         cfg = LANGS[lang]
