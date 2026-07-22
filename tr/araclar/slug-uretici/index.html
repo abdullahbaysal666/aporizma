@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slug Üretici — SEO URL Slug, Türkçe Karakter Destekli</title>
+<meta name="description" content="Herhangi bir başlığı temiz bir SEO slug'a çevirin. Türkçe karakterleri (i/I/ı doğru) işler, aksan ve sembolleri temizler. Ücretsiz, anında, tarayıcıda.">
+<link rel="stylesheet" href="../../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tr/araclar/slug-uretici/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/slug-generator/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/slug-uretici/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/slug-generator/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Slug Üretici — SEO URL Slug, Türkçe Karakter Destekli">
+<meta property="og:description" content="Herhangi bir başlığı temiz bir SEO slug'a çevirin. Türkçe karakterleri (i/I/ı doğru) işler, aksan ve sembolleri temizler. Ücretsiz, anında, tarayıcıda.">
+<meta property="og:url" content="https://aporizma.com/tr/araclar/slug-uretici/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Slug Üretici", "url": "https://aporizma.com/tr/araclar/slug-uretici/", "description": "Herhangi bir başlığı temiz bir SEO slug'a çevirin. Türkçe karakterleri (i/I/ı doğru) işler, aksan ve sembolleri temizler. Ücretsiz, anında, tarayıcıda.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "tr", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "tr", "mainEntity": [{"@type": "Question", "name": "Türkçe karakterler nasıl işleniyor?", "acceptedAnswer": {"@type": "Answer", "text": "Türkçe'de küçük harfe çevirme kuralı İngilizce'den farklıdır: büyük noktalı İ küçültülünce i olur, düz I ise noktasız ı olur. Bu araç önce doğru Türkçe yerelleştirme kuralını uygular, sonra ı/ğ/ü/ş/ö/ç karakterlerini düz ASCII karşılıklarına (i/g/u/s/o/c) çevirir — böylece slug URL için güvenli ve temiz kalır."}}, {"@type": "Question", "name": "Noktalama ve aksanlara ne olur?", "acceptedAnswer": {"@type": "Answer", "text": "Ardışık boşluk, noktalama ya da sembol dizileri tek bir tireye dönüşür; aksanlı Latin harfleri (é, à, ü...) temel harfine indirgenir. Baştaki ve sondaki tireler kırpılır."}}, {"@type": "Question", "name": "Metnim bir yere gönderiliyor mu?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır — slug tamamen tarayıcınızda üretilir. Hiçbir şey yüklenmez."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../../tr/"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../../tools/slug-generator/" class="lang-switch" rel="alternate" hreflang="en">English</a>
+  </nav>
+</header>
+<main>
+<h1>Slug Üretici</h1>
+<p class="lede">Bir başlık yazın, temiz bir URL slug'ı alın — aksanlar temizlenir, Türkçe i/İ/ı doğru işlenir, hiçbir şey gönderilmez.</p>
+<div class="card stack">
+  <label class="note" for="input">Başlık</label>
+  <input type="text" id="input" placeholder="Bir başlık yazın, örn. "Daha İyi Uyku İçin 10 İpucu"" spellcheck="false">
+  <label class="note" for="maxlen">Azami uzunluk (0 = sınırsız)</label>
+  <input type="number" id="maxlen" value="0" min="0" style="max-width:120px">
+  <label class="note" for="output">Slug</label>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+    <input type="text" id="output" readonly spellcheck="false"
+           style="flex:1;min-width:200px;font-family:var(--mono)">
+    <button class="btn ghost" id="copy" hidden>Kopyala</button>
+  </div>
+  <p class="note" id="count"></p>
+</div>
+<section><h2>Türkçe karakterler nasıl işleniyor?</h2><p>Türkçe'de küçük harfe çevirme kuralı İngilizce'den farklıdır: büyük noktalı <code>İ</code> küçültülünce <code>i</code> olur, düz <code>I</code> ise noktasız <code>ı</code> olur. Bu araç önce doğru Türkçe yerelleştirme kuralını uygular, sonra ı/ğ/ü/ş/ö/ç karakterlerini düz ASCII karşılıklarına (i/g/u/s/o/c) çevirir — böylece slug URL için güvenli ve temiz kalır.</p><h2>Noktalama ve aksanlara ne olur?</h2><p>Ardışık boşluk, noktalama ya da sembol dizileri tek bir tireye dönüşür; aksanlı Latin harfleri (é, à, ü...) temel harfine indirgenir. Baştaki ve sondaki tireler kırpılır.</p><h2>Metnim bir yere gönderiliyor mu?</h2><p>Hayır — slug tamamen tarayıcınızda üretilir. Hiçbir şey yüklenmez.</p></section>
+<section class="related"><h2>Diğer araçlar</h2><ul class="tool-grid"><li><a href="../../../tr/araclar/json-duzenle/"><div class="card"><h2>JSON Formatlayıcı</h2><p>JSON formatla, doğrula, sıkıştır — tam hata konumuyla.</p></div></a></li>
+<li><a href="../../../tr/araclar/base64-kodla-coz/"><div class="card"><h2>Base64 Kodlayıcı</h2><p>Base64 kodla/çöz, UTF-8 güvenli — emoji ve Türkçe bozulmaz.</p></div></a></li>
+<li><a href="../../../tr/araclar/regex-test/"><div class="card"><h2>Regex Test Aracı</h2><p>Canlı regex eşleştirme: vurgulu sonuçlar ve gruplar.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — tamamen tarayıcınızda çalışan küçük araçlar. Yükleme yok, izleme yok. · <a href="../../../about/">Hakkında</a> · <a href="../../../privacy/">Gizlilik</a></p>
+</footer>
+<script src="../../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Slug Üretici", "lede": "Bir başlık yazın, temiz bir URL slug'ı alın — aksanlar temizlenir, Türkçe i/İ/ı doğru işlenir, hiçbir şey gönderilmez.", "card_title": "Slug Üretici", "card_desc": "Başlıktan SEO slug, Türkçe karakterler doğru işlenir.", "input_ph": "Bir başlık yazın, örn. \"Daha İyi Uyku İçin 10 İpucu\"", "input_label": "Başlık", "maxlen_label": "Azami uzunluk (0 = sınırsız)", "output_label": "Slug", "copy": "Kopyala", "copied": "Kopyalandı!", "count_fmt": "{n} karakter"};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slug Generator — SEO URL Slugs, Turkish-Aware</title>
+<meta name="description" content="Turn any title into a clean SEO slug. Handles Turkish characters (i/I/ı correctly), strips accents and symbols. Free, instant, runs in your browser.">
+<link rel="stylesheet" href="../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tools/slug-generator/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/slug-generator/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/slug-uretici/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/slug-generator/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Slug Generator — SEO URL Slugs, Turkish-Aware">
+<meta property="og:description" content="Turn any title into a clean SEO slug. Handles Turkish characters (i/I/ı correctly), strips accents and symbols. Free, instant, runs in your browser.">
+<meta property="og:url" content="https://aporizma.com/tools/slug-generator/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Slug Generator", "url": "https://aporizma.com/tools/slug-generator/", "description": "Turn any title into a clean SEO slug. Handles Turkish characters (i/I/ı correctly), strips accents and symbols. Free, instant, runs in your browser.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "How does the Turkish character handling work?", "acceptedAnswer": {"@type": "Answer", "text": "Turkish text has a tricky case-folding rule: the capital dotted İ lowercases to i, while plain I lowercases to dotless ı — the opposite of English. This tool applies the correct Turkish locale rule first, then maps ı/ğ/ü/ş/ö/ç to their plain ASCII equivalents (i/g/u/s/o/c) so slugs stay clean and URL-safe."}}, {"@type": "Question", "name": "What happens to punctuation and accents?", "acceptedAnswer": {"@type": "Answer", "text": "Any run of spaces, punctuation, or symbols becomes a single hyphen, and accented Latin letters (é, à, ü...) are stripped to their base letter. Leading and trailing hyphens are trimmed."}}, {"@type": "Question", "name": "Is my text sent anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No — the slug is generated entirely in your browser. Nothing is uploaded."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../tr/araclar/slug-uretici/" class="lang-switch" rel="alternate" hreflang="tr">Türkçe</a>
+  </nav>
+</header>
+<main>
+<h1>Slug Generator</h1>
+<p class="lede">Type a title, get a clean URL slug — accents stripped, Turkish i/İ/ı handled correctly, nothing sent anywhere.</p>
+<div class="card stack">
+  <label class="note" for="input">Title</label>
+  <input type="text" id="input" placeholder="Type a title, e.g. "10 Tips for Better Sleep"" spellcheck="false">
+  <label class="note" for="maxlen">Max length (0 = no limit)</label>
+  <input type="number" id="maxlen" value="0" min="0" style="max-width:120px">
+  <label class="note" for="output">Slug</label>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+    <input type="text" id="output" readonly spellcheck="false"
+           style="flex:1;min-width:200px;font-family:var(--mono)">
+    <button class="btn ghost" id="copy" hidden>Copy</button>
+  </div>
+  <p class="note" id="count"></p>
+</div>
+<section><h2>How does the Turkish character handling work?</h2><p>Turkish text has a tricky case-folding rule: the capital dotted <code>İ</code> lowercases to <code>i</code>, while plain <code>I</code> lowercases to dotless <code>ı</code> — the opposite of English. This tool applies the correct Turkish locale rule first, then maps ı/ğ/ü/ş/ö/ç to their plain ASCII equivalents (i/g/u/s/o/c) so slugs stay clean and URL-safe.</p><h2>What happens to punctuation and accents?</h2><p>Any run of spaces, punctuation, or symbols becomes a single hyphen, and accented Latin letters (é, à, ü...) are stripped to their base letter. Leading and trailing hyphens are trimmed.</p><h2>Is my text sent anywhere?</h2><p>No — the slug is generated entirely in your browser. Nothing is uploaded.</p></section>
+<section class="related"><h2>More tools</h2><ul class="tool-grid"><li><a href="../../tools/json-formatter/"><div class="card"><h2>JSON Formatter</h2><p>Format, validate & minify JSON with exact error location.</p></div></a></li>
+<li><a href="../../tools/base64-encode-decode/"><div class="card"><h2>Base64 Encoder</h2><p>Encode/decode Base64, UTF-8 safe — emoji & accents survive.</p></div></a></li>
+<li><a href="../../tools/regex-tester/"><div class="card"><h2>Regex Tester</h2><p>Live regex matching with highlighted results & groups.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — handcrafted small tools that run entirely in your browser. No uploads, no tracking. · <a href="../../about/">About</a> · <a href="../../privacy/">Privacy</a></p>
+</footer>
+<script src="../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Slug Generator", "lede": "Type a title, get a clean URL slug — accents stripped, Turkish i/İ/ı handled correctly, nothing sent anywhere.", "card_title": "Slug Generator", "card_desc": "Title to SEO slug, Turkish characters handled correctly.", "input_ph": "Type a title, e.g. \"10 Tips for Better Sleep\"", "input_label": "Title", "maxlen_label": "Max length (0 = no limit)", "output_label": "Slug", "copy": "Copy", "copied": "Copied!", "count_fmt": "{n} characters"};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

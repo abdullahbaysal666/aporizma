@@ -1,0 +1,38 @@
+{
+  "id": "slug-gen",
+  "category": "dev",
+  "en": {
+    "slug": "tools/slug-generator",
+    "title": "Slug Generator — SEO URL Slugs, Turkish-Aware",
+    "desc": "Turn any title into a clean SEO slug. Handles Turkish characters (i/I/ı correctly), strips accents and symbols. Free, instant, runs in your browser.",
+    "h1": "Slug Generator",
+    "lede": "Type a title, get a clean URL slug — accents stripped, Turkish i/İ/ı handled correctly, nothing sent anywhere.",
+    "card_title": "Slug Generator",
+    "card_desc": "Title to SEO slug, Turkish characters handled correctly.",
+    "input_ph": "Type a title, e.g. \"10 Tips for Better Sleep\"",
+    "input_label": "Title",
+    "maxlen_label": "Max length (0 = no limit)",
+    "output_label": "Slug",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "count_fmt": "{n} characters",
+    "faq_html": "<h2>How does the Turkish character handling work?</h2><p>Turkish text has a tricky case-folding rule: the capital dotted <code>İ</code> lowercases to <code>i</code>, while plain <code>I</code> lowercases to dotless <code>ı</code> — the opposite of English. This tool applies the correct Turkish locale rule first, then maps ı/ğ/ü/ş/ö/ç to their plain ASCII equivalents (i/g/u/s/o/c) so slugs stay clean and URL-safe.</p><h2>What happens to punctuation and accents?</h2><p>Any run of spaces, punctuation, or symbols becomes a single hyphen, and accented Latin letters (é, à, ü...) are stripped to their base letter. Leading and trailing hyphens are trimmed.</p><h2>Is my text sent anywhere?</h2><p>No — the slug is generated entirely in your browser. Nothing is uploaded.</p>"
+  },
+  "tr": {
+    "slug": "tr/araclar/slug-uretici",
+    "title": "Slug Üretici — SEO URL Slug, Türkçe Karakter Destekli",
+    "desc": "Herhangi bir başlığı temiz bir SEO slug'a çevirin. Türkçe karakterleri (i/I/ı doğru) işler, aksan ve sembolleri temizler. Ücretsiz, anında, tarayıcıda.",
+    "h1": "Slug Üretici",
+    "lede": "Bir başlık yazın, temiz bir URL slug'ı alın — aksanlar temizlenir, Türkçe i/İ/ı doğru işlenir, hiçbir şey gönderilmez.",
+    "card_title": "Slug Üretici",
+    "card_desc": "Başlıktan SEO slug, Türkçe karakterler doğru işlenir.",
+    "input_ph": "Bir başlık yazın, örn. \"Daha İyi Uyku İçin 10 İpucu\"",
+    "input_label": "Başlık",
+    "maxlen_label": "Azami uzunluk (0 = sınırsız)",
+    "output_label": "Slug",
+    "copy": "Kopyala",
+    "copied": "Kopyalandı!",
+    "count_fmt": "{n} karakter",
+    "faq_html": "<h2>Türkçe karakterler nasıl işleniyor?</h2><p>Türkçe'de küçük harfe çevirme kuralı İngilizce'den farklıdır: büyük noktalı <code>İ</code> küçültülünce <code>i</code> olur, düz <code>I</code> ise noktasız <code>ı</code> olur. Bu araç önce doğru Türkçe yerelleştirme kuralını uygular, sonra ı/ğ/ü/ş/ö/ç karakterlerini düz ASCII karşılıklarına (i/g/u/s/o/c) çevirir — böylece slug URL için güvenli ve temiz kalır.</p><h2>Noktalama ve aksanlara ne olur?</h2><p>Ardışık boşluk, noktalama ya da sembol dizileri tek bir tireye dönüşür; aksanlı Latin harfleri (é, à, ü...) temel harfine indirgenir. Baştaki ve sondaki tireler kırpılır.</p><h2>Metnim bir yere gönderiliyor mu?</h2><p>Hayır — slug tamamen tarayıcınızda üretilir. Hiçbir şey yüklenmez.</p>"
+  }
+}
