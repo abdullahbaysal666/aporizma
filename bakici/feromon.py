@@ -5,6 +5,7 @@ feromon-log.jsonl'e yazar, Telegram'a kisa nabiz mesaji atar.
 Kullanim: python bakici/feromon.py
 """
 import json
+import os
 from datetime import date, timedelta
 from pathlib import Path
 
@@ -13,7 +14,11 @@ from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 
 ROOT = Path(__file__).resolve().parent.parent
-RTD = Path(r"C:\Users\abdul\Desktop\youtubestilspeking")
+# RTD: telegram token dosyalarinin bulundugu strateji reposu. Yerelde Windows
+# yolu; droplet/bulut icin APORIZMA_RTD ortam degiskeni ile ezilir.
+RTD = Path(os.environ.get("APORIZMA_RTD", r"C:\Users\abdul\Desktop\youtubestilspeking"))
+if not RTD.exists():
+    RTD = ROOT
 TOKEN_FILE = ROOT / "gsc-token.json"
 LOG = ROOT / "feromon-log.jsonl"
 SITE = "https://aporizma.com/"
