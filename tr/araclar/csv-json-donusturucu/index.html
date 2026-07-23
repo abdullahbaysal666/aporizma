@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CSV - JSON Dönüştürücü — Ücretsiz ve Gizli</title>
+<meta name="description" content="CSV'yi JSON'a veya JSON'u CSV'ye tarayıcınızda anında dönüştürün. Tırnaklı alanlar, virgüllü değerler ve özel ayraçlar desteklenir. Hiçbir veri yüklenmez.">
+<link rel="stylesheet" href="../../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tr/araclar/csv-json-donusturucu/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/csv-to-json-converter/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/csv-json-donusturucu/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/csv-to-json-converter/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="CSV - JSON Dönüştürücü — Ücretsiz ve Gizli">
+<meta property="og:description" content="CSV'yi JSON'a veya JSON'u CSV'ye tarayıcınızda anında dönüştürün. Tırnaklı alanlar, virgüllü değerler ve özel ayraçlar desteklenir. Hiçbir veri yüklenmez.">
+<meta property="og:url" content="https://aporizma.com/tr/araclar/csv-json-donusturucu/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "CSV ⇄ JSON Dönüştürücü", "url": "https://aporizma.com/tr/araclar/csv-json-donusturucu/", "description": "CSV'yi JSON'a veya JSON'u CSV'ye tarayıcınızda anında dönüştürün. Tırnaklı alanlar, virgüllü değerler ve özel ayraçlar desteklenir. Hiçbir veri yüklenmez.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "tr", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "tr", "mainEntity": [{"@type": "Question", "name": "CSV → JSON dönüşümü nasıl çalışır?", "acceptedAnswer": {"@type": "Answer", "text": "İlk satır sütun başlığı olarak alınır, sonraki her satır bu başlıkları anahtar olarak kullanan bir JSON nesnesine dönüşür. Tırnaklı alanlar (içinde virgül, tırnak veya satır sonu geçenler) standart CSV tırnaklama kurallarına uyar; böylece \"Doe, Jane\" gibi değerler tek alan olarak bozulmadan kalır."}}, {"@type": "Question", "name": "JSON → CSV'de ne oluyor?", "acceptedAnswer": {"@type": "Answer", "text": "Araç, bir JSON nesne dizisi (veya tek bir nesne) bekler. Sütun başlıkları tüm nesnelerde görülen anahtarların birleşimidir — bir alan bazı satırlarda yoksa, dönüşümü bozmak yerine o satırın hücresi boş bırakılır."}}, {"@type": "Question", "name": "Verim bir yere gönderiliyor mu?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır. Ayrıştırma ve dönüştürme tamamen tarayıcınızda yapılır — hiçbir şey bir sunucuya yüklenmez veya kaydedilmez."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../../tr/"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../../tools/csv-to-json-converter/" class="lang-switch" rel="alternate" hreflang="en">English</a>
+  </nav>
+</header>
+<main>
+<h1>CSV ⇄ JSON Dönüştürücü</h1>
+<p class="lede">Aşağıya CSV ya da JSON yapıştırın ve iki yönde de dönüştürün — tırnaklı alanlar, içinde virgül geçen değerler ve noktalı virgül/tab ayraçları desteklenir. Her şey cihazınızda kalır.</p>
+<div class="card stack">
+  <textarea id="input" rows="8" placeholder="CSV veya JSON'u buraya yapıştırın…" spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.9rem"></textarea>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+    <button class="btn" id="toJson">CSV → JSON</button>
+    <button class="btn" id="toCsv">JSON → CSV</button>
+    <label class="note" style="display:flex;gap:6px;align-items:center">
+      Ayraç:
+      <select id="delimiter">
+        <option value="auto">Otomatik algıla</option>
+        <option value=",">Virgül (,)</option>
+        <option value=";">Noktalı virgül (;)</option>
+        <option value="tab">Tab</option>
+      </select>
+    </label>
+  </div>
+  <p class="note" id="status">Başlamak için CSV veya JSON yapıştırın.</p>
+  <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+    <button class="btn ghost" id="copy" hidden>Kopyala</button>
+  </div>
+  <div style="overflow-x:auto">
+    <textarea id="output" rows="8" readonly spellcheck="false"
+      style="font-family:ui-monospace,Consolas,monospace;font-size:.9rem;min-width:100%"></textarea>
+  </div>
+</div>
+<section><h2>CSV → JSON dönüşümü nasıl çalışır?</h2><p>İlk satır sütun başlığı olarak alınır, sonraki her satır bu başlıkları anahtar olarak kullanan bir JSON nesnesine dönüşür. Tırnaklı alanlar (içinde virgül, tırnak veya satır sonu geçenler) standart CSV tırnaklama kurallarına uyar; böylece <code>"Doe, Jane"</code> gibi değerler tek alan olarak bozulmadan kalır.</p><h2>JSON → CSV'de ne oluyor?</h2><p>Araç, bir JSON nesne dizisi (veya tek bir nesne) bekler. Sütun başlıkları tüm nesnelerde görülen anahtarların birleşimidir — bir alan bazı satırlarda yoksa, dönüşümü bozmak yerine o satırın hücresi boş bırakılır.</p><h2>Verim bir yere gönderiliyor mu?</h2><p>Hayır. Ayrıştırma ve dönüştürme tamamen tarayıcınızda yapılır — hiçbir şey bir sunucuya yüklenmez veya kaydedilmez.</p></section>
+<section class="related"><h2>Diğer araçlar</h2><ul class="tool-grid"><li><a href="../../../tr/araclar/unix-zaman-damgasi-donusturucu/"><div class="card"><h2>Epoch Zaman Damgası Dönüştürücü</h2><p>Unix zaman damgasını tarihe, tarihi zaman damgasına çevirin.</p></div></a></li>
+<li><a href="../../../tr/araclar/satir-araclari/"><div class="card"><h2>Satır Araçları</h2><p>Metin satırlarını sırala, tekilleştir, boşluk temizle, ters çevir — hepsi bir arada.</p></div></a></li>
+<li><a href="../../../tr/araclar/pdf-birlestir/"><div class="card"><h2>PDF Birleştirici</h2><p>PDF'leri cihazınızda, gizlice tek dosyada birleştirin.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — tamamen tarayıcınızda çalışan küçük araçlar. Yükleme yok, izleme yok. · <a href="../../../about/">Hakkında</a> · <a href="../../../privacy/">Gizlilik</a> · <a href="https://chromewebstore.google.com/detail/aporizma-translate-text-s/flemammmdajgahkngaghgmckgopeijfm" rel="noopener">Chrome</a></p>
+</footer>
+<script src="../../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "CSV ⇄ JSON Dönüştürücü", "lede": "Aşağıya CSV ya da JSON yapıştırın ve iki yönde de dönüştürün — tırnaklı alanlar, içinde virgül geçen değerler ve noktalı virgül/tab ayraçları desteklenir. Her şey cihazınızda kalır.", "card_title": "CSV ⇄ JSON Dönüştürücü", "card_desc": "CSV'yi JSON'a, JSON'u CSV'ye anında dönüştürün — yükleme yok.", "input_ph": "CSV veya JSON'u buraya yapıştırın…", "btn_to_json": "CSV → JSON", "btn_to_csv": "JSON → CSV", "delimiter_label": "Ayraç:", "delim_auto": "Otomatik algıla", "delim_comma": "Virgül (,)", "delim_semi": "Noktalı virgül (;)", "delim_tab": "Tab", "copy": "Kopyala", "copied": "Kopyalandı!", "ok_json": "Dönüştürüldü — {rows} satır JSON", "ok_csv": "Dönüştürüldü — {rows} satır CSV", "err_csv": "CSV olarak okunamadı. Ayraç ayarını kontrol edin.", "err_json": "JSON olarak ayrıştırılamadı. Fazladan virgül veya eksik parantez olabilir.", "empty": "Başlamak için CSV veya JSON yapıştırın."};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<h1>{{s.h1}}</h1>
+<p class="lede">{{s.lede}}</p>
+<div class="card stack">
+  <textarea id="input" rows="8" placeholder="{{s.input_ph}}" spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.9rem"></textarea>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+    <button class="btn" id="toJson">{{s.btn_to_json}}</button>
+    <button class="btn" id="toCsv">{{s.btn_to_csv}}</button>
+    <label class="note" style="display:flex;gap:6px;align-items:center">
+      {{s.delimiter_label}}
+      <select id="delimiter">
+        <option value="auto">{{s.delim_auto}}</option>
+        <option value=",">{{s.delim_comma}}</option>
+        <option value=";">{{s.delim_semi}}</option>
+        <option value="tab">{{s.delim_tab}}</option>
+      </select>
+    </label>
+  </div>
+  <p class="note" id="status">{{s.empty}}</p>
+  <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+    <button class="btn ghost" id="copy" hidden>{{s.copy}}</button>
+  </div>
+  <div style="overflow-x:auto">
+    <textarea id="output" rows="8" readonly spellcheck="false"
+      style="font-family:ui-monospace,Consolas,monospace;font-size:.9rem;min-width:100%"></textarea>
+  </div>
+</div>
+<section>{{s.faq_html}}</section>
