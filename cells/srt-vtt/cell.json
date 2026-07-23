@@ -4,7 +4,7 @@
   "en": {
     "slug": "tools/srt-to-vtt-converter",
     "title": "SRT to VTT Converter (and VTT to SRT) — Free, No Upload",
-    "desc": "Free VTT converter: turn SRT subtitles into a WebVTT file, or a VTT file back to SRT — instantly in your browser. File never leaves your device. No sign-up, no watermark.",
+    "desc": "Free VTT converter: SRT subtitles to a WebVTT file, or VTT back to SRT — all in your browser. File never leaves your device. No sign-up, no watermark.",
     "h1": "SRT ↔ VTT Subtitle Converter",
     "lede": "Drop a subtitle file or paste its contents. The format is detected automatically and converted instantly — nothing is uploaded anywhere.",
     "card_title": "SRT ↔ VTT Converter",
