@@ -1,7 +1,9 @@
 {
   "id": "pdf-merge",
   "category": "pdf",
-  "vendor": ["vendor/pdf-lib.min.js"],
+  "vendor": [
+    "vendor/pdf-lib.min.js"
+  ],
   "en": {
     "slug": "tools/merge-pdf",
     "title": "Merge PDF Files — Free, No Upload, In Your Browser",
@@ -25,8 +27,8 @@
   },
   "tr": {
     "slug": "tr/araclar/pdf-birlestir",
-    "title": "PDF Birleştir — Ücretsiz, Yüklemesiz, Tarayıcıda",
-    "desc": "Birden çok PDF dosyasını istediğiniz sırayla tek dosyada birleştirin. %100 tarayıcınızda çalışır — belgeleriniz cihazınızdan çıkmaz. Ücretsiz, üyeliksiz.",
+    "title": "PDF Birleştirme — Ücretsiz, Yüklemesiz, Tarayıcıda",
+    "desc": "Online PDF birleştirme: PDF'leri istediğiniz sırayla tek dosyada birleştirin. Tarayıcınızda çalışır — belgeleriniz cihazınızdan çıkmaz. Ücretsiz, üyeliksiz.",
     "h1": "PDF Birleştir",
     "lede": "PDF'lerinizi seçin, sırasını ayarlayın, tek birleşik dosyayı indirin. Belgeleriniz cihazınızda işlenir — hiçbir şey yüklenmez.",
     "card_title": "PDF Birleştirici",

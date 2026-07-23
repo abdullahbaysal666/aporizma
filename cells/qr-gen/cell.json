@@ -1,7 +1,9 @@
 {
   "id": "qr-gen",
   "category": "generator",
-  "vendor": ["vendor/qrcode.js"],
+  "vendor": [
+    "vendor/qrcode.js"
+  ],
   "en": {
     "slug": "tools/qr-code-generator",
     "title": "QR Code Generator — Free, No Sign-Up, PNG Download",
@@ -22,8 +24,8 @@
   },
   "tr": {
     "slug": "tr/araclar/qr-kod-olusturucu",
-    "title": "QR Kod Oluşturucu — Ücretsiz, Üyeliksiz, PNG İndir",
-    "desc": "Herhangi bir metin veya bağlantıdan QR kod üretin, keskin PNG olarak indirin. Boyut ve hata düzeltme seçenekleri. Tarayıcıda çalışır — hiçbir şey yüklenmez.",
+    "title": "QR Kod Oluşturma — Ücretsiz, Üyeliksiz, PNG İndir",
+    "desc": "Online QR kod oluşturma: metin veya bağlantıdan QR kod üretin, keskin PNG indirin. Tarayıcıda çalışır — hiçbir şey yüklenmez. Ücretsiz, üyeliksiz.",
     "h1": "QR Kod Oluşturucu",
     "lede": "Bir bağlantı ya da metin yazın — QR kod anında belirir. Boyutu seçin, PNG'yi indirin. Hiçbir şey tarayıcınızdan çıkmaz.",
     "card_title": "QR Kod Oluşturucu",

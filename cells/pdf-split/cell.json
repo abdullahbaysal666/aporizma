@@ -1,7 +1,9 @@
 {
   "id": "pdf-split",
   "category": "pdf",
-  "vendor": ["vendor/pdf-lib.min.js"],
+  "vendor": [
+    "vendor/pdf-lib.min.js"
+  ],
   "en": {
     "slug": "tools/split-pdf",
     "title": "Split PDF — Extract Pages Free, No Upload",
@@ -25,8 +27,8 @@
   },
   "tr": {
     "slug": "tr/araclar/pdf-bol",
-    "title": "PDF Böl — Sayfa Ayıkla, Ücretsiz ve Yüklemesiz",
-    "desc": "PDF'den seçtiğiniz sayfaları veya aralıkları yeni bir dosyaya ayıklayın. %100 tarayıcınızda çalışır — belgeniz cihazınızdan çıkmaz. Ücretsiz, üyeliksiz.",
+    "title": "PDF Bölme — Sayfa Ayıklama, Ücretsiz, Yüklemesiz",
+    "desc": "Online PDF bölme: PDF'den seçtiğiniz sayfa veya aralıkları yeni dosyaya ayıklayın. Tarayıcınızda çalışır — belgeniz cihazınızdan çıkmaz. Ücretsiz, üyeliksiz.",
     "h1": "PDF Böl — Sayfa Ayıkla",
     "lede": "Bir PDF bırakın, istediğiniz sayfaları yazın (örn. 1-3,7), yalnız o sayfalardan oluşan yeni PDF'yi indirin. Hiçbir şey yüklenmez.",
     "card_title": "PDF Bölücü",
