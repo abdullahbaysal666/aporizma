@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CSV to JSON Converter — and Back, Free & Private</title>
+<meta name="description" content="Convert CSV to JSON or JSON to CSV instantly in your browser. Handles quoted fields, embedded commas, and custom delimiters. Nothing is uploaded.">
+<link rel="stylesheet" href="../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tools/csv-to-json-converter/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/csv-to-json-converter/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/csv-json-donusturucu/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/csv-to-json-converter/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="CSV to JSON Converter — and Back, Free & Private">
+<meta property="og:description" content="Convert CSV to JSON or JSON to CSV instantly in your browser. Handles quoted fields, embedded commas, and custom delimiters. Nothing is uploaded.">
+<meta property="og:url" content="https://aporizma.com/tools/csv-to-json-converter/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "CSV ⇄ JSON Converter", "url": "https://aporizma.com/tools/csv-to-json-converter/", "description": "Convert CSV to JSON or JSON to CSV instantly in your browser. Handles quoted fields, embedded commas, and custom delimiters. Nothing is uploaded.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "How does the CSV → JSON conversion work?", "acceptedAnswer": {"@type": "Answer", "text": "The first row is treated as column headers, and every row after it becomes a JSON object using those headers as keys. Quoted fields (with embedded commas, quotes, or line breaks) follow the standard CSV quoting rules, so values like \"Doe, Jane\" stay intact as a single field."}}, {"@type": "Question", "name": "What happens with JSON → CSV?", "acceptedAnswer": {"@type": "Answer", "text": "The tool expects a JSON array of objects (or a single object). The column headers become the union of every key seen across all objects — if a field is missing from one row, it's left blank in that row's CSV cell rather than breaking the conversion."}}, {"@type": "Question", "name": "Is my data sent anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. Parsing and conversion both happen entirely in your browser — nothing is uploaded to a server or logged anywhere."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../tr/araclar/csv-json-donusturucu/" class="lang-switch" rel="alternate" hreflang="tr">Türkçe</a>
+  </nav>
+</header>
+<main>
+<h1>CSV ⇄ JSON Converter</h1>
+<p class="lede">Paste CSV or JSON below and convert either way — quoted fields, embedded commas, and semicolon or tab delimiters are all handled. Everything stays on your device.</p>
+<div class="card stack">
+  <textarea id="input" rows="8" placeholder="Paste CSV or JSON here…" spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.9rem"></textarea>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+    <button class="btn" id="toJson">CSV → JSON</button>
+    <button class="btn" id="toCsv">JSON → CSV</button>
+    <label class="note" style="display:flex;gap:6px;align-items:center">
+      Delimiter:
+      <select id="delimiter">
+        <option value="auto">Auto-detect</option>
+        <option value=",">Comma (,)</option>
+        <option value=";">Semicolon (;)</option>
+        <option value="tab">Tab</option>
+      </select>
+    </label>
+  </div>
+  <p class="note" id="status">Paste some CSV or JSON to begin.</p>
+  <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+    <button class="btn ghost" id="copy" hidden>Copy</button>
+  </div>
+  <div style="overflow-x:auto">
+    <textarea id="output" rows="8" readonly spellcheck="false"
+      style="font-family:ui-monospace,Consolas,monospace;font-size:.9rem;min-width:100%"></textarea>
+  </div>
+</div>
+<section><h2>How does the CSV → JSON conversion work?</h2><p>The first row is treated as column headers, and every row after it becomes a JSON object using those headers as keys. Quoted fields (with embedded commas, quotes, or line breaks) follow the standard CSV quoting rules, so values like <code>"Doe, Jane"</code> stay intact as a single field.</p><h2>What happens with JSON → CSV?</h2><p>The tool expects a JSON array of objects (or a single object). The column headers become the union of every key seen across all objects — if a field is missing from one row, it's left blank in that row's CSV cell rather than breaking the conversion.</p><h2>Is my data sent anywhere?</h2><p>No. Parsing and conversion both happen entirely in your browser — nothing is uploaded to a server or logged anywhere.</p></section>
+<section class="related"><h2>More tools</h2><ul class="tool-grid"><li><a href="../../tools/epoch-timestamp-converter/"><div class="card"><h2>Epoch Timestamp Converter</h2><p>Convert Unix timestamps to dates and back, seconds or milliseconds.</p></div></a></li>
+<li><a href="../../tools/line-tools/"><div class="card"><h2>Line Tools</h2><p>Sort, dedupe, trim and reverse lines of text — combine any options.</p></div></a></li>
+<li><a href="../../tools/merge-pdf/"><div class="card"><h2>PDF Merger</h2><p>Combine PDFs into one file, privately on your device.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — handcrafted small tools that run entirely in your browser. No uploads, no tracking. · <a href="../../about/">About</a> · <a href="../../privacy/">Privacy</a> · <a href="https://chromewebstore.google.com/detail/aporizma-translate-text-s/flemammmdajgahkngaghgmckgopeijfm" rel="noopener">Chrome</a></p>
+</footer>
+<script src="../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "CSV ⇄ JSON Converter", "lede": "Paste CSV or JSON below and convert either way — quoted fields, embedded commas, and semicolon or tab delimiters are all handled. Everything stays on your device.", "card_title": "CSV ⇄ JSON Converter", "card_desc": "Convert CSV to JSON or JSON to CSV instantly — no upload.", "input_ph": "Paste CSV or JSON here…", "btn_to_json": "CSV → JSON", "btn_to_csv": "JSON → CSV", "delimiter_label": "Delimiter:", "delim_auto": "Auto-detect", "delim_comma": "Comma (,)", "delim_semi": "Semicolon (;)", "delim_tab": "Tab", "copy": "Copy", "copied": "Copied!", "ok_json": "Converted — {rows} row(s) as JSON", "ok_csv": "Converted — {rows} row(s) as CSV", "err_csv": "Couldn't read that as CSV. Check the delimiter setting.", "err_json": "Couldn't parse that as JSON. Check for a trailing comma or a missing bracket.", "empty": "Paste some CSV or JSON to begin."};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>
