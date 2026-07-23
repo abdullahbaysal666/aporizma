@@ -78,7 +78,7 @@ def main() -> None:
     else:
         lines.append("Henuz arama verisi yok (kum havuzu — beklenen).")
     if queries:
-        lines.append("Sorgular: " + ", ".join(q["q"] for q in queries[:5]))
+        lines.append("Sorgular: " + ", ".join(q["keys"][0] for q in queries[:5]))
     msg = "\n".join(lines)
     print(msg)
     telegram("[APORIZMA] " + msg)
