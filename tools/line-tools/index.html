@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Line Tools — Sort, Dedupe, Reverse Text Lines Online</title>
+<meta name="description" content="Sort lines A-Z or Z-A, remove duplicate lines, trim whitespace, drop blank lines and reverse order. Runs entirely in your browser — free, no upload.">
+<link rel="stylesheet" href="../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tools/line-tools/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/line-tools/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/satir-araclari/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/line-tools/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Line Tools — Sort, Dedupe, Reverse Text Lines Online">
+<meta property="og:description" content="Sort lines A-Z or Z-A, remove duplicate lines, trim whitespace, drop blank lines and reverse order. Runs entirely in your browser — free, no upload.">
+<meta property="og:url" content="https://aporizma.com/tools/line-tools/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Line Tools", "url": "https://aporizma.com/tools/line-tools/", "description": "Sort lines A-Z or Z-A, remove duplicate lines, trim whitespace, drop blank lines and reverse order. Runs entirely in your browser — free, no upload.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "In what order are the options applied?", "acceptedAnswer": {"@type": "Answer", "text": "Trim, then remove blank lines, then remove duplicates, then sort, then reverse — so \"Z → A\" plus \"Reverse\" gives you A → Z again, and dedupe always runs before sorting."}}, {"@type": "Question", "name": "Is duplicate removal case-sensitive?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. \"Apple\" and \"apple\" are treated as different lines. Trim whitespace first if lines only differ by leading/trailing spaces."}}, {"@type": "Question", "name": "Is my list uploaded anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. Everything runs in your browser with JavaScript — nothing is sent, logged or stored. Sorting uses locale-aware comparison, so Turkish letters (ç, ğ, ı, ö, ş, ü) order correctly."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../tr/araclar/satir-araclari/" class="lang-switch" rel="alternate" hreflang="tr">Türkçe</a>
+  </nav>
+</header>
+<main>
+<h1>Line Tools</h1>
+<p class="lede">Paste a list, toggle what you need — sort, dedupe, trim, drop blank lines, reverse — and copy or download the result. Nothing leaves your device.</p>
+<div class="card stack">
+  <label class="note" for="input">Input</label>
+  <textarea id="input" rows="8" spellcheck="false"></textarea>
+  <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center">
+    <label class="note"><input type="checkbox" id="trim"> Trim whitespace on each line</label>
+    <label class="note"><input type="checkbox" id="remove-empty"> Remove blank lines</label>
+    <label class="note"><input type="checkbox" id="dedupe"> Remove duplicate lines</label>
+    <label class="note"><input type="checkbox" id="reverse"> Reverse order</label>
+  </div>
+  <div>
+    <label class="note" for="sort">Sort</label>
+    <select id="sort" style="width:auto">
+      <option value="none">Don't sort</option>
+      <option value="asc">A → Z</option>
+      <option value="desc">Z → A</option>
+    </select>
+  </div>
+  <label class="note" for="output">Output</label>
+  <textarea id="output" rows="8" readonly spellcheck="false"></textarea>
+  <p class="note" id="status">Paste a list of lines to begin.</p>
+  <div>
+    <button class="btn" id="copy" disabled>Copy</button>
+    <button class="btn ghost" id="download" disabled>Download</button>
+  </div>
+</div>
+<section><h2>In what order are the options applied?</h2><p>Trim, then remove blank lines, then remove duplicates, then sort, then reverse — so "Z → A" plus "Reverse" gives you A → Z again, and dedupe always runs before sorting.</p><h2>Is duplicate removal case-sensitive?</h2><p>Yes. "Apple" and "apple" are treated as different lines. Trim whitespace first if lines only differ by leading/trailing spaces.</p><h2>Is my list uploaded anywhere?</h2><p>No. Everything runs in your browser with JavaScript — nothing is sent, logged or stored. Sorting uses locale-aware comparison, so Turkish letters (ç, ğ, ı, ö, ş, ü) order correctly.</p></section>
+<section class="related"><h2>More tools</h2><ul class="tool-grid"><li><a href="../../tools/epoch-timestamp-converter/"><div class="card"><h2>Epoch Timestamp Converter</h2><p>Convert Unix timestamps to dates and back, seconds or milliseconds.</p></div></a></li>
+<li><a href="../../tools/merge-pdf/"><div class="card"><h2>PDF Merger</h2><p>Combine PDFs into one file, privately on your device.</p></div></a></li>
+<li><a href="../../tools/split-pdf/"><div class="card"><h2>PDF Splitter</h2><p>Extract pages or ranges from a PDF, on your device.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — handcrafted small tools that run entirely in your browser. No uploads, no tracking. · <a href="../../about/">About</a> · <a href="../../privacy/">Privacy</a> · <a href="https://chromewebstore.google.com/detail/aporizma-translate-text-s/flemammmdajgahkngaghgmckgopeijfm" rel="noopener">Chrome</a></p>
+</footer>
+<script src="../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Line Tools", "lede": "Paste a list, toggle what you need — sort, dedupe, trim, drop blank lines, reverse — and copy or download the result. Nothing leaves your device.", "card_title": "Line Tools", "card_desc": "Sort, dedupe, trim and reverse lines of text — combine any options.", "in_label": "Input", "out_label": "Output", "opt_trim": "Trim whitespace on each line", "opt_remove_empty": "Remove blank lines", "opt_dedupe": "Remove duplicate lines", "opt_reverse": "Reverse order", "sort_label": "Sort", "sort_none": "Don't sort", "sort_asc": "A → Z", "sort_desc": "Z → A", "copy": "Copy", "copied": "Copied!", "download": "Download", "status_fmt": "{in} lines in → {out} lines out", "empty": "Paste a list of lines to begin."};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

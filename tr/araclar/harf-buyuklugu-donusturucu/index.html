@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harf Büyüklüğü Dönüştürücü — BÜYÜK, camelCase, snake_case</title>
+<meta name="description" content="Metni BÜYÜK HARF, küçük harf, Başlık Stili, camelCase, PascalCase, snake_case, kebab-case ve CONSTANT_CASE arasında anında dönüştürün. Tarayıcıda çalışır.">
+<link rel="stylesheet" href="../../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tr/araclar/harf-buyuklugu-donusturucu/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/case-converter/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/harf-buyuklugu-donusturucu/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/case-converter/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Harf Büyüklüğü Dönüştürücü — BÜYÜK, camelCase, snake_case">
+<meta property="og:description" content="Metni BÜYÜK HARF, küçük harf, Başlık Stili, camelCase, PascalCase, snake_case, kebab-case ve CONSTANT_CASE arasında anında dönüştürün. Tarayıcıda çalışır.">
+<meta property="og:url" content="https://aporizma.com/tr/araclar/harf-buyuklugu-donusturucu/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Harf Büyüklüğü Dönüştürücü", "url": "https://aporizma.com/tr/araclar/harf-buyuklugu-donusturucu/", "description": "Metni BÜYÜK HARF, küçük harf, Başlık Stili, camelCase, PascalCase, snake_case, kebab-case ve CONSTANT_CASE arasında anında dönüştürün. Tarayıcıda çalışır.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "tr", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "tr", "mainEntity": [{"@type": "Question", "name": "\"Türkçe kuralı\" kutusu ne işe yarar?", "acceptedAnswer": {"@type": "Answer", "text": "Türkçede küçük i büyütülünce noktalı İ olur, büyük I küçültülünce noktasız ı olur — İngilizcenin tam tersi. Standart JavaScript büyütme işlemi Türkçe metinde bunu yanlış yapar; bu kutu doğru Türkçe kuralını uygular."}}, {"@type": "Question", "name": "camelCase / snake_case ayrımı nasıl çalışır?", "acceptedAnswer": {"@type": "Answer", "text": "Dönüştürücü metni boşluk, tire, alt çizgi ve büyük harf sınırlarında kelimelere böler (\"helloWorld\" ile \"hello-world\" aynı iki kelimeye ayrılır), sonra seçtiğiniz stille yeniden birleştirir."}}, {"@type": "Question", "name": "Metnim bir yere gönderiliyor mu?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır. Her dönüştürme tamamen tarayıcınızda çalışır — hiçbir şey yüklenmez veya kaydedilmez."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../../tr/"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../../tools/case-converter/" class="lang-switch" rel="alternate" hreflang="en">English</a>
+  </nav>
+</header>
+<main>
+<h1>Harf Büyüklüğü Dönüştürücü</h1>
+<p class="lede">Metni BÜYÜK HARF, küçük harf, Başlık Stili, camelCase, PascalCase, snake_case, kebab-case ve CONSTANT_CASE arasında dönüştürün — her şey cihazınızda kalır.</p>
+<div class="card stack">
+  <textarea id="input" rows="7" placeholder="Metni buraya yazın veya yapıştırın…" spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.95rem"></textarea>
+  <div style="display:flex;gap:10px;flex-wrap:wrap">
+    <button class="btn" id="upper">BÜYÜK HARF</button>
+    <button class="btn" id="lower">küçük harf</button>
+    <button class="btn" id="title">Başlık Stili</button>
+    <button class="btn" id="camel">camelCase</button>
+    <button class="btn" id="pascal">PascalCase</button>
+    <button class="btn" id="snake">snake_case</button>
+    <button class="btn" id="kebab">kebab-case</button>
+    <button class="btn" id="constant">CONSTANT_CASE</button>
+  </div>
+  <label class="note"><input type="checkbox" id="trmode"> Türkçe kuralı (i↔İ, ı↔I)</label>
+  <p class="note" id="status">Başlamak için bir şeyler yazın.</p>
+  <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+    <button class="btn ghost" id="copy" hidden>Kopyala</button>
+  </div>
+  <textarea id="output" rows="7" readonly spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.95rem"></textarea>
+</div>
+<section><h2>"Türkçe kuralı" kutusu ne işe yarar?</h2><p>Türkçede küçük i büyütülünce noktalı İ olur, büyük I küçültülünce noktasız ı olur — İngilizcenin tam tersi. Standart JavaScript büyütme işlemi Türkçe metinde bunu yanlış yapar; bu kutu doğru Türkçe kuralını uygular.</p><h2>camelCase / snake_case ayrımı nasıl çalışır?</h2><p>Dönüştürücü metni boşluk, tire, alt çizgi ve büyük harf sınırlarında kelimelere böler ("helloWorld" ile "hello-world" aynı iki kelimeye ayrılır), sonra seçtiğiniz stille yeniden birleştirir.</p><h2>Metnim bir yere gönderiliyor mu?</h2><p>Hayır. Her dönüştürme tamamen tarayıcınızda çalışır — hiçbir şey yüklenmez veya kaydedilmez.</p></section>
+<section class="related"><h2>Diğer araçlar</h2><ul class="tool-grid"><li><a href="../../../tr/araclar/kelime-karakter-sayaci/"><div class="card"><h2>Kelime ve Karakter Sayacı</h2><p>Kelime, karakter, cümle, paragraf sayısı ve okuma süresi.</p></div></a></li>
+<li><a href="../../../tr/araclar/markdown-onizleme/"><div class="card"><h2>Markdown Önizleme</h2><p>Canlı Markdown: başlık, liste, kod, bağlantı.</p></div></a></li>
+<li><a href="../../../tr/araclar/metin-karsilastir/"><div class="card"><h2>Metin Karşılaştır</h2><p>Satır satır karşılaştırma, renkli farklar.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — tamamen tarayıcınızda çalışan küçük araçlar. Yükleme yok, izleme yok. · <a href="../../../about/">Hakkında</a> · <a href="../../../privacy/">Gizlilik</a> · <a href="https://chromewebstore.google.com/detail/aporizma-translate-text-s/flemammmdajgahkngaghgmckgopeijfm" rel="noopener">Chrome</a></p>
+</footer>
+<script src="../../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Harf Büyüklüğü Dönüştürücü", "lede": "Metni BÜYÜK HARF, küçük harf, Başlık Stili, camelCase, PascalCase, snake_case, kebab-case ve CONSTANT_CASE arasında dönüştürün — her şey cihazınızda kalır.", "card_title": "Harf Büyüklüğü Dönüştürücü", "card_desc": "BÜYÜK, küçük, Başlık, camelCase, snake_case ve daha fazlası — anında.", "input_ph": "Metni buraya yazın veya yapıştırın…", "btn_upper": "BÜYÜK HARF", "btn_lower": "küçük harf", "btn_title": "Başlık Stili", "btn_camel": "camelCase", "btn_pascal": "PascalCase", "btn_snake": "snake_case", "btn_kebab": "kebab-case", "btn_constant": "CONSTANT_CASE", "tr_label": "Türkçe kuralı (i↔İ, ı↔I)", "copy": "Kopyala", "copied": "Kopyalandı!", "ok_fmt": "Dönüştürüldü — {chars} karakter", "empty": "Başlamak için bir şeyler yazın."};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

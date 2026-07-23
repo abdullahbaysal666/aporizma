@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case Converter — UPPER, Title, camelCase, snake_case</title>
+<meta name="description" content="Convert text between UPPERCASE, lowercase, Title Case, camelCase, PascalCase, snake_case, kebab-case and CONSTANT_CASE instantly. Runs in your browser only.">
+<link rel="stylesheet" href="../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tools/case-converter/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/case-converter/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/harf-buyuklugu-donusturucu/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/case-converter/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Case Converter — UPPER, Title, camelCase, snake_case">
+<meta property="og:description" content="Convert text between UPPERCASE, lowercase, Title Case, camelCase, PascalCase, snake_case, kebab-case and CONSTANT_CASE instantly. Runs in your browser only.">
+<meta property="og:url" content="https://aporizma.com/tools/case-converter/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Case Converter", "url": "https://aporizma.com/tools/case-converter/", "description": "Convert text between UPPERCASE, lowercase, Title Case, camelCase, PascalCase, snake_case, kebab-case and CONSTANT_CASE instantly. Runs in your browser only.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "Why is there a \"Turkish rules\" checkbox?", "acceptedAnswer": {"@type": "Answer", "text": "In Turkish, lowercase i uppercases to İ (dotted) and uppercase I lowercases to ı (dotless) — the opposite of English. Standard JavaScript uppercasing gets this wrong for Turkish text, so this tool offers a locale-correct mode for it."}}, {"@type": "Question", "name": "How does camelCase / snake_case detection work?", "acceptedAnswer": {"@type": "Answer", "text": "The converter splits your text into words at spaces, hyphens, underscores, and capital-letter boundaries (so \"helloWorld\" and \"hello-world\" both split into the same two words), then rejoins them in the case style you pick."}}, {"@type": "Question", "name": "Is my text sent anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. Every conversion runs locally in your browser — nothing is uploaded or logged."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../tr/araclar/harf-buyuklugu-donusturucu/" class="lang-switch" rel="alternate" hreflang="tr">Türkçe</a>
+  </nav>
+</header>
+<main>
+<h1>Case Converter</h1>
+<p class="lede">Switch text between UPPERCASE, lowercase, Title Case, camelCase, PascalCase, snake_case, kebab-case and CONSTANT_CASE — everything stays on your device.</p>
+<div class="card stack">
+  <textarea id="input" rows="7" placeholder="Type or paste text here…" spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.95rem"></textarea>
+  <div style="display:flex;gap:10px;flex-wrap:wrap">
+    <button class="btn" id="upper">UPPERCASE</button>
+    <button class="btn" id="lower">lowercase</button>
+    <button class="btn" id="title">Title Case</button>
+    <button class="btn" id="camel">camelCase</button>
+    <button class="btn" id="pascal">PascalCase</button>
+    <button class="btn" id="snake">snake_case</button>
+    <button class="btn" id="kebab">kebab-case</button>
+    <button class="btn" id="constant">CONSTANT_CASE</button>
+  </div>
+  <label class="note"><input type="checkbox" id="trmode"> Turkish rules (i↔İ, ı↔I)</label>
+  <p class="note" id="status">Type something to begin.</p>
+  <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+    <button class="btn ghost" id="copy" hidden>Copy</button>
+  </div>
+  <textarea id="output" rows="7" readonly spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.95rem"></textarea>
+</div>
+<section><h2>Why is there a "Turkish rules" checkbox?</h2><p>In Turkish, lowercase i uppercases to İ (dotted) and uppercase I lowercases to ı (dotless) — the opposite of English. Standard JavaScript uppercasing gets this wrong for Turkish text, so this tool offers a locale-correct mode for it.</p><h2>How does camelCase / snake_case detection work?</h2><p>The converter splits your text into words at spaces, hyphens, underscores, and capital-letter boundaries (so "helloWorld" and "hello-world" both split into the same two words), then rejoins them in the case style you pick.</p><h2>Is my text sent anywhere?</h2><p>No. Every conversion runs locally in your browser — nothing is uploaded or logged.</p></section>
+<section class="related"><h2>More tools</h2><ul class="tool-grid"><li><a href="../../tools/word-character-counter/"><div class="card"><h2>Word & Character Counter</h2><p>Count words, characters, sentences, paragraphs and reading time.</p></div></a></li>
+<li><a href="../../tools/markdown-preview/"><div class="card"><h2>Markdown Preview</h2><p>Live Markdown rendering: headers, lists, code, links.</p></div></a></li>
+<li><a href="../../tools/text-diff/"><div class="card"><h2>Text Diff</h2><p>Line-by-line comparison with colored changes.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — handcrafted small tools that run entirely in your browser. No uploads, no tracking. · <a href="../../about/">About</a> · <a href="../../privacy/">Privacy</a> · <a href="https://chromewebstore.google.com/detail/aporizma-translate-text-s/flemammmdajgahkngaghgmckgopeijfm" rel="noopener">Chrome</a></p>
+</footer>
+<script src="../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Case Converter", "lede": "Switch text between UPPERCASE, lowercase, Title Case, camelCase, PascalCase, snake_case, kebab-case and CONSTANT_CASE — everything stays on your device.", "card_title": "Case Converter", "card_desc": "UPPER, lower, Title, camelCase, snake_case and more — instantly.", "input_ph": "Type or paste text here…", "btn_upper": "UPPERCASE", "btn_lower": "lowercase", "btn_title": "Title Case", "btn_camel": "camelCase", "btn_pascal": "PascalCase", "btn_snake": "snake_case", "btn_kebab": "kebab-case", "btn_constant": "CONSTANT_CASE", "tr_label": "Turkish rules (i↔İ, ı↔I)", "copy": "Copy", "copied": "Copied!", "ok_fmt": "Converted — {chars} characters", "empty": "Type something to begin."};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<h1>{{s.h1}}</h1>
+<p class="lede">{{s.lede}}</p>
+<div class="card stack">
+  <label class="note" for="input">{{s.in_label}}</label>
+  <textarea id="input" rows="8" spellcheck="false"></textarea>
+  <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center">
+    <label class="note"><input type="checkbox" id="trim"> {{s.opt_trim}}</label>
+    <label class="note"><input type="checkbox" id="remove-empty"> {{s.opt_remove_empty}}</label>
+    <label class="note"><input type="checkbox" id="dedupe"> {{s.opt_dedupe}}</label>
+    <label class="note"><input type="checkbox" id="reverse"> {{s.opt_reverse}}</label>
+  </div>
+  <div>
+    <label class="note" for="sort">{{s.sort_label}}</label>
+    <select id="sort" style="width:auto">
+      <option value="none">{{s.sort_none}}</option>
+      <option value="asc">{{s.sort_asc}}</option>
+      <option value="desc">{{s.sort_desc}}</option>
+    </select>
+  </div>
+  <label class="note" for="output">{{s.out_label}}</label>
+  <textarea id="output" rows="8" readonly spellcheck="false"></textarea>
+  <p class="note" id="status">{{s.empty}}</p>
+  <div>
+    <button class="btn" id="copy" disabled>{{s.copy}}</button>
+    <button class="btn ghost" id="download" disabled>{{s.download}}</button>
+  </div>
+</div>
+<section>{{s.faq_html}}</section>

@@ -1,0 +1,24 @@
+<h1>{{s.h1}}</h1>
+<p class="lede">{{s.lede}}</p>
+<div class="card stack">
+  <textarea id="input" rows="7" placeholder="{{s.input_ph}}" spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.95rem"></textarea>
+  <div style="display:flex;gap:10px;flex-wrap:wrap">
+    <button class="btn" id="upper">{{s.btn_upper}}</button>
+    <button class="btn" id="lower">{{s.btn_lower}}</button>
+    <button class="btn" id="title">{{s.btn_title}}</button>
+    <button class="btn" id="camel">{{s.btn_camel}}</button>
+    <button class="btn" id="pascal">{{s.btn_pascal}}</button>
+    <button class="btn" id="snake">{{s.btn_snake}}</button>
+    <button class="btn" id="kebab">{{s.btn_kebab}}</button>
+    <button class="btn" id="constant">{{s.btn_constant}}</button>
+  </div>
+  <label class="note"><input type="checkbox" id="trmode"> {{s.tr_label}}</label>
+  <p class="note" id="status">{{s.empty}}</p>
+  <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+    <button class="btn ghost" id="copy" hidden>{{s.copy}}</button>
+  </div>
+  <textarea id="output" rows="7" readonly spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.95rem"></textarea>
+</div>
+<section>{{s.faq_html}}</section>

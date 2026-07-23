@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Satır Araçları — Sırala, Tekilleştir, Ters Çevir</title>
+<meta name="description" content="Satırları A-Z veya Z-A sıralayın, yinelenenleri kaldırın, boşlukları temizleyin, boş satırları atın ve sırayı ters çevirin. Tarayıcıda çalışır — ücretsiz.">
+<link rel="stylesheet" href="../../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tr/araclar/satir-araclari/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/line-tools/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/satir-araclari/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/line-tools/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Satır Araçları — Sırala, Tekilleştir, Ters Çevir">
+<meta property="og:description" content="Satırları A-Z veya Z-A sıralayın, yinelenenleri kaldırın, boşlukları temizleyin, boş satırları atın ve sırayı ters çevirin. Tarayıcıda çalışır — ücretsiz.">
+<meta property="og:url" content="https://aporizma.com/tr/araclar/satir-araclari/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Satır Araçları", "url": "https://aporizma.com/tr/araclar/satir-araclari/", "description": "Satırları A-Z veya Z-A sıralayın, yinelenenleri kaldırın, boşlukları temizleyin, boş satırları atın ve sırayı ters çevirin. Tarayıcıda çalışır — ücretsiz.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "tr", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "tr", "mainEntity": [{"@type": "Question", "name": "Seçenekler hangi sırayla uygulanır?", "acceptedAnswer": {"@type": "Answer", "text": "Önce boşluk temizleme, sonra boş satırları kaldırma, sonra yinelenenleri kaldırma, sonra sıralama, sonra ters çevirme — yani \"Z → A\" ile birlikte \"Ters çevir\" işaretlenirse sonuç tekrar A → Z olur; tekilleştirme her zaman sıralamadan önce çalışır."}}, {"@type": "Question", "name": "Yineleneni kaldırma büyük/küçük harfe duyarlı mı?", "acceptedAnswer": {"@type": "Answer", "text": "Evet. \"Elma\" ile \"elma\" farklı satır sayılır. Sadece baş/son boşluk farkı varsa önce boşluk temizlemeyi işaretleyin."}}, {"@type": "Question", "name": "Listem bir yere yükleniyor mu?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır. Her şey tarayıcınızda JavaScript ile çalışır — hiçbir şey gönderilmez, kaydedilmez. Sıralama yerel karşılaştırma kullanır, Türkçe harfler (ç, ğ, ı, ö, ş, ü) doğru sıralanır."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../../tr/"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../../tools/line-tools/" class="lang-switch" rel="alternate" hreflang="en">English</a>
+  </nav>
+</header>
+<main>
+<h1>Satır Araçları</h1>
+<p class="lede">Bir liste yapıştırın, ihtiyacınız olanı işaretleyin — sırala, tekilleştir, boşluk temizle, boş satırları at, ters çevir — sonucu kopyalayın ya da indirin. Hiçbir şey cihazınızdan çıkmaz.</p>
+<div class="card stack">
+  <label class="note" for="input">Girdi</label>
+  <textarea id="input" rows="8" spellcheck="false"></textarea>
+  <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center">
+    <label class="note"><input type="checkbox" id="trim"> Her satırda baş/son boşlukları temizle</label>
+    <label class="note"><input type="checkbox" id="remove-empty"> Boş satırları kaldır</label>
+    <label class="note"><input type="checkbox" id="dedupe"> Yinelenen satırları kaldır</label>
+    <label class="note"><input type="checkbox" id="reverse"> Sırayı ters çevir</label>
+  </div>
+  <div>
+    <label class="note" for="sort">Sıralama</label>
+    <select id="sort" style="width:auto">
+      <option value="none">Sıralama</option>
+      <option value="asc">A → Z</option>
+      <option value="desc">Z → A</option>
+    </select>
+  </div>
+  <label class="note" for="output">Çıktı</label>
+  <textarea id="output" rows="8" readonly spellcheck="false"></textarea>
+  <p class="note" id="status">Başlamak için satır listesi yapıştırın.</p>
+  <div>
+    <button class="btn" id="copy" disabled>Kopyala</button>
+    <button class="btn ghost" id="download" disabled>İndir</button>
+  </div>
+</div>
+<section><h2>Seçenekler hangi sırayla uygulanır?</h2><p>Önce boşluk temizleme, sonra boş satırları kaldırma, sonra yinelenenleri kaldırma, sonra sıralama, sonra ters çevirme — yani "Z → A" ile birlikte "Ters çevir" işaretlenirse sonuç tekrar A → Z olur; tekilleştirme her zaman sıralamadan önce çalışır.</p><h2>Yineleneni kaldırma büyük/küçük harfe duyarlı mı?</h2><p>Evet. "Elma" ile "elma" farklı satır sayılır. Sadece baş/son boşluk farkı varsa önce boşluk temizlemeyi işaretleyin.</p><h2>Listem bir yere yükleniyor mu?</h2><p>Hayır. Her şey tarayıcınızda JavaScript ile çalışır — hiçbir şey gönderilmez, kaydedilmez. Sıralama yerel karşılaştırma kullanır, Türkçe harfler (ç, ğ, ı, ö, ş, ü) doğru sıralanır.</p></section>
+<section class="related"><h2>Diğer araçlar</h2><ul class="tool-grid"><li><a href="../../../tr/araclar/unix-zaman-damgasi-donusturucu/"><div class="card"><h2>Epoch Zaman Damgası Dönüştürücü</h2><p>Unix zaman damgasını tarihe, tarihi zaman damgasına çevirin.</p></div></a></li>
+<li><a href="../../../tr/araclar/pdf-birlestir/"><div class="card"><h2>PDF Birleştirici</h2><p>PDF'leri cihazınızda, gizlice tek dosyada birleştirin.</p></div></a></li>
+<li><a href="../../../tr/araclar/pdf-bol/"><div class="card"><h2>PDF Bölücü</h2><p>PDF'den sayfa/aralık ayıklayın, cihazınızda.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — tamamen tarayıcınızda çalışan küçük araçlar. Yükleme yok, izleme yok. · <a href="../../../about/">Hakkında</a> · <a href="../../../privacy/">Gizlilik</a> · <a href="https://chromewebstore.google.com/detail/aporizma-translate-text-s/flemammmdajgahkngaghgmckgopeijfm" rel="noopener">Chrome</a></p>
+</footer>
+<script src="../../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Satır Araçları", "lede": "Bir liste yapıştırın, ihtiyacınız olanı işaretleyin — sırala, tekilleştir, boşluk temizle, boş satırları at, ters çevir — sonucu kopyalayın ya da indirin. Hiçbir şey cihazınızdan çıkmaz.", "card_title": "Satır Araçları", "card_desc": "Metin satırlarını sırala, tekilleştir, boşluk temizle, ters çevir — hepsi bir arada.", "in_label": "Girdi", "out_label": "Çıktı", "opt_trim": "Her satırda baş/son boşlukları temizle", "opt_remove_empty": "Boş satırları kaldır", "opt_dedupe": "Yinelenen satırları kaldır", "opt_reverse": "Sırayı ters çevir", "sort_label": "Sıralama", "sort_none": "Sıralama", "sort_asc": "A → Z", "sort_desc": "Z → A", "copy": "Kopyala", "copied": "Kopyalandı!", "download": "İndir", "status_fmt": "{in} satır girdi → {out} satır çıktı", "empty": "Başlamak için satır listesi yapıştırın."};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>
