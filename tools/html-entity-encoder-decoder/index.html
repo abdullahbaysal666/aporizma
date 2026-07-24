@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HTML Entity Encoder / Decoder — Free, Private</title>
+<meta name="description" content="Encode text to HTML entities (&amp; &lt; &gt;) and decode them back. Runs fully in your browser — nothing is sent anywhere. Free, no limits.">
+<link rel="stylesheet" href="../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tools/html-entity-encoder-decoder/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/html-entity-encoder-decoder/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/html-entity-kodla-coz/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/html-entity-encoder-decoder/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="HTML Entity Encoder / Decoder — Free, Private">
+<meta property="og:description" content="Encode text to HTML entities (&amp; &lt; &gt;) and decode them back. Runs fully in your browser — nothing is sent anywhere. Free, no limits.">
+<meta property="og:url" content="https://aporizma.com/tools/html-entity-encoder-decoder/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "HTML Entity Encoder", "url": "https://aporizma.com/tools/html-entity-encoder-decoder/", "description": "Encode text to HTML entities (&amp; &lt; &gt;) and decode them back. Runs fully in your browser — nothing is sent anywhere. Free, no limits.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "Which characters get encoded?", "acceptedAnswer": {"@type": "Answer", "text": "By default only the five characters that are unsafe inside HTML markup: &amp;, &lt;, &gt;, &quot; and &#39;. Turn on \"Also escape non-ASCII characters\" to convert every character outside the basic ASCII range (accents, Turkish letters, emoji, CJK) into numeric entities like &amp;#287; — useful for old systems that mangle UTF-8."}}, {"@type": "Question", "name": "What does Decode understand?", "acceptedAnswer": {"@type": "Answer", "text": "Both named entities (&amp;amp;, &amp;copy;, &amp;hellip; …) and numeric entities, decimal (&amp;#39;) or hexadecimal (&amp;#x27;). Anything that isn't a recognized entity is left untouched."}}, {"@type": "Question", "name": "Is my text sent anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. Encoding and decoding happen entirely in your browser with plain JavaScript — nothing is uploaded or logged."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../tr/araclar/html-entity-kodla-coz/" class="lang-switch" rel="alternate" hreflang="tr">Türkçe</a>
+  </nav>
+</header>
+<main>
+<h1>HTML Entity Encode / Decode</h1>
+<p class="lede">Turn special characters into HTML entities and back — safe for embedding text inside HTML. Everything runs on your device, nothing is uploaded.</p>
+<div class="card stack">
+  <textarea id="input" rows="7" placeholder="Type or paste text (or HTML entities) here…" spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.95rem"></textarea>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+    <button class="btn" id="encode">Encode →</button>
+    <button class="btn" id="decode">← Decode</button>
+    <label class="note"><input type="checkbox" id="allchars"> Also escape non-ASCII characters</label>
+    <button class="btn" id="copy" hidden>Copy</button>
+  </div>
+  <p class="note" id="status">Type something to begin.</p>
+  <textarea id="output" rows="7" readonly spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.95rem"></textarea>
+</div>
+<section><h2>Which characters get encoded?</h2><p>By default only the five characters that are unsafe inside HTML markup: &amp;, &lt;, &gt;, &quot; and &#39;. Turn on "Also escape non-ASCII characters" to convert every character outside the basic ASCII range (accents, Turkish letters, emoji, CJK) into numeric entities like &amp;#287; — useful for old systems that mangle UTF-8.</p><h2>What does Decode understand?</h2><p>Both named entities (&amp;amp;, &amp;copy;, &amp;hellip; …) and numeric entities, decimal (&amp;#39;) or hexadecimal (&amp;#x27;). Anything that isn't a recognized entity is left untouched.</p><h2>Is my text sent anywhere?</h2><p>No. Encoding and decoding happen entirely in your browser with plain JavaScript — nothing is uploaded or logged.</p></section>
+<section class="related"><h2>More tools</h2><ul class="tool-grid"><li><a href="../../tools/csv-to-json-converter/"><div class="card"><h2>CSV ⇄ JSON Converter</h2><p>Convert CSV to JSON or JSON to CSV instantly — no upload.</p></div></a></li>
+<li><a href="../../tools/epoch-timestamp-converter/"><div class="card"><h2>Epoch Timestamp Converter</h2><p>Convert Unix timestamps to dates and back, seconds or milliseconds.</p></div></a></li>
+<li><a href="../../tools/line-tools/"><div class="card"><h2>Line Tools</h2><p>Sort, dedupe, trim and reverse lines of text — combine any options.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — handcrafted small tools that run entirely in your browser. No uploads, no tracking. · <a href="../../about/">About</a> · <a href="../../privacy/">Privacy</a> · <a href="https://chromewebstore.google.com/detail/aporizma-translate-text-s/flemammmdajgahkngaghgmckgopeijfm" rel="noopener">Chrome</a></p>
+</footer>
+<script src="../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "HTML Entity Encode / Decode", "lede": "Turn special characters into HTML entities and back — safe for embedding text inside HTML. Everything runs on your device, nothing is uploaded.", "card_title": "HTML Entity Encoder", "card_desc": "Encode/decode HTML entities — &amp; &lt; &gt; and more.", "input_ph": "Type or paste text (or HTML entities) here…", "encode": "Encode →", "decode": "← Decode", "allchars_label": "Also escape non-ASCII characters", "copy": "Copy", "copied": "Copied!", "ok_encode_fmt": "Encoded — {chars} characters", "ok_decode_fmt": "Decoded — {chars} characters", "empty": "Type something to begin."};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>
