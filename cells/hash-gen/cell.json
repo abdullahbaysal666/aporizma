@@ -1,0 +1,36 @@
+{
+  "id": "hash-gen",
+  "category": "dev",
+  "en": {
+    "slug": "tools/hash-generator",
+    "title": "Hash Generator — SHA-1, SHA-256, SHA-384, SHA-512",
+    "desc": "Generate SHA-1, SHA-256, SHA-384, and SHA-512 hashes from text instantly in your browser using the Web Crypto API. Free, no upload, no sign-up.",
+    "h1": "Hash Generator",
+    "lede": "Compute SHA-1, SHA-256, SHA-384, and SHA-512 hashes of any text. Everything runs locally in your browser — nothing is uploaded.",
+    "card_title": "Hash Generator",
+    "card_desc": "Generate SHA-1/256/384/512 hashes from text.",
+    "input_label": "Text",
+    "placeholder": "Type or paste text to hash…",
+    "uppercase_label": "Uppercase hex",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "hashed_fmt": "{n} characters hashed.",
+    "faq_html": "<h2>What hash algorithms are supported?</h2><p>This tool computes SHA-1, SHA-256, SHA-384, and SHA-512 digests using your browser's built-in Web Crypto API (crypto.subtle.digest). MD5 is not included because modern browsers no longer expose it — SHA-256 or higher is recommended for any real use anyway.</p><h2>Why do the hashes change with every keystroke?</h2><p>Hashing is deterministic and near-instant, so the tool recomputes all four digests live as you type, letting you see the exact output for your current input at all times.</p><h2>Is my text sent anywhere?</h2><p>No. Hashing happens entirely on your device using the browser's native cryptography engine. Nothing is uploaded, logged, or stored.</p>"
+  },
+  "tr": {
+    "slug": "tr/araclar/hash-uretici",
+    "title": "Hash Üretici — SHA-1, SHA-256, SHA-384, SHA-512",
+    "desc": "Metinden SHA-1, SHA-256, SHA-384 ve SHA-512 hash değerlerini tarayıcınızda Web Crypto API ile anında üretin. Ücretsiz, yüklemesiz, üyeliksiz.",
+    "h1": "Hash Üretici",
+    "lede": "Herhangi bir metnin SHA-1, SHA-256, SHA-384 ve SHA-512 hash değerlerini hesaplayın. Her şey tarayıcınızda gerçekleşir — hiçbir şey yüklenmez.",
+    "card_title": "Hash Üretici",
+    "card_desc": "Metinden SHA-1/256/384/512 hash değerleri üretin.",
+    "input_label": "Metin",
+    "placeholder": "Hashlemek için metin yazın veya yapıştırın…",
+    "uppercase_label": "Büyük harf onaltılık",
+    "copy": "Kopyala",
+    "copied": "Kopyalandı!",
+    "hashed_fmt": "{n} karakter hashlendi.",
+    "faq_html": "<h2>Hangi hash algoritmaları destekleniyor?</h2><p>Bu araç, tarayıcınızın yerleşik Web Crypto API'si (crypto.subtle.digest) ile SHA-1, SHA-256, SHA-384 ve SHA-512 özetleri hesaplar. MD5 dahil değildir çünkü modern tarayıcılar artık bunu sunmuyor — zaten gerçek kullanım için SHA-256 veya üzeri önerilir.</p><h2>Hash değerleri neden her tuş vuruşunda değişiyor?</h2><p>Hashleme deterministik ve neredeyse anlıktır, bu yüzden araç yazarken dört özeti de canlı olarak yeniden hesaplar; böylece güncel girdinizin tam çıktısını her zaman görürsünüz.</p><h2>Metnim herhangi bir yere gönderiliyor mu?</h2><p>Hayır. Hashleme tamamen cihazınızda, tarayıcının yerleşik kriptografi motoruyla gerçekleşir. Hiçbir şey yüklenmez, kaydedilmez ya da saklanmaz.</p>"
+  }
+}

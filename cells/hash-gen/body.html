@@ -1,0 +1,33 @@
+<h1>{{s.h1}}</h1>
+<p class="lede">{{s.lede}}</p>
+<div class="card stack">
+  <label class="note" for="input">{{s.input_label}}</label>
+  <textarea id="input" rows="6" spellcheck="false" placeholder="{{s.placeholder}}"></textarea>
+  <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center">
+    <label class="note"><input type="checkbox" id="uppercase"> {{s.uppercase_label}}</label>
+  </div>
+  <p class="note" id="status"></p>
+  <div class="stack" style="overflow-x:auto">
+    <div style="display:flex;gap:8px;align-items:center;min-width:420px">
+      <span class="note" style="min-width:80px">SHA-1</span>
+      <input type="text" id="out-sha1" readonly spellcheck="false" style="flex:1;font-family:ui-monospace,Consolas,monospace;min-width:220px">
+      <button class="btn ghost" data-copy="out-sha1">{{s.copy}}</button>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center;min-width:420px">
+      <span class="note" style="min-width:80px">SHA-256</span>
+      <input type="text" id="out-sha256" readonly spellcheck="false" style="flex:1;font-family:ui-monospace,Consolas,monospace;min-width:220px">
+      <button class="btn ghost" data-copy="out-sha256">{{s.copy}}</button>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center;min-width:420px">
+      <span class="note" style="min-width:80px">SHA-384</span>
+      <input type="text" id="out-sha384" readonly spellcheck="false" style="flex:1;font-family:ui-monospace,Consolas,monospace;min-width:220px">
+      <button class="btn ghost" data-copy="out-sha384">{{s.copy}}</button>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center;min-width:420px">
+      <span class="note" style="min-width:80px">SHA-512</span>
+      <input type="text" id="out-sha512" readonly spellcheck="false" style="flex:1;font-family:ui-monospace,Consolas,monospace;min-width:220px">
+      <button class="btn ghost" data-copy="out-sha512">{{s.copy}}</button>
+    </div>
+  </div>
+</div>
+<section>{{s.faq_html}}</section>

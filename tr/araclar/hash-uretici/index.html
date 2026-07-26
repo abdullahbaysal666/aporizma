@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hash Üretici — SHA-1, SHA-256, SHA-384, SHA-512</title>
+<meta name="description" content="Metinden SHA-1, SHA-256, SHA-384 ve SHA-512 hash değerlerini tarayıcınızda Web Crypto API ile anında üretin. Ücretsiz, yüklemesiz, üyeliksiz.">
+<link rel="stylesheet" href="../../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tr/araclar/hash-uretici/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/hash-generator/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/hash-uretici/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/hash-generator/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Hash Üretici — SHA-1, SHA-256, SHA-384, SHA-512">
+<meta property="og:description" content="Metinden SHA-1, SHA-256, SHA-384 ve SHA-512 hash değerlerini tarayıcınızda Web Crypto API ile anında üretin. Ücretsiz, yüklemesiz, üyeliksiz.">
+<meta property="og:url" content="https://aporizma.com/tr/araclar/hash-uretici/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Hash Üretici", "url": "https://aporizma.com/tr/araclar/hash-uretici/", "description": "Metinden SHA-1, SHA-256, SHA-384 ve SHA-512 hash değerlerini tarayıcınızda Web Crypto API ile anında üretin. Ücretsiz, yüklemesiz, üyeliksiz.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "tr", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "tr", "mainEntity": [{"@type": "Question", "name": "Hangi hash algoritmaları destekleniyor?", "acceptedAnswer": {"@type": "Answer", "text": "Bu araç, tarayıcınızın yerleşik Web Crypto API'si (crypto.subtle.digest) ile SHA-1, SHA-256, SHA-384 ve SHA-512 özetleri hesaplar. MD5 dahil değildir çünkü modern tarayıcılar artık bunu sunmuyor — zaten gerçek kullanım için SHA-256 veya üzeri önerilir."}}, {"@type": "Question", "name": "Hash değerleri neden her tuş vuruşunda değişiyor?", "acceptedAnswer": {"@type": "Answer", "text": "Hashleme deterministik ve neredeyse anlıktır, bu yüzden araç yazarken dört özeti de canlı olarak yeniden hesaplar; böylece güncel girdinizin tam çıktısını her zaman görürsünüz."}}, {"@type": "Question", "name": "Metnim herhangi bir yere gönderiliyor mu?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır. Hashleme tamamen cihazınızda, tarayıcının yerleşik kriptografi motoruyla gerçekleşir. Hiçbir şey yüklenmez, kaydedilmez ya da saklanmaz."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../../tr/"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../../tools/hash-generator/" class="lang-switch" rel="alternate" hreflang="en">English</a>
+  </nav>
+</header>
+<main>
+<h1>Hash Üretici</h1>
+<p class="lede">Herhangi bir metnin SHA-1, SHA-256, SHA-384 ve SHA-512 hash değerlerini hesaplayın. Her şey tarayıcınızda gerçekleşir — hiçbir şey yüklenmez.</p>
+<div class="card stack">
+  <label class="note" for="input">Metin</label>
+  <textarea id="input" rows="6" spellcheck="false" placeholder="Hashlemek için metin yazın veya yapıştırın…"></textarea>
+  <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center">
+    <label class="note"><input type="checkbox" id="uppercase"> Büyük harf onaltılık</label>
+  </div>
+  <p class="note" id="status"></p>
+  <div class="stack" style="overflow-x:auto">
+    <div style="display:flex;gap:8px;align-items:center;min-width:420px">
+      <span class="note" style="min-width:80px">SHA-1</span>
+      <input type="text" id="out-sha1" readonly spellcheck="false" style="flex:1;font-family:ui-monospace,Consolas,monospace;min-width:220px">
+      <button class="btn ghost" data-copy="out-sha1">Kopyala</button>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center;min-width:420px">
+      <span class="note" style="min-width:80px">SHA-256</span>
+      <input type="text" id="out-sha256" readonly spellcheck="false" style="flex:1;font-family:ui-monospace,Consolas,monospace;min-width:220px">
+      <button class="btn ghost" data-copy="out-sha256">Kopyala</button>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center;min-width:420px">
+      <span class="note" style="min-width:80px">SHA-384</span>
+      <input type="text" id="out-sha384" readonly spellcheck="false" style="flex:1;font-family:ui-monospace,Consolas,monospace;min-width:220px">
+      <button class="btn ghost" data-copy="out-sha384">Kopyala</button>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center;min-width:420px">
+      <span class="note" style="min-width:80px">SHA-512</span>
+      <input type="text" id="out-sha512" readonly spellcheck="false" style="flex:1;font-family:ui-monospace,Consolas,monospace;min-width:220px">
+      <button class="btn ghost" data-copy="out-sha512">Kopyala</button>
+    </div>
+  </div>
+</div>
+<section><h2>Hangi hash algoritmaları destekleniyor?</h2><p>Bu araç, tarayıcınızın yerleşik Web Crypto API'si (crypto.subtle.digest) ile SHA-1, SHA-256, SHA-384 ve SHA-512 özetleri hesaplar. MD5 dahil değildir çünkü modern tarayıcılar artık bunu sunmuyor — zaten gerçek kullanım için SHA-256 veya üzeri önerilir.</p><h2>Hash değerleri neden her tuş vuruşunda değişiyor?</h2><p>Hashleme deterministik ve neredeyse anlıktır, bu yüzden araç yazarken dört özeti de canlı olarak yeniden hesaplar; böylece güncel girdinizin tam çıktısını her zaman görürsünüz.</p><h2>Metnim herhangi bir yere gönderiliyor mu?</h2><p>Hayır. Hashleme tamamen cihazınızda, tarayıcının yerleşik kriptografi motoruyla gerçekleşir. Hiçbir şey yüklenmez, kaydedilmez ya da saklanmaz.</p></section>
+<section class="related"><h2>Diğer araçlar</h2><ul class="tool-grid"><li><a href="../../../tr/araclar/json-duzenle/"><div class="card"><h2>JSON Formatlayıcı</h2><p>JSON formatla, doğrula, sıkıştır — tam hata konumuyla.</p></div></a></li>
+<li><a href="../../../tr/araclar/base64-kodla-coz/"><div class="card"><h2>Base64 Kodlayıcı</h2><p>Base64 kodla/çöz, UTF-8 güvenli — emoji ve Türkçe bozulmaz.</p></div></a></li>
+<li><a href="../../../tr/araclar/regex-test/"><div class="card"><h2>Regex Test Aracı</h2><p>Canlı regex eşleştirme: vurgulu sonuçlar ve gruplar.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — tamamen tarayıcınızda çalışan küçük araçlar. Yükleme yok, izleme yok. · <a href="../../../about/">Hakkında</a> · <a href="../../../privacy/">Gizlilik</a> · <a href="https://chromewebstore.google.com/detail/aporizma-translate-text-s/flemammmdajgahkngaghgmckgopeijfm" rel="noopener">Chrome</a></p>
+</footer>
+<script src="../../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Hash Üretici", "lede": "Herhangi bir metnin SHA-1, SHA-256, SHA-384 ve SHA-512 hash değerlerini hesaplayın. Her şey tarayıcınızda gerçekleşir — hiçbir şey yüklenmez.", "card_title": "Hash Üretici", "card_desc": "Metinden SHA-1/256/384/512 hash değerleri üretin.", "input_label": "Metin", "placeholder": "Hashlemek için metin yazın veya yapıştırın…", "uppercase_label": "Büyük harf onaltılık", "copy": "Kopyala", "copied": "Kopyalandı!", "hashed_fmt": "{n} karakter hashlendi."};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

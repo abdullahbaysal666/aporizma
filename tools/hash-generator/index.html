@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hash Generator — SHA-1, SHA-256, SHA-384, SHA-512</title>
+<meta name="description" content="Generate SHA-1, SHA-256, SHA-384, and SHA-512 hashes from text instantly in your browser using the Web Crypto API. Free, no upload, no sign-up.">
+<link rel="stylesheet" href="../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tools/hash-generator/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/hash-generator/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/hash-uretici/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/hash-generator/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Hash Generator — SHA-1, SHA-256, SHA-384, SHA-512">
+<meta property="og:description" content="Generate SHA-1, SHA-256, SHA-384, and SHA-512 hashes from text instantly in your browser using the Web Crypto API. Free, no upload, no sign-up.">
+<meta property="og:url" content="https://aporizma.com/tools/hash-generator/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Hash Generator", "url": "https://aporizma.com/tools/hash-generator/", "description": "Generate SHA-1, SHA-256, SHA-384, and SHA-512 hashes from text instantly in your browser using the Web Crypto API. Free, no upload, no sign-up.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "What hash algorithms are supported?", "acceptedAnswer": {"@type": "Answer", "text": "This tool computes SHA-1, SHA-256, SHA-384, and SHA-512 digests using your browser's built-in Web Crypto API (crypto.subtle.digest). MD5 is not included because modern browsers no longer expose it — SHA-256 or higher is recommended for any real use anyway."}}, {"@type": "Question", "name": "Why do the hashes change with every keystroke?", "acceptedAnswer": {"@type": "Answer", "text": "Hashing is deterministic and near-instant, so the tool recomputes all four digests live as you type, letting you see the exact output for your current input at all times."}}, {"@type": "Question", "name": "Is my text sent anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. Hashing happens entirely on your device using the browser's native cryptography engine. Nothing is uploaded, logged, or stored."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../tr/araclar/hash-uretici/" class="lang-switch" rel="alternate" hreflang="tr">Türkçe</a>
+  </nav>
+</header>
+<main>
+<h1>Hash Generator</h1>
+<p class="lede">Compute SHA-1, SHA-256, SHA-384, and SHA-512 hashes of any text. Everything runs locally in your browser — nothing is uploaded.</p>
+<div class="card stack">
+  <label class="note" for="input">Text</label>
+  <textarea id="input" rows="6" spellcheck="false" placeholder="Type or paste text to hash…"></textarea>
+  <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center">
+    <label class="note"><input type="checkbox" id="uppercase"> Uppercase hex</label>
+  </div>
+  <p class="note" id="status"></p>
+  <div class="stack" style="overflow-x:auto">
+    <div style="display:flex;gap:8px;align-items:center;min-width:420px">
+      <span class="note" style="min-width:80px">SHA-1</span>
+      <input type="text" id="out-sha1" readonly spellcheck="false" style="flex:1;font-family:ui-monospace,Consolas,monospace;min-width:220px">
+      <button class="btn ghost" data-copy="out-sha1">Copy</button>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center;min-width:420px">
+      <span class="note" style="min-width:80px">SHA-256</span>
+      <input type="text" id="out-sha256" readonly spellcheck="false" style="flex:1;font-family:ui-monospace,Consolas,monospace;min-width:220px">
+      <button class="btn ghost" data-copy="out-sha256">Copy</button>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center;min-width:420px">
+      <span class="note" style="min-width:80px">SHA-384</span>
+      <input type="text" id="out-sha384" readonly spellcheck="false" style="flex:1;font-family:ui-monospace,Consolas,monospace;min-width:220px">
+      <button class="btn ghost" data-copy="out-sha384">Copy</button>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center;min-width:420px">
+      <span class="note" style="min-width:80px">SHA-512</span>
+      <input type="text" id="out-sha512" readonly spellcheck="false" style="flex:1;font-family:ui-monospace,Consolas,monospace;min-width:220px">
+      <button class="btn ghost" data-copy="out-sha512">Copy</button>
+    </div>
+  </div>
+</div>
+<section><h2>What hash algorithms are supported?</h2><p>This tool computes SHA-1, SHA-256, SHA-384, and SHA-512 digests using your browser's built-in Web Crypto API (crypto.subtle.digest). MD5 is not included because modern browsers no longer expose it — SHA-256 or higher is recommended for any real use anyway.</p><h2>Why do the hashes change with every keystroke?</h2><p>Hashing is deterministic and near-instant, so the tool recomputes all four digests live as you type, letting you see the exact output for your current input at all times.</p><h2>Is my text sent anywhere?</h2><p>No. Hashing happens entirely on your device using the browser's native cryptography engine. Nothing is uploaded, logged, or stored.</p></section>
+<section class="related"><h2>More tools</h2><ul class="tool-grid"><li><a href="../../tools/json-formatter/"><div class="card"><h2>JSON Formatter</h2><p>Format, validate & minify JSON with exact error location.</p></div></a></li>
+<li><a href="../../tools/base64-encode-decode/"><div class="card"><h2>Base64 Encoder</h2><p>Encode/decode Base64, UTF-8 safe — emoji & accents survive.</p></div></a></li>
+<li><a href="../../tools/regex-tester/"><div class="card"><h2>Regex Tester</h2><p>Live regex matching with highlighted results & groups.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — handcrafted small tools that run entirely in your browser. No uploads, no tracking. · <a href="../../about/">About</a> · <a href="../../privacy/">Privacy</a> · <a href="https://chromewebstore.google.com/detail/aporizma-translate-text-s/flemammmdajgahkngaghgmckgopeijfm" rel="noopener">Chrome</a></p>
+</footer>
+<script src="../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Hash Generator", "lede": "Compute SHA-1, SHA-256, SHA-384, and SHA-512 hashes of any text. Everything runs locally in your browser — nothing is uploaded.", "card_title": "Hash Generator", "card_desc": "Generate SHA-1/256/384/512 hashes from text.", "input_label": "Text", "placeholder": "Type or paste text to hash…", "uppercase_label": "Uppercase hex", "copy": "Copy", "copied": "Copied!", "hashed_fmt": "{n} characters hashed."};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>
