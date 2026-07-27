@@ -1,0 +1,38 @@
+<h1>{{s.h1}}</h1>
+<p class="lede">{{s.lede}}</p>
+<div class="card stack">
+  <textarea id="input" rows="6" placeholder="{{s.input_ph}}" spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.9rem;word-break:break-all"></textarea>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+    <button class="btn" id="decode">{{s.decode}}</button>
+  </div>
+  <p class="note" id="status">{{s.empty}}</p>
+
+  <div id="result" hidden class="stack">
+    <div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between">
+        <strong>{{s.header_label}}</strong>
+        <button class="btn ghost" id="copy-header">{{s.copy_header}}</button>
+      </div>
+      <pre id="header-out" style="overflow-x:auto;font-family:ui-monospace,Consolas,monospace;font-size:.9rem"></pre>
+    </div>
+
+    <div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between">
+        <strong>{{s.payload_label}}</strong>
+        <button class="btn ghost" id="copy-payload">{{s.copy_payload}}</button>
+      </div>
+      <pre id="payload-out" style="overflow-x:auto;font-family:ui-monospace,Consolas,monospace;font-size:.9rem"></pre>
+    </div>
+
+    <p class="note" id="claims-out"></p>
+
+    <div>
+      <strong>{{s.signature_label}}</strong>
+      <p id="signature-out" style="overflow-x:auto;word-break:break-all;font-family:ui-monospace,Consolas,monospace;font-size:.85rem"></p>
+    </div>
+
+    <p class="note">{{s.signature_note}}</p>
+  </div>
+</div>
+<section>{{s.faq_html}}</section>
