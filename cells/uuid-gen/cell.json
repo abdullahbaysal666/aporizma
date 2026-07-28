@@ -1,0 +1,40 @@
+{
+  "id": "uuid-gen",
+  "category": "generator",
+  "en": {
+    "slug": "tools/uuid-generator",
+    "title": "UUID Generator — Free Bulk UUID v4 Tool",
+    "desc": "Generate RFC 4122 UUID v4 values instantly, one or in bulk (up to 1000). Runs entirely in your browser using crypto.getRandomValues — free, no sign-up.",
+    "h1": "UUID Generator",
+    "lede": "Generate random UUID v4 identifiers, one at a time or in bulk. Everything happens on your device — nothing is sent anywhere.",
+    "card_title": "UUID Generator",
+    "card_desc": "Generate RFC 4122 UUID v4 values, one or in bulk.",
+    "count_label": "How many",
+    "hyphens_label": "Include hyphens",
+    "uppercase_label": "Uppercase",
+    "generate": "Generate",
+    "copy": "Copy all",
+    "copied": "Copied!",
+    "download": "Download .txt",
+    "count_fmt": "{n} UUID(s) generated.",
+    "faq_html": "<h2>What is a UUID v4?</h2><p>A UUID (Universally Unique Identifier) version 4 is a 128-bit value generated from random bytes, formatted as 32 hex digits in five groups (8-4-4-4-12). Version and variant bits are fixed per RFC 4122, so every value is recognizable as a valid v4 UUID while the rest stays random.</p><h2>Is it safe to use these as real IDs?</h2><p>Yes — collisions are astronomically unlikely (about 1 in 2.7×10^38 combinations), and this generator uses your browser's crypto.getRandomValues, the same cryptographic randomness source used by password managers.</p><h2>Is any data sent to a server?</h2><p>No. Everything runs locally in your browser with JavaScript. Nothing is uploaded, logged, or stored.</p>"
+  },
+  "tr": {
+    "slug": "tr/araclar/uuid-uretici",
+    "title": "UUID Üretici — Ücretsiz Toplu UUID v4 Aracı",
+    "desc": "RFC 4122 UUID v4 değerlerini anında üretin, tek tek veya toplu (1000'e kadar). Tamamen tarayıcınızda crypto.getRandomValues ile çalışır — ücretsiz, üyeliksiz.",
+    "h1": "UUID Üretici",
+    "lede": "Rastgele UUID v4 kimlikleri üretin, tek tek ya da toplu halde. Her şey cihazınızda gerçekleşir — hiçbir şey gönderilmez.",
+    "card_title": "UUID Üretici",
+    "card_desc": "RFC 4122 UUID v4 değerleri üretin, tek tek veya toplu.",
+    "count_label": "Adet",
+    "hyphens_label": "Tire dahil et",
+    "uppercase_label": "Büyük harf",
+    "generate": "Üret",
+    "copy": "Tümünü kopyala",
+    "copied": "Kopyalandı!",
+    "download": "İndir (.txt)",
+    "count_fmt": "{n} UUID üretildi.",
+    "faq_html": "<h2>UUID v4 nedir?</h2><p>UUID (Evrensel Benzersiz Tanımlayıcı) sürüm 4, rastgele baytlardan üretilen 128 bitlik bir değerdir; beş grupta (8-4-4-4-12) 32 onaltılık basamak olarak biçimlendirilir. Sürüm ve varyant bitleri RFC 4122'ye göre sabittir, geri kalan tamamen rastgeledir.</p><h2>Bunları gerçek kimlik olarak kullanmak güvenli mi?</h2><p>Evet — çakışma ihtimali astronomik derecede düşüktür (yaklaşık 2,7×10^38 kombinasyonda 1) ve bu araç, şifre yöneticilerinin de kullandığı kriptografik rastgelelik kaynağı crypto.getRandomValues'u kullanır.</p><h2>Sunucuya veri gönderiliyor mu?</h2><p>Hayır. Her şey tarayıcınızda JavaScript ile çalışır. Hiçbir şey yüklenmez, kaydedilmez ya da saklanmaz.</p>"
+  }
+}

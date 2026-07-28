@@ -1,0 +1,42 @@
+{
+  "id": "html-entities",
+  "category": "converters",
+  "en": {
+    "slug": "tools/html-entity-encoder-decoder",
+    "title": "HTML Entity Encoder / Decoder — Free, Private",
+    "desc": "Encode text to HTML entities (&amp; &lt; &gt;) and decode them back. Runs fully in your browser — nothing is sent anywhere. Free, no limits.",
+    "h1": "HTML Entity Encode / Decode",
+    "lede": "Turn special characters into HTML entities and back — safe for embedding text inside HTML. Everything runs on your device, nothing is uploaded.",
+    "card_title": "HTML Entity Encoder",
+    "card_desc": "Encode/decode HTML entities — &amp; &lt; &gt; and more.",
+    "input_ph": "Type or paste text (or HTML entities) here…",
+    "encode": "Encode →",
+    "decode": "← Decode",
+    "allchars_label": "Also escape non-ASCII characters",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "ok_encode_fmt": "Encoded — {chars} characters",
+    "ok_decode_fmt": "Decoded — {chars} characters",
+    "empty": "Type something to begin.",
+    "faq_html": "<h2>Which characters get encoded?</h2><p>By default only the five characters that are unsafe inside HTML markup: &amp;, &lt;, &gt;, &quot; and &#39;. Turn on \"Also escape non-ASCII characters\" to convert every character outside the basic ASCII range (accents, Turkish letters, emoji, CJK) into numeric entities like &amp;#287; — useful for old systems that mangle UTF-8.</p><h2>What does Decode understand?</h2><p>Both named entities (&amp;amp;, &amp;copy;, &amp;hellip; …) and numeric entities, decimal (&amp;#39;) or hexadecimal (&amp;#x27;). Anything that isn't a recognized entity is left untouched.</p><h2>Is my text sent anywhere?</h2><p>No. Encoding and decoding happen entirely in your browser with plain JavaScript — nothing is uploaded or logged.</p>"
+  },
+  "tr": {
+    "slug": "tr/araclar/html-entity-kodla-coz",
+    "title": "HTML Entity Kodla / Çöz — Ücretsiz, Gizli",
+    "desc": "Metni HTML entity kodlarına (&amp; &lt; &gt;) çevirin ve geri çözün. Tamamen tarayıcınızda çalışır, hiçbir veri gönderilmez. Ücretsiz.",
+    "h1": "HTML Entity Kodla / Çöz",
+    "lede": "Özel karakterleri HTML entity'lerine çevirin ve geri çözün — HTML içine metin gömmek için güvenli. Her şey cihazınızda kalır, hiçbir şey yüklenmez.",
+    "card_title": "HTML Entity Kodlayıcı",
+    "card_desc": "HTML entity kodla/çöz — &amp; &lt; &gt; ve daha fazlası.",
+    "input_ph": "Metni (ya da HTML entity'lerini) buraya yazın…",
+    "encode": "Kodla →",
+    "decode": "← Çöz",
+    "allchars_label": "ASCII-dışı karakterleri de kodla",
+    "copy": "Kopyala",
+    "copied": "Kopyalandı!",
+    "ok_encode_fmt": "Kodlandı — {chars} karakter",
+    "ok_decode_fmt": "Çözüldü — {chars} karakter",
+    "empty": "Başlamak için bir şeyler yazın.",
+    "faq_html": "<h2>Hangi karakterler kodlanır?</h2><p>Varsayılan olarak HTML içinde güvensiz olan beş karakter: &amp;, &lt;, &gt;, &quot; ve &#39;. \"ASCII-dışı karakterleri de kodla\" seçeneğini açarsanız temel ASCII dışındaki her karakter (Türkçe harfler, aksanlı harfler, emoji, Çince/Japonca) &amp;#287; gibi sayısal entity'lere çevrilir — UTF-8'i bozan eski sistemler için kullanışlıdır.</p><h2>Çöz ne anlıyor?</h2><p>Hem adlandırılmış entity'leri (&amp;amp;, &amp;copy;, &amp;hellip; …) hem de sayısal entity'leri, ondalık (&amp;#39;) ya da onaltılık (&amp;#x27;). Tanınmayan bir entity olduğu gibi bırakılır.</p><h2>Metnim bir yere gönderiliyor mu?</h2><p>Hayır. Kodlama ve çözme tamamen tarayıcınızda, düz JavaScript ile yapılır — hiçbir şey yüklenmez ya da kaydedilmez.</p>"
+  }
+}

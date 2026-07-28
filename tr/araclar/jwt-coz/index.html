@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JWT Çözücü — Header ve Payload'ı Görüntüle</title>
+<meta name="description" content="JWT'yi çözüp header ve payload'ını okunabilir JSON olarak görün. Tamamen tarayıcınızda çalışır — imza doğrulanmaz, hiçbir şey gönderilmez.">
+<link rel="stylesheet" href="../../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tr/araclar/jwt-coz/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/jwt-decoder/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/jwt-coz/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/jwt-decoder/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="JWT Çözücü — Header ve Payload'ı Görüntüle">
+<meta property="og:description" content="JWT'yi çözüp header ve payload'ını okunabilir JSON olarak görün. Tamamen tarayıcınızda çalışır — imza doğrulanmaz, hiçbir şey gönderilmez.">
+<meta property="og:url" content="https://aporizma.com/tr/araclar/jwt-coz/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "JWT Çözücü", "url": "https://aporizma.com/tr/araclar/jwt-coz/", "description": "JWT'yi çözüp header ve payload'ını okunabilir JSON olarak görün. Tamamen tarayıcınızda çalışır — imza doğrulanmaz, hiçbir şey gönderilmez.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "tr", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "tr", "mainEntity": [{"@type": "Question", "name": "Bu araç JWT'nin gerçek olduğunu doğruluyor mu?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır. Yalnızca header ve payload'ı Base64URL'den çözer — imzayı kontrol etmez. İmza doğrulaması, sunucudaki gizli ya da açık anahtarı gerektirir; bu asla bir tarayıcı aracına yapıştırılmamalıdır. Gerçek doğrulama için backend'inizi ya da auth kütüphanenizi kullanın."}}, {"@type": "Question", "name": "Token'ım bir yere gönderiliyor mu?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır. Çözme işlemi tamamen tarayıcınızda, JavaScript'in yerleşik Base64 ve JSON desteğiyle olur — hiçbir şey yüklenmez, kaydedilmez. Yine de JWT'leri parola gibi düşünün: tam güvenmediğiniz araçlara üretim ortamından token yapıştırmayın."}}, {"@type": "Question", "name": "exp/iat/nbf neden tarih olarak gösteriliyor?", "acceptedAnswer": {"@type": "Answer", "text": "Bu standart alanlar Unix zaman damgası (1970'ten beri geçen saniye) tutar. Bu araç bunları okunabilir bir UTC tarihine çevirir ve exp alanının süresinin dolup dolmadığını belirtir."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../../tr/"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../../tools/jwt-decoder/" class="lang-switch" rel="alternate" hreflang="en">English</a>
+  </nav>
+</header>
+<main>
+<h1>JWT Çözücü</h1>
+<p class="lede">Bir JSON Web Token yapıştırın; header ve payload'ı anında, cihazınızda çözülsün. Bu araç yalnızca çözer — imzayı doğrulamaz.</p>
+<div class="card stack">
+  <textarea id="input" rows="6" placeholder="JWT'yi buraya yapıştırın (eyJhbGciOi…)…" spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.9rem;word-break:break-all"></textarea>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+    <button class="btn" id="decode">Çöz</button>
+  </div>
+  <p class="note" id="status">Başlamak için bir JWT yapıştırın.</p>
+
+  <div id="result" hidden class="stack">
+    <div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between">
+        <strong>Header</strong>
+        <button class="btn ghost" id="copy-header">Header'ı kopyala</button>
+      </div>
+      <pre id="header-out" style="overflow-x:auto;font-family:ui-monospace,Consolas,monospace;font-size:.9rem"></pre>
+    </div>
+
+    <div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between">
+        <strong>Payload</strong>
+        <button class="btn ghost" id="copy-payload">Payload'ı kopyala</button>
+      </div>
+      <pre id="payload-out" style="overflow-x:auto;font-family:ui-monospace,Consolas,monospace;font-size:.9rem"></pre>
+    </div>
+
+    <p class="note" id="claims-out"></p>
+
+    <div>
+      <strong>İmza (kodlanmış, doğrulanmadı)</strong>
+      <p id="signature-out" style="overflow-x:auto;word-break:break-all;font-family:ui-monospace,Consolas,monospace;font-size:.85rem"></p>
+    </div>
+
+    <p class="note">Bu araç yalnızca çözer — token'ın gerçek ya da değiştirilmemiş olduğunu doğrulayamaz. İmza doğrulaması gizli anahtar ya da açık anahtar gerektirir; bu asla bir tarayıcı aracına yapıştırılmamalıdır.</p>
+  </div>
+</div>
+<section><h2>Bu araç JWT'nin gerçek olduğunu doğruluyor mu?</h2><p>Hayır. Yalnızca header ve payload'ı Base64URL'den çözer — imzayı kontrol etmez. İmza doğrulaması, sunucudaki gizli ya da açık anahtarı gerektirir; bu asla bir tarayıcı aracına yapıştırılmamalıdır. Gerçek doğrulama için backend'inizi ya da auth kütüphanenizi kullanın.</p><h2>Token'ım bir yere gönderiliyor mu?</h2><p>Hayır. Çözme işlemi tamamen tarayıcınızda, JavaScript'in yerleşik Base64 ve JSON desteğiyle olur — hiçbir şey yüklenmez, kaydedilmez. Yine de JWT'leri parola gibi düşünün: tam güvenmediğiniz araçlara üretim ortamından token yapıştırmayın.</p><h2>exp/iat/nbf neden tarih olarak gösteriliyor?</h2><p>Bu standart alanlar Unix zaman damgası (1970'ten beri geçen saniye) tutar. Bu araç bunları okunabilir bir UTC tarihine çevirir ve exp alanının süresinin dolup dolmadığını belirtir.</p></section>
+<section class="related"><h2>Diğer araçlar</h2><ul class="tool-grid"><li><a href="../../../tr/araclar/json-duzenle/"><div class="card"><h2>JSON Formatlayıcı</h2><p>JSON formatla, doğrula, sıkıştır — tam hata konumuyla.</p></div></a></li>
+<li><a href="../../../tr/araclar/base64-kodla-coz/"><div class="card"><h2>Base64 Kodlayıcı</h2><p>Base64 kodla/çöz, UTF-8 güvenli — emoji ve Türkçe bozulmaz.</p></div></a></li>
+<li><a href="../../../tr/araclar/hash-uretici/"><div class="card"><h2>Hash Üretici</h2><p>Metinden SHA-1/256/384/512 hash değerleri üretin.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — tamamen tarayıcınızda çalışan küçük araçlar. Yükleme yok, izleme yok. · <a href="../../../about/">Hakkında</a> · <a href="../../../privacy/">Gizlilik</a> · <a href="https://chromewebstore.google.com/detail/aporizma-translate-text-s/flemammmdajgahkngaghgmckgopeijfm" rel="noopener">Chrome</a></p>
+</footer>
+<script src="../../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "JWT Çözücü", "lede": "Bir JSON Web Token yapıştırın; header ve payload'ı anında, cihazınızda çözülsün. Bu araç yalnızca çözer — imzayı doğrulamaz.", "card_title": "JWT Çözücü", "card_desc": "JWT header & payload'ını çöz — imza doğrulanmaz, hiçbir şey tarayıcından çıkmaz.", "input_ph": "JWT'yi buraya yapıştırın (eyJhbGciOi…)…", "decode": "Çöz", "copy_header": "Header'ı kopyala", "copy_payload": "Payload'ı kopyala", "copied": "Kopyalandı!", "header_label": "Header", "payload_label": "Payload", "signature_label": "İmza (kodlanmış, doğrulanmadı)", "signature_note": "Bu araç yalnızca çözer — token'ın gerçek ya da değiştirilmemiş olduğunu doğrulayamaz. İmza doğrulaması gizli anahtar ya da açık anahtar gerektirir; bu asla bir tarayıcı aracına yapıştırılmamalıdır.", "claims_label": "Standart zaman alanları", "exp_fmt": "exp (son geçerlilik): {date} — {status}", "iat_fmt": "iat (üretim zamanı): {date}", "nbf_fmt": "nbf (öncesi geçersiz): {date}", "status_expired": "süresi dolmuş", "status_valid": "hâlâ geçerli", "ok_fmt": "Çözüldü — algoritma {alg}", "err_format": "Geçerli bir JWT değil — üç nokta ile ayrılmış parça bekleniyor (header.payload.signature).", "err_decode_fmt": "{part} çözülemedi — geçerli Base64URL değil.", "err_json_fmt": "{part} çözüldü ama geçerli JSON değil.", "empty": "Başlamak için bir JWT yapıştırın."};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HTML Entity Kodla / Çöz — Ücretsiz, Gizli</title>
+<meta name="description" content="Metni HTML entity kodlarına (&amp; &lt; &gt;) çevirin ve geri çözün. Tamamen tarayıcınızda çalışır, hiçbir veri gönderilmez. Ücretsiz.">
+<link rel="stylesheet" href="../../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tr/araclar/html-entity-kodla-coz/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/html-entity-encoder-decoder/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/html-entity-kodla-coz/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/html-entity-encoder-decoder/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="HTML Entity Kodla / Çöz — Ücretsiz, Gizli">
+<meta property="og:description" content="Metni HTML entity kodlarına (&amp; &lt; &gt;) çevirin ve geri çözün. Tamamen tarayıcınızda çalışır, hiçbir veri gönderilmez. Ücretsiz.">
+<meta property="og:url" content="https://aporizma.com/tr/araclar/html-entity-kodla-coz/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "HTML Entity Kodlayıcı", "url": "https://aporizma.com/tr/araclar/html-entity-kodla-coz/", "description": "Metni HTML entity kodlarına (&amp; &lt; &gt;) çevirin ve geri çözün. Tamamen tarayıcınızda çalışır, hiçbir veri gönderilmez. Ücretsiz.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "tr", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "tr", "mainEntity": [{"@type": "Question", "name": "Hangi karakterler kodlanır?", "acceptedAnswer": {"@type": "Answer", "text": "Varsayılan olarak HTML içinde güvensiz olan beş karakter: &amp;, &lt;, &gt;, &quot; ve &#39;. \"ASCII-dışı karakterleri de kodla\" seçeneğini açarsanız temel ASCII dışındaki her karakter (Türkçe harfler, aksanlı harfler, emoji, Çince/Japonca) &amp;#287; gibi sayısal entity'lere çevrilir — UTF-8'i bozan eski sistemler için kullanışlıdır."}}, {"@type": "Question", "name": "Çöz ne anlıyor?", "acceptedAnswer": {"@type": "Answer", "text": "Hem adlandırılmış entity'leri (&amp;amp;, &amp;copy;, &amp;hellip; …) hem de sayısal entity'leri, ondalık (&amp;#39;) ya da onaltılık (&amp;#x27;). Tanınmayan bir entity olduğu gibi bırakılır."}}, {"@type": "Question", "name": "Metnim bir yere gönderiliyor mu?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır. Kodlama ve çözme tamamen tarayıcınızda, düz JavaScript ile yapılır — hiçbir şey yüklenmez ya da kaydedilmez."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../../tr/"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../../tools/html-entity-encoder-decoder/" class="lang-switch" rel="alternate" hreflang="en">English</a>
+  </nav>
+</header>
+<main>
+<h1>HTML Entity Kodla / Çöz</h1>
+<p class="lede">Özel karakterleri HTML entity'lerine çevirin ve geri çözün — HTML içine metin gömmek için güvenli. Her şey cihazınızda kalır, hiçbir şey yüklenmez.</p>
+<div class="card stack">
+  <textarea id="input" rows="7" placeholder="Metni (ya da HTML entity'lerini) buraya yazın…" spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.95rem"></textarea>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+    <button class="btn" id="encode">Kodla →</button>
+    <button class="btn" id="decode">← Çöz</button>
+    <label class="note"><input type="checkbox" id="allchars"> ASCII-dışı karakterleri de kodla</label>
+    <button class="btn" id="copy" hidden>Kopyala</button>
+  </div>
+  <p class="note" id="status">Başlamak için bir şeyler yazın.</p>
+  <textarea id="output" rows="7" readonly spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.95rem"></textarea>
+</div>
+<section><h2>Hangi karakterler kodlanır?</h2><p>Varsayılan olarak HTML içinde güvensiz olan beş karakter: &amp;, &lt;, &gt;, &quot; ve &#39;. "ASCII-dışı karakterleri de kodla" seçeneğini açarsanız temel ASCII dışındaki her karakter (Türkçe harfler, aksanlı harfler, emoji, Çince/Japonca) &amp;#287; gibi sayısal entity'lere çevrilir — UTF-8'i bozan eski sistemler için kullanışlıdır.</p><h2>Çöz ne anlıyor?</h2><p>Hem adlandırılmış entity'leri (&amp;amp;, &amp;copy;, &amp;hellip; …) hem de sayısal entity'leri, ondalık (&amp;#39;) ya da onaltılık (&amp;#x27;). Tanınmayan bir entity olduğu gibi bırakılır.</p><h2>Metnim bir yere gönderiliyor mu?</h2><p>Hayır. Kodlama ve çözme tamamen tarayıcınızda, düz JavaScript ile yapılır — hiçbir şey yüklenmez ya da kaydedilmez.</p></section>
+<section class="related"><h2>Diğer araçlar</h2><ul class="tool-grid"><li><a href="../../../tr/araclar/csv-json-donusturucu/"><div class="card"><h2>CSV ⇄ JSON Dönüştürücü</h2><p>CSV'yi JSON'a, JSON'u CSV'ye anında dönüştürün — yükleme yok.</p></div></a></li>
+<li><a href="../../../tr/araclar/unix-zaman-damgasi-donusturucu/"><div class="card"><h2>Epoch Zaman Damgası Dönüştürücü</h2><p>Unix zaman damgasını tarihe, tarihi zaman damgasına çevirin.</p></div></a></li>
+<li><a href="../../../tr/araclar/satir-araclari/"><div class="card"><h2>Satır Araçları</h2><p>Metin satırlarını sırala, tekilleştir, boşluk temizle, ters çevir — hepsi bir arada.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — tamamen tarayıcınızda çalışan küçük araçlar. Yükleme yok, izleme yok. · <a href="../../../about/">Hakkında</a> · <a href="../../../privacy/">Gizlilik</a> · <a href="https://chromewebstore.google.com/detail/aporizma-translate-text-s/flemammmdajgahkngaghgmckgopeijfm" rel="noopener">Chrome</a></p>
+</footer>
+<script src="../../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "HTML Entity Kodla / Çöz", "lede": "Özel karakterleri HTML entity'lerine çevirin ve geri çözün — HTML içine metin gömmek için güvenli. Her şey cihazınızda kalır, hiçbir şey yüklenmez.", "card_title": "HTML Entity Kodlayıcı", "card_desc": "HTML entity kodla/çöz — &amp; &lt; &gt; ve daha fazlası.", "input_ph": "Metni (ya da HTML entity'lerini) buraya yazın…", "encode": "Kodla →", "decode": "← Çöz", "allchars_label": "ASCII-dışı karakterleri de kodla", "copy": "Kopyala", "copied": "Kopyalandı!", "ok_encode_fmt": "Kodlandı — {chars} karakter", "ok_decode_fmt": "Çözüldü — {chars} karakter", "empty": "Başlamak için bir şeyler yazın."};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

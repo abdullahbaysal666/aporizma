@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UUID Generator — Free Bulk UUID v4 Tool</title>
+<meta name="description" content="Generate RFC 4122 UUID v4 values instantly, one or in bulk (up to 1000). Runs entirely in your browser using crypto.getRandomValues — free, no sign-up.">
+<link rel="stylesheet" href="../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tools/uuid-generator/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/uuid-generator/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/uuid-uretici/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/uuid-generator/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="UUID Generator — Free Bulk UUID v4 Tool">
+<meta property="og:description" content="Generate RFC 4122 UUID v4 values instantly, one or in bulk (up to 1000). Runs entirely in your browser using crypto.getRandomValues — free, no sign-up.">
+<meta property="og:url" content="https://aporizma.com/tools/uuid-generator/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "UUID Generator", "url": "https://aporizma.com/tools/uuid-generator/", "description": "Generate RFC 4122 UUID v4 values instantly, one or in bulk (up to 1000). Runs entirely in your browser using crypto.getRandomValues — free, no sign-up.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "What is a UUID v4?", "acceptedAnswer": {"@type": "Answer", "text": "A UUID (Universally Unique Identifier) version 4 is a 128-bit value generated from random bytes, formatted as 32 hex digits in five groups (8-4-4-4-12). Version and variant bits are fixed per RFC 4122, so every value is recognizable as a valid v4 UUID while the rest stays random."}}, {"@type": "Question", "name": "Is it safe to use these as real IDs?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — collisions are astronomically unlikely (about 1 in 2.7×10^38 combinations), and this generator uses your browser's crypto.getRandomValues, the same cryptographic randomness source used by password managers."}}, {"@type": "Question", "name": "Is any data sent to a server?", "acceptedAnswer": {"@type": "Answer", "text": "No. Everything runs locally in your browser with JavaScript. Nothing is uploaded, logged, or stored."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../tr/araclar/uuid-uretici/" class="lang-switch" rel="alternate" hreflang="tr">Türkçe</a>
+  </nav>
+</header>
+<main>
+<h1>UUID Generator</h1>
+<p class="lede">Generate random UUID v4 identifiers, one at a time or in bulk. Everything happens on your device — nothing is sent anywhere.</p>
+<div class="card stack">
+  <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center">
+    <label class="note" for="count">How many</label>
+    <input type="number" id="count" min="1" max="1000" value="5" style="max-width:100px">
+    <label class="note"><input type="checkbox" id="hyphens" checked> Include hyphens</label>
+    <label class="note"><input type="checkbox" id="uppercase"> Uppercase</label>
+    <button class="btn" id="generate">Generate</button>
+  </div>
+  <textarea id="output" rows="10" spellcheck="false" readonly style="font-family:ui-monospace,Consolas,monospace;overflow-x:auto;white-space:pre"></textarea>
+  <p class="note" id="status"></p>
+  <div>
+    <button class="btn" id="copy">Copy all</button>
+    <button class="btn ghost" id="download">Download .txt</button>
+  </div>
+</div>
+<section><h2>What is a UUID v4?</h2><p>A UUID (Universally Unique Identifier) version 4 is a 128-bit value generated from random bytes, formatted as 32 hex digits in five groups (8-4-4-4-12). Version and variant bits are fixed per RFC 4122, so every value is recognizable as a valid v4 UUID while the rest stays random.</p><h2>Is it safe to use these as real IDs?</h2><p>Yes — collisions are astronomically unlikely (about 1 in 2.7×10^38 combinations), and this generator uses your browser's crypto.getRandomValues, the same cryptographic randomness source used by password managers.</p><h2>Is any data sent to a server?</h2><p>No. Everything runs locally in your browser with JavaScript. Nothing is uploaded, logged, or stored.</p></section>
+<section class="related"><h2>More tools</h2><ul class="tool-grid"><li><a href="../../tools/qr-code-generator/"><div class="card"><h2>QR Code Generator</h2><p>Text or link to QR code, PNG download, in your browser.</p></div></a></li>
+<li><a href="../../tools/password-generator/"><div class="card"><h2>Password Generator</h2><p>Strong random passwords, generated offline on your device.</p></div></a></li>
+<li><a href="../../tools/qr-code-reader/"><div class="card"><h2>QR Code Reader</h2><p>Scan QR codes with your camera, decoded on-device.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — handcrafted small tools that run entirely in your browser. No uploads, no tracking. · <a href="../../about/">About</a> · <a href="../../privacy/">Privacy</a> · <a href="https://chromewebstore.google.com/detail/aporizma-translate-text-s/flemammmdajgahkngaghgmckgopeijfm" rel="noopener">Chrome</a></p>
+</footer>
+<script src="../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "UUID Generator", "lede": "Generate random UUID v4 identifiers, one at a time or in bulk. Everything happens on your device — nothing is sent anywhere.", "card_title": "UUID Generator", "card_desc": "Generate RFC 4122 UUID v4 values, one or in bulk.", "count_label": "How many", "hyphens_label": "Include hyphens", "uppercase_label": "Uppercase", "generate": "Generate", "copy": "Copy all", "copied": "Copied!", "download": "Download .txt", "count_fmt": "{n} UUID(s) generated."};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

@@ -36,12 +36,20 @@
   <url><loc>https://aporizma.com/tr/araclar/belge-tara-pdf/</loc></url>
   <url><loc>https://aporizma.com/tools/case-converter/</loc></url>
   <url><loc>https://aporizma.com/tr/araclar/harf-buyuklugu-donusturucu/</loc></url>
+  <url><loc>https://aporizma.com/tools/invisible-character-remover/</loc></url>
+  <url><loc>https://aporizma.com/tr/araclar/gorunmez-karakter-temizleyici/</loc></url>
   <url><loc>https://aporizma.com/tools/color-converter/</loc></url>
   <url><loc>https://aporizma.com/tr/araclar/renk-donusturucu/</loc></url>
   <url><loc>https://aporizma.com/tools/csv-to-json-converter/</loc></url>
   <url><loc>https://aporizma.com/tr/araclar/csv-json-donusturucu/</loc></url>
   <url><loc>https://aporizma.com/tools/epoch-timestamp-converter/</loc></url>
   <url><loc>https://aporizma.com/tr/araclar/unix-zaman-damgasi-donusturucu/</loc></url>
+  <url><loc>https://aporizma.com/tools/hash-generator/</loc></url>
+  <url><loc>https://aporizma.com/tr/araclar/hash-uretici/</loc></url>
+  <url><loc>https://aporizma.com/tools/html-entity-encoder-decoder/</loc></url>
+  <url><loc>https://aporizma.com/tr/araclar/html-entity-kodla-coz/</loc></url>
+  <url><loc>https://aporizma.com/tools/jwt-decoder/</loc></url>
+  <url><loc>https://aporizma.com/tr/araclar/jwt-coz/</loc></url>
   <url><loc>https://aporizma.com/tools/line-tools/</loc></url>
   <url><loc>https://aporizma.com/tr/araclar/satir-araclari/</loc></url>
   <url><loc>https://aporizma.com/tools/markdown-preview/</loc></url>
@@ -54,4 +62,6 @@
   <url><loc>https://aporizma.com/tr/araclar/slug-uretici/</loc></url>
   <url><loc>https://aporizma.com/tools/text-diff/</loc></url>
   <url><loc>https://aporizma.com/tr/araclar/metin-karsilastir/</loc></url>
+  <url><loc>https://aporizma.com/tools/uuid-generator/</loc></url>
+  <url><loc>https://aporizma.com/tr/araclar/uuid-uretici/</loc></url>
 </urlset>

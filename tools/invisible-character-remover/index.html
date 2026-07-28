@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Invisible Character Remover — Clean Zero-Width Chars & Quotes</title>
+<meta name="description" content="Strip zero-width and invisible characters, collapse double spaces, and fix curly quotes into straight ones. Runs 100% in your browser — free, private.">
+<link rel="stylesheet" href="../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tools/invisible-character-remover/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/invisible-character-remover/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/gorunmez-karakter-temizleyici/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/invisible-character-remover/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Invisible Character Remover — Clean Zero-Width Chars & Quotes">
+<meta property="og:description" content="Strip zero-width and invisible characters, collapse double spaces, and fix curly quotes into straight ones. Runs 100% in your browser — free, private.">
+<meta property="og:url" content="https://aporizma.com/tools/invisible-character-remover/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Invisible Character Cleaner", "url": "https://aporizma.com/tools/invisible-character-remover/", "description": "Strip zero-width and invisible characters, collapse double spaces, and fix curly quotes into straight ones. Runs 100% in your browser — free, private.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "What counts as an “invisible character”?", "acceptedAnswer": {"@type": "Answer", "text": "Characters like zero-width space (U+200B), zero-width joiner/non-joiner, word joiner, byte-order mark (U+FEFF), soft hyphen and left/right mark — they take up no visible space but can break search, copy-paste, or code that reads the text. They often sneak in from copying text out of web pages or Word documents."}}, {"@type": "Question", "name": "What does “straighten curly quotes” do?", "acceptedAnswer": {"@type": "Answer", "text": "Converts typographic quotes such as ‘ ’ “ ” „ « » into plain straight ' and \" — useful when pasting into code, JSON, or plain-text fields that choke on smart quotes."}}, {"@type": "Question", "name": "Is my text sent anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. Everything runs locally in your browser with JavaScript — nothing is uploaded or logged."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../tr/araclar/gorunmez-karakter-temizleyici/" class="lang-switch" rel="alternate" hreflang="tr">Türkçe</a>
+  </nav>
+</header>
+<main>
+<h1>Invisible Character Cleaner</h1>
+<p class="lede">Paste text copied from a website or Word document. This removes hidden zero-width characters, collapses repeated spaces, and straightens curly quotes — all in your browser.</p>
+<div class="card stack">
+  <textarea id="input" rows="7" placeholder="Paste text here — hidden characters will be highlighted after cleaning…" spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.95rem"></textarea>
+  <div style="display:flex;flex-direction:column;gap:6px">
+    <label class="note"><input type="checkbox" id="opt-invisible" checked> Remove zero-width / invisible characters</label>
+    <label class="note"><input type="checkbox" id="opt-spaces" checked> Collapse repeated spaces</label>
+    <label class="note"><input type="checkbox" id="opt-quotes" checked> Straighten curly quotes (‘’“” → ' ")</label>
+  </div>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+    <button class="btn" id="clean">Clean text</button>
+    <button class="btn ghost" id="copy" hidden>Copy</button>
+  </div>
+  <p class="note" id="status">Paste or type text to begin.</p>
+  <textarea id="output" rows="7" readonly spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.95rem"></textarea>
+</div>
+<section><h2>What counts as an “invisible character”?</h2><p>Characters like zero-width space (U+200B), zero-width joiner/non-joiner, word joiner, byte-order mark (U+FEFF), soft hyphen and left/right mark — they take up no visible space but can break search, copy-paste, or code that reads the text. They often sneak in from copying text out of web pages or Word documents.</p><h2>What does “straighten curly quotes” do?</h2><p>Converts typographic quotes such as ‘ ’ “ ” „ « » into plain straight <code>'</code> and <code>"</code> — useful when pasting into code, JSON, or plain-text fields that choke on smart quotes.</p><h2>Is my text sent anywhere?</h2><p>No. Everything runs locally in your browser with JavaScript — nothing is uploaded or logged.</p></section>
+<section class="related"><h2>More tools</h2><ul class="tool-grid"><li><a href="../../tools/word-character-counter/"><div class="card"><h2>Word & Character Counter</h2><p>Count words, characters, sentences, paragraphs and reading time.</p></div></a></li>
+<li><a href="../../tools/case-converter/"><div class="card"><h2>Case Converter</h2><p>UPPER, lower, Title, camelCase, snake_case and more — instantly.</p></div></a></li>
+<li><a href="../../tools/markdown-preview/"><div class="card"><h2>Markdown Preview</h2><p>Live Markdown rendering: headers, lists, code, links.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — handcrafted small tools that run entirely in your browser. No uploads, no tracking. · <a href="../../about/">About</a> · <a href="../../privacy/">Privacy</a> · <a href="https://chromewebstore.google.com/detail/aporizma-translate-text-s/flemammmdajgahkngaghgmckgopeijfm" rel="noopener">Chrome</a></p>
+</footer>
+<script src="../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Invisible Character Cleaner", "lede": "Paste text copied from a website or Word document. This removes hidden zero-width characters, collapses repeated spaces, and straightens curly quotes — all in your browser.", "card_title": "Invisible Character Cleaner", "card_desc": "Remove zero-width chars, collapse double spaces, fix curly quotes.", "input_ph": "Paste text here — hidden characters will be highlighted after cleaning…", "clean": "Clean text", "copy": "Copy", "copied": "Copied!", "opt_invisible": "Remove zero-width / invisible characters", "opt_spaces": "Collapse repeated spaces", "opt_quotes": "Straighten curly quotes (‘’“” → ' \")", "empty": "Paste or type text to begin.", "ok_changed_fmt": "Cleaned — {invisible} invisible char(s) removed, {spaces} extra space(s) collapsed, {quotes} quote(s) straightened.", "ok_clean_fmt": "No hidden characters or issues found — text was already clean."};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

@@ -61,8 +61,8 @@
 </div>
 <section><h2>How does the CSV → JSON conversion work?</h2><p>The first row is treated as column headers, and every row after it becomes a JSON object using those headers as keys. Quoted fields (with embedded commas, quotes, or line breaks) follow the standard CSV quoting rules, so values like <code>"Doe, Jane"</code> stay intact as a single field.</p><h2>What happens with JSON → CSV?</h2><p>The tool expects a JSON array of objects (or a single object). The column headers become the union of every key seen across all objects — if a field is missing from one row, it's left blank in that row's CSV cell rather than breaking the conversion.</p><h2>Is my data sent anywhere?</h2><p>No. Parsing and conversion both happen entirely in your browser — nothing is uploaded to a server or logged anywhere.</p></section>
 <section class="related"><h2>More tools</h2><ul class="tool-grid"><li><a href="../../tools/epoch-timestamp-converter/"><div class="card"><h2>Epoch Timestamp Converter</h2><p>Convert Unix timestamps to dates and back, seconds or milliseconds.</p></div></a></li>
-<li><a href="../../tools/line-tools/"><div class="card"><h2>Line Tools</h2><p>Sort, dedupe, trim and reverse lines of text — combine any options.</p></div></a></li>
-<li><a href="../../tools/merge-pdf/"><div class="card"><h2>PDF Merger</h2><p>Combine PDFs into one file, privately on your device.</p></div></a></li></ul></section>
+<li><a href="../../tools/html-entity-encoder-decoder/"><div class="card"><h2>HTML Entity Encoder</h2><p>Encode/decode HTML entities — &amp; &lt; &gt; and more.</p></div></a></li>
+<li><a href="../../tools/line-tools/"><div class="card"><h2>Line Tools</h2><p>Sort, dedupe, trim and reverse lines of text — combine any options.</p></div></a></li></ul></section>
 </main>
 <footer class="site-foot">
   <p>Aporizma — handcrafted small tools that run entirely in your browser. No uploads, no tracking. · <a href="../../about/">About</a> · <a href="../../privacy/">Privacy</a> · <a href="https://chromewebstore.google.com/detail/aporizma-translate-text-s/flemammmdajgahkngaghgmckgopeijfm" rel="noopener">Chrome</a></p>
