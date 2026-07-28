@@ -50,6 +50,17 @@ self.addEventListener("fetch", (e) => {
     return;
   }
 
+  if (url.pathname === "/assets/tools.json") {
+    // arac listesi TAZE olmali (uygulama yuzu bundan beslenir): once ag, kopunca cache
+    e.respondWith(
+      fetch(e.request).then((res) => {
+        if (res.ok) caches.open(VERSION).then((c) => c.put(e.request, res.clone()));
+        return res;
+      }).catch(() => caches.match(e.request))
+    );
+    return;
+  }
+
   if (url.pathname.startsWith("/assets/") || url.pathname.endsWith("tool.js")) {
     e.respondWith(
       caches.match(e.request).then((hit) => {
