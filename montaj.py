@@ -255,8 +255,21 @@ def emit_app_layer(cells: list[dict]) -> None:
     """Uygulama katmanı: tools.json + /app yüzü + /share yönlendirici + sw.js v2.
     Her montajda yeniden üretilir → yeni hücreler uygulamaya otomatik akar."""
     # 1) tools.json — uygulama yüzü ve yönlendirici için veri
+    # Doğum defteri: her hücrenin ilk görüldüğü tarih → "YENİ" rozetleri
+    import datetime
+    dogum_path = ROOT / "assets" / "dogum.json"
+    dogum = json.loads(dogum_path.read_text(encoding="utf-8")) if dogum_path.exists() else {}
+    today = datetime.date.today().isoformat()
+    # İlk tohumlama: mevcut eski hücreler geçmiş tarihli olsun ki hepsi "YENİ" görünmesin.
+    seed_date = today if dogum_path.exists() else "2026-07-15"
+    gercek_yeniler = {"qr-oku", "belge-tara", "char-clean", "hash-gen"}
+    for c in cells:
+        dogum.setdefault(c["id"], today if c["id"] in gercek_yeniler else seed_date)
+    dogum_path.write_text(json.dumps(dogum, ensure_ascii=False, indent=1), encoding="utf-8")
+
     tools = [{
         "id": c["id"], "category": c.get("category", ""),
+        "added": dogum.get(c["id"], today),
         "tr": {"slug": c["tr"]["slug"], "title": c["tr"]["card_title"], "desc": c["tr"]["card_desc"]},
         "en": {"slug": c["en"]["slug"], "title": c["en"]["card_title"], "desc": c["en"]["card_desc"]},
     } for c in cells]
@@ -362,9 +375,9 @@ self.addEventListener("fetch", (e) => {
         return "/" + by_id[cid]["tr"]["slug"] + "/" if cid in by_id else "/tr/"
     route_map = {
         "pdf": slug_of("pdf-merge"), "image": slug_of("img-resize"),
-        "subtitle": slug_of("srt-vtt"), "json": slug_of("json-format"),
-        "csv": slug_of("csv-json"), "text": slug_of("word-count"),
-        "qr_url": slug_of("qr-gen"),
+        "images": slug_of("belge-tara"), "subtitle": slug_of("srt-vtt"),
+        "json": slug_of("json-format"), "csv": slug_of("csv-json"),
+        "text": slug_of("word-count"), "qr_url": slug_of("qr-gen"),
     }
     share_dir = ROOT / "share"
     share_dir.mkdir(exist_ok=True)
@@ -386,6 +399,8 @@ function routeOf(meta) {
     const f = meta.files[0];
     const n = (f.name || "").toLowerCase();
     const t = (f.type || "").toLowerCase();
+    const allImg = meta.files.every((x) => (x.type || "").startsWith("image/"));
+    if (meta.files.length > 1 && allImg) return ROUTES.images; // çoklu görsel → Belge Tara (PDF yap)
     if (t.includes("pdf") || n.endsWith(".pdf")) return ROUTES.pdf;
     if (t.startsWith("image/")) return ROUTES.image;
     if (n.endsWith(".srt") || n.endsWith(".vtt")) return ROUTES.subtitle;
@@ -405,78 +420,11 @@ fetch("/share-inbox/meta").then(r => r.ok ? r.json() : null).then(meta => {
 </script>
 </body></html>""", encoding="utf-8")
 
-    # 4) /app — mobil uygulama yüzü (ızgara + ara + favori + son kullanılan + site linki)
+    # 4) /app v2 — alt gezinmeli uygulama yüzü (şablon: organs/app_v2.html)
     app_dir = ROOT / "app"
     app_dir.mkdir(exist_ok=True)
-    (app_dir / "index.html").write_text("""<!doctype html>
-<html lang="tr"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="robots" content="noindex">
-<meta name="theme-color" content="#131318">
-<title>Aporizma</title>
-<link rel="manifest" href="/manifest.webmanifest">
-<link rel="stylesheet" href="/assets/organ.css">
-<style>
-body{padding-bottom:32px}
-.app-head{display:flex;align-items:center;justify-content:space-between;padding:18px 16px 6px}
-.app-head h1{font-size:1.5rem;margin:0}
-.app-head a{font-size:.85rem;opacity:.75;text-decoration:none}
-.ara{margin:10px 16px}
-.ara input{width:100%;padding:12px 14px;border-radius:12px;border:1px solid #333;
-  background:#1b1b22;color:#eee;font-size:1rem}
-.bolum{margin:14px 16px 4px;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;opacity:.55}
-.gridapp{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:8px 16px;margin:0}
-.gridapp a{display:block;background:#1b1b22;border:1px solid #2a2a33;border-radius:14px;
-  padding:14px 12px;color:#eee;text-decoration:none;min-height:74px;position:relative}
-.gridapp h2{font-size:.95rem;margin:0 0 4px}
-.gridapp p{font-size:.78rem;margin:0;opacity:.65;line-height:1.35}
-.fav{position:absolute;top:8px;right:10px;font-size:1rem;opacity:.5;cursor:pointer}
-.fav.on{opacity:1}
-</style></head><body>
-<div class="app-head"><h1>Aporizma</h1><a href="/tr/">🌐 Web sitesi</a></div>
-<div class="ara"><input id="q" type="search" placeholder="Araç ara…" autocomplete="off"></div>
-<div id="icerik"></div>
-<script>
-const KEYF="apo_fav", KEYR="apo_son";
-const fav=new Set(JSON.parse(localStorage.getItem(KEYF)||"[]"));
-const son=JSON.parse(localStorage.getItem(KEYR)||"[]");
-let TOOLS=[];
-function kart(t){
-  const f=fav.has(t.id)?"on":"";
-  return `<li><a href="/${t.tr.slug}/" data-id="${t.id}">
-    <span class="fav ${f}" data-fav="${t.id}">★</span>
-    <h2>${t.tr.title}</h2><p>${t.tr.desc}</p></a></li>`;
-}
-function ciz(filtre){
-  const kutu=document.getElementById("icerik");
-  let list=TOOLS;
-  if(filtre){const q=filtre.toLowerCase();
-    list=TOOLS.filter(t=>(t.tr.title+" "+t.tr.desc).toLowerCase().includes(q));}
-  let html="";
-  if(!filtre){
-    const favs=TOOLS.filter(t=>fav.has(t.id));
-    if(favs.length) html+=`<div class="bolum">★ Favoriler</div><ul class="gridapp">${favs.map(kart).join("")}</ul>`;
-    const sons=son.map(id=>TOOLS.find(t=>t.id===id)).filter(Boolean).slice(0,4);
-    if(sons.length) html+=`<div class="bolum">Son kullanılan</div><ul class="gridapp">${sons.map(kart).join("")}</ul>`;
-    html+=`<div class="bolum">Tüm araçlar</div>`;
-  }
-  html+=`<ul class="gridapp">${list.map(kart).join("")}</ul>`;
-  kutu.innerHTML=html;
-}
-fetch("/assets/tools.json").then(r=>r.json()).then(t=>{TOOLS=t;ciz("");});
-document.getElementById("q").addEventListener("input",e=>ciz(e.target.value));
-document.getElementById("icerik").addEventListener("click",e=>{
-  const favEl=e.target.closest("[data-fav]");
-  if(favEl){e.preventDefault();const id=favEl.dataset.fav;
-    fav.has(id)?fav.delete(id):fav.add(id);
-    localStorage.setItem(KEYF,JSON.stringify([...fav]));ciz(document.getElementById("q").value);return;}
-  const a=e.target.closest("a[data-id]");
-  if(a){const id=a.dataset.id;const yeni=[id,...son.filter(x=>x!==id)].slice(0,8);
-    localStorage.setItem(KEYR,JSON.stringify(yeni));}
-});
-if("serviceWorker" in navigator) navigator.serviceWorker.register("/sw.js");
-</script>
-</body></html>""", encoding="utf-8")
+    (app_dir / "index.html").write_text(
+        (ORGANS / "app_v2.html").read_text(encoding="utf-8"), encoding="utf-8")
 
 
 if __name__ == "__main__":

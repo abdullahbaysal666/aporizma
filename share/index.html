@@ -10,12 +10,14 @@
 <p id="durum" class="lede">Doğru araca yönlendiriliyorsun.</p>
 </main>
 <script>
-const ROUTES = {"pdf": "/tr/araclar/pdf-birlestir/", "image": "/tr/araclar/resim-kucult-sikistir/", "subtitle": "/tr/araclar/srt-vtt-donusturucu/", "json": "/tr/araclar/json-duzenle/", "csv": "/tr/araclar/csv-json-donusturucu/", "text": "/tr/araclar/kelime-karakter-sayaci/", "qr_url": "/tr/araclar/qr-kod-olusturucu/"};
+const ROUTES = {"pdf": "/tr/araclar/pdf-birlestir/", "image": "/tr/araclar/resim-kucult-sikistir/", "images": "/tr/araclar/belge-tara-pdf/", "subtitle": "/tr/araclar/srt-vtt-donusturucu/", "json": "/tr/araclar/json-duzenle/", "csv": "/tr/araclar/csv-json-donusturucu/", "text": "/tr/araclar/kelime-karakter-sayaci/", "qr_url": "/tr/araclar/qr-kod-olusturucu/"};
 function routeOf(meta) {
   if (meta.files && meta.files.length) {
     const f = meta.files[0];
     const n = (f.name || "").toLowerCase();
     const t = (f.type || "").toLowerCase();
+    const allImg = meta.files.every((x) => (x.type || "").startsWith("image/"));
+    if (meta.files.length > 1 && allImg) return ROUTES.images; // çoklu görsel → Belge Tara (PDF yap)
     if (t.includes("pdf") || n.endsWith(".pdf")) return ROUTES.pdf;
     if (t.startsWith("image/")) return ROUTES.image;
     if (n.endsWith(".srt") || n.endsWith(".vtt")) return ROUTES.subtitle;

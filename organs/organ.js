@@ -40,15 +40,18 @@ window.Aporizma = {
   if (!location.search.includes("paylasilan=1")) return;
   fetch("/share-inbox/meta").then((r) => (r.ok ? r.json() : null)).then(async (meta) => {
     if (!meta || !meta.files || !meta.files.length) return;
-    const res = await fetch("/share-inbox/0");
-    if (!res.ok) return;
-    const blob = await res.blob();
-    const f = new File([blob], meta.files[0].name || "paylasilan",
-      { type: meta.files[0].type || blob.type });
     const input = document.querySelector('input[type="file"]');
     if (!input) return;
     const dt = new DataTransfer();
-    dt.items.add(f);
+    const n = input.multiple ? meta.files.length : 1; // coklu destekliyorsa HEPSI
+    for (let i = 0; i < n; i++) {
+      const res = await fetch("/share-inbox/" + i);
+      if (!res.ok) continue;
+      const blob = await res.blob();
+      dt.items.add(new File([blob], meta.files[i].name || ("paylasilan-" + i),
+        { type: meta.files[i].type || blob.type }));
+    }
+    if (!dt.files.length) return;
     input.files = dt.files;
     input.dispatchEvent(new Event("change", { bubbles: true }));
   }).catch(() => {});
