@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Görünmez Karakter Temizleyici — Sıfır Genişlik, Tırnak Düzelt</title>
+<meta name="description" content="Sıfır genişlikli/görünmez karakterleri temizleyin, çift boşlukları tekilleştirin, akıllı tırnakları düzeltin. %100 tarayıcıda çalışır — ücretsiz, gizli.">
+<link rel="stylesheet" href="../../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tr/araclar/gorunmez-karakter-temizleyici/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/invisible-character-remover/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/gorunmez-karakter-temizleyici/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/invisible-character-remover/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Görünmez Karakter Temizleyici — Sıfır Genişlik, Tırnak Düzelt">
+<meta property="og:description" content="Sıfır genişlikli/görünmez karakterleri temizleyin, çift boşlukları tekilleştirin, akıllı tırnakları düzeltin. %100 tarayıcıda çalışır — ücretsiz, gizli.">
+<meta property="og:url" content="https://aporizma.com/tr/araclar/gorunmez-karakter-temizleyici/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Görünmez Karakter Temizleyici", "url": "https://aporizma.com/tr/araclar/gorunmez-karakter-temizleyici/", "description": "Sıfır genişlikli/görünmez karakterleri temizleyin, çift boşlukları tekilleştirin, akıllı tırnakları düzeltin. %100 tarayıcıda çalışır — ücretsiz, gizli.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "tr", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "tr", "mainEntity": [{"@type": "Question", "name": "“Görünmez karakter” nedir?", "acceptedAnswer": {"@type": "Answer", "text": "Sıfır genişlikli boşluk (U+200B), sıfır genişlikli birleştirici/ayırıcı, kelime birleştirici, BOM (U+FEFF), yumuşak tire ve sol/sağ işaret gibi karakterler görünmez yer kaplar ama arama, kopyala-yapıştır ya da metni okuyan kodu bozabilir. Genellikle web sayfalarından ya da Word belgelerinden kopyalarken metne sızarlar."}}, {"@type": "Question", "name": "“Akıllı tırnakları düzelt” ne yapar?", "acceptedAnswer": {"@type": "Answer", "text": "‘ ’ “ ” „ « » gibi tipografik tırnakları düz ' ve \" işaretlerine çevirir — kod, JSON ya da akıllı tırnaklarla sorun yaşayan düz metin alanlarına yapıştırırken işe yarar."}}, {"@type": "Question", "name": "Metnim bir yere gönderiliyor mu?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır. Her şey tarayıcınızda JavaScript ile yapılır — hiçbir şey yüklenmez ya da kaydedilmez."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../../tr/"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../../tools/invisible-character-remover/" class="lang-switch" rel="alternate" hreflang="en">English</a>
+  </nav>
+</header>
+<main>
+<h1>Görünmez Karakter Temizleyici</h1>
+<p class="lede">Bir web sitesinden ya da Word belgesinden kopyaladığınız metni yapıştırın. Gizli sıfır genişlikli karakterleri kaldırır, tekrarlayan boşlukları tekilleştirir ve akıllı tırnakları düzeltir — hepsi tarayıcınızda.</p>
+<div class="card stack">
+  <textarea id="input" rows="7" placeholder="Metni buraya yapıştırın — temizledikten sonra sonuç aşağıda görünür…" spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.95rem"></textarea>
+  <div style="display:flex;flex-direction:column;gap:6px">
+    <label class="note"><input type="checkbox" id="opt-invisible" checked> Sıfır genişlikli / görünmez karakterleri kaldır</label>
+    <label class="note"><input type="checkbox" id="opt-spaces" checked> Tekrarlayan boşlukları tekilleştir</label>
+    <label class="note"><input type="checkbox" id="opt-quotes" checked> Akıllı tırnakları düzelt (‘’“” → ' ")</label>
+  </div>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+    <button class="btn" id="clean">Metni temizle</button>
+    <button class="btn ghost" id="copy" hidden>Kopyala</button>
+  </div>
+  <p class="note" id="status">Başlamak için metin yapıştırın ya da yazın.</p>
+  <textarea id="output" rows="7" readonly spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.95rem"></textarea>
+</div>
+<section><h2>“Görünmez karakter” nedir?</h2><p>Sıfır genişlikli boşluk (U+200B), sıfır genişlikli birleştirici/ayırıcı, kelime birleştirici, BOM (U+FEFF), yumuşak tire ve sol/sağ işaret gibi karakterler görünmez yer kaplar ama arama, kopyala-yapıştır ya da metni okuyan kodu bozabilir. Genellikle web sayfalarından ya da Word belgelerinden kopyalarken metne sızarlar.</p><h2>“Akıllı tırnakları düzelt” ne yapar?</h2><p>‘ ’ “ ” „ « » gibi tipografik tırnakları düz <code>'</code> ve <code>"</code> işaretlerine çevirir — kod, JSON ya da akıllı tırnaklarla sorun yaşayan düz metin alanlarına yapıştırırken işe yarar.</p><h2>Metnim bir yere gönderiliyor mu?</h2><p>Hayır. Her şey tarayıcınızda JavaScript ile yapılır — hiçbir şey yüklenmez ya da kaydedilmez.</p></section>
+<section class="related"><h2>Diğer araçlar</h2><ul class="tool-grid"><li><a href="../../../tr/araclar/kelime-karakter-sayaci/"><div class="card"><h2>Kelime ve Karakter Sayacı</h2><p>Kelime, karakter, cümle, paragraf sayısı ve okuma süresi.</p></div></a></li>
+<li><a href="../../../tr/araclar/harf-buyuklugu-donusturucu/"><div class="card"><h2>Harf Büyüklüğü Dönüştürücü</h2><p>BÜYÜK, küçük, Başlık, camelCase, snake_case ve daha fazlası — anında.</p></div></a></li>
+<li><a href="../../../tr/araclar/markdown-onizleme/"><div class="card"><h2>Markdown Önizleme</h2><p>Canlı Markdown: başlık, liste, kod, bağlantı.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — tamamen tarayıcınızda çalışan küçük araçlar. Yükleme yok, izleme yok. · <a href="../../../about/">Hakkında</a> · <a href="../../../privacy/">Gizlilik</a> · <a href="https://chromewebstore.google.com/detail/aporizma-translate-text-s/flemammmdajgahkngaghgmckgopeijfm" rel="noopener">Chrome</a></p>
+</footer>
+<script src="../../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Görünmez Karakter Temizleyici", "lede": "Bir web sitesinden ya da Word belgesinden kopyaladığınız metni yapıştırın. Gizli sıfır genişlikli karakterleri kaldırır, tekrarlayan boşlukları tekilleştirir ve akıllı tırnakları düzeltir — hepsi tarayıcınızda.", "card_title": "Görünmez Karakter Temizleyici", "card_desc": "Sıfır genişlikli karakterleri kaldırın, çift boşlukları ve akıllı tırnakları düzeltin.", "input_ph": "Metni buraya yapıştırın — temizledikten sonra sonuç aşağıda görünür…", "clean": "Metni temizle", "copy": "Kopyala", "copied": "Kopyalandı!", "opt_invisible": "Sıfır genişlikli / görünmez karakterleri kaldır", "opt_spaces": "Tekrarlayan boşlukları tekilleştir", "opt_quotes": "Akıllı tırnakları düzelt (‘’“” → ' \")", "empty": "Başlamak için metin yapıştırın ya da yazın.", "ok_changed_fmt": "Temizlendi — {invisible} görünmez karakter kaldırıldı, {spaces} fazla boşluk tekilleştirildi, {quotes} tırnak düzeltildi.", "ok_clean_fmt": "Gizli karakter ya da sorun bulunamadı — metin zaten temiz."};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>
