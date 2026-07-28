@@ -1,0 +1,25 @@
+<h1>{{s.h1}}</h1>
+<p class="lede">{{s.lede}}</p>
+<div class="card stack">
+  <div style="display:flex;gap:10px;flex-wrap:wrap">
+    <button class="btn" id="camstart">{{s.start}}</button>
+    <button class="btn" id="camstop" hidden>{{s.stop}}</button>
+  </div>
+  <div style="display:flex;justify-content:center">
+    <video id="cam" playsinline muted hidden
+      style="max-width:min(420px,100%);border-radius:10px;background:#000"></video>
+  </div>
+  <p class="note" id="camnote">{{s.waiting}}</p>
+  <p class="note" style="margin-top:6px">{{s.or_image}}</p>
+  <div class="drop" id="drop" tabindex="0">{{s.drop}}</div>
+  <input type="file" id="dosya" accept="image/*" hidden>
+  <div id="sonuc" hidden>
+    <label class="note">{{s.result_label}} — <span id="tur"></span></label>
+    <textarea id="cikti" rows="3" readonly></textarea>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <button class="btn" id="kopyala">{{s.copy}}</button>
+      <a class="btn" id="ac" href="#" target="_blank" rel="noopener" hidden>{{s.open_link}}</a>
+    </div>
+  </div>
+</div>
+<section>{{s.faq_html}}</section>

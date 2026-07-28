@@ -33,3 +33,23 @@ window.Aporizma = {
   // Pheromone beacon stub — becomes a real endpoint when telemetry lands.
   beacon() {},
 };
+
+// Paylasim gelen kutusu: Android paylas menusunden gelen dosyayi (sw.js saklar)
+// aracin dosya girisine otomatik yukler. Veri cihazda kalir.
+(function () {
+  if (!location.search.includes("paylasilan=1")) return;
+  fetch("/share-inbox/meta").then((r) => (r.ok ? r.json() : null)).then(async (meta) => {
+    if (!meta || !meta.files || !meta.files.length) return;
+    const res = await fetch("/share-inbox/0");
+    if (!res.ok) return;
+    const blob = await res.blob();
+    const f = new File([blob], meta.files[0].name || "paylasilan",
+      { type: meta.files[0].type || blob.type });
+    const input = document.querySelector('input[type="file"]');
+    if (!input) return;
+    const dt = new DataTransfer();
+    dt.items.add(f);
+    input.files = dt.files;
+    input.dispatchEvent(new Event("change", { bubbles: true }));
+  }).catch(() => {});
+})();

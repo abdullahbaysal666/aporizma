@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Aporizma — Paylaşılanı aç</title>
+<link rel="stylesheet" href="/assets/organ.css">
+</head><body>
+<main class="wrap" style="padding:24px 16px;text-align:center">
+<h1 style="font-size:1.3rem">Paylaşılan içerik alınıyor…</h1>
+<p id="durum" class="lede">Doğru araca yönlendiriliyorsun.</p>
+</main>
+<script>
+const ROUTES = {"pdf": "/tr/araclar/pdf-birlestir/", "image": "/tr/araclar/resim-kucult-sikistir/", "subtitle": "/tr/araclar/srt-vtt-donusturucu/", "json": "/tr/araclar/json-duzenle/", "csv": "/tr/araclar/csv-json-donusturucu/", "text": "/tr/araclar/kelime-karakter-sayaci/", "qr_url": "/tr/araclar/qr-kod-olusturucu/"};
+function routeOf(meta) {
+  if (meta.files && meta.files.length) {
+    const f = meta.files[0];
+    const n = (f.name || "").toLowerCase();
+    const t = (f.type || "").toLowerCase();
+    if (t.includes("pdf") || n.endsWith(".pdf")) return ROUTES.pdf;
+    if (t.startsWith("image/")) return ROUTES.image;
+    if (n.endsWith(".srt") || n.endsWith(".vtt")) return ROUTES.subtitle;
+    if (t.includes("json") || n.endsWith(".json")) return ROUTES.json;
+    if (n.endsWith(".csv")) return ROUTES.csv;
+    return ROUTES.text;
+  }
+  const extra = meta.extra || {};
+  if (extra.url || /^https?:\/\//.test(extra.text || "")) return ROUTES.qr_url;
+  return ROUTES.text;
+}
+fetch("/share-inbox/meta").then(r => r.ok ? r.json() : null).then(meta => {
+  if (!meta) { document.getElementById("durum").textContent = "Paylaşılan içerik bulunamadı."; return; }
+  const dest = routeOf(meta) + "?paylasilan=1";
+  location.replace(dest);
+}).catch(() => { document.getElementById("durum").textContent = "Bir sorun oluştu."; });
+</script>
+</body></html>

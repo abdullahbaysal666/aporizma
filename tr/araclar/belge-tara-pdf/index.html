@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Belge Tara: Kameradan PDF — Ücretsiz, Reklamsız, Cihazda</title>
+<meta name="description" content="Belge sayfalarını kamerayla çekin, tek PDF olarak indirin. Her şey cihazınızda olur — yükleme yok, reklam yok, filigran yok, üyelik yok.">
+<link rel="stylesheet" href="../../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tr/araclar/belge-tara-pdf/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/camera-to-pdf/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/belge-tara-pdf/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/camera-to-pdf/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Belge Tara: Kameradan PDF — Ücretsiz, Reklamsız, Cihazda">
+<meta property="og:description" content="Belge sayfalarını kamerayla çekin, tek PDF olarak indirin. Her şey cihazınızda olur — yükleme yok, reklam yok, filigran yok, üyelik yok.">
+<meta property="og:url" content="https://aporizma.com/tr/araclar/belge-tara-pdf/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Kamera → PDF", "url": "https://aporizma.com/tr/araclar/belge-tara-pdf/", "description": "Belge sayfalarını kamerayla çekin, tek PDF olarak indirin. Her şey cihazınızda olur — yükleme yok, reklam yok, filigran yok, üyelik yok.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "tr", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "tr", "mainEntity": [{"@type": "Question", "name": "Belgelerim yükleniyor mu?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır. Fotoğraflar tamamen tarayıcınızda çekilir ve açık kaynak (MIT) bir kütüphaneyle PDF'e dönüştürülür (pakete gömülü — CDN yok). Belgeleriniz cihazınızdan çıkmaz — bu aracın varlık sebebi zaten bu."}}, {"@type": "Question", "name": "Neden tarayıcı uygulaması yerine bu?", "acceptedAnswer": {"@type": "Answer", "text": "Çoğu tarayıcı uygulaması reklam doludur, filigran ekler ya da abonelik dayatır — ve birçoğu belgelerinizi sunucularına yükler. Bu araç bunların hiçbirini yapmaz: ücretsiz, filigransız, çevrimdışı çalışabilir, cihazda."}}, {"@type": "Question", "name": "Sayfa sırası ve kalite?", "acceptedAnswer": {"@type": "Answer", "text": "Sayfalar çekim sıranızla eklenir; indirmeden önce istediğinizi kaldırabilirsiniz. En net sonuç için telefonu sabit tutun ve sayfayı kadraja doldurun."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../../tr/"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../../tools/camera-to-pdf/" class="lang-switch" rel="alternate" hreflang="en">English</a>
+  </nav>
+</header>
+<main>
+<h1>Kamera → PDF</h1>
+<p class="lede">Her sayfayı fotoğrafla, tek PDF indir. Sayfalar cihazından çıkmaz — reklamsız, filigransız.</p>
+<div class="card stack">
+  <div style="display:flex;gap:10px;flex-wrap:wrap">
+    <button class="btn" id="camstart">Kamerayı başlat</button>
+    <button class="btn" id="camstop" hidden>Kamerayı durdur</button>
+    <button class="btn" id="cek" hidden>Sayfayı çek</button>
+  </div>
+  <div style="display:flex;justify-content:center">
+    <video id="cam" playsinline muted hidden
+      style="max-width:min(420px,100%);border-radius:10px;background:#000"></video>
+  </div>
+  <p class="note" id="camnote"></p>
+  <p class="note" style="margin-top:6px">…ya da galeriden görsel ekle</p>
+  <div class="drop" id="drop" tabindex="0">Sayfa görsellerini buraya bırak ya da dokunup seç</div>
+  <input type="file" id="dosya" accept="image/*" multiple hidden>
+  <label class="note">Sayfalar (<span id="adet">0</span>)</label>
+  <div id="sayfalar" style="display:flex;gap:8px;flex-wrap:wrap"></div>
+  <p class="note" id="durum">Henüz sayfa yok — kamerayla çek ya da görsel ekle.</p>
+  <button class="btn" id="indir" disabled>PDF indir</button>
+</div>
+<section><h2>Belgelerim yükleniyor mu?</h2><p>Hayır. Fotoğraflar tamamen tarayıcınızda çekilir ve açık kaynak (MIT) bir kütüphaneyle PDF'e dönüştürülür (pakete gömülü — CDN yok). Belgeleriniz cihazınızdan çıkmaz — bu aracın varlık sebebi zaten bu.</p><h2>Neden tarayıcı uygulaması yerine bu?</h2><p>Çoğu tarayıcı uygulaması reklam doludur, filigran ekler ya da abonelik dayatır — ve birçoğu belgelerinizi sunucularına yükler. Bu araç bunların hiçbirini yapmaz: ücretsiz, filigransız, çevrimdışı çalışabilir, cihazda.</p><h2>Sayfa sırası ve kalite?</h2><p>Sayfalar çekim sıranızla eklenir; indirmeden önce istediğinizi kaldırabilirsiniz. En net sonuç için telefonu sabit tutun ve sayfayı kadraja doldurun.</p></section>
+<section class="related"><h2>Diğer araçlar</h2><ul class="tool-grid"><li><a href="../../../tr/araclar/pdf-birlestir/"><div class="card"><h2>PDF Birleştirici</h2><p>PDF'leri cihazınızda, gizlice tek dosyada birleştirin.</p></div></a></li>
+<li><a href="../../../tr/araclar/pdf-bol/"><div class="card"><h2>PDF Bölücü</h2><p>PDF'den sayfa/aralık ayıklayın, cihazınızda.</p></div></a></li>
+<li><a href="../../../tr/araclar/resim-kucult-sikistir/"><div class="card"><h2>Resim Küçültücü</h2><p>Fotoğrafları JPEG/WebP'ye, cihazınızda gizlice küçültün.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — tamamen tarayıcınızda çalışan küçük araçlar. Yükleme yok, izleme yok. · <a href="../../../about/">Hakkında</a> · <a href="../../../privacy/">Gizlilik</a> · <a href="https://chromewebstore.google.com/detail/aporizma-translate-text-s/flemammmdajgahkngaghgmckgopeijfm" rel="noopener">Chrome</a></p>
+</footer>
+<script src="../../../assets/organ.js"></script>
+<script src="../../../assets/vendor/pdf-lib.min.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Kamera → PDF", "lede": "Her sayfayı fotoğrafla, tek PDF indir. Sayfalar cihazından çıkmaz — reklamsız, filigransız.", "card_title": "Kamera → PDF", "card_desc": "Sayfaları çek, tek PDF al. Cihazda, reklamsız.", "start": "Kamerayı başlat", "stop": "Kamerayı durdur", "capture": "Sayfayı çek", "gallery": "…ya da galeriden görsel ekle", "drop": "Sayfa görsellerini buraya bırak ya da dokunup seç", "pages_label": "Sayfalar", "remove": "Kaldır", "download": "PDF indir", "empty": "Henüz sayfa yok — kamerayla çek ya da görsel ekle.", "no_camera": "Kamera açılamadı ya da izin verilmedi. Aşağıdan görsel ekleyebilirsin.", "making": "PDF hazırlanıyor…"};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

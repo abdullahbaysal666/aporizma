@@ -1,0 +1,49 @@
+{
+  "id": "belge-tara",
+  "category": "pdf",
+  "vendor": [
+    "vendor/pdf-lib.min.js"
+  ],
+  "en": {
+    "slug": "tools/camera-to-pdf",
+    "title": "Camera to PDF — Scan Documents Free, No Ads, On-Device",
+    "desc": "Photograph document pages with your camera and combine them into a single PDF. Everything happens on your device — no uploads, no ads, no watermark, no sign-up.",
+    "h1": "Camera → PDF",
+    "lede": "Photograph each page, then download a single PDF. Pages never leave your device — no ads, no watermark.",
+    "card_title": "Camera → PDF",
+    "card_desc": "Photograph pages, get one PDF. On-device, ad-free.",
+    "start": "Start camera",
+    "stop": "Stop camera",
+    "capture": "Capture page",
+    "gallery": "…or add images from gallery",
+    "drop": "Drop page images here, or tap to choose",
+    "pages_label": "Pages",
+    "remove": "Remove",
+    "download": "Download PDF",
+    "empty": "No pages yet — capture with the camera or add images.",
+    "no_camera": "Camera unavailable or permission denied. You can still add images below.",
+    "making": "Building PDF…",
+    "faq_html": "<h2>Are my documents uploaded?</h2><p>No. Photos are captured and assembled into a PDF entirely in your browser with an open-source MIT library (bundled — no CDN). Your documents never leave your device — that is the whole point of this tool.</p><h2>Why this instead of a scanner app?</h2><p>Most scanner apps are ad-heavy, add watermarks, or push subscriptions — and many upload your documents to their servers. This one does none of that: free, watermark-free, offline-capable, on-device.</p><h2>Page order and quality?</h2><p>Pages appear in the order you capture them; remove any page before downloading. Hold the phone steady and fill the frame with the page for the sharpest result.</p>"
+  },
+  "tr": {
+    "slug": "tr/araclar/belge-tara-pdf",
+    "title": "Belge Tara: Kameradan PDF — Ücretsiz, Reklamsız, Cihazda",
+    "desc": "Belge sayfalarını kamerayla çekin, tek PDF olarak indirin. Her şey cihazınızda olur — yükleme yok, reklam yok, filigran yok, üyelik yok.",
+    "h1": "Kamera → PDF",
+    "lede": "Her sayfayı fotoğrafla, tek PDF indir. Sayfalar cihazından çıkmaz — reklamsız, filigransız.",
+    "card_title": "Kamera → PDF",
+    "card_desc": "Sayfaları çek, tek PDF al. Cihazda, reklamsız.",
+    "start": "Kamerayı başlat",
+    "stop": "Kamerayı durdur",
+    "capture": "Sayfayı çek",
+    "gallery": "…ya da galeriden görsel ekle",
+    "drop": "Sayfa görsellerini buraya bırak ya da dokunup seç",
+    "pages_label": "Sayfalar",
+    "remove": "Kaldır",
+    "download": "PDF indir",
+    "empty": "Henüz sayfa yok — kamerayla çek ya da görsel ekle.",
+    "no_camera": "Kamera açılamadı ya da izin verilmedi. Aşağıdan görsel ekleyebilirsin.",
+    "making": "PDF hazırlanıyor…",
+    "faq_html": "<h2>Belgelerim yükleniyor mu?</h2><p>Hayır. Fotoğraflar tamamen tarayıcınızda çekilir ve açık kaynak (MIT) bir kütüphaneyle PDF'e dönüştürülür (pakete gömülü — CDN yok). Belgeleriniz cihazınızdan çıkmaz — bu aracın varlık sebebi zaten bu.</p><h2>Neden tarayıcı uygulaması yerine bu?</h2><p>Çoğu tarayıcı uygulaması reklam doludur, filigran ekler ya da abonelik dayatır — ve birçoğu belgelerinizi sunucularına yükler. Bu araç bunların hiçbirini yapmaz: ücretsiz, filigransız, çevrimdışı çalışabilir, cihazda.</p><h2>Sayfa sırası ve kalite?</h2><p>Sayfalar çekim sıranızla eklenir; indirmeden önce istediğinizi kaldırabilirsiniz. En net sonuç için telefonu sabit tutun ve sayfayı kadraja doldurun.</p>"
+  }
+}

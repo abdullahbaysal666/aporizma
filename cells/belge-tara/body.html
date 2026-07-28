@@ -1,0 +1,22 @@
+<h1>{{s.h1}}</h1>
+<p class="lede">{{s.lede}}</p>
+<div class="card stack">
+  <div style="display:flex;gap:10px;flex-wrap:wrap">
+    <button class="btn" id="camstart">{{s.start}}</button>
+    <button class="btn" id="camstop" hidden>{{s.stop}}</button>
+    <button class="btn" id="cek" hidden>{{s.capture}}</button>
+  </div>
+  <div style="display:flex;justify-content:center">
+    <video id="cam" playsinline muted hidden
+      style="max-width:min(420px,100%);border-radius:10px;background:#000"></video>
+  </div>
+  <p class="note" id="camnote"></p>
+  <p class="note" style="margin-top:6px">{{s.gallery}}</p>
+  <div class="drop" id="drop" tabindex="0">{{s.drop}}</div>
+  <input type="file" id="dosya" accept="image/*" multiple hidden>
+  <label class="note">{{s.pages_label}} (<span id="adet">0</span>)</label>
+  <div id="sayfalar" style="display:flex;gap:8px;flex-wrap:wrap"></div>
+  <p class="note" id="durum">{{s.empty}}</p>
+  <button class="btn" id="indir" disabled>{{s.download}}</button>
+</div>
+<section>{{s.faq_html}}</section>
