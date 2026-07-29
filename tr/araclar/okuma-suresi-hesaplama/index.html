@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Okuma Süresi Hesaplama — Ücretsiz, Anında, Yüklemesiz</title>
+<meta name="description" content="Bir metnin okunma veya sesli okunma süresini hesaplayın. Türkçe ya da İngilizce kelime hızına göre tahmin. Tarayıcıda çalışır — ücretsiz, üyeliksiz.">
+<link rel="stylesheet" href="../../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tr/araclar/okuma-suresi-hesaplama/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/reading-time-calculator/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/okuma-suresi-hesaplama/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/reading-time-calculator/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Okuma Süresi Hesaplama — Ücretsiz, Anında, Yüklemesiz">
+<meta property="og:description" content="Bir metnin okunma veya sesli okunma süresini hesaplayın. Türkçe ya da İngilizce kelime hızına göre tahmin. Tarayıcıda çalışır — ücretsiz, üyeliksiz.">
+<meta property="og:url" content="https://aporizma.com/tr/araclar/okuma-suresi-hesaplama/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Okuma Süresi Hesaplayıcı", "url": "https://aporizma.com/tr/araclar/okuma-suresi-hesaplama/", "description": "Bir metnin okunma veya sesli okunma süresini hesaplayın. Türkçe ya da İngilizce kelime hızına göre tahmin. Tarayıcıda çalışır — ücretsiz, üyeliksiz.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "tr", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "tr", "mainEntity": [{"@type": "Question", "name": "Okuma süresi nasıl hesaplanır?", "acceptedAnswer": {"@type": "Answer", "text": "Kelime sayısı, ortalama kelime başına süre ile çarpılır. İngilizce için sessiz okumada dakikada yaklaşık 200 kelime, Türkçe için yaklaşık 180 kelime kabul edilir — Türkçe'de ekler nedeniyle kelimeler ortalama daha uzundur. Bunlar genel ortalamalardır; kişisel hızınız farklı olabilir."}}, {"@type": "Question", "name": "Konuşma süresi neden farklı?", "acceptedAnswer": {"@type": "Answer", "text": "Sesli okuma (ör. sunum ya da video metni) sessiz okumadan daha yavaştır. Genel sunum temposu olarak İngilizce'de dakikada ~130, Türkçe'de ~120 kelime kabul edilir."}}, {"@type": "Question", "name": "Metnim bir yere yükleniyor mu?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır. Tüm hesaplama tarayıcınızda JavaScript ile yapılır. Hiçbir şey sunucuya gönderilmez."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../../tr/"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../../tools/reading-time-calculator/" class="lang-switch" rel="alternate" hreflang="en">English</a>
+  </nav>
+</header>
+<main>
+<h1>Okuma Süresi Hesaplayıcı</h1>
+<p class="lede">Metninizi yapıştırın, dilini seçin; tahmini sessiz okuma süresi ve sesli okuma (konuşma) süresi anında görünür.</p>
+<div class="card stack">
+  <label class="note" for="input">Metninizi buraya yazın ya da yapıştırın</label>
+  <textarea id="input" rows="10" spellcheck="false"></textarea>
+  <div class="row">
+    <label class="note" for="lang">Metin dili</label>
+    <select id="lang">
+      <option value="en">İngilizce</option>
+      <option value="tr">Türkçe</option>
+    </select>
+    <button class="btn ghost" id="clear" type="button">Temizle</button>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px">
+    <div>
+      <div class="note">Kelime</div>
+      <div id="stat-words" style="font-size:1.5rem;font-weight:700">0</div>
+    </div>
+    <div>
+      <div class="note">Okuma süresi</div>
+      <div id="stat-reading" style="font-size:1.5rem;font-weight:700">0</div>
+    </div>
+    <div>
+      <div class="note">Konuşma süresi</div>
+      <div id="stat-speaking" style="font-size:1.5rem;font-weight:700">0</div>
+    </div>
+  </div>
+  <p class="note" id="rate-note"></p>
+</div>
+<section><h2>Okuma süresi nasıl hesaplanır?</h2><p>Kelime sayısı, ortalama kelime başına süre ile çarpılır. İngilizce için sessiz okumada dakikada yaklaşık 200 kelime, Türkçe için yaklaşık 180 kelime kabul edilir — Türkçe'de ekler nedeniyle kelimeler ortalama daha uzundur. Bunlar genel ortalamalardır; kişisel hızınız farklı olabilir.</p><h2>Konuşma süresi neden farklı?</h2><p>Sesli okuma (ör. sunum ya da video metni) sessiz okumadan daha yavaştır. Genel sunum temposu olarak İngilizce'de dakikada ~130, Türkçe'de ~120 kelime kabul edilir.</p><h2>Metnim bir yere yükleniyor mu?</h2><p>Hayır. Tüm hesaplama tarayıcınızda JavaScript ile yapılır. Hiçbir şey sunucuya gönderilmez.</p></section>
+
+<style>
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.row select { flex: 0 0 auto; }
+</style>
+<section class="related"><h2>Diğer araçlar</h2><ul class="tool-grid"><li><a href="../../../tr/araclar/kelime-karakter-sayaci/"><div class="card"><h2>Kelime ve Karakter Sayacı</h2><p>Kelime, karakter, cümle, paragraf sayısı ve okuma süresi.</p></div></a></li>
+<li><a href="../../../tr/araclar/harf-buyuklugu-donusturucu/"><div class="card"><h2>Harf Büyüklüğü Dönüştürücü</h2><p>BÜYÜK, küçük, Başlık, camelCase, snake_case ve daha fazlası — anında.</p></div></a></li>
+<li><a href="../../../tr/araclar/gorunmez-karakter-temizleyici/"><div class="card"><h2>Görünmez Karakter Temizleyici</h2><p>Sıfır genişlikli karakterleri kaldırın, çift boşlukları ve akıllı tırnakları düzeltin.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — tamamen tarayıcınızda çalışan küçük araçlar. Yükleme yok, izleme yok. · <a href="../../../about/">Hakkında</a> · <a href="../../../privacy/">Gizlilik</a> · <a href="https://chromewebstore.google.com/detail/aporizma-translate-text-s/flemammmdajgahkngaghgmckgopeijfm" rel="noopener">Chrome</a> · <a href="mailto:support@aporizma.com">support@aporizma.com</a></p>
+</footer>
+<script src="../../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Okuma Süresi Hesaplayıcı", "lede": "Metninizi yapıştırın, dilini seçin; tahmini sessiz okuma süresi ve sesli okuma (konuşma) süresi anında görünür.", "card_title": "Okuma Süresi Hesaplayıcı", "card_desc": "Kelime sayısına göre okuma ve konuşma süresi tahmini.", "in_label": "Metninizi buraya yazın ya da yapıştırın", "lang_label": "Metin dili", "lang_en": "İngilizce", "lang_tr": "Türkçe", "label_words": "Kelime", "label_reading_time": "Okuma süresi", "label_speaking_time": "Konuşma süresi", "clear": "Temizle", "min_sec": "{m} dk {s} sn", "sec_only": "{s} sn", "rate_note": "{lang} için dakikada {rwpm} kelime okuma / {swpm} kelime konuşma hızıyla hesaplandı."};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

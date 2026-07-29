@@ -1,0 +1,35 @@
+<h1>{{s.h1}}</h1>
+<p class="lede">{{s.lede}}</p>
+<div class="card stack">
+  <label class="note" for="input">{{s.in_label}}</label>
+  <textarea id="input" rows="10" spellcheck="false"></textarea>
+  <div class="row">
+    <label class="note" for="lang">{{s.lang_label}}</label>
+    <select id="lang">
+      <option value="en">{{s.lang_en}}</option>
+      <option value="tr">{{s.lang_tr}}</option>
+    </select>
+    <button class="btn ghost" id="clear" type="button">{{s.clear}}</button>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px">
+    <div>
+      <div class="note">{{s.label_words}}</div>
+      <div id="stat-words" style="font-size:1.5rem;font-weight:700">0</div>
+    </div>
+    <div>
+      <div class="note">{{s.label_reading_time}}</div>
+      <div id="stat-reading" style="font-size:1.5rem;font-weight:700">0</div>
+    </div>
+    <div>
+      <div class="note">{{s.label_speaking_time}}</div>
+      <div id="stat-speaking" style="font-size:1.5rem;font-weight:700">0</div>
+    </div>
+  </div>
+  <p class="note" id="rate-note"></p>
+</div>
+<section>{{s.faq_html}}</section>
+
+<style>
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.row select { flex: 0 0 auto; }
+</style>
