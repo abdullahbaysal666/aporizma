@@ -3,8 +3,8 @@
   "category": "subtitles",
   "en": {
     "slug": "tools/subtitle-sync-shifter",
-    "title": "Subtitle Sync Shifter — Fix SRT/VTT Timing Online, No Upload",
-    "desc": "Subtitles out of sync? Shift SRT or VTT timing forward or backward by any amount of seconds. Runs 100% in your browser — free, private, no sign-up.",
+    "title": "Fix Subtitle Timing Online — SRT/VTT Sync Shifter, No Upload",
+    "desc": "Fix subtitle timing online: shift SRT or VTT cues forward or backward by any amount of seconds. Runs 100% in your browser — free, private, no sign-up.",
     "h1": "Subtitle Sync Shifter",
     "lede": "Drop your subtitle file, enter how many seconds it's off, and download the fixed file. Works with SRT and VTT — nothing is uploaded anywhere.",
     "card_title": "Subtitle Sync Shifter",
