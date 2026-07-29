@@ -11,6 +11,8 @@ body{padding-bottom:76px;background:#131318}
 .app-head{display:flex;align-items:center;justify-content:space-between;padding:16px 16px 4px}
 .app-head h1{font-size:1.4rem;margin:0}
 .rozet{font-size:.72rem;color:#74c69d;border:1px solid #2d6a4f;border-radius:99px;padding:2px 8px}
+.dilbtn{font-size:.8rem;color:#c9a227;border:1px solid #5c4a12;border-radius:8px;padding:3px 9px;
+  background:none;cursor:pointer}
 .ara{margin:10px 16px}
 .ara input{width:100%;padding:12px 14px;border-radius:12px;border:1px solid #333;
   background:#1b1b22;color:#eee;font-size:1rem}
@@ -47,15 +49,16 @@ body{padding-bottom:76px;background:#131318}
 </style></head><body>
 <div class="app-head"><h1>Aporizma</h1>
   <span style="display:flex;gap:8px;align-items:center">
-    <span class="rozet" id="cevrimdisi" hidden>✈️ çevrimdışı hazır</span>
-    <a href="/tr/" style="font-size:.85rem;opacity:.75;text-decoration:none">🌐 Site</a>
+    <span class="rozet" id="cevrimdisi" hidden>✈️ <span data-t="offline"></span></span>
+    <button class="dilbtn" id="dilBtn"></button>
+    <a id="siteLink" href="/tr/" style="font-size:.85rem;opacity:.75;text-decoration:none">🌐 <span data-t="site"></span></a>
   </span>
 </div>
-<div class="pano" id="pano"><span>Panonda bir bağlantı var — <b>QR koda çevirelim mi?</b></span>
-  <a id="panoGit" href="#">QR yap →</a></div>
+<div class="pano" id="pano"><span data-t="pano_msg"></span>
+  <a id="panoGit" href="#" data-t="pano_git"></a></div>
 
 <div class="sayfa aktif" id="s-ana">
-  <div class="ara"><input id="q" type="search" placeholder="Araç ara…" autocomplete="off"></div>
+  <div class="ara"><input id="q" type="search" autocomplete="off"></div>
   <div id="ana-icerik"></div>
 </div>
 <div class="sayfa" id="s-fav"><div id="fav-icerik"></div></div>
@@ -63,171 +66,242 @@ body{padding-bottom:76px;background:#131318}
 <div class="sayfa" id="s-kat"><div id="kat-icerik"></div></div>
 <div class="sayfa" id="s-daha">
   <div class="dahacard">
-    <h2>🙋 Araç Talebi</h2>
-    <p>Hangi aracı istersin? Yaz, gönder — uygun olanları kuluçkaya alalım. Talep e-postayla gider; başka hiçbir veri gitmez.</p>
-    <textarea id="talep" placeholder="Örn: WEBP'yi PNG'ye çeviren bir araç olsa…"></textarea>
-    <a class="btn" id="talepGonder" href="#">Talebi Gönder</a>
+    <h2>🙋 <span data-t="talep_h"></span></h2>
+    <p data-t="talep_p"></p>
+    <textarea id="talep"></textarea>
+    <a class="btn" id="talepGonder" href="#" data-t="talep_btn"></a>
   </div>
   <div class="dahacard">
-    <h2>✉️ İletişim</h2>
-    <p>Soru, hata bildirimi ya da öneri için:</p>
-    <p><span class="eposta" id="eposta">support@aporizma.com</span>
-       <a class="btn" id="epostaKopyala" href="#" style="padding:6px 12px;margin-left:8px">Kopyala</a></p>
+    <h2>✉️ <span data-t="iletisim_h"></span></h2>
+    <p data-t="iletisim_p"></p>
+    <p><span class="eposta">support@aporizma.com</span>
+       <a class="btn" id="epostaKopyala" href="#" style="padding:6px 12px;margin-left:8px" data-t="kopyala"></a></p>
   </div>
   <div class="dahacard">
-    <h2>ℹ️ Hakkında</h2>
-    <p>Her Aporizma aracı tamamen cihazında çalışır — dosyaların ve verilerin hiçbir sunucuya gitmez.
-       Reklam yok, izleme yok, üyelik yok. Bir kez açtığın araçlar çevrimdışı da çalışır.</p>
-    <p><a href="/privacy/" style="color:#74c69d">Gizlilik</a> ·
-       <a href="/" style="color:#74c69d">English</a></p>
+    <h2>ℹ️ <span data-t="hakkinda_h"></span></h2>
+    <p data-t="hakkinda_p"></p>
+    <p><a href="/privacy/" style="color:#74c69d" data-t="gizlilik"></a></p>
     <p class="istat" id="istat" style="margin:8px 0 0;text-align:left"></p>
   </div>
 </div>
 
 <nav class="altnav">
-  <button data-s="yeni"><span class="ikon">🆕</span>Yeni</button>
-  <button data-s="fav"><span class="ikon">★</span>Favoriler</button>
-  <button data-s="ana" class="aktif"><span class="ikon">🏠</span>Ana</button>
-  <button data-s="kat"><span class="ikon">🗂</span>Kategoriler</button>
-  <button data-s="daha"><span class="ikon">☰</span>Daha</button>
+  <button data-s="yeni"><span class="ikon">🆕</span><span data-t="nav_yeni"></span></button>
+  <button data-s="fav"><span class="ikon">★</span><span data-t="nav_fav"></span></button>
+  <button data-s="ana" class="aktif"><span class="ikon">🏠</span><span data-t="nav_ana"></span></button>
+  <button data-s="kat"><span class="ikon">🗂</span><span data-t="nav_kat"></span></button>
+  <button data-s="daha"><span class="ikon">☰</span><span data-t="nav_daha"></span></button>
 </nav>
 
 <script>
-const KEYF="apo_fav", KEYR="apo_son", KEYS="apo_istat";
-const fav=new Set(JSON.parse(localStorage.getItem(KEYF)||"[]"));
-const son=JSON.parse(localStorage.getItem(KEYR)||"[]");
-let TOOLS=[];
-const KATAD={pdf:"PDF",generator:"Üreteçler",subtitles:"Altyazı",text:"Metin",
-  converter:"Dönüştürücüler",dev:"Geliştirici",time:"Zaman",image:"Görsel",calc:"Hesap"};
-const GUN=1000*60*60*24;
-function yeniMi(t){const d=new Date(t.added||"2026-07-15");return (Date.now()-d.getTime())<14*GUN;}
-function kart(t){
-  const f=fav.has(t.id)?"on":"";
-  const y=yeniMi(t)?'<span class="yeni">YENİ</span>':"";
-  return `<li><a href="/${t.tr.slug}/" data-id="${t.id}">
+// ---- İKİ DİL: tüm arayüz metinleri ----
+const STR = {
+  tr: {
+    site: "Site", offline: "çevrimdışı hazır", dil_btn: "EN",
+    ara_ph: "Araç ara…", son_kullanilan: "Son kullanılan", tum_araclar: "Tüm araçlar",
+    fav_bos: "Henüz favori yok — kartlardaki ★ yıldıza dokun.",
+    son14: "Son 14 gün", once_eklenen: "Daha önce eklenenler", yeni_rozet: "YENİ",
+    nav_yeni: "Yeni", nav_fav: "Favoriler", nav_ana: "Ana", nav_kat: "Kategoriler", nav_daha: "Daha",
+    talep_h: "Araç Talebi", talep_btn: "Talebi Gönder", talep_konu: "Araç Talebi",
+    talep_p: "Hangi aracı istersin? Yaz, gönder — uygun olanları kuluçkaya alalım. Talep e-postayla gider; başka hiçbir veri gitmez.",
+    talep_ph: "Örn: WEBP'yi PNG'ye çeviren bir araç olsa…",
+    iletisim_h: "İletişim", iletisim_p: "Soru, hata bildirimi ya da öneri için:",
+    kopyala: "Kopyala", kopyalandi: "Kopyalandı!",
+    hakkinda_h: "Hakkında", gizlilik: "Gizlilik",
+    hakkinda_p: "Her Aporizma aracı tamamen cihazında çalışır — dosyaların ve verilerin hiçbir sunucuya gitmez. Reklam yok, izleme yok, üyelik yok. Bir kez açtığın araçlar çevrimdışı da çalışır.",
+    pano_msg: "Panonda bir bağlantı var — QR koda çevirelim mi?", pano_git: "QR yap →",
+    istat: (n) => `Bu ay ${n} araç kullanımı — sadece bu cihazda sayılır, kimseye gönderilmez.`,
+    yukleniyor: "Yükleniyor…", hata: "Araç listesi alınamadı.", tekrar: "Tekrar dene",
+    kat: { pdf: "PDF", generator: "Üreteçler", subtitles: "Altyazı", text: "Metin",
+      converter: "Dönüştürücüler", dev: "Geliştirici", time: "Zaman", image: "Görsel", calc: "Hesap", diger: "Diğer" }
+  },
+  en: {
+    site: "Site", offline: "offline ready", dil_btn: "TR",
+    ara_ph: "Search tools…", son_kullanilan: "Recently used", tum_araclar: "All tools",
+    fav_bos: "No favorites yet — tap the ★ star on any card.",
+    son14: "Last 14 days", once_eklenen: "Added earlier", yeni_rozet: "NEW",
+    nav_yeni: "New", nav_fav: "Favorites", nav_ana: "Home", nav_kat: "Categories", nav_daha: "More",
+    talep_h: "Request a Tool", talep_btn: "Send Request", talep_konu: "Tool Request",
+    talep_p: "Which tool would you like? Write and send — good ones go into the incubator. The request goes by e-mail; nothing else is sent.",
+    talep_ph: "E.g. a tool that converts WEBP to PNG…",
+    iletisim_h: "Contact", iletisim_p: "Questions, bug reports or suggestions:",
+    kopyala: "Copy", kopyalandi: "Copied!",
+    hakkinda_h: "About", gizlilik: "Privacy",
+    hakkinda_p: "Every Aporizma tool runs entirely on your device — your files and data never reach a server. No ads, no tracking, no sign-up. Tools you open once also work offline.",
+    pano_msg: "There is a link on your clipboard — turn it into a QR code?", pano_git: "Make QR →",
+    istat: (n) => `${n} tool uses this month — counted only on this device, never sent anywhere.`,
+    yukleniyor: "Loading…", hata: "Could not load the tool list.", tekrar: "Try again",
+    kat: { pdf: "PDF", generator: "Generators", subtitles: "Subtitles", text: "Text",
+      converter: "Converters", dev: "Developer", time: "Time", image: "Image", calc: "Calc", diger: "Other" }
+  }
+};
+const KEYF = "apo_fav", KEYR = "apo_son", KEYS = "apo_istat", KEYL = "apo_dil";
+let L = localStorage.getItem(KEYL) ||
+        ((navigator.language || "").toLowerCase().startsWith("tr") ? "tr" : "en");
+const fav = new Set(JSON.parse(localStorage.getItem(KEYF) || "[]"));
+const son = JSON.parse(localStorage.getItem(KEYR) || "[]");
+let TOOLS = [];
+const GUN = 1000 * 60 * 60 * 24;
+const T = () => STR[L];
+
+function statikCevir() {
+  document.documentElement.lang = L;
+  document.querySelectorAll("[data-t]").forEach((el) => {
+    const v = T()[el.dataset.t];
+    if (typeof v === "string") el.textContent = v;
+  });
+  document.getElementById("q").placeholder = T().ara_ph;
+  document.getElementById("talep").placeholder = T().talep_ph;
+  document.getElementById("dilBtn").textContent = T().dil_btn;
+  document.getElementById("siteLink").href = L === "tr" ? "/tr/" : "/";
+}
+
+function yeniMi(t) { const d = new Date(t.added || "2026-07-15"); return (Date.now() - d.getTime()) < 14 * GUN; }
+function kart(t) {
+  const f = fav.has(t.id) ? "on" : "";
+  const y = yeniMi(t) ? `<span class="yeni">${T().yeni_rozet}</span>` : "";
+  const s = t[L];
+  return `<li><a href="/${s.slug}/" data-id="${t.id}">
     <span class="fav ${f}" data-fav="${t.id}">★</span>
-    <h2>${t.tr.title}</h2><p>${t.tr.desc}</p>${y}</a></li>`;
+    <h2>${s.title}</h2><p>${s.desc}</p>${y}</a></li>`;
 }
-function grid(list){return `<ul class="gridapp">${list.map(kart).join("")}</ul>`;}
-function cizAna(filtre){
-  const kutu=document.getElementById("ana-icerik");
-  let list=TOOLS;
-  if(filtre){const q=filtre.toLowerCase();
-    list=TOOLS.filter(t=>(t.tr.title+" "+t.tr.desc).toLowerCase().includes(q));
-    kutu.innerHTML=grid(list);return;}
-  let html="";
-  const sons=son.map(id=>TOOLS.find(t=>t.id===id)).filter(Boolean).slice(0,4);
-  if(sons.length) html+=`<div class="bolum">Son kullanılan</div>`+grid(sons);
-  html+=`<div class="bolum">Tüm araçlar</div>`+grid(list);
-  kutu.innerHTML=html;
+function grid(list) { return `<ul class="gridapp">${list.map(kart).join("")}</ul>`; }
+function cizAna(filtre) {
+  const kutu = document.getElementById("ana-icerik");
+  let list = TOOLS;
+  if (filtre) {
+    const q = filtre.toLowerCase();
+    list = TOOLS.filter((t) => (t[L].title + " " + t[L].desc).toLowerCase().includes(q));
+    kutu.innerHTML = grid(list); return;
+  }
+  let html = "";
+  const sons = son.map((id) => TOOLS.find((t) => t.id === id)).filter(Boolean).slice(0, 4);
+  if (sons.length) html += `<div class="bolum">${T().son_kullanilan}</div>` + grid(sons);
+  html += `<div class="bolum">${T().tum_araclar}</div>` + grid(list);
+  kutu.innerHTML = html;
 }
-function cizFav(){
-  const favs=TOOLS.filter(t=>fav.has(t.id));
+function cizFav() {
+  const favs = TOOLS.filter((t) => fav.has(t.id));
   document.getElementById("fav-icerik").innerHTML = favs.length
     ? grid(favs)
-    : '<p class="istat" style="opacity:.6;padding:30px 20px">Henüz favori yok — kartlardaki ★ yıldıza dokun.</p>';
+    : `<p class="istat" style="opacity:.6;padding:30px 20px">${T().fav_bos}</p>`;
 }
-function cizYeni(){
-  const yeniler=TOOLS.filter(yeniMi).sort((a,b)=>(b.added||"").localeCompare(a.added||""));
-  const eskiden=TOOLS.filter(t=>!yeniMi(t)).sort((a,b)=>(b.added||"").localeCompare(a.added||"")).slice(0,6);
-  let html="";
-  if(yeniler.length) html+=`<div class="bolum">Son 14 gün</div>`+grid(yeniler);
-  html+=`<div class="bolum">Daha önce eklenenler</div>`+grid(eskiden);
-  document.getElementById("yeni-icerik").innerHTML=html;
+function cizYeni() {
+  const yeniler = TOOLS.filter(yeniMi).sort((a, b) => (b.added || "").localeCompare(a.added || ""));
+  const eskiden = TOOLS.filter((t) => !yeniMi(t)).sort((a, b) => (b.added || "").localeCompare(a.added || "")).slice(0, 6);
+  let html = "";
+  if (yeniler.length) html += `<div class="bolum">${T().son14}</div>` + grid(yeniler);
+  html += `<div class="bolum">${T().once_eklenen}</div>` + grid(eskiden);
+  document.getElementById("yeni-icerik").innerHTML = html;
 }
-function cizKat(){
-  const gruplar={};
-  TOOLS.forEach(t=>{(gruplar[t.category||"diger"]=gruplar[t.category||"diger"]||[]).push(t);});
-  let html="";
-  Object.keys(gruplar).sort().forEach(k=>{
-    html+=`<div class="bolum">${KATAD[k]||k}</div>`+grid(gruplar[k]);
+function cizKat() {
+  const gruplar = {};
+  TOOLS.forEach((t) => { (gruplar[t.category || "diger"] = gruplar[t.category || "diger"] || []).push(t); });
+  let html = "";
+  Object.keys(gruplar).sort().forEach((k) => {
+    html += `<div class="bolum">${T().kat[k] || k}</div>` + grid(gruplar[k]);
   });
-  document.getElementById("kat-icerik").innerHTML=html;
+  document.getElementById("kat-icerik").innerHTML = html;
 }
-function hepsiniCiz(){cizAna(document.getElementById("q").value);cizFav();cizYeni();cizKat();}
-function veriYukle(){
-  ["ana-icerik","fav-icerik","yeni-icerik","kat-icerik"].forEach(id=>{
-    document.getElementById(id).innerHTML='<p class="istat" style="padding:30px">Yükleniyor…</p>';});
-  fetch("/assets/tools.json",{cache:"no-store"})
-    .then(r=>{if(!r.ok)throw 0;return r.json();})
-    .then(t=>{TOOLS=t;hepsiniCiz();})
-    .catch(()=>{
-      ["ana-icerik","fav-icerik","yeni-icerik","kat-icerik"].forEach(id=>{
-        document.getElementById(id).innerHTML=
-          '<p class="istat" style="padding:30px">Araç listesi alınamadı. '+
-          '<a href="#" onclick="veriYukle();return false" style="color:#74c69d">Tekrar dene</a></p>';});
+function hepsiniCiz() {
+  statikCevir();
+  cizAna(document.getElementById("q").value);
+  cizFav(); cizYeni(); cizKat(); istatYaz();
+}
+function veriYukle() {
+  ["ana-icerik", "fav-icerik", "yeni-icerik", "kat-icerik"].forEach((id) => {
+    document.getElementById(id).innerHTML = `<p class="istat" style="padding:30px">${T().yukleniyor}</p>`;
+  });
+  fetch("/assets/tools.json", { cache: "no-store" })
+    .then((r) => { if (!r.ok) throw 0; return r.json(); })
+    .then((t) => { TOOLS = t; hepsiniCiz(); })
+    .catch(() => {
+      ["ana-icerik", "fav-icerik", "yeni-icerik", "kat-icerik"].forEach((id) => {
+        document.getElementById(id).innerHTML =
+          `<p class="istat" style="padding:30px">${T().hata} ` +
+          `<a href="#" onclick="veriYukle();return false" style="color:#74c69d">${T().tekrar}</a></p>`;
+      });
     });
 }
-veriYukle();
-document.getElementById("q").addEventListener("input",e=>cizAna(e.target.value));
+function istatYaz() {
+  const ay = new Date().toISOString().slice(0, 7);
+  const st = JSON.parse(localStorage.getItem(KEYS) || "{}");
+  document.getElementById("istat").textContent = st[ay] ? T().istat(st[ay]) : "";
+}
 
-// alt gezinme
-document.querySelectorAll(".altnav button").forEach(b=>b.addEventListener("click",()=>{
-  document.querySelectorAll(".altnav button").forEach(x=>x.classList.remove("aktif"));
-  document.querySelectorAll(".sayfa").forEach(x=>x.classList.remove("aktif"));
+statikCevir();
+veriYukle();
+document.getElementById("q").addEventListener("input", (e) => cizAna(e.target.value));
+document.getElementById("dilBtn").addEventListener("click", () => {
+  L = L === "tr" ? "en" : "tr";
+  localStorage.setItem(KEYL, L);
+  hepsiniCiz();
+});
+
+document.querySelectorAll(".altnav button").forEach((b) => b.addEventListener("click", () => {
+  document.querySelectorAll(".altnav button").forEach((x) => x.classList.remove("aktif"));
+  document.querySelectorAll(".sayfa").forEach((x) => x.classList.remove("aktif"));
   b.classList.add("aktif");
-  document.getElementById("s-"+b.dataset.s).classList.add("aktif");
+  document.getElementById("s-" + b.dataset.s).classList.add("aktif");
 }));
 
-// favori + son kullanılan + istatistik (hepsi YEREL — izleme yok)
-document.body.addEventListener("click",e=>{
-  const favEl=e.target.closest("[data-fav]");
-  if(favEl){e.preventDefault();const id=favEl.dataset.fav;
-    fav.has(id)?fav.delete(id):fav.add(id);
-    localStorage.setItem(KEYF,JSON.stringify([...fav]));hepsiniCiz();return;}
-  const a=e.target.closest("a[data-id]");
-  if(a){const id=a.dataset.id;
-    localStorage.setItem(KEYR,JSON.stringify([id,...son.filter(x=>x!==id)].slice(0,8)));
-    const ay=new Date().toISOString().slice(0,7);
-    const st=JSON.parse(localStorage.getItem(KEYS)||"{}");
-    st[ay]=(st[ay]||0)+1;localStorage.setItem(KEYS,JSON.stringify(st));}
+document.body.addEventListener("click", (e) => {
+  const favEl = e.target.closest("[data-fav]");
+  if (favEl) {
+    e.preventDefault();
+    const id = favEl.dataset.fav;
+    fav.has(id) ? fav.delete(id) : fav.add(id);
+    localStorage.setItem(KEYF, JSON.stringify([...fav]));
+    hepsiniCiz(); return;
+  }
+  const a = e.target.closest("a[data-id]");
+  if (a) {
+    const id = a.dataset.id;
+    localStorage.setItem(KEYR, JSON.stringify([id, ...son.filter((x) => x !== id)].slice(0, 8)));
+    const ay = new Date().toISOString().slice(0, 7);
+    const st = JSON.parse(localStorage.getItem(KEYS) || "{}");
+    st[ay] = (st[ay] || 0) + 1;
+    localStorage.setItem(KEYS, JSON.stringify(st));
+  }
 });
-// istatistik satırı
-(function(){
-  const ay=new Date().toISOString().slice(0,7);
-  const st=JSON.parse(localStorage.getItem(KEYS)||"{}");
-  if(st[ay]) document.getElementById("istat").textContent=
-    `Bu ay ${st[ay]} araç kullanımı — sadece bu cihazda sayılır, kimseye gönderilmez.`;
-})();
 
-// talep + iletişim
-document.getElementById("talepGonder").addEventListener("click",e=>{
+document.getElementById("talepGonder").addEventListener("click", (e) => {
   e.preventDefault();
-  const t=document.getElementById("talep").value.trim();
-  location.href="mailto:support@aporizma.com?subject="
-    +encodeURIComponent("Araç Talebi")+"&body="+encodeURIComponent(t||"Merhaba, şu aracı istiyorum: ");
+  const t = document.getElementById("talep").value.trim();
+  location.href = "mailto:support@aporizma.com?subject="
+    + encodeURIComponent(T().talep_konu) + "&body=" + encodeURIComponent(t || "");
 });
-document.getElementById("epostaKopyala").addEventListener("click",async e=>{
+document.getElementById("epostaKopyala").addEventListener("click", async (e) => {
   e.preventDefault();
   await navigator.clipboard.writeText("support@aporizma.com");
-  e.target.textContent="Kopyalandı!";setTimeout(()=>e.target.textContent="Kopyala",1200);
+  e.target.textContent = T().kopyalandi;
+  setTimeout(() => (e.target.textContent = T().kopyala), 1200);
 });
 
-// pano zekâsı: panoda link varsa QR öner (izinli, cihazda)
-(async function(){
-  try{
-    const txt=await navigator.clipboard.readText();
-    const v=(txt||"").trim();
-    if(v.startsWith("http://")||v.startsWith("https://")){
-      const pano=document.getElementById("pano");
-      pano.style.display="flex";
-      document.getElementById("panoGit").href="/tr/araclar/qr-kod-olusturucu/";
+// pano zekâsı — düz metin kontrol (regex YOK)
+(async function () {
+  try {
+    const txt = await navigator.clipboard.readText();
+    const v = (txt || "").trim();
+    if (v.startsWith("http://") || v.startsWith("https://")) {
+      document.getElementById("pano").style.display = "flex";
+      document.getElementById("panoGit").href =
+        L === "tr" ? "/tr/araclar/qr-kod-olusturucu/" : "/tools/qr-code-generator/";
     }
-  }catch(_){/* izin yoksa sessiz geç */}
+  } catch (_) {}
 })();
 
 // çevrimdışı hazır rozeti
-(async function(){
-  try{
-    const keys=await caches.keys();
-    const v=keys.find(k=>k.startsWith("aporizma-v2"));
-    if(!v) return;
-    const c=await caches.open(v);
-    const n=(await c.keys()).length;
-    if(n>40) document.getElementById("cevrimdisi").hidden=false;
-  }catch(_){}
+(async function () {
+  try {
+    const keys = await caches.keys();
+    const v = keys.find((k) => k.startsWith("aporizma-v2"));
+    if (!v) return;
+    const c = await caches.open(v);
+    if ((await c.keys()).length > 40) document.getElementById("cevrimdisi").hidden = false;
+  } catch (_) {}
 })();
 
-if("serviceWorker" in navigator) navigator.serviceWorker.register("/sw.js");
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("/sw.js");
 </script>
 </body></html>
