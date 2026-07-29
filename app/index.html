@@ -207,7 +207,8 @@ document.getElementById("epostaKopyala").addEventListener("click",async e=>{
 (async function(){
   try{
     const txt=await navigator.clipboard.readText();
-    if(/^https?:\\/\\/\\S+$/i.test((txt||"").trim())){
+    const v=(txt||"").trim();
+    if(v.startsWith("http://")||v.startsWith("https://")){
       const pano=document.getElementById("pano");
       pano.style.display="flex";
       document.getElementById("panoGit").href="/tr/araclar/qr-kod-olusturucu/";
