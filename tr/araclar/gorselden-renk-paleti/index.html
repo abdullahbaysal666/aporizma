@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Görselden Renk Paleti Çıkarıcı — Ücretsiz, Yüklemesiz</title>
+<meta name="description" content="Herhangi bir fotoğraftan baskın renk paletini hex kodlarıyla çıkarın — tamamen tarayıcınızda. Üyeliksiz, yüklemesiz, ücretsiz.">
+<link rel="stylesheet" href="../../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tr/araclar/gorselden-renk-paleti/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/color-palette-from-image/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/gorselden-renk-paleti/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/color-palette-from-image/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Görselden Renk Paleti Çıkarıcı — Ücretsiz, Yüklemesiz">
+<meta property="og:description" content="Herhangi bir fotoğraftan baskın renk paletini hex kodlarıyla çıkarın — tamamen tarayıcınızda. Üyeliksiz, yüklemesiz, ücretsiz.">
+<meta property="og:url" content="https://aporizma.com/tr/araclar/gorselden-renk-paleti/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Görselden Renk Paleti", "url": "https://aporizma.com/tr/araclar/gorselden-renk-paleti/", "description": "Herhangi bir fotoğraftan baskın renk paletini hex kodlarıyla çıkarın — tamamen tarayıcınızda. Üyeliksiz, yüklemesiz, ücretsiz.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "tr", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "tr", "mainEntity": [{"@type": "Question", "name": "Fotoğrafım herhangi bir yere yükleniyor mu?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır. Görsel, tarayıcınızın canvas API'siyle örneklenir ve cihazınızdan asla çıkmaz — hiçbir sunucuya gönderilmez."}}, {"@type": "Question", "name": "Renkler nasıl seçiliyor?", "acceptedAnswer": {"@type": "Answer", "text": "Görsel hız için küçültülür, ardından benzer renkler gruplara ayrılır ve en yaygın gruplar ortalanarak temiz bir palet oluşturulur — göz kararıyla seçeceğinize yakın, tek tek piksel sayımı olmadan."}}, {"@type": "Question", "name": "Daha fazla ya da az renk alabilir miyim?", "acceptedAnswer": {"@type": "Answer", "text": "Evet — kaydırıcıyı 3 ile 10 arasında sürükleyin. Herhangi bir renk karesine tıklayarak hex kodunu kopyalayın."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../../tr/"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../../tools/color-palette-from-image/" class="lang-switch" rel="alternate" hreflang="en">English</a>
+  </nav>
+</header>
+<main>
+<h1>Görselden Renk Paleti</h1>
+<p class="lede">Bir fotoğraf bırakın, baskın renklerini kopyalanabilir hex kodlarıyla alın. Her şey cihazınızda örneklenir — hiçbir şey yüklenmez.</p>
+<div class="card stack">
+  <div class="dropzone" id="drop">Resmi buraya bırakın ya da tıklayıp seçin (JPG, PNG, WebP)</div>
+  <input type="file" id="file" accept="image/*" hidden>
+  <p class="note" id="status">Başlamak için bir resim bırakın.</p>
+  <div>
+    <label class="note" for="k">Renk sayısı: <span id="kval">6</span></label><br>
+    <input type="range" id="k" min="3" max="10" value="6" style="width:200px">
+  </div>
+  <div id="results" style="display:none"></div>
+</div>
+<section><h2>Fotoğrafım herhangi bir yere yükleniyor mu?</h2><p>Hayır. Görsel, tarayıcınızın canvas API'siyle örneklenir ve cihazınızdan asla çıkmaz — hiçbir sunucuya gönderilmez.</p><h2>Renkler nasıl seçiliyor?</h2><p>Görsel hız için küçültülür, ardından benzer renkler gruplara ayrılır ve en yaygın gruplar ortalanarak temiz bir palet oluşturulur — göz kararıyla seçeceğinize yakın, tek tek piksel sayımı olmadan.</p><h2>Daha fazla ya da az renk alabilir miyim?</h2><p>Evet — kaydırıcıyı 3 ile 10 arasında sürükleyin. Herhangi bir renk karesine tıklayarak hex kodunu kopyalayın.</p></section>
+<section class="related"><h2>Diğer araçlar</h2><ul class="tool-grid"><li><a href="../../../tr/araclar/resim-kucult-sikistir/"><div class="card"><h2>Resim Küçültücü</h2><p>Fotoğrafları JPEG/WebP'ye, cihazınızda gizlice küçültün.</p></div></a></li>
+<li><a href="../../../tr/araclar/pdf-birlestir/"><div class="card"><h2>PDF Birleştirici</h2><p>PDF'leri cihazınızda, gizlice tek dosyada birleştirin.</p></div></a></li>
+<li><a href="../../../tr/araclar/pdf-bol/"><div class="card"><h2>PDF Bölücü</h2><p>PDF'den sayfa/aralık ayıklayın, cihazınızda.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — tamamen tarayıcınızda çalışan küçük araçlar. Yükleme yok, izleme yok. · <a href="../../../about/">Hakkında</a> · <a href="../../../privacy/">Gizlilik</a> · <a href="https://chromewebstore.google.com/detail/aporizma-translate-text-s/flemammmdajgahkngaghgmckgopeijfm" rel="noopener">Chrome</a> · <a href="mailto:support@aporizma.com">support@aporizma.com</a></p>
+</footer>
+<script src="../../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Görselden Renk Paleti", "lede": "Bir fotoğraf bırakın, baskın renklerini kopyalanabilir hex kodlarıyla alın. Her şey cihazınızda örneklenir — hiçbir şey yüklenmez.", "card_title": "Görselden Renk Paleti", "card_desc": "Fotoğraftan baskın renkleri, kopyalanabilir hex kodlarıyla çıkarın.", "drop": "Resmi buraya bırakın ya da tıklayıp seçin (JPG, PNG, WebP)", "empty": "Başlamak için bir resim bırakın.", "invalid": "Dosya okunamadı — geçerli bir resim mi?", "no_colors": "Görünür renk bulunamadı — görsel tamamen şeffaf mı?", "k_label": "Renk sayısı", "copy": "Kopyala", "copied": "Kopyalandı!"};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

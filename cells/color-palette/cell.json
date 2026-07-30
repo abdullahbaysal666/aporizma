@@ -1,0 +1,38 @@
+{
+  "id": "color-palette",
+  "category": "image",
+  "en": {
+    "slug": "tools/color-palette-from-image",
+    "title": "Color Palette Generator from Image — Free, No Upload",
+    "desc": "Extract a dominant color palette from any photo with copyable hex codes — sampled right in your browser. No upload, no sign-up, free.",
+    "h1": "Color Palette from Image",
+    "lede": "Drop a photo and get its dominant colors as copyable hex codes. Everything is sampled on your device — nothing is uploaded.",
+    "card_title": "Color Palette from Image",
+    "card_desc": "Pull dominant colors from a photo, with copyable hex codes.",
+    "drop": "Drop an image here, or click to choose (JPG, PNG, WebP)",
+    "empty": "Drop an image to begin.",
+    "invalid": "Couldn't read this file — is it a valid image?",
+    "no_colors": "No visible colors found — is the image fully transparent?",
+    "k_label": "Colors",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "faq_html": "<h2>Is my photo uploaded anywhere?</h2><p>No. The image is sampled with your browser's canvas API and never leaves your device — nothing is sent to any server.</p><h2>How are the colors picked?</h2><p>The image is shrunk for speed, then similar colors are grouped into buckets and the most common groups are averaged into a clean palette — close to what you'd pick by eye, without exact per-pixel counting.</p><h2>Can I get more or fewer colors?</h2><p>Yes — drag the slider from 3 to 10 swatches. Click any swatch to copy its hex code.</p>"
+  },
+  "tr": {
+    "slug": "tr/araclar/gorselden-renk-paleti",
+    "title": "Görselden Renk Paleti Çıkarıcı — Ücretsiz, Yüklemesiz",
+    "desc": "Herhangi bir fotoğraftan baskın renk paletini hex kodlarıyla çıkarın — tamamen tarayıcınızda. Üyeliksiz, yüklemesiz, ücretsiz.",
+    "h1": "Görselden Renk Paleti",
+    "lede": "Bir fotoğraf bırakın, baskın renklerini kopyalanabilir hex kodlarıyla alın. Her şey cihazınızda örneklenir — hiçbir şey yüklenmez.",
+    "card_title": "Görselden Renk Paleti",
+    "card_desc": "Fotoğraftan baskın renkleri, kopyalanabilir hex kodlarıyla çıkarın.",
+    "drop": "Resmi buraya bırakın ya da tıklayıp seçin (JPG, PNG, WebP)",
+    "empty": "Başlamak için bir resim bırakın.",
+    "invalid": "Dosya okunamadı — geçerli bir resim mi?",
+    "no_colors": "Görünür renk bulunamadı — görsel tamamen şeffaf mı?",
+    "k_label": "Renk sayısı",
+    "copy": "Kopyala",
+    "copied": "Kopyalandı!",
+    "faq_html": "<h2>Fotoğrafım herhangi bir yere yükleniyor mu?</h2><p>Hayır. Görsel, tarayıcınızın canvas API'siyle örneklenir ve cihazınızdan asla çıkmaz — hiçbir sunucuya gönderilmez.</p><h2>Renkler nasıl seçiliyor?</h2><p>Görsel hız için küçültülür, ardından benzer renkler gruplara ayrılır ve en yaygın gruplar ortalanarak temiz bir palet oluşturulur — göz kararıyla seçeceğinize yakın, tek tek piksel sayımı olmadan.</p><h2>Daha fazla ya da az renk alabilir miyim?</h2><p>Evet — kaydırıcıyı 3 ile 10 arasında sürükleyin. Herhangi bir renk karesine tıklayarak hex kodunu kopyalayın.</p>"
+  }
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Color Palette Generator from Image — Free, No Upload</title>
+<meta name="description" content="Extract a dominant color palette from any photo with copyable hex codes — sampled right in your browser. No upload, no sign-up, free.">
+<link rel="stylesheet" href="../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tools/color-palette-from-image/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/color-palette-from-image/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/gorselden-renk-paleti/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/color-palette-from-image/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Color Palette Generator from Image — Free, No Upload">
+<meta property="og:description" content="Extract a dominant color palette from any photo with copyable hex codes — sampled right in your browser. No upload, no sign-up, free.">
+<meta property="og:url" content="https://aporizma.com/tools/color-palette-from-image/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Color Palette from Image", "url": "https://aporizma.com/tools/color-palette-from-image/", "description": "Extract a dominant color palette from any photo with copyable hex codes — sampled right in your browser. No upload, no sign-up, free.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "Is my photo uploaded anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. The image is sampled with your browser's canvas API and never leaves your device — nothing is sent to any server."}}, {"@type": "Question", "name": "How are the colors picked?", "acceptedAnswer": {"@type": "Answer", "text": "The image is shrunk for speed, then similar colors are grouped into buckets and the most common groups are averaged into a clean palette — close to what you'd pick by eye, without exact per-pixel counting."}}, {"@type": "Question", "name": "Can I get more or fewer colors?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — drag the slider from 3 to 10 swatches. Click any swatch to copy its hex code."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../tr/araclar/gorselden-renk-paleti/" class="lang-switch" rel="alternate" hreflang="tr">Türkçe</a>
+  </nav>
+</header>
+<main>
+<h1>Color Palette from Image</h1>
+<p class="lede">Drop a photo and get its dominant colors as copyable hex codes. Everything is sampled on your device — nothing is uploaded.</p>
+<div class="card stack">
+  <div class="dropzone" id="drop">Drop an image here, or click to choose (JPG, PNG, WebP)</div>
+  <input type="file" id="file" accept="image/*" hidden>
+  <p class="note" id="status">Drop an image to begin.</p>
+  <div>
+    <label class="note" for="k">Colors: <span id="kval">6</span></label><br>
+    <input type="range" id="k" min="3" max="10" value="6" style="width:200px">
+  </div>
+  <div id="results" style="display:none"></div>
+</div>
+<section><h2>Is my photo uploaded anywhere?</h2><p>No. The image is sampled with your browser's canvas API and never leaves your device — nothing is sent to any server.</p><h2>How are the colors picked?</h2><p>The image is shrunk for speed, then similar colors are grouped into buckets and the most common groups are averaged into a clean palette — close to what you'd pick by eye, without exact per-pixel counting.</p><h2>Can I get more or fewer colors?</h2><p>Yes — drag the slider from 3 to 10 swatches. Click any swatch to copy its hex code.</p></section>
+<section class="related"><h2>More tools</h2><ul class="tool-grid"><li><a href="../../tools/image-resize-compress/"><div class="card"><h2>Image Resizer & Compressor</h2><p>Shrink photos to JPEG/WebP, privately on your device.</p></div></a></li>
+<li><a href="../../tools/merge-pdf/"><div class="card"><h2>PDF Merger</h2><p>Combine PDFs into one file, privately on your device.</p></div></a></li>
+<li><a href="../../tools/split-pdf/"><div class="card"><h2>PDF Splitter</h2><p>Extract pages or ranges from a PDF, on your device.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — handcrafted small tools that run entirely in your browser. No uploads, no tracking. · <a href="../../about/">About</a> · <a href="../../privacy/">Privacy</a> · <a href="https://chromewebstore.google.com/detail/aporizma-translate-text-s/flemammmdajgahkngaghgmckgopeijfm" rel="noopener">Chrome</a> · <a href="mailto:support@aporizma.com">support@aporizma.com</a></p>
+</footer>
+<script src="../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Color Palette from Image", "lede": "Drop a photo and get its dominant colors as copyable hex codes. Everything is sampled on your device — nothing is uploaded.", "card_title": "Color Palette from Image", "card_desc": "Pull dominant colors from a photo, with copyable hex codes.", "drop": "Drop an image here, or click to choose (JPG, PNG, WebP)", "empty": "Drop an image to begin.", "invalid": "Couldn't read this file — is it a valid image?", "no_colors": "No visible colors found — is the image fully transparent?", "k_label": "Colors", "copy": "Copy", "copied": "Copied!"};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>
