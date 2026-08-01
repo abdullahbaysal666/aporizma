@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CSV'den Markdown Tabloya Dönüştürücü — Ücretsiz</title>
+<meta name="description" content="CSV veya TSV yapıştırın, anında düzgün bir Markdown tablosu alın. Hizalama seçenekleri dahildir. Hiçbir veri tarayıcınızdan çıkmaz.">
+<link rel="stylesheet" href="../../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tr/araclar/csv-markdown-tablo-donusturucu/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/csv-to-markdown-table/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/csv-markdown-tablo-donusturucu/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/csv-to-markdown-table/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="CSV'den Markdown Tabloya Dönüştürücü — Ücretsiz">
+<meta property="og:description" content="CSV veya TSV yapıştırın, anında düzgün bir Markdown tablosu alın. Hizalama seçenekleri dahildir. Hiçbir veri tarayıcınızdan çıkmaz.">
+<meta property="og:url" content="https://aporizma.com/tr/araclar/csv-markdown-tablo-donusturucu/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "CSV'den Markdown Tabloya", "url": "https://aporizma.com/tr/araclar/csv-markdown-tablo-donusturucu/", "description": "CSV veya TSV yapıştırın, anında düzgün bir Markdown tablosu alın. Hizalama seçenekleri dahildir. Hiçbir veri tarayıcınızdan çıkmaz.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "tr", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "tr", "mainEntity": [{"@type": "Question", "name": "Dönüşüm nasıl çalışır?", "acceptedAnswer": {"@type": "Answer", "text": "İlk satır sütun başlığı olarak alınır. Her değer Markdown için kaçışlanır — bir dik çizgi | karakteri \\| olur, hücre içindeki satır sonları &lt;br&gt;'a çevrilir — sonra tablo, düz metin olarak da temiz görünmesi için sütunlar boşlukla hizalanarak oluşturulur."}}, {"@type": "Question", "name": "Hizalama seçeneği neyi değiştirir?", "acceptedAnswer": {"@type": "Answer", "text": "Başlık ayırıcı satırındaki iki nokta işaretlerini belirler (:---, :---:, ---:) — GitHub tarzı Markdown ve çoğu görüntüleyici her sütunu bu şekilde sola, ortaya veya sağa hizalar. \"Yok\" seçeneği düz tire bırakır."}}, {"@type": "Question", "name": "Verim bir yere gönderiliyor mu?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır. Ayrıştırma ve tablo oluşturma tamamen tarayıcınızda yapılır — hiçbir şey bir sunucuya yüklenmez veya kaydedilmez."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../../tr/"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../../tools/csv-to-markdown-table/" class="lang-switch" rel="alternate" hreflang="en">English</a>
+  </nav>
+</header>
+<main>
+<h1>CSV'den Markdown Tabloya Dönüştürücü</h1>
+<p class="lede">Aşağıya CSV ya da TSV yapıştırın ve kullanıma hazır bir Markdown tablosu alın — bir sütun hizalaması seçin, sonucu doğrudan README veya dokümanınıza kopyalayın. Her şey cihazınızda kalır.</p>
+<div class="card stack">
+  <textarea id="input" rows="8" placeholder="CSV veya TSV'yi buraya yapıştırın…" spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.9rem"></textarea>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+    <button class="btn" id="convert">Markdown'a Çevir</button>
+    <label class="note" style="display:flex;gap:6px;align-items:center">
+      Ayraç:
+      <select id="delimiter">
+        <option value="auto">Otomatik algıla</option>
+        <option value=",">Virgül (,)</option>
+        <option value=";">Noktalı virgül (;)</option>
+        <option value="tab">Tab</option>
+      </select>
+    </label>
+    <label class="note" style="display:flex;gap:6px;align-items:center">
+      Hizalama:
+      <select id="alignment">
+        <option value="none">Yok</option>
+        <option value="left">Sol</option>
+        <option value="center">Orta</option>
+        <option value="right">Sağ</option>
+      </select>
+    </label>
+  </div>
+  <p class="note" id="status">Başlamak için CSV veya TSV yapıştırın.</p>
+  <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+    <button class="btn ghost" id="copy" hidden>Kopyala</button>
+  </div>
+  <div style="overflow-x:auto">
+    <textarea id="output" rows="8" readonly spellcheck="false"
+      style="font-family:ui-monospace,Consolas,monospace;font-size:.9rem;min-width:100%"></textarea>
+  </div>
+</div>
+<section><h2>Dönüşüm nasıl çalışır?</h2><p>İlk satır sütun başlığı olarak alınır. Her değer Markdown için kaçışlanır — bir dik çizgi <code>|</code> karakteri <code>\|</code> olur, hücre içindeki satır sonları <code>&lt;br&gt;</code>'a çevrilir — sonra tablo, düz metin olarak da temiz görünmesi için sütunlar boşlukla hizalanarak oluşturulur.</p><h2>Hizalama seçeneği neyi değiştirir?</h2><p>Başlık ayırıcı satırındaki iki nokta işaretlerini belirler (<code>:---</code>, <code>:---:</code>, <code>---:</code>) — GitHub tarzı Markdown ve çoğu görüntüleyici her sütunu bu şekilde sola, ortaya veya sağa hizalar. "Yok" seçeneği düz tire bırakır.</p><h2>Verim bir yere gönderiliyor mu?</h2><p>Hayır. Ayrıştırma ve tablo oluşturma tamamen tarayıcınızda yapılır — hiçbir şey bir sunucuya yüklenmez veya kaydedilmez.</p></section>
+<section class="related"><h2>Diğer araçlar</h2><ul class="tool-grid"><li><a href="../../../tr/araclar/csv-json-donusturucu/"><div class="card"><h2>CSV ⇄ JSON Dönüştürücü</h2><p>CSV'yi JSON'a, JSON'u CSV'ye anında dönüştürün — yükleme yok.</p></div></a></li>
+<li><a href="../../../tr/araclar/unix-zaman-damgasi-donusturucu/"><div class="card"><h2>Epoch Zaman Damgası Dönüştürücü</h2><p>Unix zaman damgasını tarihe, tarihi zaman damgasına çevirin.</p></div></a></li>
+<li><a href="../../../tr/araclar/html-entity-kodla-coz/"><div class="card"><h2>HTML Entity Kodlayıcı</h2><p>HTML entity kodla/çöz — &amp; &lt; &gt; ve daha fazlası.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — tamamen tarayıcınızda çalışan küçük araçlar. Yükleme yok, izleme yok. · <a href="../../../about/">Hakkında</a> · <a href="../../../privacy/">Gizlilik</a> · <a href="https://chromewebstore.google.com/detail/aporizma-translate-text-s/flemammmdajgahkngaghgmckgopeijfm" rel="noopener">Chrome</a> · <a href="mailto:support@aporizma.com">support@aporizma.com</a></p>
+</footer>
+<script src="../../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "CSV'den Markdown Tabloya Dönüştürücü", "lede": "Aşağıya CSV ya da TSV yapıştırın ve kullanıma hazır bir Markdown tablosu alın — bir sütun hizalaması seçin, sonucu doğrudan README veya dokümanınıza kopyalayın. Her şey cihazınızda kalır.", "card_title": "CSV'den Markdown Tabloya", "card_desc": "Yapıştırdığınız CSV veya TSV'yi anında Markdown tablosuna çevirin.", "input_ph": "CSV veya TSV'yi buraya yapıştırın…", "delimiter_label": "Ayraç:", "delim_auto": "Otomatik algıla", "delim_comma": "Virgül (,)", "delim_semi": "Noktalı virgül (;)", "delim_tab": "Tab", "align_label": "Hizalama:", "align_none": "Yok", "align_left": "Sol", "align_center": "Orta", "align_right": "Sağ", "btn_convert": "Markdown'a Çevir", "copy": "Kopyala", "copied": "Kopyalandı!", "ok_fmt": "Dönüştürüldü — {rows} satır, {cols} sütun", "err": "Tablo olarak okunamadı. Ayraç ayarını kontrol edin.", "empty": "Başlamak için CSV veya TSV yapıştırın."};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

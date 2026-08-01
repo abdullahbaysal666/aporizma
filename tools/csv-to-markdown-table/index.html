@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CSV to Markdown Table Converter — Free & Private</title>
+<meta name="description" content="Paste CSV or TSV and get a clean GitHub-flavored Markdown table instantly. Column alignment options included. Nothing leaves your browser.">
+<link rel="stylesheet" href="../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tools/csv-to-markdown-table/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/csv-to-markdown-table/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/csv-markdown-tablo-donusturucu/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/csv-to-markdown-table/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="CSV to Markdown Table Converter — Free & Private">
+<meta property="og:description" content="Paste CSV or TSV and get a clean GitHub-flavored Markdown table instantly. Column alignment options included. Nothing leaves your browser.">
+<meta property="og:url" content="https://aporizma.com/tools/csv-to-markdown-table/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "CSV to Markdown Table", "url": "https://aporizma.com/tools/csv-to-markdown-table/", "description": "Paste CSV or TSV and get a clean GitHub-flavored Markdown table instantly. Column alignment options included. Nothing leaves your browser.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "How does the conversion work?", "acceptedAnswer": {"@type": "Answer", "text": "The first row is treated as column headers. Every value is escaped for Markdown — a pipe character | becomes \\| and line breaks inside a cell become &lt;br&gt; — then the table is rendered with padded columns so it also reads cleanly as plain text."}}, {"@type": "Question", "name": "What does the alignment option change?", "acceptedAnswer": {"@type": "Answer", "text": "It sets the colon markers in the header separator row (:---, :---:, ---:), which is how GitHub-flavored Markdown and most renderers align each column left, center, or right. \"None\" leaves plain dashes."}}, {"@type": "Question", "name": "Is my data sent anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. Parsing and table generation both happen entirely in your browser — nothing is uploaded to a server or logged anywhere."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../tr/araclar/csv-markdown-tablo-donusturucu/" class="lang-switch" rel="alternate" hreflang="tr">Türkçe</a>
+  </nav>
+</header>
+<main>
+<h1>CSV to Markdown Table Converter</h1>
+<p class="lede">Paste CSV or TSV below and get a ready-to-use Markdown table — pick a column alignment, then copy the result straight into your README or docs. Everything stays on your device.</p>
+<div class="card stack">
+  <textarea id="input" rows="8" placeholder="Paste CSV or TSV here…" spellcheck="false"
+    style="font-family:ui-monospace,Consolas,monospace;font-size:.9rem"></textarea>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+    <button class="btn" id="convert">Convert to Markdown</button>
+    <label class="note" style="display:flex;gap:6px;align-items:center">
+      Delimiter:
+      <select id="delimiter">
+        <option value="auto">Auto-detect</option>
+        <option value=",">Comma (,)</option>
+        <option value=";">Semicolon (;)</option>
+        <option value="tab">Tab</option>
+      </select>
+    </label>
+    <label class="note" style="display:flex;gap:6px;align-items:center">
+      Alignment:
+      <select id="alignment">
+        <option value="none">None</option>
+        <option value="left">Left</option>
+        <option value="center">Center</option>
+        <option value="right">Right</option>
+      </select>
+    </label>
+  </div>
+  <p class="note" id="status">Paste some CSV or TSV to begin.</p>
+  <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+    <button class="btn ghost" id="copy" hidden>Copy</button>
+  </div>
+  <div style="overflow-x:auto">
+    <textarea id="output" rows="8" readonly spellcheck="false"
+      style="font-family:ui-monospace,Consolas,monospace;font-size:.9rem;min-width:100%"></textarea>
+  </div>
+</div>
+<section><h2>How does the conversion work?</h2><p>The first row is treated as column headers. Every value is escaped for Markdown — a pipe character <code>|</code> becomes <code>\|</code> and line breaks inside a cell become <code>&lt;br&gt;</code> — then the table is rendered with padded columns so it also reads cleanly as plain text.</p><h2>What does the alignment option change?</h2><p>It sets the colon markers in the header separator row (<code>:---</code>, <code>:---:</code>, <code>---:</code>), which is how GitHub-flavored Markdown and most renderers align each column left, center, or right. "None" leaves plain dashes.</p><h2>Is my data sent anywhere?</h2><p>No. Parsing and table generation both happen entirely in your browser — nothing is uploaded to a server or logged anywhere.</p></section>
+<section class="related"><h2>More tools</h2><ul class="tool-grid"><li><a href="../../tools/csv-to-json-converter/"><div class="card"><h2>CSV ⇄ JSON Converter</h2><p>Convert CSV to JSON or JSON to CSV instantly — no upload.</p></div></a></li>
+<li><a href="../../tools/epoch-timestamp-converter/"><div class="card"><h2>Epoch Timestamp Converter</h2><p>Convert Unix timestamps to dates and back, seconds or milliseconds.</p></div></a></li>
+<li><a href="../../tools/html-entity-encoder-decoder/"><div class="card"><h2>HTML Entity Encoder</h2><p>Encode/decode HTML entities — &amp; &lt; &gt; and more.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — handcrafted small tools that run entirely in your browser. No uploads, no tracking. · <a href="../../about/">About</a> · <a href="../../privacy/">Privacy</a> · <a href="https://chromewebstore.google.com/detail/aporizma-translate-text-s/flemammmdajgahkngaghgmckgopeijfm" rel="noopener">Chrome</a> · <a href="mailto:support@aporizma.com">support@aporizma.com</a></p>
+</footer>
+<script src="../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "CSV to Markdown Table Converter", "lede": "Paste CSV or TSV below and get a ready-to-use Markdown table — pick a column alignment, then copy the result straight into your README or docs. Everything stays on your device.", "card_title": "CSV to Markdown Table", "card_desc": "Turn pasted CSV or TSV into a Markdown table instantly.", "input_ph": "Paste CSV or TSV here…", "delimiter_label": "Delimiter:", "delim_auto": "Auto-detect", "delim_comma": "Comma (,)", "delim_semi": "Semicolon (;)", "delim_tab": "Tab", "align_label": "Alignment:", "align_none": "None", "align_left": "Left", "align_center": "Center", "align_right": "Right", "btn_convert": "Convert to Markdown", "copy": "Copy", "copied": "Copied!", "ok_fmt": "Converted — {rows} row(s), {cols} column(s)", "err": "Couldn't read that as a table. Check the delimiter setting.", "empty": "Paste some CSV or TSV to begin."};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>
