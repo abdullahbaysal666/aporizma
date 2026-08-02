@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Subtitle to Transcript — Convert SRT/VTT to Plain Text</title>
+<meta name="description" content="Turn SRT or VTT subtitles into a clean, flowing transcript. Timestamps, cue numbers and caption tags are stripped automatically — 100% in your browser.">
+<link rel="stylesheet" href="../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tools/subtitle-to-transcript/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/subtitle-to-transcript/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/altyazidan-transkript/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/subtitle-to-transcript/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Subtitle to Transcript — Convert SRT/VTT to Plain Text">
+<meta property="og:description" content="Turn SRT or VTT subtitles into a clean, flowing transcript. Timestamps, cue numbers and caption tags are stripped automatically — 100% in your browser.">
+<meta property="og:url" content="https://aporizma.com/tools/subtitle-to-transcript/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Subtitle to Transcript", "url": "https://aporizma.com/tools/subtitle-to-transcript/", "description": "Turn SRT or VTT subtitles into a clean, flowing transcript. Timestamps, cue numbers and caption tags are stripped automatically — 100% in your browser.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "What does this do?", "acceptedAnswer": {"@type": "Answer", "text": "It removes cue numbers, timestamps and formatting tags (like &lt;i&gt;, &lt;c&gt; or word-timing tags from YouTube auto-captions) from an SRT or VTT file, then joins the remaining text into one flowing transcript you can read or paste elsewhere."}}, {"@type": "Question", "name": "Is my file uploaded?", "acceptedAnswer": {"@type": "Answer", "text": "No. Parsing happens entirely in your browser with JavaScript — the subtitle file never leaves your device."}}, {"@type": "Question", "name": "Why are some lines missing?", "acceptedAnswer": {"@type": "Answer", "text": "With duplicate removal on, consecutive cues with identical text are merged into one — this is common in auto-generated captions where the same line repeats across overlapping cues."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../tr/araclar/altyazidan-transkript/" class="lang-switch" rel="alternate" hreflang="tr">Türkçe</a>
+  </nav>
+</header>
+<main>
+<h1>Subtitle to Transcript</h1>
+<p class="lede">Paste or drop your SRT/VTT file and get a clean reading transcript with timestamps, cue numbers and caption tags removed — nothing leaves your browser.</p>
+<div class="card stack">
+  <div class="dropzone" id="drop">Drop your .srt or .vtt file here, or click to choose</div>
+  <input type="file" id="file" accept=".srt,.vtt,.txt" hidden>
+  <label class="note" for="input">Input (SRT or VTT)</label>
+  <textarea id="input" rows="7" spellcheck="false"></textarea>
+  <label class="note"><input type="checkbox" id="dedupe" checked> Remove duplicate consecutive lines (common in auto-captions)</label>
+  <p class="note" id="status">Paste subtitle content or drop a file to begin.</p>
+  <label class="note" for="output">Transcript</label>
+  <textarea id="output" rows="10" spellcheck="false" readonly></textarea>
+  <div>
+    <button class="btn" id="download" disabled>Download</button>
+    <button class="btn ghost" id="copy" disabled>Copy</button>
+  </div>
+</div>
+<section><h2>What does this do?</h2><p>It removes cue numbers, timestamps and formatting tags (like &lt;i&gt;, &lt;c&gt; or word-timing tags from YouTube auto-captions) from an SRT or VTT file, then joins the remaining text into one flowing transcript you can read or paste elsewhere.</p><h2>Is my file uploaded?</h2><p>No. Parsing happens entirely in your browser with JavaScript — the subtitle file never leaves your device.</p><h2>Why are some lines missing?</h2><p>With duplicate removal on, consecutive cues with identical text are merged into one — this is common in auto-generated captions where the same line repeats across overlapping cues.</p></section>
+<section class="related"><h2>More tools</h2><ul class="tool-grid"><li><a href="../../tools/srt-to-vtt-converter/"><div class="card"><h2>SRT ↔ VTT Converter</h2><p>Convert subtitle files both ways, privately in your browser.</p></div></a></li>
+<li><a href="../../tools/subtitle-merger/"><div class="card"><h2>Subtitle Merger</h2><p>Combine two SRT/VTT files into one timeline.</p></div></a></li>
+<li><a href="../../tools/subtitle-sync-shifter/"><div class="card"><h2>Subtitle Sync Shifter</h2><p>Fix out-of-sync SRT/VTT timing by shifting all cues.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — handcrafted small tools that run entirely in your browser. No uploads, no tracking. · <a href="../../about/">About</a> · <a href="../../privacy/">Privacy</a> · <a href="https://chromewebstore.google.com/detail/aporizma-translate-text-s/flemammmdajgahkngaghgmckgopeijfm" rel="noopener">Chrome</a> · <a href="mailto:support@aporizma.com">support@aporizma.com</a></p>
+</footer>
+<script src="../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Subtitle to Transcript", "lede": "Paste or drop your SRT/VTT file and get a clean reading transcript with timestamps, cue numbers and caption tags removed — nothing leaves your browser.", "card_title": "Subtitle to Transcript", "card_desc": "Strip timestamps from SRT/VTT and get a flowing plain-text transcript.", "drop": "Drop your .srt or .vtt file here, or click to choose", "in_label": "Input (SRT or VTT)", "out_label": "Transcript", "dedupe_label": "Remove duplicate consecutive lines (common in auto-captions)", "download": "Download", "copy": "Copy", "copied": "Copied!", "status_fmt": "Detected: {fmt} — {n} cues → {w} words", "empty": "Paste subtitle content or drop a file to begin.", "invalid": "This doesn't look like a subtitle file — expected SRT or VTT cues with --> timestamps."};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

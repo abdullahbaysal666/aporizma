@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Altyazıdan Transkript — SRT/VTT'yi Düz Metne Çevir</title>
+<meta name="description" content="SRT veya VTT altyazısını akıcı, düz bir transkripte çevirin. Zaman damgaları, replik numaraları ve altyazı etiketleri otomatik temizlenir — %100 tarayıcıda.">
+<link rel="stylesheet" href="../../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tr/araclar/altyazidan-transkript/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/subtitle-to-transcript/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/altyazidan-transkript/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/subtitle-to-transcript/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Altyazıdan Transkript — SRT/VTT'yi Düz Metne Çevir">
+<meta property="og:description" content="SRT veya VTT altyazısını akıcı, düz bir transkripte çevirin. Zaman damgaları, replik numaraları ve altyazı etiketleri otomatik temizlenir — %100 tarayıcıda.">
+<meta property="og:url" content="https://aporizma.com/tr/araclar/altyazidan-transkript/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Altyazıdan Transkript", "url": "https://aporizma.com/tr/araclar/altyazidan-transkript/", "description": "SRT veya VTT altyazısını akıcı, düz bir transkripte çevirin. Zaman damgaları, replik numaraları ve altyazı etiketleri otomatik temizlenir — %100 tarayıcıda.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "tr", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "tr", "mainEntity": [{"@type": "Question", "name": "Bu araç ne yapar?", "acceptedAnswer": {"@type": "Answer", "text": "SRT veya VTT dosyasındaki replik numaralarını, zaman damgalarını ve biçim etiketlerini (&lt;i&gt;, &lt;c&gt; ya da YouTube otomatik altyazılarındaki kelime zamanlama etiketleri gibi) kaldırır, kalan metni tek bir akıcı transkriptte birleştirir."}}, {"@type": "Question", "name": "Dosyam yükleniyor mu?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır. Ayrıştırma tamamen tarayıcınızda JavaScript ile yapılır — altyazı dosyası cihazınızdan çıkmaz."}}, {"@type": "Question", "name": "Neden bazı satırlar eksik görünüyor?", "acceptedAnswer": {"@type": "Answer", "text": "Tekrar temizleme açıkken, metni aynı olan ardışık replikler tek satırda birleştirilir — bu, çakışan repliklerde aynı satırın tekrarlandığı otomatik altyazılarda sık görülür."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../../tr/"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../../tools/subtitle-to-transcript/" class="lang-switch" rel="alternate" hreflang="en">English</a>
+  </nav>
+</header>
+<main>
+<h1>Altyazıdan Transkript</h1>
+<p class="lede">SRT/VTT dosyanızı yapıştırın ya da bırakın; zaman damgaları, replik numaraları ve altyazı etiketleri temizlenmiş, okunabilir bir transkript elde edin — hiçbir şey tarayıcınızdan çıkmaz.</p>
+<div class="card stack">
+  <div class="dropzone" id="drop">.srt veya .vtt dosyanızı buraya bırakın ya da tıklayıp seçin</div>
+  <input type="file" id="file" accept=".srt,.vtt,.txt" hidden>
+  <label class="note" for="input">Girdi (SRT veya VTT)</label>
+  <textarea id="input" rows="7" spellcheck="false"></textarea>
+  <label class="note"><input type="checkbox" id="dedupe" checked> Ardışık tekrar eden satırları kaldır (otomatik altyazılarda sık görülür)</label>
+  <p class="note" id="status">Başlamak için altyazı içeriği yapıştırın ya da dosya bırakın.</p>
+  <label class="note" for="output">Transkript</label>
+  <textarea id="output" rows="10" spellcheck="false" readonly></textarea>
+  <div>
+    <button class="btn" id="download" disabled>İndir</button>
+    <button class="btn ghost" id="copy" disabled>Kopyala</button>
+  </div>
+</div>
+<section><h2>Bu araç ne yapar?</h2><p>SRT veya VTT dosyasındaki replik numaralarını, zaman damgalarını ve biçim etiketlerini (&lt;i&gt;, &lt;c&gt; ya da YouTube otomatik altyazılarındaki kelime zamanlama etiketleri gibi) kaldırır, kalan metni tek bir akıcı transkriptte birleştirir.</p><h2>Dosyam yükleniyor mu?</h2><p>Hayır. Ayrıştırma tamamen tarayıcınızda JavaScript ile yapılır — altyazı dosyası cihazınızdan çıkmaz.</p><h2>Neden bazı satırlar eksik görünüyor?</h2><p>Tekrar temizleme açıkken, metni aynı olan ardışık replikler tek satırda birleştirilir — bu, çakışan repliklerde aynı satırın tekrarlandığı otomatik altyazılarda sık görülür.</p></section>
+<section class="related"><h2>Diğer araçlar</h2><ul class="tool-grid"><li><a href="../../../tr/araclar/srt-vtt-donusturucu/"><div class="card"><h2>SRT ↔ VTT Dönüştürücü</h2><p>Altyazı dosyalarını iki yönde, tarayıcınızda gizlice dönüştürün.</p></div></a></li>
+<li><a href="../../../tr/araclar/altyazi-birlestirici/"><div class="card"><h2>Altyazı Birleştirici</h2><p>İki SRT/VTT dosyasını tek zaman çizgisinde birleştirin.</p></div></a></li>
+<li><a href="../../../tr/araclar/altyazi-senkron-kaydirici/"><div class="card"><h2>Altyazı Senkron Kaydırıcı</h2><p>Kaymış SRT/VTT zamanlamasını tüm replikleri kaydırarak düzeltin.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — tamamen tarayıcınızda çalışan küçük araçlar. Yükleme yok, izleme yok. · <a href="../../../about/">Hakkında</a> · <a href="../../../privacy/">Gizlilik</a> · <a href="https://chromewebstore.google.com/detail/aporizma-translate-text-s/flemammmdajgahkngaghgmckgopeijfm" rel="noopener">Chrome</a> · <a href="mailto:support@aporizma.com">support@aporizma.com</a></p>
+</footer>
+<script src="../../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Altyazıdan Transkript", "lede": "SRT/VTT dosyanızı yapıştırın ya da bırakın; zaman damgaları, replik numaraları ve altyazı etiketleri temizlenmiş, okunabilir bir transkript elde edin — hiçbir şey tarayıcınızdan çıkmaz.", "card_title": "Altyazıdan Transkript", "card_desc": "SRT/VTT zaman damgalarını temizleyip akıcı düz metin transkript üretir.", "drop": ".srt veya .vtt dosyanızı buraya bırakın ya da tıklayıp seçin", "in_label": "Girdi (SRT veya VTT)", "out_label": "Transkript", "dedupe_label": "Ardışık tekrar eden satırları kaldır (otomatik altyazılarda sık görülür)", "download": "İndir", "copy": "Kopyala", "copied": "Kopyalandı!", "status_fmt": "Algılandı: {fmt} — {n} replik → {w} kelime", "empty": "Başlamak için altyazı içeriği yapıştırın ya da dosya bırakın.", "invalid": "Bu bir altyazı dosyasına benzemiyor — --> zaman damgalı SRT veya VTT bekleniyor."};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>
