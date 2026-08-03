@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Date Difference Calculator — Days Between Dates</title>
+<meta name="description" content="Calculate the number of days, weeks, months, and years between two dates, plus business days (excluding weekends). Runs in your browser — free, no sign-up.">
+<link rel="stylesheet" href="../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tools/date-difference-calculator/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/date-difference-calculator/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/tarih-farki-hesaplama/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/date-difference-calculator/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Date Difference Calculator — Days Between Dates">
+<meta property="og:description" content="Calculate the number of days, weeks, months, and years between two dates, plus business days (excluding weekends). Runs in your browser — free, no sign-up.">
+<meta property="og:url" content="https://aporizma.com/tools/date-difference-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Date Difference Calculator", "url": "https://aporizma.com/tools/date-difference-calculator/", "description": "Calculate the number of days, weeks, months, and years between two dates, plus business days (excluding weekends). Runs in your browser — free, no sign-up.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "How is the business day count calculated?", "acceptedAnswer": {"@type": "Answer", "text": "Every day from the start date to the end date (inclusive) is checked; Saturdays and Sundays are excluded. Public holidays are not accounted for since they vary by country."}}, {"@type": "Question", "name": "Why do total days and the years/months/days breakdown look different?", "acceptedAnswer": {"@type": "Answer", "text": "Total days is a straight count of 24-hour periods. The years/months/days breakdown instead walks the calendar (accounting for different month lengths), which is what most people mean by \"2 months and 10 days\" — the two views describe the same span, just measured differently."}}, {"@type": "Question", "name": "Is anything sent to a server?", "acceptedAnswer": {"@type": "Answer", "text": "No. The calculation happens entirely in your browser with JavaScript — nothing is uploaded."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../tr/araclar/tarih-farki-hesaplama/" class="lang-switch" rel="alternate" hreflang="tr">Türkçe</a>
+  </nav>
+</header>
+<main>
+<h1>Date Difference Calculator</h1>
+<p class="lede">Pick a start and end date to see the gap in days, weeks, calendar years/months/days, and business days.</p>
+
+<div class="card stack">
+  <div class="grid2">
+    <div class="stack">
+      <label class="note" for="from_date">Start date</label>
+      <div class="row">
+        <input type="date" id="from_date">
+        <button class="btn ghost" id="today_from" type="button">Today</button>
+      </div>
+    </div>
+    <div class="stack">
+      <label class="note" for="to_date">End date</label>
+      <div class="row">
+        <input type="date" id="to_date">
+        <button class="btn ghost" id="today_to" type="button">Today</button>
+      </div>
+    </div>
+  </div>
+  <button class="btn ghost" id="swap" type="button">Swap</button>
+  <p class="note" id="status">Pick both dates to see the difference.</p>
+
+  <ul class="kv" id="result" hidden>
+    <li><span>Total days</span><code id="out_total_days"></code></li>
+    <li><span>Weeks + days</span><code id="out_weeks"></code></li>
+    <li><span>Years, months, days</span><code id="out_calendar"></code></li>
+    <li><span>Business days</span><code id="out_business"></code></li>
+  </ul>
+</div>
+
+<section><h2>How is the business day count calculated?</h2><p>Every day from the start date to the end date (inclusive) is checked; Saturdays and Sundays are excluded. Public holidays are not accounted for since they vary by country.</p><h2>Why do total days and the years/months/days breakdown look different?</h2><p>Total days is a straight count of 24-hour periods. The years/months/days breakdown instead walks the calendar (accounting for different month lengths), which is what most people mean by "2 months and 10 days" — the two views describe the same span, just measured differently.</p><h2>Is anything sent to a server?</h2><p>No. The calculation happens entirely in your browser with JavaScript — nothing is uploaded.</p></section>
+
+<style>
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 520px) { .grid2 { grid-template-columns: 1fr; } }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.row input { flex: 1; min-width: 140px; }
+.kv { list-style: none; margin: 0; padding: 0; }
+.kv li { display: flex; align-items: center; gap: 8px; padding: 7px 0; border-top: 1px solid var(--line); flex-wrap: wrap; }
+.kv li:first-child { border-top: none; }
+.kv span { color: var(--ink-soft); font-size: .85rem; min-width: 130px; }
+.kv code { font-family: var(--mono); font-size: .86rem; word-break: break-word; }
+</style>
+<section class="related"><h2>More tools</h2><ul class="tool-grid"><li><a href="../../tools/aspect-ratio-calculator/"><div class="card"><h2>Aspect Ratio Calculator</h2><p>Calculate ratios and missing dimensions for photos and video.</p></div></a></li>
+<li><a href="../../tools/merge-pdf/"><div class="card"><h2>PDF Merger</h2><p>Combine PDFs into one file, privately on your device.</p></div></a></li>
+<li><a href="../../tools/split-pdf/"><div class="card"><h2>PDF Splitter</h2><p>Extract pages or ranges from a PDF, on your device.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — handcrafted small tools that run entirely in your browser. No uploads, no tracking. · <a href="../../about/">About</a> · <a href="../../privacy/">Privacy</a> · <a href="https://chromewebstore.google.com/detail/aporizma-translate-text-s/flemammmdajgahkngaghgmckgopeijfm" rel="noopener">Chrome</a> · <a href="mailto:support@aporizma.com">support@aporizma.com</a></p>
+</footer>
+<script src="../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Date Difference Calculator", "lede": "Pick a start and end date to see the gap in days, weeks, calendar years/months/days, and business days.", "card_title": "Date Difference Calculator", "card_desc": "Days, weeks, months, years and business days between two dates.", "from_label": "Start date", "to_label": "End date", "today_btn": "Today", "swap_btn": "Swap", "empty": "Pick both dates to see the difference.", "invalid": "Enter two valid dates (YYYY-MM-DD).", "same_day": "Same day — 0 days apart.", "days_fmt": "{n} days", "past_suffix": "end date is before start date", "weeks_fmt": "{w} weeks and {d} days", "calendar_fmt": "{y} years, {m} months, {d} days", "business_fmt": "{n} business days (Mon–Fri)", "total_days_label": "Total days", "weeks_label": "Weeks + days", "calendar_label": "Years, months, days", "business_label": "Business days"};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>
