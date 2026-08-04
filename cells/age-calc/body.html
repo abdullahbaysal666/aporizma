@@ -1,0 +1,41 @@
+<h1>{{s.h1}}</h1>
+<p class="lede">{{s.lede}}</p>
+
+<div class="card stack">
+  <div class="grid2">
+    <div class="stack">
+      <label class="note" for="birth_date">{{s.birth_label}}</label>
+      <input type="date" id="birth_date">
+    </div>
+    <div class="stack">
+      <label class="note" for="asof_date">{{s.asof_label}}</label>
+      <div class="row">
+        <input type="date" id="asof_date">
+        <button class="btn ghost" id="today_asof" type="button">{{s.today_btn}}</button>
+      </div>
+    </div>
+  </div>
+  <p class="note" id="status">{{s.empty}}</p>
+
+  <ul class="kv" id="result" hidden>
+    <li><span>{{s.age_label}}</span><code id="out_age"></code></li>
+    <li><span>{{s.total_days_label}}</span><code id="out_total_days"></code></li>
+    <li><span>{{s.total_weeks_label}}</span><code id="out_total_weeks"></code></li>
+    <li><span>{{s.next_birthday_label}}</span><code id="out_next_birthday"></code></li>
+    <li><span>{{s.born_weekday_label}}</span><code id="out_weekday"></code></li>
+  </ul>
+</div>
+
+<section>{{s.faq_html}}</section>
+
+<style>
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 520px) { .grid2 { grid-template-columns: 1fr; } }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.row input { flex: 1; min-width: 140px; }
+.kv { list-style: none; margin: 0; padding: 0; }
+.kv li { display: flex; align-items: center; gap: 8px; padding: 7px 0; border-top: 1px solid var(--line); flex-wrap: wrap; }
+.kv li:first-child { border-top: none; }
+.kv span { color: var(--ink-soft); font-size: .85rem; min-width: 130px; }
+.kv code { font-family: var(--mono); font-size: .86rem; word-break: break-word; }
+</style>
