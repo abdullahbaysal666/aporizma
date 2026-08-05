@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yüzde Hesaplama — Oran, Artış/Azalış ve İndirim</title>
+<meta name="description" content="Bir sayının yüzdesini, iki değer arasındaki artış/azalış oranını ve indirimli fiyatı anında hesaplayın. Üç hesaplayıcı, tamamen tarayıcınızda.">
+<link rel="stylesheet" href="../../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tr/araclar/yuzde-hesaplama/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/percentage-calculator/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/yuzde-hesaplama/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/percentage-calculator/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Yüzde Hesaplama — Oran, Artış/Azalış ve İndirim">
+<meta property="og:description" content="Bir sayının yüzdesini, iki değer arasındaki artış/azalış oranını ve indirimli fiyatı anında hesaplayın. Üç hesaplayıcı, tamamen tarayıcınızda.">
+<meta property="og:url" content="https://aporizma.com/tr/araclar/yuzde-hesaplama/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Yüzde Hesaplayıcı", "url": "https://aporizma.com/tr/araclar/yuzde-hesaplama/", "description": "Bir sayının yüzdesini, iki değer arasındaki artış/azalış oranını ve indirimli fiyatı anında hesaplayın. Üç hesaplayıcı, tamamen tarayıcınızda.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "tr", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "tr", "mainEntity": [{"@type": "Question", "name": "\"Bir sayının X yüzdesi\" nasıl hesaplanır?", "acceptedAnswer": {"@type": "Answer", "text": "Sayı, yüzde ile çarpılır ve 100'e bölünür — örneğin 200'ün %15'i, 200 × 15 ÷ 100 = 30'dur."}}, {"@type": "Question", "name": "Yüzde değişimi için başlangıç değeri neden sıfır olamaz?", "acceptedAnswer": {"@type": "Answer", "text": "Yüzde değişimi (yeni − eski) ÷ eski × 100 formülüyle hesaplanır. Başlangıç değeri 0 olduğunda bu bölme tanımsız olur, bu yüzden hesaplayıcı bu durumda sonuç yerine bir uyarı gösterir."}}, {"@type": "Question", "name": "Bir şey sunucuya gönderiliyor mu?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır. Üç hesaplayıcı da tamamen tarayıcınızda JavaScript ile çalışır — hiçbir şey yüklenmez ya da saklanmaz."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../../tr/"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../../tools/percentage-calculator/" class="lang-switch" rel="alternate" hreflang="en">English</a>
+  </nav>
+</header>
+<main>
+<h1>Yüzde Hesaplayıcı</h1>
+<p class="lede">Üç hızlı hesaplayıcı: bir sayının yüzdesi, iki değer arasındaki yüzde değişimi ve indirimli fiyat.</p>
+
+<div class="card stack">
+  <h2 style="margin:0;font-size:1.05rem">Bir sayının yüzdesi</h2>
+  <div class="pc-row">
+    <div>
+      <label class="note" for="po-percent">Yüzde (%)</label>
+      <input type="number" id="po-percent" step="any" value="15" inputmode="decimal">
+    </div>
+    <div>
+      <label class="note" for="po-base">Sayı</label>
+      <input type="number" id="po-base" step="any" value="200" inputmode="decimal">
+    </div>
+  </div>
+  <div>
+    <div class="note">Sonuç</div>
+    <div id="po-result" class="pc-result"></div>
+  </div>
+</div>
+
+<div class="card stack">
+  <h2 style="margin:0;font-size:1.05rem">İki değer arasındaki yüzde değişimi</h2>
+  <div class="pc-row">
+    <div>
+      <label class="note" for="pc-from">Başlangıç</label>
+      <input type="number" id="pc-from" step="any" value="100" inputmode="decimal">
+    </div>
+    <div>
+      <label class="note" for="pc-to">Bitiş</label>
+      <input type="number" id="pc-to" step="any" value="120" inputmode="decimal">
+    </div>
+  </div>
+  <div>
+    <div class="note">Değişim</div>
+    <div id="pc-result" class="pc-result"></div>
+  </div>
+</div>
+
+<div class="card stack">
+  <h2 style="margin:0;font-size:1.05rem">İndirimli fiyat</h2>
+  <div class="pc-row">
+    <div>
+      <label class="note" for="disc-price">Orijinal fiyat</label>
+      <input type="number" id="disc-price" min="0" step="any" value="100" inputmode="decimal">
+    </div>
+    <div>
+      <label class="note" for="disc-percent">İndirim (%)</label>
+      <input type="number" id="disc-percent" min="0" max="100" step="any" value="20" inputmode="decimal">
+    </div>
+  </div>
+  <ul class="kv" id="disc-result" hidden>
+    <li><span>İndirimli fiyat</span><code id="disc-final"></code></li>
+    <li><span>Kazancınız</span><code id="disc-savings"></code></li>
+  </ul>
+  <p class="note err" id="disc-error" hidden></p>
+</div>
+
+<section><h2>"Bir sayının X yüzdesi" nasıl hesaplanır?</h2><p>Sayı, yüzde ile çarpılır ve 100'e bölünür — örneğin 200'ün %15'i, 200 × 15 ÷ 100 = 30'dur.</p><h2>Yüzde değişimi için başlangıç değeri neden sıfır olamaz?</h2><p>Yüzde değişimi (yeni − eski) ÷ eski × 100 formülüyle hesaplanır. Başlangıç değeri 0 olduğunda bu bölme tanımsız olur, bu yüzden hesaplayıcı bu durumda sonuç yerine bir uyarı gösterir.</p><h2>Bir şey sunucuya gönderiliyor mu?</h2><p>Hayır. Üç hesaplayıcı da tamamen tarayıcınızda JavaScript ile çalışır — hiçbir şey yüklenmez ya da saklanmaz.</p></section>
+
+<style>
+.pc-row { display: flex; gap: 14px; flex-wrap: wrap; }
+.pc-row > div { flex: 1 1 140px; min-width: 120px; }
+.pc-result { font-size: 1.3rem; font-weight: 700; word-break: break-word; }
+.kv { list-style: none; margin: 0; padding: 0; }
+.kv li { display: flex; align-items: center; gap: 8px; padding: 7px 0; border-top: 1px solid var(--line); flex-wrap: wrap; }
+.kv li:first-child { border-top: none; }
+.kv span { color: var(--ink-soft); font-size: .85rem; min-width: 130px; }
+.kv code { font-family: var(--mono); font-size: .86rem; word-break: break-word; }
+</style>
+<section class="related"><h2>Diğer araçlar</h2><ul class="tool-grid"><li><a href="../../../tr/araclar/yas-hesaplama/"><div class="card"><h2>Yaş Hesaplayıcı</h2><p>Yıl, ay, gün olarak tam yaş — ve sonraki doğum gününe geri sayım.</p></div></a></li>
+<li><a href="../../../tr/araclar/en-boy-orani-hesaplayici/"><div class="card"><h2>En-Boy Oranı Hesaplayıcı</h2><p>Fotoğraf ve video için oran ve eksik boyut hesaplayın.</p></div></a></li>
+<li><a href="../../../tr/araclar/tarih-farki-hesaplama/"><div class="card"><h2>Tarih Farkı Hesaplayıcı</h2><p>İki tarih arasında gün, hafta, ay, yıl ve iş günü farkı.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — tamamen tarayıcınızda çalışan küçük araçlar. Yükleme yok, izleme yok. · <a href="../../../about/">Hakkında</a> · <a href="../../../privacy/">Gizlilik</a> · <a href="https://chromewebstore.google.com/detail/aporizma-translate-text-s/flemammmdajgahkngaghgmckgopeijfm" rel="noopener">Chrome</a> · <a href="mailto:support@aporizma.com">support@aporizma.com</a></p>
+</footer>
+<script src="../../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Yüzde Hesaplayıcı", "lede": "Üç hızlı hesaplayıcı: bir sayının yüzdesi, iki değer arasındaki yüzde değişimi ve indirimli fiyat.", "card_title": "Yüzde Hesaplayıcı", "card_desc": "Sayının yüzdesi, yüzde değişimi ve indirimli fiyat — üç araç bir arada.", "section1_title": "Bir sayının yüzdesi", "po_base_label": "Sayı", "po_percent_label": "Yüzde (%)", "po_result_label": "Sonuç", "po_invalid": "Geçerli sayılar girin.", "section2_title": "İki değer arasındaki yüzde değişimi", "pc_from_label": "Başlangıç", "pc_to_label": "Bitiş", "pc_result_label": "Değişim", "pc_invalid": "Geçerli sayılar girin.", "pc_zero": "\"Başlangıç\" değeri 0 olamaz — yüzde değişimi tanımsız.", "pc_no_change": "Değişim yok (%0)", "pc_increase_suffix": "artış", "pc_decrease_suffix": "azalış", "section3_title": "İndirimli fiyat", "disc_price_label": "Orijinal fiyat", "disc_percent_label": "İndirim (%)", "disc_final_label": "İndirimli fiyat", "disc_savings_label": "Kazancınız", "disc_invalid": "0 veya üzeri bir fiyat ve 0-100 arası bir indirim oranı girin."};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

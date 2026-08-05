@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Percentage Calculator — Percent Of, Change & Discount</title>
+<meta name="description" content="Find what X% of a number is, the percent increase or decrease between two values, and a discounted price. Three calculators, instant, in your browser.">
+<link rel="stylesheet" href="../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tools/percentage-calculator/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/percentage-calculator/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/yuzde-hesaplama/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/percentage-calculator/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Percentage Calculator — Percent Of, Change & Discount">
+<meta property="og:description" content="Find what X% of a number is, the percent increase or decrease between two values, and a discounted price. Three calculators, instant, in your browser.">
+<meta property="og:url" content="https://aporizma.com/tools/percentage-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Percentage Calculator", "url": "https://aporizma.com/tools/percentage-calculator/", "description": "Find what X% of a number is, the percent increase or decrease between two values, and a discounted price. Three calculators, instant, in your browser.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "How is \"X% of a number\" calculated?", "acceptedAnswer": {"@type": "Answer", "text": "Multiply the number by the percentage and divide by 100 — for example, 15% of 200 is 200 × 15 ÷ 100 = 30."}}, {"@type": "Question", "name": "Why does percent change need a non-zero starting value?", "acceptedAnswer": {"@type": "Answer", "text": "Percent change is (new − old) ÷ old × 100. When the starting value is 0, that division is undefined, so the calculator shows a message instead of a result in that case."}}, {"@type": "Question", "name": "Is anything sent to a server?", "acceptedAnswer": {"@type": "Answer", "text": "No. All three calculators run entirely in your browser with JavaScript — nothing is uploaded or stored anywhere."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../tr/araclar/yuzde-hesaplama/" class="lang-switch" rel="alternate" hreflang="tr">Türkçe</a>
+  </nav>
+</header>
+<main>
+<h1>Percentage Calculator</h1>
+<p class="lede">Three quick calculators: the percentage of a number, the percent change between two values, and a discounted price.</p>
+
+<div class="card stack">
+  <h2 style="margin:0;font-size:1.05rem">Percentage of a number</h2>
+  <div class="pc-row">
+    <div>
+      <label class="note" for="po-percent">Percent (%)</label>
+      <input type="number" id="po-percent" step="any" value="15" inputmode="decimal">
+    </div>
+    <div>
+      <label class="note" for="po-base">Number</label>
+      <input type="number" id="po-base" step="any" value="200" inputmode="decimal">
+    </div>
+  </div>
+  <div>
+    <div class="note">Result</div>
+    <div id="po-result" class="pc-result"></div>
+  </div>
+</div>
+
+<div class="card stack">
+  <h2 style="margin:0;font-size:1.05rem">Percent change between two values</h2>
+  <div class="pc-row">
+    <div>
+      <label class="note" for="pc-from">From</label>
+      <input type="number" id="pc-from" step="any" value="100" inputmode="decimal">
+    </div>
+    <div>
+      <label class="note" for="pc-to">To</label>
+      <input type="number" id="pc-to" step="any" value="120" inputmode="decimal">
+    </div>
+  </div>
+  <div>
+    <div class="note">Change</div>
+    <div id="pc-result" class="pc-result"></div>
+  </div>
+</div>
+
+<div class="card stack">
+  <h2 style="margin:0;font-size:1.05rem">Discount price</h2>
+  <div class="pc-row">
+    <div>
+      <label class="note" for="disc-price">Original price</label>
+      <input type="number" id="disc-price" min="0" step="any" value="100" inputmode="decimal">
+    </div>
+    <div>
+      <label class="note" for="disc-percent">Discount (%)</label>
+      <input type="number" id="disc-percent" min="0" max="100" step="any" value="20" inputmode="decimal">
+    </div>
+  </div>
+  <ul class="kv" id="disc-result" hidden>
+    <li><span>Final price</span><code id="disc-final"></code></li>
+    <li><span>You save</span><code id="disc-savings"></code></li>
+  </ul>
+  <p class="note err" id="disc-error" hidden></p>
+</div>
+
+<section><h2>How is "X% of a number" calculated?</h2><p>Multiply the number by the percentage and divide by 100 — for example, 15% of 200 is 200 × 15 ÷ 100 = 30.</p><h2>Why does percent change need a non-zero starting value?</h2><p>Percent change is (new − old) ÷ old × 100. When the starting value is 0, that division is undefined, so the calculator shows a message instead of a result in that case.</p><h2>Is anything sent to a server?</h2><p>No. All three calculators run entirely in your browser with JavaScript — nothing is uploaded or stored anywhere.</p></section>
+
+<style>
+.pc-row { display: flex; gap: 14px; flex-wrap: wrap; }
+.pc-row > div { flex: 1 1 140px; min-width: 120px; }
+.pc-result { font-size: 1.3rem; font-weight: 700; word-break: break-word; }
+.kv { list-style: none; margin: 0; padding: 0; }
+.kv li { display: flex; align-items: center; gap: 8px; padding: 7px 0; border-top: 1px solid var(--line); flex-wrap: wrap; }
+.kv li:first-child { border-top: none; }
+.kv span { color: var(--ink-soft); font-size: .85rem; min-width: 130px; }
+.kv code { font-family: var(--mono); font-size: .86rem; word-break: break-word; }
+</style>
+<section class="related"><h2>More tools</h2><ul class="tool-grid"><li><a href="../../tools/age-calculator/"><div class="card"><h2>Age Calculator</h2><p>Exact age in years, months, days — plus a countdown to the next birthday.</p></div></a></li>
+<li><a href="../../tools/aspect-ratio-calculator/"><div class="card"><h2>Aspect Ratio Calculator</h2><p>Calculate ratios and missing dimensions for photos and video.</p></div></a></li>
+<li><a href="../../tools/date-difference-calculator/"><div class="card"><h2>Date Difference Calculator</h2><p>Days, weeks, months, years and business days between two dates.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — handcrafted small tools that run entirely in your browser. No uploads, no tracking. · <a href="../../about/">About</a> · <a href="../../privacy/">Privacy</a> · <a href="https://chromewebstore.google.com/detail/aporizma-translate-text-s/flemammmdajgahkngaghgmckgopeijfm" rel="noopener">Chrome</a> · <a href="mailto:support@aporizma.com">support@aporizma.com</a></p>
+</footer>
+<script src="../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Percentage Calculator", "lede": "Three quick calculators: the percentage of a number, the percent change between two values, and a discounted price.", "card_title": "Percentage Calculator", "card_desc": "Percent of a number, percent change, and discount price — three tools in one.", "section1_title": "Percentage of a number", "po_base_label": "Number", "po_percent_label": "Percent (%)", "po_result_label": "Result", "po_invalid": "Enter valid numbers.", "section2_title": "Percent change between two values", "pc_from_label": "From", "pc_to_label": "To", "pc_result_label": "Change", "pc_invalid": "Enter valid numbers.", "pc_zero": "The \"From\" value can't be zero — percent change is undefined.", "pc_no_change": "No change (0%)", "pc_increase_suffix": "increase", "pc_decrease_suffix": "decrease", "section3_title": "Discount price", "disc_price_label": "Original price", "disc_percent_label": "Discount (%)", "disc_final_label": "Final price", "disc_savings_label": "You save", "disc_invalid": "Enter a price of 0 or more and a discount between 0 and 100."};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

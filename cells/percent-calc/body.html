@@ -1,0 +1,70 @@
+<h1>{{s.h1}}</h1>
+<p class="lede">{{s.lede}}</p>
+
+<div class="card stack">
+  <h2 style="margin:0;font-size:1.05rem">{{s.section1_title}}</h2>
+  <div class="pc-row">
+    <div>
+      <label class="note" for="po-percent">{{s.po_percent_label}}</label>
+      <input type="number" id="po-percent" step="any" value="15" inputmode="decimal">
+    </div>
+    <div>
+      <label class="note" for="po-base">{{s.po_base_label}}</label>
+      <input type="number" id="po-base" step="any" value="200" inputmode="decimal">
+    </div>
+  </div>
+  <div>
+    <div class="note">{{s.po_result_label}}</div>
+    <div id="po-result" class="pc-result"></div>
+  </div>
+</div>
+
+<div class="card stack">
+  <h2 style="margin:0;font-size:1.05rem">{{s.section2_title}}</h2>
+  <div class="pc-row">
+    <div>
+      <label class="note" for="pc-from">{{s.pc_from_label}}</label>
+      <input type="number" id="pc-from" step="any" value="100" inputmode="decimal">
+    </div>
+    <div>
+      <label class="note" for="pc-to">{{s.pc_to_label}}</label>
+      <input type="number" id="pc-to" step="any" value="120" inputmode="decimal">
+    </div>
+  </div>
+  <div>
+    <div class="note">{{s.pc_result_label}}</div>
+    <div id="pc-result" class="pc-result"></div>
+  </div>
+</div>
+
+<div class="card stack">
+  <h2 style="margin:0;font-size:1.05rem">{{s.section3_title}}</h2>
+  <div class="pc-row">
+    <div>
+      <label class="note" for="disc-price">{{s.disc_price_label}}</label>
+      <input type="number" id="disc-price" min="0" step="any" value="100" inputmode="decimal">
+    </div>
+    <div>
+      <label class="note" for="disc-percent">{{s.disc_percent_label}}</label>
+      <input type="number" id="disc-percent" min="0" max="100" step="any" value="20" inputmode="decimal">
+    </div>
+  </div>
+  <ul class="kv" id="disc-result" hidden>
+    <li><span>{{s.disc_final_label}}</span><code id="disc-final"></code></li>
+    <li><span>{{s.disc_savings_label}}</span><code id="disc-savings"></code></li>
+  </ul>
+  <p class="note err" id="disc-error" hidden></p>
+</div>
+
+<section>{{s.faq_html}}</section>
+
+<style>
+.pc-row { display: flex; gap: 14px; flex-wrap: wrap; }
+.pc-row > div { flex: 1 1 140px; min-width: 120px; }
+.pc-result { font-size: 1.3rem; font-weight: 700; word-break: break-word; }
+.kv { list-style: none; margin: 0; padding: 0; }
+.kv li { display: flex; align-items: center; gap: 8px; padding: 7px 0; border-top: 1px solid var(--line); flex-wrap: wrap; }
+.kv li:first-child { border-top: none; }
+.kv span { color: var(--ink-soft); font-size: .85rem; min-width: 130px; }
+.kv code { font-family: var(--mono); font-size: .86rem; word-break: break-word; }
+</style>
