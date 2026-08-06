@@ -1,0 +1,43 @@
+<h1>{{s.h1}}</h1>
+<p class="lede">{{s.lede}}</p>
+
+<div class="card stack">
+  <div class="stack">
+    <label class="note" for="category">{{s.category_label}}</label>
+    <select id="category"></select>
+  </div>
+
+  <div class="uc-row">
+    <div class="stack">
+      <label class="note" for="value">{{s.value_label}}</label>
+      <input type="text" inputmode="decimal" id="value" placeholder="1">
+    </div>
+    <div class="stack">
+      <label class="note" for="from_unit">{{s.from_label}}</label>
+      <select id="from_unit"></select>
+    </div>
+    <button class="btn ghost" id="swap" type="button">{{s.swap_btn}}</button>
+    <div class="stack">
+      <label class="note" for="to_unit">{{s.to_label}}</label>
+      <select id="to_unit"></select>
+    </div>
+  </div>
+
+  <p class="note" id="result">{{s.empty}}</p>
+  <p class="note" id="ref"></p>
+</div>
+
+<section>{{s.faq_html}}</section>
+
+<style>
+.uc-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: end; }
+.uc-row .stack { flex: 1; min-width: 130px; }
+.uc-row #swap { flex: 0 0 auto; }
+#result.ok { color: var(--ink); font-weight: 600; }
+select, input[type="text"] {
+  width: 100%; font-family: var(--font); font-size: .95rem;
+  background: var(--bg); color: var(--ink); border: 1px solid var(--line);
+  border-radius: 8px; padding: 9px 10px;
+}
+select:focus, input:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+</style>

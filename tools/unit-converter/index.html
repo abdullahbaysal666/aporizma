@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unit Converter — Length, Weight, Temperature, Volume</title>
+<meta name="description" content="Convert between metric and imperial units — length, weight, temperature, and volume. Runs entirely in your browser, no sign-up, no data sent to a server.">
+<link rel="stylesheet" href="../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tools/unit-converter/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/unit-converter/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/birim-donusturucu/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/unit-converter/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Unit Converter — Length, Weight, Temperature, Volume">
+<meta property="og:description" content="Convert between metric and imperial units — length, weight, temperature, and volume. Runs entirely in your browser, no sign-up, no data sent to a server.">
+<meta property="og:url" content="https://aporizma.com/tools/unit-converter/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Unit Converter", "url": "https://aporizma.com/tools/unit-converter/", "description": "Convert between metric and imperial units — length, weight, temperature, and volume. Runs entirely in your browser, no sign-up, no data sent to a server.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "Which units are supported?", "acceptedAnswer": {"@type": "Answer", "text": "Length (meter, kilometer, centimeter, millimeter, mile, yard, foot, inch), weight (kilogram, gram, milligram, metric ton, pound, ounce, stone), temperature (Celsius, Fahrenheit, Kelvin), and volume (liter, milliliter, cubic meter, US gallon/quart/pint/cup/fluid ounce)."}}, {"@type": "Question", "name": "How accurate are the conversions?", "acceptedAnswer": {"@type": "Answer", "text": "All factors are the standard exact definitions (e.g. 1 inch = 0.0254 m, 1 pound = 0.45359237 kg). Results are rounded for display but computed at full floating-point precision."}}, {"@type": "Question", "name": "Is anything sent to a server?", "acceptedAnswer": {"@type": "Answer", "text": "No. The conversion runs entirely in your browser with JavaScript — nothing is uploaded."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../tr/araclar/birim-donusturucu/" class="lang-switch" rel="alternate" hreflang="tr">Türkçe</a>
+  </nav>
+</header>
+<main>
+<h1>Unit Converter</h1>
+<p class="lede">Pick a category, choose your units, and convert instantly — metric and imperial, no sign-up.</p>
+
+<div class="card stack">
+  <div class="stack">
+    <label class="note" for="category">Category</label>
+    <select id="category"></select>
+  </div>
+
+  <div class="uc-row">
+    <div class="stack">
+      <label class="note" for="value">Value</label>
+      <input type="text" inputmode="decimal" id="value" placeholder="1">
+    </div>
+    <div class="stack">
+      <label class="note" for="from_unit">From</label>
+      <select id="from_unit"></select>
+    </div>
+    <button class="btn ghost" id="swap" type="button">Swap</button>
+    <div class="stack">
+      <label class="note" for="to_unit">To</label>
+      <select id="to_unit"></select>
+    </div>
+  </div>
+
+  <p class="note" id="result">Enter a value to convert.</p>
+  <p class="note" id="ref"></p>
+</div>
+
+<section><h2>Which units are supported?</h2><p>Length (meter, kilometer, centimeter, millimeter, mile, yard, foot, inch), weight (kilogram, gram, milligram, metric ton, pound, ounce, stone), temperature (Celsius, Fahrenheit, Kelvin), and volume (liter, milliliter, cubic meter, US gallon/quart/pint/cup/fluid ounce).</p><h2>How accurate are the conversions?</h2><p>All factors are the standard exact definitions (e.g. 1 inch = 0.0254 m, 1 pound = 0.45359237 kg). Results are rounded for display but computed at full floating-point precision.</p><h2>Is anything sent to a server?</h2><p>No. The conversion runs entirely in your browser with JavaScript — nothing is uploaded.</p></section>
+
+<style>
+.uc-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: end; }
+.uc-row .stack { flex: 1; min-width: 130px; }
+.uc-row #swap { flex: 0 0 auto; }
+#result.ok { color: var(--ink); font-weight: 600; }
+select, input[type="text"] {
+  width: 100%; font-family: var(--font); font-size: .95rem;
+  background: var(--bg); color: var(--ink); border: 1px solid var(--line);
+  border-radius: 8px; padding: 9px 10px;
+}
+select:focus, input:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+</style><section class="related"><h2>More tools</h2><ul class="tool-grid"><li><a href="../../tools/csv-to-json-converter/"><div class="card"><h2>CSV ⇄ JSON Converter</h2><p>Convert CSV to JSON or JSON to CSV instantly — no upload.</p></div></a></li>
+<li><a href="../../tools/epoch-timestamp-converter/"><div class="card"><h2>Epoch Timestamp Converter</h2><p>Convert Unix timestamps to dates and back, seconds or milliseconds.</p></div></a></li>
+<li><a href="../../tools/html-entity-encoder-decoder/"><div class="card"><h2>HTML Entity Encoder</h2><p>Encode/decode HTML entities — &amp; &lt; &gt; and more.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — handcrafted small tools that run entirely in your browser. No uploads, no tracking. · <a href="../../about/">About</a> · <a href="../../privacy/">Privacy</a> · <a href="https://chromewebstore.google.com/detail/aporizma-translate-text-s/flemammmdajgahkngaghgmckgopeijfm" rel="noopener">Chrome</a> · <a href="mailto:support@aporizma.com">support@aporizma.com</a></p>
+</footer>
+<script src="../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Unit Converter", "lede": "Pick a category, choose your units, and convert instantly — metric and imperial, no sign-up.", "card_title": "Unit Converter", "card_desc": "Length, weight, temperature, and volume — metric and imperial, instant results.", "category_label": "Category", "value_label": "Value", "from_label": "From", "to_label": "To", "swap_btn": "Swap", "empty": "Enter a value to convert.", "invalid": "Enter a valid number.", "result_fmt": "{value} {from} = {out} {to}", "ref_fmt": "1 {from} = {out} {to}", "cat_length": "Length", "cat_weight": "Weight", "cat_temperature": "Temperature", "cat_volume": "Volume", "unit_m": "Meter (m)", "unit_km": "Kilometer (km)", "unit_cm": "Centimeter (cm)", "unit_mm": "Millimeter (mm)", "unit_mi": "Mile (mi)", "unit_yd": "Yard (yd)", "unit_ft": "Foot (ft)", "unit_in": "Inch (in)", "unit_kg": "Kilogram (kg)", "unit_g": "Gram (g)", "unit_mg": "Milligram (mg)", "unit_t": "Metric ton (t)", "unit_lb": "Pound (lb)", "unit_oz": "Ounce (oz)", "unit_st": "Stone (st)", "unit_c": "Celsius (°C)", "unit_f": "Fahrenheit (°F)", "unit_k": "Kelvin (K)", "unit_l": "Liter (L)", "unit_ml": "Milliliter (mL)", "unit_m3": "Cubic meter (m³)", "unit_gal": "US Gallon (gal)", "unit_qt": "US Quart (qt)", "unit_pt": "US Pint (pt)", "unit_cup": "US Cup", "unit_floz": "US Fluid Ounce (fl oz)"};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>

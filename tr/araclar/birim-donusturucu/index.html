@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Birim Dönüştürücü — Uzunluk, Ağırlık, Sıcaklık, Hacim</title>
+<meta name="description" content="Metrik ve emperyal birimler arasında dönüştürün — uzunluk, ağırlık, sıcaklık ve hacim. Tamamen tarayıcınızda çalışır, hiçbir veri sunucuya gönderilmez.">
+<link rel="stylesheet" href="../../../assets/organ.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⬡</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#131318">
+<link rel="canonical" href="https://aporizma.com/tr/araclar/birim-donusturucu/">
+<link rel="alternate" hreflang="en" href="https://aporizma.com/tools/unit-converter/">
+<link rel="alternate" hreflang="tr" href="https://aporizma.com/tr/araclar/birim-donusturucu/">
+<link rel="alternate" hreflang="x-default" href="https://aporizma.com/tools/unit-converter/">
+<meta property="og:site_name" content="Aporizma">
+<meta property="og:title" content="Birim Dönüştürücü — Uzunluk, Ağırlık, Sıcaklık, Hacim">
+<meta property="og:description" content="Metrik ve emperyal birimler arasında dönüştürün — uzunluk, ağırlık, sıcaklık ve hacim. Tamamen tarayıcınızda çalışır, hiçbir veri sunucuya gönderilmez.">
+<meta property="og:url" content="https://aporizma.com/tr/araclar/birim-donusturucu/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://aporizma.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Birim Dönüştürücü", "url": "https://aporizma.com/tr/araclar/birim-donusturucu/", "description": "Metrik ve emperyal birimler arasında dönüştürün — uzunluk, ağırlık, sıcaklık ve hacim. Tamamen tarayıcınızda çalışır, hiçbir veri sunucuya gönderilmez.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "inLanguage": "tr", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "tr", "mainEntity": [{"@type": "Question", "name": "Hangi birimler destekleniyor?", "acceptedAnswer": {"@type": "Answer", "text": "Uzunluk (metre, kilometre, santimetre, milimetre, mil, yarda, fit, inç), ağırlık (kilogram, gram, miligram, ton, pound, ons, stone), sıcaklık (Santigrat, Fahrenheit, Kelvin) ve hacim (litre, mililitre, metreküp, ABD galonu/quart/pint/su bardağı/sıvı ons)."}}, {"@type": "Question", "name": "Dönüşümler ne kadar doğru?", "acceptedAnswer": {"@type": "Answer", "text": "Tüm katsayılar standart kesin tanımlardır (örn. 1 inç = 0,0254 m, 1 pound = 0,45359237 kg). Sonuçlar gösterim için yuvarlanır, hesaplama ise tam kayan nokta hassasiyetiyle yapılır."}}, {"@type": "Question", "name": "Bir şey sunucuya gönderiliyor mu?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır. Dönüştürme tamamen tarayıcınızda JavaScript ile yapılır — hiçbir şey yüklenmez."}}]}</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../../../tr/"><span class="brand-mark">⬡</span> Aporizma</a>
+  <nav class="site-nav">
+    <a href="../../../tools/unit-converter/" class="lang-switch" rel="alternate" hreflang="en">English</a>
+  </nav>
+</header>
+<main>
+<h1>Birim Dönüştürücü</h1>
+<p class="lede">Bir kategori seçin, birimlerinizi belirleyin, anında dönüştürün — metrik ve emperyal, üyeliksiz.</p>
+
+<div class="card stack">
+  <div class="stack">
+    <label class="note" for="category">Kategori</label>
+    <select id="category"></select>
+  </div>
+
+  <div class="uc-row">
+    <div class="stack">
+      <label class="note" for="value">Değer</label>
+      <input type="text" inputmode="decimal" id="value" placeholder="1">
+    </div>
+    <div class="stack">
+      <label class="note" for="from_unit">Kaynak</label>
+      <select id="from_unit"></select>
+    </div>
+    <button class="btn ghost" id="swap" type="button">Değiştir</button>
+    <div class="stack">
+      <label class="note" for="to_unit">Hedef</label>
+      <select id="to_unit"></select>
+    </div>
+  </div>
+
+  <p class="note" id="result">Dönüştürmek için bir değer girin.</p>
+  <p class="note" id="ref"></p>
+</div>
+
+<section><h2>Hangi birimler destekleniyor?</h2><p>Uzunluk (metre, kilometre, santimetre, milimetre, mil, yarda, fit, inç), ağırlık (kilogram, gram, miligram, ton, pound, ons, stone), sıcaklık (Santigrat, Fahrenheit, Kelvin) ve hacim (litre, mililitre, metreküp, ABD galonu/quart/pint/su bardağı/sıvı ons).</p><h2>Dönüşümler ne kadar doğru?</h2><p>Tüm katsayılar standart kesin tanımlardır (örn. 1 inç = 0,0254 m, 1 pound = 0,45359237 kg). Sonuçlar gösterim için yuvarlanır, hesaplama ise tam kayan nokta hassasiyetiyle yapılır.</p><h2>Bir şey sunucuya gönderiliyor mu?</h2><p>Hayır. Dönüştürme tamamen tarayıcınızda JavaScript ile yapılır — hiçbir şey yüklenmez.</p></section>
+
+<style>
+.uc-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: end; }
+.uc-row .stack { flex: 1; min-width: 130px; }
+.uc-row #swap { flex: 0 0 auto; }
+#result.ok { color: var(--ink); font-weight: 600; }
+select, input[type="text"] {
+  width: 100%; font-family: var(--font); font-size: .95rem;
+  background: var(--bg); color: var(--ink); border: 1px solid var(--line);
+  border-radius: 8px; padding: 9px 10px;
+}
+select:focus, input:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+</style><section class="related"><h2>Diğer araçlar</h2><ul class="tool-grid"><li><a href="../../../tr/araclar/csv-json-donusturucu/"><div class="card"><h2>CSV ⇄ JSON Dönüştürücü</h2><p>CSV'yi JSON'a, JSON'u CSV'ye anında dönüştürün — yükleme yok.</p></div></a></li>
+<li><a href="../../../tr/araclar/unix-zaman-damgasi-donusturucu/"><div class="card"><h2>Epoch Zaman Damgası Dönüştürücü</h2><p>Unix zaman damgasını tarihe, tarihi zaman damgasına çevirin.</p></div></a></li>
+<li><a href="../../../tr/araclar/html-entity-kodla-coz/"><div class="card"><h2>HTML Entity Kodlayıcı</h2><p>HTML entity kodla/çöz — &amp; &lt; &gt; ve daha fazlası.</p></div></a></li></ul></section>
+</main>
+<footer class="site-foot">
+  <p>Aporizma — tamamen tarayıcınızda çalışan küçük araçlar. Yükleme yok, izleme yok. · <a href="../../../about/">Hakkında</a> · <a href="../../../privacy/">Gizlilik</a> · <a href="https://chromewebstore.google.com/detail/aporizma-translate-text-s/flemammmdajgahkngaghgmckgopeijfm" rel="noopener">Chrome</a> · <a href="mailto:support@aporizma.com">support@aporizma.com</a></p>
+</footer>
+<script src="../../../assets/organ.js"></script>
+<script>window.CELL_STRINGS = {"h1": "Birim Dönüştürücü", "lede": "Bir kategori seçin, birimlerinizi belirleyin, anında dönüştürün — metrik ve emperyal, üyeliksiz.", "card_title": "Birim Dönüştürücü", "card_desc": "Uzunluk, ağırlık, sıcaklık ve hacim — metrik ve emperyal, anında sonuç.", "category_label": "Kategori", "value_label": "Değer", "from_label": "Kaynak", "to_label": "Hedef", "swap_btn": "Değiştir", "empty": "Dönüştürmek için bir değer girin.", "invalid": "Geçerli bir sayı girin.", "result_fmt": "{value} {from} = {out} {to}", "ref_fmt": "1 {from} = {out} {to}", "cat_length": "Uzunluk", "cat_weight": "Ağırlık", "cat_temperature": "Sıcaklık", "cat_volume": "Hacim", "unit_m": "Metre (m)", "unit_km": "Kilometre (km)", "unit_cm": "Santimetre (cm)", "unit_mm": "Milimetre (mm)", "unit_mi": "Mil (mi)", "unit_yd": "Yarda (yd)", "unit_ft": "Fit (ft)", "unit_in": "İnç (in)", "unit_kg": "Kilogram (kg)", "unit_g": "Gram (g)", "unit_mg": "Miligram (mg)", "unit_t": "Ton (t)", "unit_lb": "Pound (lb)", "unit_oz": "Ons (oz)", "unit_st": "Stone (st)", "unit_c": "Santigrat (°C)", "unit_f": "Fahrenheit (°F)", "unit_k": "Kelvin (K)", "unit_l": "Litre (L)", "unit_ml": "Mililitre (mL)", "unit_m3": "Metreküp (m³)", "unit_gal": "ABD Galonu (gal)", "unit_qt": "ABD Quart (qt)", "unit_pt": "ABD Pint (pt)", "unit_cup": "ABD Su Bardağı", "unit_floz": "ABD Sıvı Ons (fl oz)"};</script>
+<script src="tool.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("/sw.js");
+}
+</script>
+</body>
+</html>
